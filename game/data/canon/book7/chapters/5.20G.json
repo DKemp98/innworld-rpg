@@ -377,6 +377,7 @@
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b7.pyrite_leads_the_tribe_round_the_human_army",
 				"cancel"
 			],
 			"effects": {
@@ -504,7 +505,7 @@
 				"not_flags": []
 			},
 			"depends_on": [
-				"b7.kerrig_begs_rags_to_spare_the_army"
+				"b7.redfang_scout_reports_a_human_army_hunting_goblins"
 			],
 			"on_fail": [
 				"cancel"
@@ -745,6 +746,7 @@
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b7.pyrite_takes_the_tribe_south",
 				"cancel"
 			],
 			"effects": {
@@ -808,6 +810,106 @@
 				"note": "Day is a guess (ADR 0030). The level-up is the last line of the chapter."
 			},
 			"summary": "Rags reaches [Chieftain] Level 20 and gains the skill [Tribe: Scavenger Armor]."
+		},
+		"b7.pyrite_leads_the_tribe_round_the_human_army": {
+			"tier": 2,
+			"window": {
+				"earliest": 142,
+				"latest": 142,
+				"confidence": "guess"
+			},
+			"location": "northern_high_road",
+			"roles": {
+				"pyrite": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": []
+				},
+				"redscar": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pyrite"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"flooded_waters.sees_a_human_army_on_the_road",
+					"flooded_waters.avoided_the_human_army"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 7,
+				"chapter": "5.20G",
+				"confidence": "guess",
+				"note": "Not in the book (M23.6, divergence only): runs instead of the scout's report when Rags is dead. Pyrite says avoid Human fights (5.19G)."
+			},
+			"summary": "A Redfang scout rides in: eight hundred Human soldiers on the big road, hunting a Goblin tribe. With no Rags to lead them, Pyrite says what he always says: do not fight Humans. The tribe slips round the army in the dark."
+		},
+		"b7.pyrite_takes_the_tribe_south": {
+			"tier": 1,
+			"window": {
+				"earliest": 142,
+				"latest": 143,
+				"confidence": "guess"
+			},
+			"location": "north_izril",
+			"roles": {
+				"pyrite": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": []
+				},
+				"kerrig_louis": {
+					"prefer": [
+						"kerrig_louis"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pyrite"
+				],
+				"flags": [
+					"flooded_waters.left_the_lake_camp"
+				],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"flooded_waters.heads_south",
+					"flooded_waters.led_by_pyrite"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 7,
+				"chapter": "5.20G",
+				"confidence": "guess",
+				"note": "Not in the book (M23.6, divergence only): runs instead of Rags turning south when Rags is dead."
+			},
+			"summary": "At a crossroads Pyrite takes the road south, away from the Humans who hunt Goblins in the north. The tribe follows him, but nobody thinks of an inn."
 		}
 	},
 	"system": [

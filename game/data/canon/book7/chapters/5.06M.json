@@ -202,7 +202,49 @@
 				"confidence": "confirmed",
 				"note": "Nobody is hurt."
 			},
-			"summary": "Octavia's potion crate breaks and a magic fire starts in the common room. Water makes it worse. Erin, Octavia and Lyonette smother it with beans. The floorboards in front of the kitchen are black."
+			"summary": "Octavia's potion crate breaks and a magic fire starts in the common room. Water makes it worse. Erin, Octavia and Lyonette smother it with beans. The floorboards in front of the kitchen are black.",
+			"hooks": [
+				{
+					"id": "player_helped_smother_the_fire",
+					"did": [
+						{
+							"action": [
+								"sweep_floor",
+								"repair_furniture",
+								"carry_water"
+							],
+							"context": {
+								"location": [
+									"wandering_inn"
+								]
+							}
+						}
+					],
+					"days": [
+						136,
+						136
+					],
+					"then": "change",
+					"effects": {
+						"set_flags": [
+							"wandering_inn.earther_helped_smother_the_fire"
+						],
+						"relationship": [
+							{
+								"from": "erin_solstice",
+								"to": "player",
+								"delta": 1
+							},
+							{
+								"from": "octavia",
+								"to": "player",
+								"delta": 1
+							}
+						]
+					},
+					"news": "A Human at the Wandering Inn helped put out the magic fire and mend the floor."
+				}
+			]
 		},
 		"b7.mrsha_fights_crelers_in_the_beaver_cave": {
 			"tier": 2,
@@ -224,7 +266,9 @@
 				"alive": [
 					"mrsha"
 				],
-				"flags": [],
+				"flags": [
+					"mrsha.learned_grow_grass"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -329,7 +373,9 @@
 				"alive": [
 					"mrsha"
 				],
-				"flags": [],
+				"flags": [
+					"mrsha.keeps_a_creler_egg"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],

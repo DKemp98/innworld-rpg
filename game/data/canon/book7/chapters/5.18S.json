@@ -31,7 +31,9 @@
 				"alive": [
 					"pisces"
 				],
-				"flags": [],
+				"flags": [
+					"pallass.selys_kidnapped"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -87,7 +89,9 @@
 				"alive": [
 					"venim"
 				],
-				"flags": [],
+				"flags": [
+					"pallass.selys_kidnapped"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -122,7 +126,8 @@
 					"prefer": [
 						"zevara"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"ilvriss": {
 					"prefer": [
@@ -168,10 +173,10 @@
 				}
 			},
 			"requires": {
-				"alive": [
-					"zevara"
+				"alive": [],
+				"flags": [
+					"pallass.selys_kidnapped"
 				],
-				"flags": [],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -220,7 +225,9 @@
 				"alive": [
 					"pisces"
 				],
-				"flags": [],
+				"flags": [
+					"pisces.killed_selys_kidnappers"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -282,7 +289,9 @@
 				"alive": [
 					"selys"
 				],
-				"flags": [],
+				"flags": [
+					"heartflame.selys_inherits"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -344,7 +353,9 @@
 				"alive": [
 					"selys"
 				],
-				"flags": [],
+				"flags": [
+					"heartflame.selys_inherits"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -393,7 +404,9 @@
 				"alive": [
 					"selys"
 				],
-				"flags": [],
+				"flags": [
+					"heartflame.selys_inherits"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -470,7 +483,9 @@
 				"alive": [
 					"selys"
 				],
-				"flags": [],
+				"flags": [
+					"heartflame.hiss_activates"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -554,7 +569,9 @@
 				"alive": [
 					"selys"
 				],
-				"flags": [],
+				"flags": [
+					"heartflame.selys_inherits"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -605,7 +622,9 @@
 				"alive": [
 					"tekshia"
 				],
-				"flags": [],
+				"flags": [
+					"redfang.bronze_team_application_filed"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -703,7 +722,9 @@
 				"alive": [
 					"selys"
 				],
-				"flags": [],
+				"flags": [
+					"heartflame.leased_to_halfseekers"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -880,7 +901,9 @@
 				"alive": [
 					"selys"
 				],
-				"flags": [],
+				"flags": [
+					"zel.cremated"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -922,7 +945,9 @@
 				"alive": [
 					"selys"
 				],
-				"flags": [],
+				"flags": [
+					"heartflame.selys_inherits"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],

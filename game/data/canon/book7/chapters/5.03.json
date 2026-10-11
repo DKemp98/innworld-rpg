@@ -31,7 +31,9 @@
 				"alive": [
 					"erin_solstice"
 				],
-				"flags": [],
+				"flags": [
+					"pallass.watch_captains_back_erin"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -80,7 +82,9 @@
 				"alive": [
 					"erin_solstice"
 				],
-				"flags": [],
+				"flags": [
+					"redfang.in_the_inn"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -135,7 +139,8 @@
 			],
 			"effects": {
 				"set_flags": [
-					"wandering_inn.rain_got_in"
+					"wandering_inn.rain_got_in",
+					"izril.rains"
 				]
 			},
 			"status": "candidate",
@@ -229,7 +234,8 @@
 			],
 			"effects": {
 				"set_flags": [
-					"hive.flood_prep_begun"
+					"hive.flood_prep_begun",
+					"izril.rains"
 				]
 			},
 			"news": "The Hive is sealing itself against the spring flood.",

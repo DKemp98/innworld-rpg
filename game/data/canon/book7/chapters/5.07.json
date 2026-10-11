@@ -172,7 +172,11 @@
 					"prefer": [
 						"zevara"
 					],
-					"fallback_tags": []
+					"fallback_tags": [
+						"drake",
+						"guard",
+						"senior_guard"
+					]
 				},
 				"innkeeper": {
 					"prefer": [
@@ -197,14 +201,16 @@
 				}
 			},
 			"requires": {
-				"alive": [
-					"zevara"
+				"alive": [],
+				"flags": [
+					"pallass.embargo_of_liscor_begun",
+					"erin.pallass_lease_filed"
 				],
-				"flags": [],
 				"not_flags": []
 			},
 			"depends_on": [],
 			"on_fail": [
+				"substitute",
 				"cancel"
 			],
 			"effects": {
@@ -268,7 +274,9 @@
 				"alive": [
 					"venim"
 				],
-				"flags": [],
+				"flags": [
+					"albez_door.anchor_at_pallass"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -459,7 +467,8 @@
 					"prefer": [
 						"zevara"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"strategist": {
 					"prefer": [
@@ -484,9 +493,7 @@
 				}
 			},
 			"requires": {
-				"alive": [
-					"zevara"
-				],
+				"alive": [],
 				"flags": [],
 				"not_flags": []
 			},
@@ -590,6 +597,7 @@
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b7.the_face_eater_moths_fall_on_liscor",
 				"cancel"
 			],
 			"effects": {
@@ -845,6 +853,57 @@
 					"news": "A Human from the Wandering Inn fought the Face-Eater Moths beside Erin and the Halfseekers."
 				}
 			]
+		},
+		"b7.the_face_eater_moths_fall_on_liscor": {
+			"tier": 2,
+			"window": {
+				"earliest": 137,
+				"latest": 137,
+				"confidence": "guess"
+			},
+			"location": "liscor",
+			"roles": {
+				"captain": {
+					"prefer": [
+						"zevara",
+						"relc",
+						"olesm"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"antinium": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"liscor.face_eater_moths_attacked",
+					"liscor.moths_driven_back",
+					"liscor.fought_the_moths_without_the_inn"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 7,
+				"chapter": "5.07",
+				"confidence": "guess",
+				"note": "Not in the book (M23.6, divergence only): runs instead of the moth attack when Erin is dead. No one holds the inn's hill, so the swarm goes for the wall."
+			},
+			"summary": "Five giant Face-Eater Moths climb out of the rift with their swarm. With no Erin on the inn's hill to draw them, the whole swarm hits Liscor's wall. The Watch and the Hive hold through the night, and at dawn the moths crawl back into the rift."
 		}
 	},
 	"system": []

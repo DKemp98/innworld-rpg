@@ -261,6 +261,7 @@
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b7.pyrite_moves_the_tribe_from_the_lake",
 				"cancel"
 			],
 			"effects": {
@@ -495,6 +496,64 @@
 			},
 			"summary": "Six Hobs and nine Goblins from the Mountain City group seize Welca on the march. Pyrite breaks them with his fists, and Kerrig helps. Welca thanks him, then bolts, and Pyrite stops her with a thrown Hob and a light blow. Kerrig asks to talk.",
 			"news": "A Goblin tribe protects a Human knight from its own warriors."
+		},
+		"b7.pyrite_moves_the_tribe_from_the_lake": {
+			"tier": 1,
+			"window": {
+				"earliest": 142,
+				"latest": 142,
+				"confidence": "guess"
+			},
+			"location": "north_izril",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": []
+				},
+				"kerrig_louis": {
+					"prefer": [
+						"kerrig_louis"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"welca_caveis": {
+					"prefer": [
+						"welca_caveis"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pyrite"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"flooded_waters.left_the_lake_camp",
+					"flooded_waters.marching_west_then_south",
+					"flooded_waters.holds_two_rose_knights",
+					"flooded_waters.led_by_pyrite"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 7,
+				"chapter": "5.19G",
+				"confidence": "guess",
+				"note": "Not in the book (M23.6, divergence only): runs instead of Rags breaking camp when Rags is dead. Pyrite is her second."
+			},
+			"summary": "With Rags dead, Pyrite leads the Flooded Waters tribe. Human troops close in on the lake, and he moves the tribe west within the hour, the two Rose Knights in a wagon."
 		}
 	},
 	"system": [

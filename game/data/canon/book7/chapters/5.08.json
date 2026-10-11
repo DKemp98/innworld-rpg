@@ -51,7 +51,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"liscor.face_eater_moths_attacked"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -108,7 +110,10 @@
 				"alive": [
 					"venim"
 				],
-				"flags": [],
+				"flags": [
+					"liscor.face_eater_moths_attacked",
+					"albez_door.anchor_at_pallass"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -171,7 +176,9 @@
 				"alive": [
 					"halrac"
 				],
-				"flags": [],
+				"flags": [
+					"liscor.face_eater_moths_attacked"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -206,7 +213,8 @@
 					"prefer": [
 						"zevara"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"strategist": {
 					"prefer": [
@@ -238,10 +246,10 @@
 				}
 			},
 			"requires": {
-				"alive": [
-					"zevara"
+				"alive": [],
+				"flags": [
+					"liscor.face_eater_moths_attacked"
 				],
-				"flags": [],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -309,7 +317,9 @@
 				"alive": [
 					"klbkch"
 				],
-				"flags": [],
+				"flags": [
+					"liscor.face_eater_moths_attacked"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -373,7 +383,9 @@
 				"alive": [
 					"jelaqua"
 				],
-				"flags": [],
+				"flags": [
+					"wandering_inn.fought_the_moths"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -444,7 +456,9 @@
 				"alive": [
 					"pisces"
 				],
-				"flags": [],
+				"flags": [
+					"wandering_inn.fought_the_moths"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -502,7 +516,10 @@
 				"alive": [
 					"venim"
 				],
-				"flags": [],
+				"flags": [
+					"albez_door.anchor_at_pallass",
+					"wandering_inn.fought_the_moths"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -559,7 +576,9 @@
 				"alive": [
 					"tekshia"
 				],
-				"flags": [],
+				"flags": [
+					"liscor.face_eater_moths_attacked"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -615,7 +634,9 @@
 				"alive": [
 					"erin_solstice"
 				],
-				"flags": [],
+				"flags": [
+					"wandering_inn.fought_the_moths"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -714,7 +735,9 @@
 				"alive": [
 					"erin_solstice"
 				],
-				"flags": [],
+				"flags": [
+					"wandering_inn.fought_the_moths"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],

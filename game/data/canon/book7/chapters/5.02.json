@@ -124,7 +124,11 @@
 					"prefer": [
 						"zevara"
 					],
-					"fallback_tags": []
+					"fallback_tags": [
+						"drake",
+						"guard",
+						"senior_guard"
+					]
 				},
 				"officer": {
 					"prefer": [
@@ -151,11 +155,14 @@
 				"alive": [
 					"erin_solstice"
 				],
-				"flags": [],
+				"flags": [
+					"pallass.link_cut_by_erin"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
 			"on_fail": [
+				"substitute",
 				"cancel"
 			],
 			"effects": {

@@ -17,14 +17,15 @@
 					"prefer": [
 						"erin_solstice"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				}
 			},
 			"requires": {
-				"alive": [
-					"erin_solstice"
+				"alive": [],
+				"flags": [
+					"izril.rains"
 				],
-				"flags": [],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -59,7 +60,8 @@
 					"prefer": [
 						"zevara"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"klbkch": {
 					"prefer": [
@@ -70,10 +72,10 @@
 				}
 			},
 			"requires": {
-				"alive": [
-					"zevara"
+				"alive": [],
+				"flags": [
+					"liscor.antinium_fought_the_moths"
 				],
-				"flags": [],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -122,7 +124,9 @@
 				"alive": [
 					"pawn"
 				],
-				"flags": [],
+				"flags": [
+					"liscor.antinium_fought_the_moths"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -170,7 +174,9 @@
 				"alive": [
 					"olesm"
 				],
-				"flags": [],
+				"flags": [
+					"liscor.face_eater_moths_attacked"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -218,7 +224,9 @@
 				"alive": [
 					"olesm"
 				],
-				"flags": [],
+				"flags": [
+					"liscor.face_eater_moths_attacked"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -268,7 +276,9 @@
 				"alive": [
 					"olesm"
 				],
-				"flags": [],
+				"flags": [
+					"liscor.antinium_fought_the_moths"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -323,7 +333,9 @@
 				"alive": [
 					"erin_solstice"
 				],
-				"flags": [],
+				"flags": [
+					"wandering_inn.fought_the_moths"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -422,7 +434,10 @@
 				"alive": [
 					"octavia"
 				],
-				"flags": [],
+				"flags": [
+					"horns_of_hammerad.back_at_the_inn",
+					"liscor.face_eater_moths_attacked"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -573,7 +588,8 @@
 					"prefer": [
 						"zevara"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"klbkch": {
 					"prefer": [
@@ -591,10 +607,10 @@
 				}
 			},
 			"requires": {
-				"alive": [
-					"zevara"
+				"alive": [],
+				"flags": [
+					"liscor.face_eater_moths_attacked"
 				],
-				"flags": [],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -670,7 +686,9 @@
 				"alive": [
 					"klbkch"
 				],
-				"flags": [],
+				"flags": [
+					"albez_door.anchor_at_liscor_wall"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],

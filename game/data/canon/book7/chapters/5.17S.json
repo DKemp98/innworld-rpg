@@ -31,7 +31,9 @@
 				"alive": [
 					"zevara"
 				],
-				"flags": [],
+				"flags": [
+					"zel.body_in_liscor"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -66,7 +68,8 @@
 					"prefer": [
 						"zevara"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"tekshia": {
 					"prefer": [
@@ -133,10 +136,10 @@
 				}
 			},
 			"requires": {
-				"alive": [
-					"zevara"
+				"alive": [],
+				"flags": [
+					"zel.body_in_liscor"
 				],
-				"flags": [],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -315,7 +318,9 @@
 				"alive": [
 					"ilvriss"
 				],
-				"flags": [],
+				"flags": [
+					"zel.cremated"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -378,7 +383,9 @@
 				"alive": [
 					"selys"
 				],
-				"flags": [],
+				"flags": [
+					"heartflame.selys_inherits"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -427,7 +434,9 @@
 				"alive": [
 					"selys"
 				],
-				"flags": [],
+				"flags": [
+					"liscor.pisces_sewer_undead_approved"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -476,7 +485,9 @@
 				"alive": [
 					"pisces"
 				],
-				"flags": [],
+				"flags": [
+					"heartflame.selys_inherits"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -517,7 +528,10 @@
 				"alive": [
 					"erin_solstice"
 				],
-				"flags": [],
+				"flags": [
+					"zel.cremated",
+					"albez_door.anchor_at_pallass"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -566,11 +580,15 @@
 				"alive": [
 					"selys"
 				],
-				"flags": [],
+				"flags": [
+					"pallass.door_open_for_6h_after_funeral",
+					"heartflame.selys_inherits"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b7.selys_reads_of_the_heartflame_in_the_guild_archive",
 				"cancel"
 			],
 			"effects": {
@@ -608,7 +626,9 @@
 				"alive": [
 					"selys"
 				],
-				"flags": [],
+				"flags": [
+					"pallass.door_open_for_6h_after_funeral"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -629,6 +649,57 @@
 			},
 			"summary": "Leaving the Archive, Selys is seized in a Pallass street by a gang led by an orange-scaled Drake.",
 			"news": "Selys Shivertail is snatched in Pallass."
+		},
+		"b7.selys_reads_of_the_heartflame_in_the_guild_archive": {
+			"tier": 2,
+			"window": {
+				"earliest": 142,
+				"latest": 142,
+				"confidence": "guess"
+			},
+			"location": "liscor_adventurers_guild",
+			"roles": {
+				"heiress": {
+					"prefer": [
+						"selys"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"selys"
+				],
+				"flags": [
+					"heartflame.selys_inherits"
+				],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"heartflame.flame_ward_myth_learnt",
+					"heartflame.read_in_liscor"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 7,
+				"chapter": "5.17S",
+				"confidence": "guess",
+				"note": "Not in the book (M23.6, divergence only): runs instead of the Pallass Archive visit when the door to Pallass is not open."
+			},
+			"summary": "With no door to Pallass, Selys and Pisces search the Guild's old records. An old ledger says the breastplate belongs to a set and has a hidden command."
 		}
 	},
 	"system": []
