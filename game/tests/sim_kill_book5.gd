@@ -13,9 +13,10 @@ const BALEROS_DAY := 78
 ## Book 5 canon events that did not happen (cancelled or mutated), and total
 ## drift (all books), at most. Before M23.4: Ryoka 34 / 33.5, Erin 30 / 31,
 ## Laken 15 / 14.5, Venitra 30 / 29.5, Lyonette 12 / 12, Ken 7 / 6.5, Quallet 6 / 6.
+## M23.5: Erin's drift 31 → 33.5 (her Book 6 scenes on days 114 – 115 now need her).
 const CEILING := {
 	"ryoka_griffin": [31, 30.0],
-	"erin_solstice": [30, 31.0],
+	"erin_solstice": [30, 33.5],
 	"laken_godart": [15, 14.0],
 	"venitra": [20, 19.0],
 	"lyonette": [8, 8.5],

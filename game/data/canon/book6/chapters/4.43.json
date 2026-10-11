@@ -50,7 +50,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"wandering_inn.goblin_party_held"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -393,6 +395,7 @@
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b6.the_silver_swords_arrive_at_the_inn",
 				"cancel"
 			],
 			"effects": {
@@ -605,6 +608,77 @@
 				"note": "M18.6: a scene stage with the Silver Swords, Ilvriss, the Halfseekers and the Redfang five. Hours 16 to 23 are a guess (sunset arrival, late night end). Ilvriss asks if the inn is always like this."
 			},
 			"summary": "At sunset Ylawes Byres arrives with a Half-Elf [Mage] and a Dwarf in full plate. Yvlon drops her plate. Ylawes sees the Halfseekers and the Redfang Goblins and everyone draws weapons. Erin hits Ylawes with a cake, Dawil laughs, and Falene points at the sign that forbids killing Goblins."
+		},
+		"b6.the_silver_swords_arrive_at_the_inn": {
+			"tier": 2,
+			"window": {
+				"earliest": 129,
+				"latest": 129,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"knight": {
+					"prefer": [
+						"ylawes_byres"
+					],
+					"fallback_tags": []
+				},
+				"sister": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"falene_skystrall"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"dwarf": {
+					"prefer": [
+						"dawil"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"maid": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ylawes_byres",
+					"yvlon_byres"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wandering_inn.ylawes_arrived",
+					"silver_swords.arrived_at_the_inn",
+					"yvlon.reunited_with_ylawes"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 6,
+				"chapter": "4.43",
+				"confidence": "guess",
+				"note": "Not in the book (M23.5, divergence only): runs instead of the cake fight when Erin is dead or no Goblins sleep in the inn: there is no one to draw a sword on and no one to stop it."
+			},
+			"summary": "The Silver Swords come through the door to find Yvlon. Ylawes greets his sister in a quiet common room."
 		}
 	},
 	"system": []

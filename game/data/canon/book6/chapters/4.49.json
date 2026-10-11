@@ -35,7 +35,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"zel.plans_to_kill_the_goblin_lord_himself"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -94,7 +96,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"zel.dropped_onto_the_goblin_army"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -129,7 +133,8 @@
 					"prefer": [
 						"magnolia_reinhart"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"general": {
 					"prefer": [
@@ -146,7 +151,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"goblin_lord.wounded_by_zel"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -186,31 +193,36 @@
 					"prefer": [
 						"venitra"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"mage": {
 					"prefer": [
 						"ijvani"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"plague": {
 					"prefer": [
 						"bea"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"slime": {
 					"prefer": [
 						"oom"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"gnoll": {
 					"prefer": [
 						"kerash"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"general": {
 					"prefer": [
@@ -221,7 +233,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"invrisil.bone_dome_over_zel_and_the_goblin_lord"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -262,7 +276,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"invrisil.bone_dome_over_zel_and_the_goblin_lord"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -392,7 +408,7 @@
 				"not_flags": []
 			},
 			"depends_on": [
-				"b6.oom_is_destroyed_inside_the_dome"
+				"b6.the_chosen_teleport_into_the_dome"
 			],
 			"on_fail": [
 				"cancel"
@@ -663,6 +679,7 @@
 				"b6.zel_names_the_goblin_lord_reiss_and_dies"
 			],
 			"on_fail": [
+				"mutate:b6.the_inn_mourns_zel",
 				"cancel"
 			],
 			"effects": {
@@ -881,7 +898,7 @@
 				"not_flags": []
 			},
 			"depends_on": [
-				"b6.liscor_mourns_zel"
+				"b6.zel_names_the_goblin_lord_reiss_and_dies"
 			],
 			"on_fail": [
 				"cancel"
@@ -901,6 +918,64 @@
 				"note": "A Courier brought a black-glass mirror to the Hive that morning; it links the Free Antinium Queen's room to the Grand Queen's, with Xrn nearby. She says 'Good', and that the Goblins move again, Humans stir for war and the Drakes have lost their shield. Klbkch says only 'Perhaps'."
 			},
 			"summary": "In the Hive Klbkch uses a mirror from the Grand Queen to tell her Zel is dead. She says the Antinium will rise; he answers only 'Perhaps'."
+		},
+		"b6.the_inn_mourns_zel": {
+			"tier": 2,
+			"window": {
+				"earliest": 130,
+				"latest": 130,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"princess": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": []
+				},
+				"cub": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"antinium": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"lyonette"
+				],
+				"flags": [
+					"zel.dead_at_invrisil"
+				],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"liscor.mourns_zel",
+					"mrsha.howled_for_zel"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 6,
+				"chapter": "4.49",
+				"confidence": "guess",
+				"note": "Not in the book (M23.5, divergence only): runs instead of the mourning scene when Erin is dead: Lyonette keeps the inn."
+			},
+			"summary": "News of Zel's death reaches Liscor. Horns sound and the city weeps. In the inn Lyonette sits at the counter where Erin used to stand, and Mrsha howls on the roof."
 		}
 	},
 	"system": []

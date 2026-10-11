@@ -417,7 +417,9 @@
 				"alive": [
 					"mrsha"
 				],
-				"flags": [],
+				"flags": [
+					"wandering_inn.goblin_party_held"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],

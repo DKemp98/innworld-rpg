@@ -23,7 +23,8 @@
 					"prefer": [
 						"erin_solstice"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				}
 			},
 			"requires": {
@@ -92,7 +93,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"zel.speech_at_invrisil"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -238,7 +241,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"zel.allied_with_magnolia"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],

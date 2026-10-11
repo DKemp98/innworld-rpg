@@ -18,7 +18,7 @@
 				10
 			],
 			"name": "Well",
-			"actions": [],
+			"actions": ["carry_water"],
 			"solid": true
 		},
 		{
@@ -54,7 +54,7 @@
 				9
 			],
 			"name": "Fallen scaffolding",
-			"actions": [],
+			"actions": ["repair_furniture"],
 			"solid": true
 		},
 		{
@@ -65,7 +65,7 @@
 				19
 			],
 			"name": "Trebuchet frame",
-			"actions": [],
+			"actions": ["chop_wood", "repair_furniture"],
 			"solid": true
 		},
 		{

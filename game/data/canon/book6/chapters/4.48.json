@@ -42,11 +42,15 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"goblin_lord.ordered_to_attack_invrisil",
+					"zel.commands_magnolias_army"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b6.zel_leads_the_levy_against_the_goblin_raiders",
 				"cancel"
 			],
 			"effects": {
@@ -104,7 +108,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"invrisil.battle_begun"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -156,7 +162,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"invrisil.battle_begun"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -219,7 +227,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"invrisil.battle_begun"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -271,7 +281,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"invrisil.battle_begun"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -324,7 +336,10 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"invrisil.battle_begun",
+					"magnolia.lends_zel_two_war_golems"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -376,7 +391,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"invrisil.battle_begun"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -430,7 +447,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"invrisil.battle_begun"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -450,6 +469,77 @@
 				"note": "She stops the arrows with [Deft Hand], then [Polite Deflection] on the charge; Bethal uses [Tranquil Skies]. Salvia's riders arrive."
 			},
 			"summary": "Goblin archers and riders attack Magnolia's post. She, Bethal, her maids and butlers turn them back, and she meets the Goblin Lord's stare across the field."
+		},
+		"b6.zel_leads_the_levy_against_the_goblin_raiders": {
+			"tier": 1,
+			"window": {
+				"earliest": 130,
+				"latest": 130,
+				"confidence": "guess"
+			},
+			"location": "invrisil",
+			"roles": {
+				"general": {
+					"prefer": [
+						"zel_shivertail"
+					],
+					"fallback_tags": []
+				},
+				"lady": {
+					"prefer": [
+						"magnolia_reinhart"
+					],
+					"fallback_tags": []
+				},
+				"wife": {
+					"prefer": [
+						"bethal"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lieutenant": {
+					"prefer": [
+						"gershal"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"captain": {
+					"prefer": [
+						"salvia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"zel_shivertail",
+					"magnolia_reinhart"
+				],
+				"flags": [
+					"zel.commands_magnolias_army"
+				],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"zel.leads_the_levy_against_goblin_raiders"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 6,
+				"chapter": "4.48",
+				"confidence": "guess",
+				"note": "Not in the book (M23.5, divergence only): runs instead of the Battle of Invrisil when no Goblin Lord comes to Invrisil (he is dead, or no one ordered the attack)."
+			},
+			"summary": "No Goblin Lord comes to Invrisil. Zel splits Magnolia's levy into columns and rides out after the Goblin bands that raid the northern towns."
 		}
 	},
 	"system": []

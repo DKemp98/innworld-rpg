@@ -66,7 +66,51 @@
 				"confidence": "confirmed",
 				"note": "Laken's journal Day 72 = day 117 (his Day + 45, ADR 0028)."
 			},
-			"summary": "Laken senses thirty Goblins fall on a Trader caravan on the road to Trottvisk. His sixty riders and foot, led by Beniar, Durene and Wiskeria, win with no losses of their own and the caravan goes on."
+			"summary": "Laken senses thirty Goblins fall on a Trader caravan on the road to Trottvisk. His sixty riders and foot, led by Beniar, Durene and Wiskeria, win with no losses of their own and the caravan goes on.",
+			"hooks": [
+				{
+					"id": "player_guarded_the_trottvisk_caravan",
+					"did": [
+						{
+							"action": [
+								"keep_watch",
+								"attack_melee",
+								"block_attack",
+								"bandage_wound",
+								"comfort_someone"
+							],
+							"context": {
+								"location": [
+									"riverfarm"
+								]
+							}
+						}
+					],
+					"days": [
+						117,
+						117
+					],
+					"then": "change",
+					"effects": {
+						"set_flags": [
+							"riverfarm.earther_guarded_the_caravan"
+						],
+						"relationship": [
+							{
+								"from": "laken_godart",
+								"to": "player",
+								"delta": 1
+							},
+							{
+								"from": "durene",
+								"to": "player",
+								"delta": 1
+							}
+						]
+					},
+					"news": "A traveller rode guard on the Trottvisk caravan and helped Riverfarm beat off the Goblin ambush."
+				}
+			]
 		},
 		"b6.laken_rides_the_mossbear_and_builds_a_trebuchet": {
 			"tier": 1,
@@ -138,7 +182,49 @@
 				"confidence": "confirmed",
 				"note": "Laken's journal Day 73 = day 118 (his Day + 45, ADR 0028)."
 			},
-			"summary": "Laken rides the Mossbear as a moving throne. Riverfarm builds a trebuchet from Ryoka's designs. Three villagers become [Tinkerers] and Tessia gains [Detect Flaw]. Frostwing lands on his armguard."
+			"summary": "Laken rides the Mossbear as a moving throne. Riverfarm builds a trebuchet from Ryoka's designs. Three villagers become [Tinkerers] and Tessia gains [Detect Flaw]. Frostwing lands on his armguard.",
+			"hooks": [
+				{
+					"id": "player_helped_build_the_trebuchet",
+					"did": [
+						{
+							"action": [
+								"repair_furniture",
+								"chop_wood",
+								"carry_water"
+							],
+							"context": {
+								"location": [
+									"riverfarm"
+								]
+							}
+						}
+					],
+					"days": [
+						118,
+						118
+					],
+					"then": "change",
+					"effects": {
+						"set_flags": [
+							"riverfarm.earther_helped_build_the_trebuchet"
+						],
+						"relationship": [
+							{
+								"from": "laken_godart",
+								"to": "player",
+								"delta": 1
+							},
+							{
+								"from": "jelov",
+								"to": "player",
+								"delta": 1
+							}
+						]
+					},
+					"news": "A traveller cut timber and hauled rope for Riverfarm's first trebuchet."
+				}
+			]
 		},
 		"b6.trottvisk_sends_gifts_and_a_messenger": {
 			"tier": 1,
@@ -187,7 +273,50 @@
 				"confidence": "confirmed",
 				"note": "Laken's journal Day 74 = day 119 (his Day + 45, ADR 0028)."
 			},
-			"summary": "A messenger from Trottvisk brings gifts. Laken offers the town protection from the Goblins. Wiskeria talks of recruits, titles and spreading the word about the Unseen Empire."
+			"summary": "A messenger from Trottvisk brings gifts. Laken offers the town protection from the Goblins. Wiskeria talks of recruits, titles and spreading the word about the Unseen Empire.",
+			"hooks": [
+				{
+					"id": "player_hosted_the_trottvisk_messenger",
+					"did": [
+						{
+							"action": [
+								"talk_with_guest",
+								"persuade",
+								"serve_guests",
+								"cook_simple_meal"
+							],
+							"context": {
+								"location": [
+									"riverfarm"
+								]
+							}
+						}
+					],
+					"days": [
+						119,
+						119
+					],
+					"then": "change",
+					"effects": {
+						"set_flags": [
+							"riverfarm.earther_hosted_the_trottvisk_messenger"
+						],
+						"relationship": [
+							{
+								"from": "laken_godart",
+								"to": "player",
+								"delta": 1
+							},
+							{
+								"from": "wiskeria",
+								"to": "player",
+								"delta": 1
+							}
+						]
+					},
+					"news": "A traveller fed and talked with the Trottvisk messenger, and the town's gifts came with warm words."
+				}
+			]
 		},
 		"b6.goblins_burn_a_village_near_riverfarm": {
 			"tier": 1,
@@ -230,7 +359,49 @@
 				"confidence": "confirmed",
 				"note": "Laken's journal Day 76 = day 121 (his Day + 45, ADR 0028)."
 			},
-			"summary": "Goblins burn a village far out from Riverfarm and kill or take the survivors. Laken orders more totem markers set out to widen his sense of the land."
+			"summary": "Goblins burn a village far out from Riverfarm and kill or take the survivors. Laken orders more totem markers set out to widen his sense of the land.",
+			"hooks": [
+				{
+					"id": "player_helped_the_burned_village",
+					"did": [
+						{
+							"action": [
+								"bandage_wound",
+								"comfort_someone",
+								"carry_water"
+							],
+							"context": {
+								"location": [
+									"riverfarm"
+								]
+							}
+						}
+					],
+					"days": [
+						121,
+						121
+					],
+					"then": "change",
+					"effects": {
+						"set_flags": [
+							"riverfarm.earther_helped_the_burned_village"
+						],
+						"relationship": [
+							{
+								"from": "laken_godart",
+								"to": "player",
+								"delta": 1
+							},
+							{
+								"from": "durene",
+								"to": "player",
+								"delta": 1
+							}
+						]
+					},
+					"news": "A traveller tended the people who fled to Riverfarm from the burned village."
+				}
+			]
 		},
 		"b6.trottvisk_delegation_swears_to_laken": {
 			"tier": 1,
@@ -279,7 +450,50 @@
 				"confidence": "confirmed",
 				"note": "Laken's journal Day 77 = day 122 (his Day + 45, ADR 0028)."
 			},
-			"summary": "A Trottvisk delegation comes to Riverfarm. Laken visits Jelov first for miniature totems to trade, then the talks go well and Trottvisk becomes a friendly partner under his protection."
+			"summary": "A Trottvisk delegation comes to Riverfarm. Laken visits Jelov first for miniature totems to trade, then the talks go well and Trottvisk becomes a friendly partner under his protection.",
+			"hooks": [
+				{
+					"id": "player_welcomed_the_trottvisk_delegation",
+					"did": [
+						{
+							"action": [
+								"talk_with_guest",
+								"persuade",
+								"haggle",
+								"sell_goods"
+							],
+							"context": {
+								"location": [
+									"riverfarm"
+								]
+							}
+						}
+					],
+					"days": [
+						122,
+						122
+					],
+					"then": "change",
+					"effects": {
+						"set_flags": [
+							"riverfarm.earther_welcomed_the_trottvisk_delegation"
+						],
+						"relationship": [
+							{
+								"from": "laken_godart",
+								"to": "player",
+								"delta": 1
+							},
+							{
+								"from": "jelov",
+								"to": "player",
+								"delta": 1
+							}
+						]
+					},
+					"news": "A traveller welcomed the Trottvisk delegation and helped strike the deal for Jelov's little totems."
+				}
+			]
 		},
 		"b6.laken_and_wiskeria_plan_a_mutual_defence": {
 			"tier": 1,
@@ -336,7 +550,50 @@
 				"confidence": "confirmed",
 				"note": "Laken's journal Day 78 = day 123 (his Day + 45, ADR 0028)."
 			},
-			"summary": "Two more delegations come, and Batte asks for protection from too far away. Wiskeria proposes a plan of mutual defence between the towns and messengers ride out that night. Durene is a Level 14 [Paladin]."
+			"summary": "Two more delegations come, and Batte asks for protection from too far away. Wiskeria proposes a plan of mutual defence between the towns and messengers ride out that night. Durene is a Level 14 [Paladin].",
+			"hooks": [
+				{
+					"id": "player_drilled_with_riverfarms_warriors",
+					"did": [
+						{
+							"action": [
+								"weapon_practice",
+								"keep_watch",
+								"block_attack",
+								"talk_with_guest"
+							],
+							"context": {
+								"location": [
+									"riverfarm"
+								]
+							}
+						}
+					],
+					"days": [
+						123,
+						123
+					],
+					"then": "change",
+					"effects": {
+						"set_flags": [
+							"riverfarm.earther_drilled_with_the_warriors"
+						],
+						"relationship": [
+							{
+								"from": "durene",
+								"to": "player",
+								"delta": 1
+							},
+							{
+								"from": "wiskeria",
+								"to": "player",
+								"delta": 1
+							}
+						]
+					},
+					"news": "A traveller drilled with Riverfarm's new warriors while Laken and Wiskeria planned the defence."
+				}
+			]
 		},
 		"b6.invrisil_gifts_reach_laken": {
 			"tier": 1,
@@ -385,7 +642,49 @@
 				"confidence": "confirmed",
 				"note": "Laken's journal Day 79 = day 124 (his Day + 45, ADR 0028)."
 			},
-			"summary": "A City Runner brings Laken eight gifts from Invrisil: potions, oils and an Armorskin potion from the Merchant's Guild, and from Lady Rie medicines and milk for the village children."
+			"summary": "A City Runner brings Laken eight gifts from Invrisil: potions, oils and an Armorskin potion from the Merchant's Guild, and from Lady Rie medicines and milk for the village children.",
+			"hooks": [
+				{
+					"id": "player_shared_out_the_child_medicines",
+					"did": [
+						{
+							"action": [
+								"bandage_wound",
+								"comfort_someone",
+								"deliver_parcel"
+							],
+							"context": {
+								"location": [
+									"riverfarm"
+								]
+							}
+						}
+					],
+					"days": [
+						124,
+						124
+					],
+					"then": "change",
+					"effects": {
+						"set_flags": [
+							"riverfarm.earther_shared_out_the_medicines"
+						],
+						"relationship": [
+							{
+								"from": "laken_godart",
+								"to": "player",
+								"delta": 1
+							},
+							{
+								"from": "durene",
+								"to": "player",
+								"delta": 1
+							}
+						]
+					},
+					"news": "A traveller carried Lady Rie's child medicines from house to house in Riverfarm."
+				}
+			]
 		},
 		"b6.laken_hears_of_a_goblin_chieftain_in_the_east": {
 			"tier": 1,
@@ -427,7 +726,48 @@
 				"confidence": "confirmed",
 				"note": "Laken's journal Day 80 = day 125 (his Day + 45, ADR 0028). The Goblin Lord's army is also moving north."
 			},
-			"summary": "A trebuchet arm breaks and a falling tree makes up for it. Another town is attacked and holds at heavy cost. Rumour names a Great Chieftain at a mountain far east, and Laken senses something moving north."
+			"summary": "A trebuchet arm breaks and a falling tree makes up for it. Another town is attacked and holds at heavy cost. Rumour names a Great Chieftain at a mountain far east, and Laken senses something moving north.",
+			"hooks": [
+				{
+					"id": "player_mended_the_trebuchet_arm",
+					"did": [
+						{
+							"action": [
+								"repair_furniture",
+								"chop_wood"
+							],
+							"context": {
+								"location": [
+									"riverfarm"
+								]
+							}
+						}
+					],
+					"days": [
+						125,
+						125
+					],
+					"then": "change",
+					"effects": {
+						"set_flags": [
+							"riverfarm.earther_mended_the_trebuchet_arm"
+						],
+						"relationship": [
+							{
+								"from": "laken_godart",
+								"to": "player",
+								"delta": 1
+							},
+							{
+								"from": "jelov",
+								"to": "player",
+								"delta": 1
+							}
+						]
+					},
+					"news": "When the trebuchet arm broke, a traveller helped cut and fit a new one."
+				}
+			]
 		},
 		"b6.laken_relieves_rie_estate": {
 			"tier": 1,

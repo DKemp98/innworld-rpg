@@ -67,7 +67,11 @@
 					"prefer": [
 						"olesm"
 					],
-					"fallback_tags": []
+					"fallback_tags": [
+						"drake",
+						"captain",
+						"leader"
+					]
 				},
 				"wizard": {
 					"prefer": [
@@ -85,7 +89,6 @@
 			},
 			"requires": {
 				"alive": [
-					"olesm",
 					"pisces"
 				],
 				"flags": [
@@ -95,6 +98,7 @@
 			},
 			"depends_on": [],
 			"on_fail": [
+				"substitute",
 				"cancel"
 			],
 			"effects": {
@@ -160,6 +164,7 @@
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b6.pisces_finds_the_hidden_chute_hunting_rats",
 				"cancel"
 			],
 			"effects": {
@@ -385,6 +390,51 @@
 				"note": "Ilvriss says next day that Olesm reached Level 28 yesterday (4.38 B)."
 			},
 			"summary": "At his desk Olesm signs small requests. One is from Ylawes Byres, who asks whether Yvlon is in Liscor, and Olesm says yes and mentions the door. Dozing off, he gains [Tactician] Level 28 and [Rallying Presence]."
+		},
+		"b6.pisces_finds_the_hidden_chute_hunting_rats": {
+			"tier": 2,
+			"window": {
+				"earliest": 126,
+				"latest": 126,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"wizard": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": []
+				}
+			},
+			"requires": {
+				"alive": [
+					"pisces"
+				],
+				"flags": [
+					"pisces.hunts_sewer_rats"
+				],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"liscor_ruins.hidden_chute_found",
+					"raskghar.ossuary_found",
+					"calruz.may_have_fallen_down_the_chute"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 6,
+				"chapter": "4.37O",
+				"confidence": "guess",
+				"note": "Not in the book (M23.5, divergence only): runs instead of the search with Olesm and the ring of sight: Pisces's skeletons chase the rats into the crypt and find the chute."
+			},
+			"summary": "Pisces sends his skeletons after the sewer rats. They follow the rats down a hidden chute in the crypt to a pit of bones, and Pisces guesses Calruz may have fallen the same way."
 		}
 	},
 	"system": [

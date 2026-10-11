@@ -42,7 +42,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"zel.met_magnolia"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -104,7 +106,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"zel.met_magnolia"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -159,7 +163,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"zel.met_magnolia"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -223,7 +229,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"zel.met_magnolia"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],

@@ -157,7 +157,8 @@
 			},
 			"requires": {
 				"alive": [
-					"garen"
+					"garen",
+					"goblin_lord"
 				],
 				"flags": [],
 				"not_flags": []
