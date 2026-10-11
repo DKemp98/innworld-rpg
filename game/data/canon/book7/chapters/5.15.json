@@ -101,7 +101,9 @@
 				"alive": [
 					"rabbiteater"
 				],
-				"flags": [],
+				"flags": [
+					"redfang.entered_dungeon"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -152,7 +154,9 @@
 				"alive": [
 					"rabbiteater"
 				],
-				"flags": [],
+				"flags": [
+					"redfang.entered_dungeon"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -196,7 +200,9 @@
 				"alive": [
 					"numbtongue"
 				],
-				"flags": [],
+				"flags": [
+					"redfang.entered_dungeon"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -265,7 +271,10 @@
 				"alive": [
 					"rabbiteater"
 				],
-				"flags": [],
+				"flags": [
+					"redfang.entered_dungeon",
+					"dungeon.treasure_room_location_known"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -314,7 +323,9 @@
 				"alive": [
 					"badarrow"
 				],
-				"flags": [],
+				"flags": [
+					"redfang.entered_dungeon"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -397,11 +408,14 @@
 				"alive": [
 					"erin_solstice"
 				],
-				"flags": [],
+				"flags": [
+					"redfang.badarrow_poisoned"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b7.the_adventurers_haul_the_hobs_out_of_the_rift",
 				"cancel"
 			],
 			"effects": {
@@ -420,6 +434,65 @@
 			},
 			"summary": "Erin dives into the rift with Ksmvr's water-breathing ring and the adventurers help carry the Hobs out. She suggests they become Goblin adventurers.",
 			"news": "Erin pulled wounded Goblins out of the dungeon flood."
+		},
+		"b7.the_adventurers_haul_the_hobs_out_of_the_rift": {
+			"tier": 2,
+			"window": {
+				"earliest": 140,
+				"latest": 140,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon_rift",
+			"roles": {
+				"rescuer": {
+					"prefer": [
+						"jelaqua",
+						"halrac",
+						"pisces",
+						"ksmvr"
+					],
+					"fallback_tags": []
+				},
+				"headscratcher": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"badarrow": {
+					"prefer": [
+						"badarrow"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [],
+				"flags": [
+					"redfang.badarrow_poisoned"
+				],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"redfang.artifacts_recovered",
+					"redfang.hauled_out_by_the_adventurers"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 7,
+				"chapter": "5.15",
+				"confidence": "guess",
+				"note": "Not in the book (M23.6, divergence only): runs instead of Erin's dive when Erin is dead. The teams at the inn go down the rift on a rope."
+			},
+			"summary": "With no Erin to dive in, the adventurers at the inn lower a rope into the flooded rift. They haul out Headscratcher and the poisoned Badarrow, and the three artefacts with them."
 		}
 	},
 	"system": []

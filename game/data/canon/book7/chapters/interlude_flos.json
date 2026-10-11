@@ -51,7 +51,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"liscor.face_eater_moths_attacked"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],

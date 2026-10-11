@@ -59,7 +59,10 @@
 				"alive": [
 					"wesle"
 				],
-				"flags": [],
+				"flags": [
+					"players_of_celum.perform_nightly_at_the_inn",
+					"liscor.face_eater_moths_attacked"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -128,7 +131,10 @@
 				"alive": [
 					"anith"
 				],
-				"flags": [],
+				"flags": [
+					"dungeon.egg_swarm_released",
+					"liscor.face_eater_moths_attacked"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -193,7 +199,9 @@
 				"alive": [
 					"rabbiteater"
 				],
-				"flags": [],
+				"flags": [
+					"redfang.in_the_inn"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -248,7 +256,9 @@
 				"alive": [
 					"rabbiteater"
 				],
-				"flags": [],
+				"flags": [
+					"redfang.resolve_to_return"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -422,7 +432,8 @@
 					"prefer": [
 						"erin_solstice"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"anith": {
 					"prefer": [
@@ -482,10 +493,10 @@
 				}
 			},
 			"requires": {
-				"alive": [
-					"erin_solstice"
+				"alive": [],
+				"flags": [
+					"dungeon.egg_swarm_released"
 				],
-				"flags": [],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -713,7 +724,9 @@
 				"alive": [
 					"halrac"
 				],
-				"flags": [],
+				"flags": [
+					"adventurers.know_vuliel_drae_guilt"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -783,7 +796,9 @@
 				"alive": [
 					"rabbiteater"
 				],
-				"flags": [],
+				"flags": [
+					"redfang.resolve_to_return"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],

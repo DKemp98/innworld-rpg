@@ -38,7 +38,9 @@
 				"alive": [
 					"erin_solstice"
 				],
-				"flags": [],
+				"flags": [
+					"players_of_celum.perform_nightly_at_the_inn"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -79,14 +81,20 @@
 				"alive": [
 					"embria_grasstongue"
 				],
-				"flags": [],
+				"flags": [
+					"liscor.antinium_fought_the_moths"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
 			"on_fail": [
 				"cancel"
 			],
-			"effects": {},
+			"effects": {
+				"set_flags": [
+					"fourth_company.charged_the_walls"
+				]
+			},
 			"status": "candidate",
 			"canon_ref": {
 				"book": 7,
@@ -123,7 +131,9 @@
 				"alive": [
 					"yellow_splatters"
 				],
-				"flags": [],
+				"flags": [
+					"fourth_company.charged_the_walls"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -157,7 +167,11 @@
 					"prefer": [
 						"zevara"
 					],
-					"fallback_tags": []
+					"fallback_tags": [
+						"drake",
+						"commander",
+						"wall_lord"
+					]
 				},
 				"olesm": {
 					"prefer": [
@@ -182,14 +196,15 @@
 				}
 			},
 			"requires": {
-				"alive": [
-					"zevara"
+				"alive": [],
+				"flags": [
+					"fourth_company.charged_the_walls"
 				],
-				"flags": [],
 				"not_flags": []
 			},
 			"depends_on": [],
 			"on_fail": [
+				"substitute",
 				"cancel"
 			],
 			"effects": {
@@ -233,7 +248,9 @@
 				"alive": [
 					"zevara"
 				],
-				"flags": [],
+				"flags": [
+					"liscor.army_4th_company_present"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -309,7 +326,9 @@
 				"alive": [
 					"jelaqua"
 				],
-				"flags": [],
+				"flags": [
+					"liscor.moths_driven_back"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -367,7 +386,9 @@
 				"alive": [
 					"ceria_springwalker"
 				],
-				"flags": [],
+				"flags": [
+					"liscor.moths_driven_back"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -429,7 +450,9 @@
 				"alive": [
 					"pawn"
 				],
-				"flags": [],
+				"flags": [
+					"liscor.antinium_fought_the_moths"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -485,7 +508,9 @@
 				"alive": [
 					"embria_grasstongue"
 				],
-				"flags": [],
+				"flags": [
+					"liscor.moths_driven_back"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -605,7 +630,9 @@
 				"alive": [
 					"erin_solstice"
 				],
-				"flags": [],
+				"flags": [
+					"liscor.moths_driven_back"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -826,7 +853,9 @@
 				"alive": [
 					"ilvriss"
 				],
-				"flags": [],
+				"flags": [
+					"embria.asked_relc_to_rejoin"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -877,7 +906,9 @@
 				"alive": [
 					"embria_grasstongue"
 				],
-				"flags": [],
+				"flags": [
+					"redfang.in_the_inn"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],

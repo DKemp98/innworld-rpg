@@ -171,7 +171,9 @@
 				"alive": [
 					"erin_solstice"
 				],
-				"flags": [],
+				"flags": [
+					"players_of_celum.agree_to_play_at_the_inn"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -412,7 +414,9 @@
 				"alive": [
 					"selys"
 				],
-				"flags": [],
+				"flags": [
+					"redfang.in_the_inn"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],

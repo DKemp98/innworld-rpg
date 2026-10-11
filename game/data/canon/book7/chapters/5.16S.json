@@ -141,7 +141,9 @@
 				"alive": [
 					"numbtongue"
 				],
-				"flags": [],
+				"flags": [
+					"redfang.artifacts_recovered"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -176,7 +178,8 @@
 					"prefer": [
 						"erin_solstice"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"revi": {
 					"prefer": [
@@ -236,10 +239,10 @@
 				}
 			},
 			"requires": {
-				"alive": [
-					"erin_solstice"
+				"alive": [],
+				"flags": [
+					"redfang.artifacts_recovered"
 				],
-				"flags": [],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -274,7 +277,11 @@
 					"prefer": [
 						"zevara"
 					],
-					"fallback_tags": []
+					"fallback_tags": [
+						"drake",
+						"guildmaster",
+						"elder"
+					]
 				},
 				"erin_solstice": {
 					"prefer": [
@@ -306,14 +313,13 @@
 				}
 			},
 			"requires": {
-				"alive": [
-					"zevara"
-				],
+				"alive": [],
 				"flags": [],
 				"not_flags": []
 			},
 			"depends_on": [],
 			"on_fail": [
+				"substitute",
 				"cancel"
 			],
 			"effects": {
@@ -449,7 +455,45 @@
 				"note": "Day is a guess (ADR 0030)."
 			},
 			"summary": "At breakfast Selys explains why Drakes write wills. Erin tries to take a fry from Olesm's plate and fails.",
-			"news": "Drakes have wills. Erin learns why."
+			"news": "Drakes have wills. Erin learns why.",
+			"hooks": [
+				{
+					"id": "player_cooked_the_wills_breakfast",
+					"did": [
+						{
+							"action": [
+								"cook_simple_meal",
+								"cook_stew",
+								"cook_pasta",
+								"bake_bread"
+							],
+							"context": {
+								"location": [
+									"wandering_inn"
+								]
+							}
+						}
+					],
+					"days": [
+						141,
+						141
+					],
+					"then": "change",
+					"effects": {
+						"set_flags": [
+							"wandering_inn.earther_cooked_breakfast_for_selys"
+						],
+						"relationship": [
+							{
+								"from": "selys",
+								"to": "player",
+								"delta": 1
+							}
+						]
+					},
+					"news": "A Human cooked breakfast at the Wandering Inn on the morning of Zel's will."
+				}
+			]
 		},
 		"b7.zels_casket_opened_in_city_hall": {
 			"tier": 1,
@@ -464,7 +508,8 @@
 					"prefer": [
 						"zevara"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"tekshia": {
 					"prefer": [
@@ -482,10 +527,10 @@
 				}
 			},
 			"requires": {
-				"alive": [
-					"zevara"
+				"alive": [],
+				"flags": [
+					"liscor.door_reserved_for_zels_body"
 				],
-				"flags": [],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -521,7 +566,8 @@
 					"prefer": [
 						"zevara"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"tekshia": {
 					"prefer": [
@@ -546,10 +592,10 @@
 				}
 			},
 			"requires": {
-				"alive": [
-					"zevara"
+				"alive": [],
+				"flags": [
+					"zel.body_in_liscor"
 				],
-				"flags": [],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -613,11 +659,14 @@
 				"alive": [
 					"selys"
 				],
-				"flags": [],
+				"flags": [
+					"zel.will_read"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b7.zels_will_sends_the_heartflame_to_magnolia",
 				"cancel"
 			],
 			"effects": {
@@ -676,7 +725,9 @@
 				"alive": [
 					"ilvriss"
 				],
-				"flags": [],
+				"flags": [
+					"heartflame.selys_inherits"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -718,7 +769,9 @@
 				"alive": [
 					"selys"
 				],
-				"flags": [],
+				"flags": [
+					"heartflame.selys_inherits"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -736,6 +789,58 @@
 				"note": "Day is a guess (ADR 0030)."
 			},
 			"summary": "That night Selys sleeps and gains the [Heiress] class."
+		},
+		"b7.zels_will_sends_the_heartflame_to_magnolia": {
+			"tier": 1,
+			"window": {
+				"earliest": 141,
+				"latest": 141,
+				"confidence": "guess"
+			},
+			"location": "liscor_city_hall",
+			"roles": {
+				"elder": {
+					"prefer": [
+						"tekshia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"kin": {
+					"prefer": [
+						"xalia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"magnolia_reinhart"
+				],
+				"flags": [
+					"zel.will_read"
+				],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"heartflame.will_sends_it_to_magnolia",
+					"heartflame.bound_for_magnolia"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 7,
+				"chapter": "5.16S",
+				"confidence": "guess",
+				"note": "Not in the book (M23.6, divergence only): runs instead of Selys's bequest when Selys is dead. The will's last clause (on her death the armour goes to Magnolia, 5.18S) is read as holding at once."
+			},
+			"summary": "Selys is dead, so the will's last clause holds: Zel's gear and the Heartflame Breastplate go to Magnolia Reinhart. Xalia screams. Tekshia has the armour sealed for the road north."
 		}
 	},
 	"system": [

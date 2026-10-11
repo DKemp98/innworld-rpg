@@ -25,11 +25,12 @@ func _at_day(day: int) -> GameState:
 	return gs
 
 
+## The 5.19G – 5.20G canon events. Alt events (M23.6) are left out.
 func _batch_ids() -> Array[String]:
 	var ids: Array[String] = []
 	for id: String in _db.canon.events:
 		var ref: Dictionary = _db.canon.events[id]["canon_ref"]
-		if int(ref["book"]) == 7 and String(ref["chapter"]) in ["5.19G", "5.20G"]:
+		if int(ref["book"]) == 7 and String(ref["chapter"]) in ["5.19G", "5.20G"] and not _db.canon.alt_only.has(id):
 			ids.append(id)
 	return ids
 

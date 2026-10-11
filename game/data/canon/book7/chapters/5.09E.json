@@ -151,6 +151,7 @@
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b7.durene_and_prost_keep_riverfarm_going",
 				"cancel"
 			],
 			"effects": {
@@ -168,7 +169,43 @@
 				"note": "Laken's journal Day 85 = day 130 (his Day + 45, ADR 0028)."
 			},
 			"summary": "The Unseen Empire holds a few thousand people in Riverfarm, Windrest, Tunslaven and Kiquel. Trottvisk has declared for it. Houses go up fast, with night crews. Prost lays out the town from Laken's descriptions, and public outhouses stand far from the river.",
-			"news": "Riverfarm is building houses by night and growing into a town."
+			"news": "Riverfarm is building houses by night and growing into a town.",
+			"hooks": [
+				{
+					"id": "player_built_with_the_night_crews",
+					"did": [
+						{
+							"action": [
+								"repair_furniture",
+								"chop_wood"
+							],
+							"context": {
+								"location": [
+									"riverfarm"
+								]
+							}
+						}
+					],
+					"days": [
+						130,
+						130
+					],
+					"then": "change",
+					"effects": {
+						"set_flags": [
+							"riverfarm.earther_built_with_the_night_crews"
+						],
+						"relationship": [
+							{
+								"from": "prost",
+								"to": "player",
+								"delta": 1
+							}
+						]
+					},
+					"news": "A Human worked a night shift with Riverfarm's builders."
+				}
+			]
 		},
 		"b7.laken_takes_counsel_from_prost_wiskeria_and_rie": {
 			"tier": 1,
@@ -356,7 +393,49 @@
 				"note": "Laken's journal Day 86 = day 131 (his Day + 45, ADR 0028)."
 			},
 			"summary": "A [Message] to all nobles says General Zel Shivertail is dead, Magnolia's army is broken and the Goblin Lord marches on Invrisil. Wiskeria explains the Antinium Wars. Laken can field about a thousand and will not lie to his people. Durene comforts him.",
-			"news": "Word of Zel Shivertail's death reached Riverfarm by [Message] on the morning after he fell."
+			"news": "Word of Zel Shivertail's death reached Riverfarm by [Message] on the morning after he fell.",
+			"hooks": [
+				{
+					"id": "player_stood_with_riverfarm_at_the_news",
+					"did": [
+						{
+							"action": [
+								"talk_with_guest",
+								"comfort_someone",
+								"carry_water"
+							],
+							"context": {
+								"location": [
+									"riverfarm"
+								]
+							}
+						}
+					],
+					"days": [
+						131,
+						131
+					],
+					"then": "change",
+					"effects": {
+						"set_flags": [
+							"riverfarm.earther_stood_with_the_village_at_the_news"
+						],
+						"relationship": [
+							{
+								"from": "laken_godart",
+								"to": "player",
+								"delta": 1
+							},
+							{
+								"from": "durene",
+								"to": "player",
+								"delta": 1
+							}
+						]
+					},
+					"news": "A Human stayed with Riverfarm on the day the news of Zel Shivertail came."
+				}
+			]
 		},
 		"b7.riverfarm_tests_trebuchets_and_a_ballista": {
 			"tier": 1,
@@ -404,6 +483,7 @@
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b7.tessia_fires_the_trebuchets_for_the_village",
 				"cancel"
 			],
 			"effects": {
@@ -421,7 +501,49 @@
 				"note": "Laken's journal Day 87 = day 132 (his Day + 45, ADR 0028)."
 			},
 			"summary": "Villagers fire two trebuchets and a ballista built from Ryoka's designs. Tessia leads the team and the stone flies over two hundred feet. Rie says Pallass will not sell such machines to Humans, so Riverfarm could export them. Laken plans communal farming and a public contest with ale for prizes.",
-			"news": "Riverfarm tested trebuchets and a ballista built by its own villagers."
+			"news": "Riverfarm tested trebuchets and a ballista built by its own villagers.",
+			"hooks": [
+				{
+					"id": "player_helped_test_the_trebuchets",
+					"did": [
+						{
+							"action": [
+								"chop_wood",
+								"repair_furniture",
+								"carry_water"
+							],
+							"context": {
+								"location": [
+									"riverfarm"
+								]
+							}
+						}
+					],
+					"days": [
+						132,
+						132
+					],
+					"then": "change",
+					"effects": {
+						"set_flags": [
+							"riverfarm.earther_helped_test_the_trebuchets"
+						],
+						"relationship": [
+							{
+								"from": "laken_godart",
+								"to": "player",
+								"delta": 1
+							},
+							{
+								"from": "tessia",
+								"to": "player",
+								"delta": 1
+							}
+						]
+					},
+					"news": "A Human hauled stones for Riverfarm's trebuchet test."
+				}
+			]
 		},
 		"b7.rie_names_tyrion_veltras_as_the_hope": {
 			"tier": 1,
@@ -569,13 +691,13 @@
 					"prefer": [
 						"magnolia_reinhart"
 					],
-					"fallback_tags": [],
-					"optional": true
+					"fallback_tags": []
 				}
 			},
 			"requires": {
 				"alive": [
-					"laken_godart"
+					"laken_godart",
+					"magnolia_reinhart"
 				],
 				"flags": [],
 				"not_flags": []
@@ -600,6 +722,102 @@
 			},
 			"summary": "A City Runner brings two letters. Lord Tilwa Petroms of Invrisil invites Laken to his city, a scheme Rie says to ignore. Magnolia Reinhart will bring about thirty nobles to Riverfarm in a week, with Lady Bethal and her servant Sacra. Rie calls it a trap.",
 			"news": "Magnolia Reinhart will gather the northern nobles at Riverfarm in a week."
+		},
+		"b7.durene_and_prost_keep_riverfarm_going": {
+			"tier": 1,
+			"window": {
+				"earliest": 130,
+				"latest": 130,
+				"confidence": "guess"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"paladin": {
+					"prefer": [
+						"durene",
+						"prost"
+					],
+					"fallback_tags": []
+				},
+				"steward": {
+					"prefer": [
+						"prost"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"riverfarm.held_together_without_laken"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 7,
+				"chapter": "5.09E",
+				"confidence": "guess",
+				"note": "Not in the book (M23.6, divergence only): runs instead of Riverfarm's growth when Laken is dead. The empire was his; the villages are not."
+			},
+			"summary": "With the Emperor gone, the night crews stop. Durene and Prost keep the four villages fed and the half-built houses roofed, and nobody speaks of the empire."
+		},
+		"b7.tessia_fires_the_trebuchets_for_the_village": {
+			"tier": 1,
+			"window": {
+				"earliest": 132,
+				"latest": 132,
+				"confidence": "guess"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"tinkerer": {
+					"prefer": [
+						"tessia"
+					],
+					"fallback_tags": []
+				},
+				"steward": {
+					"prefer": [
+						"prost"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"tessia"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"riverfarm.has_working_trebuchets",
+					"riverfarm.trains_engineers"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 7,
+				"chapter": "5.09E",
+				"confidence": "guess",
+				"note": "Not in the book (M23.6, divergence only): runs instead of the trebuchet test when Laken is dead. Tessia's team built the machines."
+			},
+			"summary": "Tessia's team fires the two trebuchets and the ballista from Ryoka's designs. The stone flies over two hundred feet. There is no Emperor to watch, but the village cheers anyway."
 		}
 	}
 }

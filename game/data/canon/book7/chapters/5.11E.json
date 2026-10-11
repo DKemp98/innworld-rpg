@@ -67,11 +67,14 @@
 				"alive": [
 					"laken_godart"
 				],
-				"flags": [],
+				"flags": [
+					"magnolia.gathering_set_at_riverfarm_for_day_142"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b7.riverfarm_feasts_its_own_people",
 				"cancel"
 			],
 			"effects": {
@@ -152,7 +155,9 @@
 				"alive": [
 					"laken_godart"
 				],
-				"flags": [],
+				"flags": [
+					"riverfarm.hosts_the_northern_nobles"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -409,7 +414,9 @@
 				"alive": [
 					"laken_godart"
 				],
-				"flags": [],
+				"flags": [
+					"riverfarm.held_the_banquet_in_the_meadow"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -467,7 +474,9 @@
 				"alive": [
 					"laken_godart"
 				],
-				"flags": [],
+				"flags": [
+					"riverfarm.hosts_the_northern_nobles"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -539,7 +548,9 @@
 				"alive": [
 					"laken_godart"
 				],
-				"flags": [],
+				"flags": [
+					"fae.spring_court_came_to_riverfarm"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -605,7 +616,10 @@
 				"alive": [
 					"laken_godart"
 				],
-				"flags": [],
+				"flags": [
+					"fae.spring_court_came_to_riverfarm",
+					"riverfarm.hosts_the_northern_nobles"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -676,7 +690,10 @@
 				"alive": [
 					"laken_godart"
 				],
-				"flags": [],
+				"flags": [
+					"fae.spring_court_came_to_riverfarm",
+					"riverfarm.hosts_the_northern_nobles"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -734,7 +751,9 @@
 				"alive": [
 					"laken_godart"
 				],
-				"flags": [],
+				"flags": [
+					"fae.spring_court_came_to_riverfarm"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -798,9 +817,12 @@
 			},
 			"requires": {
 				"alive": [
-					"laken_godart"
+					"laken_godart",
+					"magnolia_reinhart"
 				],
-				"flags": [],
+				"flags": [
+					"riverfarm.hosts_the_northern_nobles"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -823,6 +845,57 @@
 			},
 			"summary": "Bethal reports to Magnolia by amulet that Laken passed and should be treated as a friend. Thomast says the armoured fae guard was no Human. Bethal privately fears the poison was meant for her. Her orders were to duel Laken if he proved too dangerous.",
 			"news": "Lady Bethal reported to Magnolia Reinhart that Laken passed her test."
+		},
+		"b7.riverfarm_feasts_its_own_people": {
+			"tier": 1,
+			"window": {
+				"earliest": 142,
+				"latest": 142,
+				"confidence": "guess"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"consort": {
+					"prefer": [
+						"durene"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [
+					"laken.dreams_of_voices_saying_early"
+				],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"riverfarm.held_the_banquet_in_the_meadow",
+					"riverfarm.feasted_its_own_people"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 7,
+				"chapter": "5.11E",
+				"confidence": "guess",
+				"note": "Not in the book (M23.6, divergence only): runs instead of the nobles' visit when Magnolia did not set the gathering (she is dead)."
+			},
+			"summary": "No nobles come. The dream voices still ask for sweets, so Laken lays a feast in the meadow for his own villages. Braziers burn at the corners and something waits at the tree line."
 		}
 	}
 }

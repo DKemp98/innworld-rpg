@@ -22,9 +22,7 @@
 				}
 			},
 			"requires": {
-				"alive": [
-					"erin_solstice"
-				],
+				"alive": [],
 				"flags": [],
 				"not_flags": []
 			},

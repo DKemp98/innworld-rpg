@@ -37,7 +37,9 @@
 				"alive": [
 					"erin_solstice"
 				],
-				"flags": [],
+				"flags": [
+					"pallass.door_end_set_in_the_alley"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -137,7 +139,9 @@
 				"alive": [
 					"erin_solstice"
 				],
-				"flags": [],
+				"flags": [
+					"ilvriss.in_pallass"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -192,7 +196,10 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"pallass.door_end_set_in_the_alley",
+					"redfang.in_the_inn"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -231,7 +238,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"pallass.door_end_set_in_the_alley"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -285,7 +294,9 @@
 				"alive": [
 					"erin_solstice"
 				],
-				"flags": [],
+				"flags": [
+					"erin.stuck_in_pallass"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -354,7 +365,9 @@
 				"alive": [
 					"erin_solstice"
 				],
-				"flags": [],
+				"flags": [
+					"ilvriss.in_pallass"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -409,7 +422,9 @@
 				"alive": [
 					"erin_solstice"
 				],
-				"flags": [],
+				"flags": [
+					"pallass.assembly_plans_to_seize_the_door"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
