@@ -20,6 +20,7 @@
 		{"id": "clerk_counter_c", "kind": "counter", "at": [8, 3], "name": "Front counter", "actions": [], "solid": true},
 		{"id": "writing_table", "kind": "table", "at": [11, 7], "name": "Writing table", "actions": [], "solid": true},
 		{"id": "mages_hearth", "kind": "hearth", "at": [11, 1], "name": "Hearth", "actions": [], "solid": true, "warm": true},
+		{"id": "spell_shelf", "kind": "shelves", "at": [10, 2], "name": "Spellbook shelf", "actions": ["buy_supplies"], "solid": true, "shop": "liscor_mages_guild"},
 		{"id": "brewing_cauldron", "kind": "brazier", "at": [3, 6], "name": "Brewing cauldron", "actions": ["brew_potion"]}
 	],
 	"legend": {"+": "door", "=": "wood_floor", "H": "wood_wall", "V": "wood_window"},

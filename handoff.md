@@ -1,5 +1,11 @@
 # Handoff
 
+## Just done (2026-10-11, local): M24.2 spells (branch `feat/m24.2-spells`)
+- Data only. New spell `gust` (line, Pisces teaches after `b1.pisces_saves_erin_from_flies`). Spellbooks `spellbook_gust`, `_ice_spike`, `_flashfire`, `_frozen_wind` (each spell's `learn.book`), `spellbook_fireball` now costs 320. Shop `liscor_mages_guild` on object `spell_shelf` ([10,2], liscor_mages_guild). Pisces' NPC spell list: `frozen_wind` first, then `gust` (the NPC picks the first ready spell). Prices are guesses.
+- Not added: [Ice Wall], [Barrier of Air], [Mend], [Light] are canon but the spell shapes are attack-only (`one`, `line`, `blast`, `around`). They need an engine step (utility / defence shapes).
+- Tests run (pass): `unit_m24_spells` (new, 4), `unit_spell_learning`, `unit_spells`, `unit_spell_ui`, `unit_economy`, `unit_map_db`, `unit_ground_art`, `unit_data_db`, `unit_behaviour_db`, `unit_npc_sim`; validator 0 errors. Full suite not run.
+- Next: M24.3 skills **[Sonnet · high]**.
+
 ## Just done (2026-10-11, local): M24.1 recipes and goods (branch `feat/m24.1-recipes-goods`)
 - Data only. Recipes `pizza` (flour+vegetables+meat -> 2, stove, confidence likely: pizza is in 2.31), `roast_meat`, `vegetable_soup` (stove or campfire); actions `bake_pizza`, `roast_meat`, `cook_vegetable_soup` (sound `cook`); goods and items `wooden_club`, `iron_dagger`, `hand_axe`; shop `liscor_smith` on object `smith_counter` (liscor_market [3,8]). Inn stove and road camp campfire got the new actions; the three are in `rules.json` `inn_work_actions`. All numbers are guesses.
 - Tests run (pass): `unit_m24_goods` (new, 3), `unit_cooking` (recipe count 7), `unit_world_view` (stove menu now 8 entries), and the list in `progress.md`. Full suite not run.
