@@ -54,6 +54,17 @@ func test_pages_come_in_a_fixed_order() -> void:
 	assert_eq(pages[-1]["lines"].size(), 1, "not silent")
 
 
+func test_morning_reminds_of_high_drift_every_day() -> void:
+	var gs := _new_game()
+	gs.clock.advance(14 * 60)
+	var low := SystemMessages.pages(Night.run(gs, _db), gs, _db)
+	assert_false((low[-1]["lines"] as Array).has(SystemMessages.DRIFT_REMINDER), "no reminder at low drift")
+	gs.world.drift = float(_db.rules["director"]["unreliable_at"])
+	var high := SystemMessages.pages({}, gs, _db)
+	assert_eq(_kinds(high), [SystemMessages.MORNING], "no second warning page")
+	assert_true((high[-1]["lines"] as Array).has(SystemMessages.DRIFT_REMINDER))
+
+
 func test_local_news_page_comes_before_the_rumors() -> void:
 	var gs := _new_game()
 	var night := {"progress": ["Cook reached level 2."], "news": ["Relc is angry.", "The inn has a name."],
