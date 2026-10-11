@@ -1,5 +1,33 @@
 # Handoff
 
+## Just done (2026-10-11, local): M23.6 Book 7 canon bends (branch `feat/m23.6-book7-bends`)
+- ADR 0036 "Book 7" lists every change. Data only (21 Book 7 chapter files), no engine change.
+- Book 7 had almost no `depends_on` and no flag checks, so most scenes ran with their cause gone (Pallass soldiers
+  crossed a door that was never set, Pisces saved Selys from a kidnap that never happened, Magnolia's letter came
+  from a dead Magnolia, the Redfang five stayed at the inn after a Book 6 alt sent them north). They now wait on
+  real-cause flags. The rain (`izril.rains`) and flood (`izril.flood`) no longer need Erin.
+- Book 7 lost on a day-130 death: Erin 38 → 51, Selys 18 → 25 (more: real causes), Zevara 17 → 5 (3 stand-ins,
+  optional in 8 scenes), Laken 26, Rags 14, Magnolia 0 → 12, Kerrig 5 → 3. Erin dead on day 114: Book 7 38 → 64.
+  The user has not seen this trade yet: say it plainly in the PR.
+- New `game/tests/sim_kill_book7.gd` (10): kills Erin, Laken, Selys, Zevara, Rags, Magnolia, Kerrig on day 130;
+  hook-per-day (14 days); sweeping at the inn broom on day 136 changes the fire scene.
+- Changed old tests: `sim_book7_goblin_road` (alt events left out of the 5.19G – 5.20G count), `sim_player_hooks` (128).
+- Tests run (all pass): `sim_kill_book7`, `sim_kill_book2..6`, `sim_canon_book7`, `sim_book7_*` (8), `sim_player_hooks`,
+  `unit_rains`, `unit_canon_db`, `unit_event_order`, `sim_divergence`; validator 0 / 0 on Books 1 – 7; Python 114 OK.
+  Full suite not run. `docs/divergence/report.md` regenerated.
+- Next: M23.7 drift warning **[Sonnet · medium]** (journal + morning page say canon knowledge is unreliable at high
+  drift, DESIGN §4.1). Then M24.
+- Gotchas: Book 7 chapter files round-trip exactly (`json.dumps(indent="	", ensure_ascii=False)` + "
+", CRLF).
+  The patch script was `scratchpad/patch_m236.py` (helpers `req_flags`, `optional`, `required`, `substitute`,
+  `mutate`, `set_dep`, `add_sets`, `add_alt`, `add_hook`); gone next session. Probe: `game/_scratch/probe.gd`
+  (`extends SceneTree`; env BOOK, KILL_DAY, END_DAY, VICTIMS comma list with `+`, LIST=1, FRESH=1 rebuilds the
+  cached base in `user://probe_base_<day>.json`); deleted, rebuild it. A substitute never picks an NPC who is
+  already cast in the same event (an optional role counts): Tekshia cannot stand in for Zevara at the funeral
+  because she is already there, so there Zevara is optional instead. The older kill sims stop at their book's
+  last day, so later-book losses do not show in their drift. Open: a Zel killed in Book 6 still gets the Book 7
+  casket with the Heartflame on him.
+
 ## Just done (2026-10-11, local): M23.5 Book 6 canon bends (branch `feat/m23.5-book6-bends`)
 - ADR 0036 "Book 6" lists every change. Data only (15 Book 6 chapter files + 3 object actions on `maps/riverfarm.json`),
   no engine change.

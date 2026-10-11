@@ -1,6 +1,6 @@
 # ADR 0036: Canon bends (M23)
 
-Status: accepted (2026-10-10, M23.1 Book 2; M23.2 Book 3, M23.3 Book 4, M23.4 Book 5 and M23.5 Book 6 (2026-10-11) added). Applies to M23.6 (Book 7) too.
+Status: accepted (2026-10-10, M23.1 Book 2; M23.2 Book 3, M23.3 Book 4, M23.4 Book 5, M23.5 Book 6 and M23.6 Book 7 (2026-10-11) added).
 
 ## Problem
 Books 2 – 7 had only `cancel` in `on_fail`, and few hooks. One dead NPC cancelled long chains that did not need
@@ -228,7 +228,66 @@ meet a Human who bows to them: they go north to look for Rags, and the inn has n
 fight. A dead Chosen no longer stops the trap. A Book 6 death never cancels a Book 7 event (no Book 7 event reads
 a Book 6 flag).
 
+## Book 7 (M23.6)
+No engine change. Data and a kill sim. Book 7 had almost no `depends_on` and no flag checks, so nearly every
+scene ran with its cause gone: Pallass soldiers crossed a door that Hawk never carried there, the inn fought the
+moths with Erin dead, Pisces saved Selys from a kidnap that never happened, Magnolia's letter came from a dead
+Magnolia, and the Redfang five spent Book 7 at the inn after they went north in a Book 6 alt. The rain and the
+flood (`izril.rains`, `izril.flood`, the M19 weather) only came from scenes with Erin, so with Erin dead it never
+rained. These scenes now wait on real-cause flags (rule 1). So Erin and Selys lose more than before, Zevara far less.
+- Weather and grief: the flood and Izril's mourning no longer need Erin. Bird's open tower door and Klbkch sealing
+  the Hive (day 135) also set `izril.rains`.
+- Real-cause flags (new): the Pallass door runs as a chain (Hawk's alley end → the step through → the arrest, the
+  raid, Errif → Erin cuts the link → Venim at the inn → the lease → the embargo lifted → the mocking crowd, the
+  held-back soldiers, the crossing, the door after the funeral). The Redfang five need `redfang.in_the_inn`
+  (Book 6) for their scenes at the inn, Selys's team papers and Embria's warning; their dungeon trip runs by flag.
+  The inn's moth scenes need `wandering_inn.fought_the_moths`; the wall, the world and the aftermath need
+  `liscor.face_eater_moths_attacked`; the parade and the party need `liscor.moths_driven_back`. The 4th Company
+  charge sets a new flag `fourth_company.charged_the_walls`. Zel's casket, will, funeral and ashes run by flag;
+  the Heartflame scenes need `heartflame.selys_inherits`; the kidnap and the scenes after it need the open door and
+  `pallass.selys_kidnapped`. Magnolia's letter and test need a living Magnolia; Laken's banquet prep needs the
+  invitation; the noble scenes need `riverfarm.hosts_the_northern_nobles`; the fae scenes need the feast.
+- Optional now: Erin in the flood, the confession of Vuliel Drae and the treasure argument; Zevara in the moth
+  alarm, the wall, the morning report, the Watch briefing, the casket, the will, the funeral and the wait for Selys;
+  Laken in Magnolia's test (she sets it at her estate).
+- Links cut: the rout of the army follows the scout's report, not Kerrig's plea (Rags refuses it).
+- Substitutes: Relc brings Venim to the inn and brings the news of the lifted embargo (`fallback_tags` drake +
+  guard + senior_guard); Ilvriss steps between Liscor and the 4th Company (drake + commander + wall_lord); Tekshia
+  asks Erin to keep the door open for her brother's body (drake + guildmaster + elder). All if Zevara is dead.
+- Mutates (10 alt events): the moth attack (no Erin) → `the_face_eater_moths_fall_on_liscor`; Erin's dive →
+  `the_adventurers_haul_the_hobs_out_of_the_rift`; the Pallass Archive (no door) →
+  `selys_reads_of_the_heartflame_in_the_guild_archive`; Zel's bequest (no Selys) →
+  `zels_will_sends_the_heartflame_to_magnolia` (the will's own clause, 5.18S); Riverfarm's growth (no Laken) →
+  `durene_and_prost_keep_riverfarm_going`; the trebuchet test → `tessia_fires_the_trebuchets_for_the_village`;
+  the nobles' ride (no gathering) → `riverfarm_feasts_its_own_people`; Rags breaks camp, the scout's report and the
+  turn south (no Rags) → `pyrite_moves_the_tribe_from_the_lake`, `pyrite_leads_the_tribe_round_the_human_army`,
+  `pyrite_takes_the_tribe_south`.
+- 5 new `change` hooks: Riverfarm days 130, 131, 132; the inn fire (day 136, sweep or mend the floor); the will's
+  breakfast (day 141, cook). All 14 on-map days (130 – 143) have a hook.
+
+| Dies on day 130 | Book 7 lost before → after | Drift before → after |
+|---|---|---|
+| Erin | 38 → 51 | 38 → 49 |
+| Laken | 26 → 26 | 13.5 → 13 |
+| Selys | 18 → 25 | 15 → 21.25 |
+| Zevara | 17 → 5 | 15 → 5.88 |
+| Rags | 14 → 14 | 12.5 → 11.5 |
+| Magnolia | 0 → 12 | 11.5 → 17.75 |
+| Kerrig | 5 → 3 | 4.5 → 3 |
+
+What is lost now is real. With no Erin, nobody sends the door to Pallass: no arrest, no embargo, no open door, so
+Selys reads about the armour in Liscor and is never kidnapped. The moths still come, but the whole swarm hits the
+wall and the inn has no battle. With no Selys, the armour goes to Magnolia by the will. With no Zevara, Liscor keeps
+working: Relc, Ilvriss and Tekshia stand in. With no Rags, Pyrite leads the tribe round the army, so the Frostfeeder
+Tribe is not saved and Welca does not escape. With no Magnolia, no nobles come and Laken feeds his own villages; the
+fae still come to the feast.
+A Book 6 death now reaches Book 7 (dies on day 114, run to day 143): Erin 38 → 64 Book 7 events lost (the Redfang
+five went north in the Book 6 alt, so their Book 7 scenes are gone too), Magnolia 0 → 12, Zel 0 → 0. The older kill
+sims (Books 2 – 6) still pass: they stop at their own book's last day.
+
 ## Open
 - Drift counts later-book cancels at once, so a Book 2 death shows drift for Books 3 – 7 too.
 - Event effects are not remapped for flags: a substitute in Erin's rescue role still sets `erin.fought_in_the_ruins`.
   Later events that read such flags need Erin anyway.
+- A Zel killed before Invrisil (Book 6) still gets the Book 7 casket, will and funeral, with the Heartflame
+  Breastplate on his body. No Book 7 event reads a Book 6 Zel flag yet.
