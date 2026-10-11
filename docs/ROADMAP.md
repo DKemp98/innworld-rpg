@@ -9,14 +9,14 @@ When every box of a milestone is ticked, move it to the top of Done. A new miles
 
 | Milestone | State | Open items |
 |---|---|---|
-| M23 Canon bends | open | M23.5 Book 6, M23.6 Book 7, M23.7 drift warning |
+| M23 Canon bends | open | M23.6 Book 7, M23.7 drift warning |
 | M24 Level by living | not started | M24.0 – M24.3 |
 | M25 NPC life | not started | M25.0 – M25.4 |
 | M26 Code health | not started | M26.0, M26.1 |
 | M20 Touch controls | waits on the user | play on a PC with a touch screen |
 | Later | idea | Book 8 plan (after M25), LLM flavour layer, small asks |
 
-Last release: v0.1.4-alpha (2026-10-10). Next step: **M23.5 Book 6** [Opus · high].
+Last release: v0.1.4-alpha (2026-10-10). Next step: **M23.6 Book 7** [Opus · high].
 
 ---
 
@@ -36,7 +36,7 @@ Key NPCs and events per book: `docs/divergence/picks.md`. Model for each book: A
 - [x] M23.2 Book 3: the same **[Opus · high]** (done 2026-10-10, ADR 0036 "Book 3": links cut, real-cause flags, 1 substitute, 9 alt events, flag hand-offs with delay, 13 hooks (one per on-map day), director lets a dependent wait on a delayed dependency; Book 2 Goblin raid no longer needs Ksmvr; Octavia's death loses 4 events, was 49)
 - [x] M23.3 Book 4: the same **[Opus · high]** (done 2026-10-10, ADR 0036 "Book 4": trip, homecoming and relief links cut, trip-flag hand-offs, 5 alt events (Pawn in the Hive, the wagon hides from the Goblin army, home without the door, Liscor-only relief), 4 hooks (all 9 on-map days); Teriarch's death loses 2 events, was 83)
 - [x] M23.4 Book 5: the same **[Opus · high]** (done 2026-10-11, ADR 0036 "Book 5": hand-off flags, 2 substitutes (Etretta for Quallet, Ijvani for Venitra), 9 alt events (Luan and Aiko go to Geneva, Erin pays for the build, Imenet comes alone, the Necromancer still turns to the Goblins, the Gnolls burn Brunkr, Riverfarm without Laken), 4 hooks (all 16 on-map days); Venitra's death loses 20 events, was 30; Quallet's loses 0, was 6)
-- [ ] M23.5 Book 6: the same **[Opus · high]**
+- [x] M23.5 Book 6: the same **[Opus · high]** (done 2026-10-11, ADR 0036 "Book 6": real-cause flags for the Battle of Invrisil and the Redfang at the inn, 1 substitute (Zevara signs the rat contract), 9 alt events (no Zel: the Goblin Lord goes round Invrisil; no Magnolia: Zel stays in Liscor; no Goblin Lord: Zel hunts the raiders; no Erin: the Redfang go north), the five Chosen optional in the trap, 9 hooks (all 15 on-map days); Olesm's death loses 7 events, was 13; Oom's 1, was 9)
 - [ ] M23.6 Book 7: the same **[Opus · high]**
 - [ ] M23.7 Drift warning: at high drift the journal and the morning page say canon knowledge is unreliable (DESIGN §4.1) **[Sonnet · medium]**
 **Done when:** each book has a kill sim that passes; each book has at least one hook per day of on-map canon; `sim_canon_book1` – `7` still run with drift 0.

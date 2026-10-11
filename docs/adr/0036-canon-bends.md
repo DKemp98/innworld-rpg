@@ -1,6 +1,6 @@
 # ADR 0036: Canon bends (M23)
 
-Status: accepted (2026-10-10, M23.1 Book 2; M23.2 Book 3, M23.3 Book 4 and M23.4 Book 5 (2026-10-11) added). Applies to M23.5 – M23.6 (Books 6 – 7) too.
+Status: accepted (2026-10-10, M23.1 Book 2; M23.2 Book 3, M23.3 Book 4, M23.4 Book 5 and M23.5 Book 6 (2026-10-11) added). Applies to M23.6 (Book 7) too.
 
 ## Problem
 Books 2 – 7 had only `cancel` in `on_fail`, and few hooks. One dead NPC cancelled long chains that did not need
@@ -178,6 +178,55 @@ What is left is real: Ryoka is the climax of the book (her return, the farm, the
 own scenes, and with no Erin no bone steak, so Regrika is never exposed and Ulrien lives; Laken's Riverfarm is his
 Emperor's arc (the riders came with him, so the Goblin fights need him); with no Venitra, no Gnoll murders and no
 Ivolethe sacrifice. A Book 5 death never cancels a Book 6 – 7 event (only one Book 6 event reads a Book 5 flag).
+
+## Book 6 (M23.5)
+No engine change. Data, three object actions on the Riverfarm map, and a kill sim. Book 6 also had the opposite
+problem: many scenes had no link to their cause, so they ran with a key NPC dead. The Battle of Invrisil ran with
+no Zel (the deathbolt, the cavalry rescue, the War Golems, the tube artifact); Zel died in a bone dome with no
+battle when Magnolia was dead; the Redfang moved into the inn when Erin was dead. These scenes now wait on real-cause
+flags (rule 1, M23.2). So Zel, Magnolia, the Goblin Lord and Erin lose more events than before; what they lose now
+is what really needs them.
+- Real-cause flags (new): the 4.44M talks need `zel.met_magnolia`; the speech needs `zel.allied_with_magnolia`;
+  the council, the world, Tyrion and Az'kerash's order need `zel.speech_at_invrisil`; the battle plan needs
+  `goblin_lord.ordered_to_attack_invrisil`; every 4.48 battle scene needs `invrisil.battle_begun`; the carriage,
+  the duel, the dome, the Chosen and the tube artifact follow each other by flag. The goat attack needs the Redfang
+  to follow the goats; Erin's welcome needs `redfang.survivors_met_erin`; the morning after needs the party.
+- Now required: Garen's refusal needs a living Goblin Lord; Zel's trip north needs a living Magnolia (her letter);
+  Erin in the window test, the milk run and the welcome; Zel in the wall payment; Az'kerash in his order.
+- Optional now: Olesm in the Esthelm report and the council; Erin as Klbkch's guest in the war history; Magnolia
+  in the bone dome (she only watches); the five Chosen in the teleport (Az'kerash and Zel stay required).
+- Links cut: Zel breaks the Chosen after the teleport, not after Oom's end; Klbkch's talk with the Grand Queen
+  follows Zel's death, not Erin's mourning.
+- Substitute: Zevara signs the rat contract if Olesm is dead (`fallback_tags` drake + captain + leader).
+- Flag hand-off + delay: `silver_swords.arrived_at_the_inn` (the cake fight and its alt set it; the argument,
+  Dawil's coin and Falene's visit wait on it, `delay_limit` 1).
+- Mutates (9 alt events): the goat attack → `the_redfang_kill_the_eater_goats_at_wirclaws`; Erin's welcome →
+  `the_redfang_go_north_to_seek_rags`; the chute with Olesm → `pisces_finds_the_hidden_chute_hunting_rats`;
+  Zel's trip north (no Magnolia) → `zel_stays_in_liscor`; the cake fight → `the_silver_swords_arrive_at_the_inn`;
+  the speech (no Zel) → `magnolias_levy_waits_at_invrisil`; Az'kerash's order (no speech, or no Az'kerash) →
+  `the_goblin_lord_goes_round_invrisil`; the battle plan (no attack order) →
+  `zel_leads_the_levy_against_the_goblin_raiders`; Liscor's mourning (no Erin) → `the_inn_mourns_zel`.
+- 9 new `change` hooks: Riverfarm days 117, 118, 119, 121, 122, 123, 124, 125 and Zel's goodbye on day 127.
+  All 15 on-map days (114 – 130) have a hook. Paranfer (Tom, days 119 – 121) has no map.
+- Riverfarm map: the well (`carry_water`), the fallen scaffolding (`repair_furniture`) and the trebuchet frame
+  (`chop_wood`, `repair_furniture`) now have actions. Before, only talk with an NPC worked there, so the Riverfarm
+  hooks of Books 5 and 6 could not be reached by work.
+
+| Dies on day 114 | Book 6 lost before → after | Drift before → after |
+|---|---|---|
+| Zel | 25 → 35 | 15 → 20 |
+| Magnolia | 17 → 36 | 10.5 → 21.25 |
+| Goblin Lord | 16 → 27 | 9 → 14.25 |
+| Erin | 14 → 22 | 15 → 19 |
+| Olesm | 13 → 7 | 13 → 6.75 |
+| Oom (or Venitra) | 9 → 1 | 5.5 → 0.5 |
+
+What is lost now is real. With no Zel, no one leads the levy, Az'kerash has no speech to answer and the Goblin Lord
+goes round Invrisil: no battle and no trap. With no Magnolia, no letter calls Zel north; he stays in Liscor and
+lives. With no Goblin Lord, Zel takes the levy after the Goblin raiders and lives. With no Erin, the Redfang never
+meet a Human who bows to them: they go north to look for Rags, and the inn has no Goblins, no party and no cake
+fight. A dead Chosen no longer stops the trap. A Book 6 death never cancels a Book 7 event (no Book 7 event reads
+a Book 6 flag).
 
 ## Open
 - Drift counts later-book cancels at once, so a Book 2 death shows drift for Books 3 – 7 too.
