@@ -579,6 +579,798 @@
 		"forge_arms": {"name": "[Forge Arms]", "rarity": "common", "pools": [{"class": "blacksmith", "min_level": 1, "max_level": 15, "weight": 1.0}], "tag_affinity": {"crafting": 1.0}, "effects": [{"type": "stat_mod", "stat": "strength", "value": 1}], "canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "Passive Skill so the class has Skills to find. The name and the bonus are design guesses."}},
 		"patient_voice": {"name": "[Patient Voice]", "rarity": "common", "pools": [{"class": "teacher", "min_level": 1, "max_level": 15, "weight": 1.0}], "tag_affinity": {"teaching": 1.0}, "effects": [{"type": "stat_mod", "stat": "presence", "value": 1}], "canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "Passive Skill so the class has Skills to find. The name and the bonus are design guesses."}},
 		"knightly_bearing": {"name": "[Knightly Bearing]", "rarity": "uncommon", "pools": [{"class": "knight", "min_level": 1, "max_level": 30, "weight": 1.0}], "tag_affinity": {"combat.melee": 1.0, "social": 0.5}, "effects": [{"type": "stat_mod", "stat": "presence", "value": 2}], "canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "Passive Skill so the class has Skills to find. The name and the bonus are design guesses."}},
-		"silent_step": {"name": "[Silent Step]", "rarity": "uncommon", "pools": [{"class": "assassin", "min_level": 1, "max_level": 30, "weight": 1.0}], "tag_affinity": {"stealth": 1.0}, "effects": [{"type": "stat_mod", "stat": "speed", "value": 2}], "canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "Passive Skill so the class has Skills to find. The name and the bonus are design guesses."}}
+		"silent_step": {"name": "[Silent Step]", "rarity": "uncommon", "pools": [{"class": "assassin", "min_level": 1, "max_level": 30, "weight": 1.0}], "tag_affinity": {"stealth": 1.0}, "effects": [{"type": "stat_mod", "stat": "speed", "value": 2}], "canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "Passive Skill so the class has Skills to find. The name and the bonus are design guesses."}},
+		"inn_legend": {
+			"name": "[Inn Legend]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "innkeeper", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"hospitality": 1.0, "cooking": 0.6},
+			"effects": [
+				{"type": "stat_mod", "stat": "presence", "value": 2},
+				{"type": "xp_mult", "tags": ["hospitality"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"chefs_instinct": {
+			"name": "[Chef's Instinct]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "cook", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"cooking": 1.0},
+			"effects": [
+				{"type": "stat_mod", "stat": "perception", "value": 2},
+				{"type": "xp_mult", "tags": ["cooking"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"tray_dancer": {
+			"name": "[Tray Dancer]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "server", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"hospitality.service": 1.0, "hospitality": 0.6},
+			"effects": [
+				{"type": "stat_mod", "stat": "speed", "value": 2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"floor_mastery": {
+			"name": "[Floor Mastery]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "server", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"hospitality.service": 1.0, "hospitality": 0.6},
+			"effects": [
+				{"type": "stat_mod", "stat": "dexterity", "value": 2},
+				{"type": "xp_mult", "tags": ["hospitality.service"], "value": 1.25}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"pristine_touch": {
+			"name": "[Pristine Touch]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "maid", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"cleaning": 1.0, "hospitality": 0.3},
+			"effects": [
+				{"type": "xp_mult", "tags": ["cleaning"], "value": 1.25}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"household_order": {
+			"name": "[Household Order]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "maid", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"cleaning": 1.0, "hospitality": 0.3},
+			"effects": [
+				{"type": "stat_mod", "stat": "endurance", "value": 2},
+				{"type": "xp_mult", "tags": ["cleaning"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"strong_back": {
+			"name": "[Strong Back]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "laborer", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"labor": 1.0, "crafting": 0.2},
+			"effects": [
+				{"type": "stat_mod", "stat": "strength", "value": 2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"tireless_worker": {
+			"name": "[Tireless Worker]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "laborer", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"labor": 1.0, "crafting": 0.2},
+			"effects": [
+				{"type": "stat_mod", "stat": "endurance", "value": 3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"master_joinery": {
+			"name": "[Master Joinery]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "carpenter", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"crafting.carpentry": 1.0, "crafting": 0.6},
+			"effects": [
+				{"type": "stat_mod", "stat": "dexterity", "value": 2},
+				{"type": "xp_mult", "tags": ["crafting.carpentry"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"load_bearing_eye": {
+			"name": "[Load-Bearing Eye]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "carpenter", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"crafting.carpentry": 1.0, "crafting": 0.6},
+			"effects": [
+				{"type": "stat_mod", "stat": "perception", "value": 2},
+				{"type": "xp_mult", "tags": ["crafting"], "value": 1.25}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"wild_larder": {
+			"name": "[Wild Larder]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "forager", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"foraging": 1.0, "travel": 0.2},
+			"effects": [
+				{"type": "stat_mod", "stat": "perception", "value": 2},
+				{"type": "xp_mult", "tags": ["foraging"], "value": 1.25}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"green_remedy": {
+			"name": "[Green Remedy]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "herbalist", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"foraging.herbs": 1.0, "medicine": 0.5},
+			"effects": [
+				{"type": "xp_mult", "tags": ["foraging.herbs", "medicine"], "value": 1.25}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"poultice_master": {
+			"name": "[Poultice Master]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "herbalist", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"foraging.herbs": 1.0, "medicine": 0.5},
+			"effects": [
+				{"type": "stat_mod", "stat": "intellect", "value": 2},
+				{"type": "xp_mult", "tags": ["medicine"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"gentle_hands": {
+			"name": "[Gentle Hands]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "healer", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"medicine": 1.0, "social.empathy": 0.4},
+			"effects": [
+				{"type": "stat_mod", "stat": "dexterity", "value": 2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"calm_bedside": {
+			"name": "[Calm Bedside]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "healer", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"medicine": 1.0, "social.empathy": 0.4},
+			"effects": [
+				{"type": "stat_mod", "stat": "presence", "value": 2},
+				{"type": "xp_mult", "tags": ["medicine"], "value": 1.25}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"light_fingers": {
+			"name": "[Light Fingers]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "rogue", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"stealth": 1.0, "running.escape": 0.3},
+			"effects": [
+				{"type": "stat_mod", "stat": "dexterity", "value": 2},
+				{"type": "xp_mult", "tags": ["stealth"], "value": 1.15}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"ghost_in_the_crowd": {
+			"name": "[Ghost in the Crowd]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "rogue", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"stealth": 1.0, "running.escape": 0.3},
+			"effects": [
+				{"type": "stat_mod", "stat": "speed", "value": 3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"market_sense": {
+			"name": "[Market Sense]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "merchant", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"commerce": 1.0, "social.persuasion": 0.4},
+			"effects": [
+				{"type": "stat_mod", "stat": "intellect", "value": 2},
+				{"type": "xp_mult", "tags": ["commerce"], "value": 1.25}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"deep_reading": {
+			"name": "[Deep Reading]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "strategist", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"strategy": 1.0, "games.chess": 0.7},
+			"effects": [
+				{"type": "stat_mod", "stat": "intellect", "value": 3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"quick_study": {
+			"name": "[Quick Study]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "scholar", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"study": 1.0, "teaching": 0.5},
+			"effects": [
+				{"type": "xp_mult", "tags": ["study"], "value": 1.3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"wide_learning": {
+			"name": "[Wide Learning]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "scholar", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"study": 1.0, "teaching": 0.5},
+			"effects": [
+				{"type": "stat_mod", "stat": "intellect", "value": 3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"inn_living_wards": {
+			"name": "[Living Wards]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "magical_innkeeper", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"hospitality": 1.0, "cooking": 0.5},
+			"effects": [
+				{"type": "stat_mod", "stat": "presence", "value": 2},
+				{"type": "xp_mult", "tags": ["hospitality"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"deep_well": {
+			"name": "[Deep Well]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "mage", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"magic": 1.0, "study": 0.3},
+			"effects": [
+				{"type": "stat_mod", "stat": "intellect", "value": 2},
+				{"type": "xp_mult", "tags": ["magic"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"spell_weaving": {
+			"name": "[Spell Weaving]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "mage", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"magic": 1.0, "study": 0.3},
+			"effects": [
+				{"type": "stat_mod", "stat": "intellect", "value": 3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"scarred_resolve": {
+			"name": "[Scarred Resolve]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "veteran_warrior", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"combat": 1.0, "vigilance": 0.3},
+			"effects": [
+				{"type": "stat_mod", "stat": "endurance", "value": 2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"crushing_blow": {
+			"name": "[Crushing Blow]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "veteran_warrior", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"combat": 1.0, "vigilance": 0.3},
+			"effects": [
+				{"type": "combat_action", "kind": "strike", "ap_q": 12, "cooldown": 3, "damage_mult": 2.5}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"banner_of_example": {
+			"name": "[Banner of Example]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "exemplar_warrior", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"combat": 1.0, "combat.block": 0.4},
+			"effects": [
+				{"type": "stat_mod", "stat": "strength", "value": 2},
+				{"type": "stat_mod", "stat": "presence", "value": 2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"hidden_trail": {
+			"name": "[Hidden Trail]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "scout", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"stealth": 1.0, "vigilance": 0.5},
+			"effects": [
+				{"type": "stat_mod", "stat": "perception", "value": 2},
+				{"type": "xp_mult", "tags": ["stealth"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"far_sight": {
+			"name": "[Far Sight]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "scout", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"stealth": 1.0, "vigilance": 0.5},
+			"effects": [
+				{"type": "stat_mod", "stat": "perception", "value": 3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"wind_reader": {
+			"name": "[Wind Reader]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "veteran_scout", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"stealth": 1.0, "vigilance": 0.5},
+			"effects": [
+				{"type": "stat_mod", "stat": "perception", "value": 2},
+				{"type": "stat_mod", "stat": "speed", "value": 1}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"ghost_walker": {
+			"name": "[Ghost Walker]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "veteran_scout", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"stealth": 1.0, "vigilance": 0.5},
+			"effects": [
+				{"type": "stat_mod", "stat": "speed", "value": 3},
+				{"type": "xp_mult", "tags": ["stealth"], "value": 1.25}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"elemental_surge": {
+			"name": "[Elemental Surge]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "elementalist", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"magic": 1.0, "study": 0.3},
+			"effects": [
+				{"type": "stat_mod", "stat": "intellect", "value": 2},
+				{"type": "xp_mult", "tags": ["magic"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"storm_in_the_blood": {
+			"name": "[Storm in the Blood]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "elementalist", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"magic": 1.0, "study": 0.3},
+			"effects": [
+				{"type": "stat_mod", "stat": "intellect", "value": 3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"winters_grip": {
+			"name": "[Winter's Grip]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "cryomancer", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"magic": 1.0, "study": 0.3},
+			"effects": [
+				{"type": "stat_mod", "stat": "intellect", "value": 3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"one_with_the_saddle": {
+			"name": "[One with the Saddle]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "rider", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"riding": 1.0, "animals": 0.3},
+			"effects": [
+				{"type": "stat_mod", "stat": "speed", "value": 2},
+				{"type": "xp_mult", "tags": ["riding"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"outrider": {
+			"name": "[Outrider]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "rider", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"riding": 1.0, "animals": 0.3},
+			"effects": [
+				{"type": "stat_mod", "stat": "endurance", "value": 2},
+				{"type": "stat_mod", "stat": "speed", "value": 2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"rich_soil": {
+			"name": "[Rich Soil]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "gardener", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"gardening": 1.0, "foraging.herbs": 0.3},
+			"effects": [
+				{"type": "xp_mult", "tags": ["gardening"], "value": 1.3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"patient_harvest": {
+			"name": "[Patient Harvest]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "gardener", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"gardening": 1.0, "foraging.herbs": 0.3},
+			"effects": [
+				{"type": "stat_mod", "stat": "endurance", "value": 2},
+				{"type": "xp_mult", "tags": ["gardening"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"animal_trust": {
+			"name": "[Animal Trust]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "beast_tamer", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"animals": 1.0, "vigilance": 0.2},
+			"effects": [
+				{"type": "stat_mod", "stat": "presence", "value": 2},
+				{"type": "xp_mult", "tags": ["animals"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"pack_leader": {
+			"name": "[Pack Leader]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "beast_tamer", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"animals": 1.0, "vigilance": 0.2},
+			"effects": [
+				{"type": "stat_mod", "stat": "presence", "value": 3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"steady_devotion": {
+			"name": "[Steady Devotion]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "acolyte", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"faith": 1.0, "social.empathy": 0.3},
+			"effects": [
+				{"type": "xp_mult", "tags": ["faith"], "value": 1.3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"quiet_miracle": {
+			"name": "[Quiet Miracle]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "acolyte", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"faith": 1.0, "social.empathy": 0.3},
+			"effects": [
+				{"type": "stat_mod", "stat": "presence", "value": 2},
+				{"type": "stat_mod", "stat": "endurance", "value": 1}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"holy_resolve": {
+			"name": "[Holy Resolve]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "priest", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"faith": 1.0, "social.empathy": 0.4},
+			"effects": [
+				{"type": "stat_mod", "stat": "presence", "value": 2},
+				{"type": "xp_mult", "tags": ["faith"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"mending_light": {
+			"name": "[Mending Light]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "priest", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"faith": 1.0, "social.empathy": 0.4},
+			"effects": [
+				{"type": "stat_mod", "stat": "presence", "value": 3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"shepherd_of_many": {
+			"name": "[Shepherd of Many]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "bishop", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"faith": 1.0, "social.empathy": 0.4},
+			"effects": [
+				{"type": "stat_mod", "stat": "presence", "value": 3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"voice_of_the_faithful": {
+			"name": "[Voice of the Faithful]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "bishop", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"faith": 1.0, "social.empathy": 0.4},
+			"effects": [
+				{"type": "stat_mod", "stat": "presence", "value": 2},
+				{"type": "xp_mult", "tags": ["faith", "teaching"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"lance_and_spur": {
+			"name": "[Lance and Spur]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "dragoon", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"combat": 1.0, "riding": 0.8},
+			"effects": [
+				{"type": "stat_mod", "stat": "strength", "value": 2},
+				{"type": "xp_mult", "tags": ["riding"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"trampling_charge": {
+			"name": "[Trampling Charge]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "dragoon", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"combat": 1.0, "riding": 0.8},
+			"effects": [
+				{"type": "combat_action", "kind": "area", "shape": "around", "ap_q": 16, "cooldown": 3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"patient_hunter": {
+			"name": "[Patient Hunter]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "hunter", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"stealth": 0.8, "combat.thrown": 0.6},
+			"effects": [
+				{"type": "stat_mod", "stat": "perception", "value": 2},
+				{"type": "xp_mult", "tags": ["combat.thrown"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"apex_tracker": {
+			"name": "[Apex Tracker]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "hunter", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"stealth": 0.8, "combat.thrown": 0.6},
+			"effects": [
+				{"type": "stat_mod", "stat": "perception", "value": 3},
+				{"type": "xp_mult", "tags": ["foraging"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"dead_eye": {
+			"name": "[Dead Eye]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "archer", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"combat.thrown": 1.0, "vigilance": 0.4},
+			"effects": [
+				{"type": "stat_mod", "stat": "dexterity", "value": 2},
+				{"type": "xp_mult", "tags": ["combat.thrown"], "value": 1.25}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"rain_of_arrows": {
+			"name": "[Rain of Arrows]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "archer", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"combat.thrown": 1.0, "vigilance": 0.4},
+			"effects": [
+				{"type": "stat_mod", "stat": "dexterity", "value": 3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"measured_dose": {
+			"name": "[Measured Dose]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "alchemist", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"foraging.herbs": 0.8, "magic": 0.6},
+			"effects": [
+				{"type": "stat_mod", "stat": "intellect", "value": 2},
+				{"type": "xp_mult", "tags": ["medicine"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"transmuters_eye": {
+			"name": "[Transmuter's Eye]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "alchemist", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"foraging.herbs": 0.8, "magic": 0.6},
+			"effects": [
+				{"type": "stat_mod", "stat": "intellect", "value": 3},
+				{"type": "xp_mult", "tags": ["magic"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"true_hammer": {
+			"name": "[True Hammer]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "blacksmith", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"crafting": 1.0, "labor": 0.4},
+			"effects": [
+				{"type": "stat_mod", "stat": "strength", "value": 2},
+				{"type": "xp_mult", "tags": ["crafting"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"master_smith": {
+			"name": "[Master Smith]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "blacksmith", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"crafting": 1.0, "labor": 0.4},
+			"effects": [
+				{"type": "stat_mod", "stat": "dexterity", "value": 2},
+				{"type": "xp_mult", "tags": ["crafting"], "value": 1.3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"clear_example": {
+			"name": "[Clear Example]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "teacher", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"teaching": 1.0, "social.empathy": 0.4},
+			"effects": [
+				{"type": "xp_mult", "tags": ["teaching"], "value": 1.3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"inspiring_lesson": {
+			"name": "[Inspiring Lesson]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "teacher", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"teaching": 1.0, "social.empathy": 0.4},
+			"effects": [
+				{"type": "stat_mod", "stat": "presence", "value": 2},
+				{"type": "xp_mult", "tags": ["teaching", "study"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"oath_kept": {
+			"name": "[Oath Kept]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "knight", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"combat.melee": 0.8, "social": 0.4},
+			"effects": [
+				{"type": "stat_mod", "stat": "endurance", "value": 2},
+				{"type": "stat_mod", "stat": "presence", "value": 1}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"lance_strike": {
+			"name": "[Lance Strike]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "knight", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"combat.melee": 0.8, "social": 0.4},
+			"effects": [
+				{"type": "combat_action", "kind": "strike", "ap_q": 16, "cooldown": 3, "damage_mult": 2.5}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"backstab": {
+			"name": "[Backstab]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "assassin", "min_level": 10, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"stealth": 1.0, "combat.melee": 0.4},
+			"effects": [
+				{"type": "combat_action", "kind": "strike", "ap_q": 8, "cooldown": 2, "damage_mult": 2.0, "sure_hit": true}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"shadow_step": {
+			"name": "[Shadow Step]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "assassin", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"stealth": 1.0, "combat.melee": 0.4},
+			"effects": [
+				{"type": "stat_mod", "stat": "speed", "value": 3}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		},
+		"wild_communion": {
+			"name": "[Wild Communion]",
+			"rarity": "rare",
+			"pools": [
+				{"class": "druid", "min_level": 20, "max_level": 30, "weight": 1.0}
+			],
+			"tag_affinity": {"gardening": 1.0, "animals": 0.8},
+			"effects": [
+				{"type": "stat_mod", "stat": "presence", "value": 2},
+				{"type": "xp_mult", "tags": ["animals", "gardening"], "value": 1.2}
+			],
+			"canon_ref": {"book": 1, "chapter": null, "confidence": "guess", "note": "M24.3: capstone Skill. The name and the numbers are design guesses."}
+		}
 	}
 }
