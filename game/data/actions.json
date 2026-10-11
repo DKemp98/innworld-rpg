@@ -114,6 +114,17 @@
 			"duress": [{"key": "cold", "from": 0, "to": 1, "max": 1.5}],
 			"tags": {"gardening": 1.0, "foraging.herbs": 0.2}},
 		"pray": {"name": "Pray", "minutes": 30, "base_xp": 5, "risk": 0.0,
-			"tags": {"faith": 1.0, "social.empathy": 0.2}}
+			"tags": {"faith": 1.0, "social.empathy": 0.2}},
+		"hunt": {"name": "Hunt game", "minutes": 120, "base_xp": 9, "risk": 0.2,
+			"duress": [{"key": "cold", "from": 0, "to": 1, "max": 1.5}],
+			"tags": {"stealth": 1.0, "foraging": 0.6, "combat.thrown": 0.4}},
+		"shoot_bow": {"name": "Shoot at a target", "minutes": 30, "base_xp": 6, "risk": 0.0,
+			"tags": {"combat.thrown": 1.0, "vigilance": 0.4}},
+		"brew_potion": {"name": "Brew a potion", "minutes": 90, "base_xp": 9, "risk": 0.1,
+			"tags": {"foraging.herbs": 0.8, "magic": 0.6, "medicine": 0.5}},
+		"forge_tool": {"name": "Forge a tool", "minutes": 90, "base_xp": 10, "risk": 0.1,
+			"tags": {"crafting": 1.0, "labor": 0.4}},
+		"teach_lesson": {"name": "Teach a lesson", "minutes": 60, "base_xp": 8, "risk": 0.0,
+			"tags": {"teaching": 1.0, "social.empathy": 0.3, "study": 0.2}}
 	}
 }

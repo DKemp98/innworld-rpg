@@ -1,5 +1,13 @@
 # Handoff
 
+## Just done (2026-10-11, local): M24.0 class actions (branch `feat/m24.0-class-actions`)
+- Data only. Actions `hunt`, `shoot_bow`, `brew_potion`, `forge_tool`, `teach_lesson` in `game/data/actions.json` (tags copy each class's weights; `hunt` has cold duress). Sounds in `audio.json` reuse `pick_up`, `swing`, `water`, `hammer`, `book`.
+- Map objects on existing art: `hunting_blind` (floodplains_south [9,23], kind reeds), `archery_target` (inn_hill [28,14], dead_tree), `brewing_cauldron` (liscor_mages_guild [3,6], brazier), `smiths_forge` (liscor_market [4,9], hearth), `lesson_slate` (inn_interior [2,8], papers). Positions and numbers are guesses.
+- New test `unit_class_actions` (3). Tests run (pass): that, `unit_class_tree_step2`, `_step3`, `unit_actions`, `unit_tags`, `unit_audio_data`, `unit_sound_cues`, `unit_map_db`, `unit_ground_art`, `unit_world_view`, `unit_gated_exits`; validator 0 errors; Python 114 OK. Full suite not run.
+- Roadmap: M23 moved to Done; At a glance now starts with M24.
+- Next: M24.1 recipes and goods **[Sonnet · medium]**.
+- Gotchas: a map object must not sit under a map overlay (the `flood` overlay on floodplains_south covers most free grass: the only free grass is (9,23), (8,23), (31,11), (31,12)). `map_db` logs "covers an exit or an object" for it. The user has not walked to the new objects yet.
+
 ## Just done (2026-10-11, local): M23.7 drift warning
 - Journal drift line and one-time warning page already existed. Added `SystemMessages.DRIFT_REMINDER` on the Morning page every day while drift >= `unreliable_at`.
 - Tests run (pass): `unit_system_messages` (18), `unit_journal`, `unit_director`. Full suite not run.
