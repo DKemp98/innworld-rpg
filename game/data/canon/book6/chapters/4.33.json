@@ -174,8 +174,7 @@
 					"prefer": [
 						"erin_solstice"
 					],
-					"fallback_tags": [],
-					"optional": true
+					"fallback_tags": []
 				}
 			},
 			"requires": {
@@ -338,8 +337,7 @@
 					"prefer": [
 						"zel_shivertail"
 					],
-					"fallback_tags": [],
-					"optional": true
+					"fallback_tags": []
 				},
 				"innkeeper": {
 					"prefer": [
@@ -386,8 +384,7 @@
 					"prefer": [
 						"erin_solstice"
 					],
-					"fallback_tags": [],
-					"optional": true
+					"fallback_tags": []
 				},
 				"farmer": {
 					"prefer": [

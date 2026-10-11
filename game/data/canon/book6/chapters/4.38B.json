@@ -109,7 +109,8 @@
 					"prefer": [
 						"olesm"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"general": {
 					"prefer": [
@@ -127,9 +128,7 @@
 				}
 			},
 			"requires": {
-				"alive": [
-					"olesm"
-				],
+				"alive": [],
 				"flags": [
 					"esthelm.walls_held"
 				],
@@ -192,7 +191,8 @@
 			},
 			"requires": {
 				"alive": [
-					"zel_shivertail"
+					"zel_shivertail",
+					"magnolia_reinhart"
 				],
 				"flags": [
 					"zel.announces_he_is_leaving"
@@ -201,6 +201,7 @@
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b6.zel_stays_in_liscor",
 				"cancel"
 			],
 			"effects": {
@@ -217,7 +218,48 @@
 				"confidence": "confirmed",
 				"note": "Ilvriss warns that Drake generals are not meant to leave the city; Zel replies that he knows."
 			},
-			"summary": "Zel says he had a letter and will go to Celum, then north to meet someone he will not name. He accepts the risk of the Human war act, runs from Ilvriss, Olesm and Zevara, and uses the door to Celum."
+			"summary": "Zel says he had a letter and will go to Celum, then north to meet someone he will not name. He accepts the risk of the Human war act, runs from Ilvriss, Olesm and Zevara, and uses the door to Celum.",
+			"hooks": [
+				{
+					"id": "player_saw_zel_off_at_the_door",
+					"did": [
+						{
+							"action": [
+								"talk_with_guest",
+								"comfort_someone",
+								"persuade"
+							],
+							"context": {
+								"location": [
+									"wandering_inn",
+									"liscor"
+								],
+								"npc": [
+									"zel_shivertail"
+								]
+							}
+						}
+					],
+					"days": [
+						127,
+						127
+					],
+					"then": "change",
+					"effects": {
+						"set_flags": [
+							"zel.earther_saw_him_off"
+						],
+						"relationship": [
+							{
+								"from": "zel_shivertail",
+								"to": "player",
+								"delta": 1
+							}
+						]
+					},
+					"news": "A Human at the Wandering Inn spoke with Zel Shivertail before he stepped through the door to Celum."
+				}
+			]
 		},
 		"b6.magnolia_hears_of_esthelm_and_laken": {
 			"tier": 2,
@@ -479,6 +521,63 @@
 				"note": "Zel dreams of old Sserys, who said a very young Magnolia wanted peace."
 			},
 			"summary": "Near dusk Zel boards the bloody carriage at Celum's gate in a red cloak. That night he and Magnolia shake hands. She sets the order of the enemies: the Goblin Lord first, then Az'kerash, then the Antinium."
+		},
+		"b6.zel_stays_in_liscor": {
+			"tier": 2,
+			"window": {
+				"earliest": 127,
+				"latest": 127,
+				"confidence": "guess"
+			},
+			"location": "liscor",
+			"roles": {
+				"general": {
+					"prefer": [
+						"zel_shivertail"
+					],
+					"fallback_tags": []
+				},
+				"wall_lord": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"captain": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"zel_shivertail"
+				],
+				"flags": [
+					"zel.announces_he_is_leaving"
+				],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"zel.stays_in_liscor"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 6,
+				"chapter": "4.38B",
+				"confidence": "guess",
+				"note": "Not in the book (M23.5, divergence only): runs instead of Zel's trip north when Magnolia Reinhart is dead: no letter calls him to meet her."
+			},
+			"summary": "No letter comes from the north. Zel stays in Liscor, sends word of the Goblin Lord to the cities and waits for news from Esthelm."
 		}
 	},
 	"system": [

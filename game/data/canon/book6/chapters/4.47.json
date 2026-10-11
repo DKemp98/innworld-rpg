@@ -109,11 +109,14 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"zel.allied_with_magnolia"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b6.magnolias_levy_waits_at_invrisil",
 				"cancel"
 			],
 			"effects": {
@@ -167,7 +170,8 @@
 					"prefer": [
 						"olesm"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				},
 				"wall_lord": {
 					"prefer": [
@@ -185,7 +189,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"zel.speech_at_invrisil"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -304,7 +310,9 @@
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"zel.speech_at_invrisil"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
@@ -355,17 +363,19 @@
 					"prefer": [
 						"azkerash"
 					],
-					"fallback_tags": [],
-					"optional": true
+					"fallback_tags": []
 				}
 			},
 			"requires": {
 				"alive": [],
-				"flags": [],
+				"flags": [
+					"zel.speech_at_invrisil"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b6.the_goblin_lord_goes_round_invrisil",
 				"cancel"
 			],
 			"effects": {
@@ -384,6 +394,124 @@
 				"note": "This replaces the plan to go round Invrisil in 4.46. The Goblin Lord is not named Reiss until 4.49."
 			},
 			"summary": "Forced by his master, the Goblin Lord orders the army to attack Invrisil and kill Zel. Osthia warns him he cannot win. He says he is ordered, or he dies. Far apart, Zel and the Goblin Lord each feel the other across the distance, and both think of death."
+		},
+		"b6.magnolias_levy_waits_at_invrisil": {
+			"tier": 1,
+			"window": {
+				"earliest": 129,
+				"latest": 129,
+				"confidence": "guess"
+			},
+			"location": "invrisil",
+			"roles": {
+				"lady": {
+					"prefer": [
+						"magnolia_reinhart"
+					],
+					"fallback_tags": []
+				},
+				"lieutenant": {
+					"prefer": [
+						"gershal"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"captain": {
+					"prefer": [
+						"salvia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"aide": {
+					"prefer": [
+						"reynold"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"maid": {
+					"prefer": [
+						"ressa"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"magnolia_reinhart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"magnolia.levy_waits_at_invrisil",
+					"magnolia.army_has_no_commander"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 6,
+				"chapter": "4.47",
+				"confidence": "guess",
+				"note": "Not in the book (M23.5, divergence only): runs instead of Zel's speech when Zel is not there to lead the levy."
+			},
+			"summary": "Magnolia's levy camps outside Invrisil with no general. The officers argue over orders and no speech goes out to the world."
+		},
+		"b6.the_goblin_lord_goes_round_invrisil": {
+			"tier": 1,
+			"window": {
+				"earliest": 129,
+				"latest": 129,
+				"confidence": "guess"
+			},
+			"location": "north_izril",
+			"roles": {
+				"lord": {
+					"prefer": [
+						"goblin_lord"
+					],
+					"fallback_tags": []
+				},
+				"captive": {
+					"prefer": [
+						"osthia_blackwing"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"goblin_lord"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"goblin_lord.went_round_invrisil"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 6,
+				"chapter": "4.47",
+				"confidence": "guess",
+				"note": "Not in the book (M23.5, divergence only): runs instead of Az'kerash's order to attack, when Az'kerash is dead or no speech told him that Zel leads the Human army."
+			},
+			"summary": "No order comes to attack Invrisil. The Goblin Lord keeps to his own plan and leads his army round the city."
 		}
 	},
 	"system": []

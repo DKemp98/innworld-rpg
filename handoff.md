@@ -1,5 +1,32 @@
 # Handoff
 
+## Just done (2026-10-11, local): M23.5 Book 6 canon bends (branch `feat/m23.5-book6-bends`)
+- ADR 0036 "Book 6" lists every change. Data only (15 Book 6 chapter files + 3 object actions on `maps/riverfarm.json`),
+  no engine change.
+- Book 6 had scenes with no link to their cause: the Battle of Invrisil ran with Zel dead, the trap ran with no
+  battle, the Redfang moved into the inn with Erin dead. They now wait on real-cause flags. So Zel / Magnolia /
+  Goblin Lord / Erin deaths lose MORE events than before (25 → 35, 17 → 36, 16 → 27, 14 → 22); Olesm 13 → 7, Oom 9 → 1.
+  The user has not seen this trade yet: say it plainly in the PR.
+- New `game/tests/sim_kill_book6.gd` (9): kills Zel, Magnolia, the Goblin Lord, Erin, Olesm, Oom + Venitra on day 114;
+  hook-per-day (15 days); chopping wood at the Riverfarm trebuchet frame on day 118 changes that day. Copy it for Book 7.
+- Changed old tests: `sim_kill_book5` (Erin's drift ceiling 31 → 33.5: her Book 6 days 114 – 115 now need her),
+  `sim_player_hooks` count 123, `sim_book6_world` (stale assert: Dasha has her own look since 4dce883; was red on main).
+- Tests run (all pass): `sim_kill_book6`, `sim_kill_book5`, `sim_canon_book6`, `sim_canon_book7`, `sim_book6_*` (7),
+  `sim_player_hooks`, `unit_canon_db`, `sim_divergence`, `unit_event_order`, `unit_map_db`, `unit_north_road`,
+  `sim_book7_riverfarm`; validator 0 / 0 on Books 1 – 7; Python 114 OK. Full suite not run.
+  `docs/divergence/report.md` regenerated.
+- Next: M23.6 Book 7 **[Opus · high]**. Picks: Erin, Laken, Selys, Zevara, Rags; key events in `docs/divergence/picks.md`.
+- Gotchas: Book 6 chapter files round-trip exactly through `json.load` / `json.dumps(indent="	", ensure_ascii=False)`
+  + "
+", written with CRLF, so a plain load-edit-dump patch is safe (check Book 7 the same way first). The patch
+  script was `scratchpad/patch_m235.py` (helpers `req_flags`, `req_alive`, `required`, `optional`, `on_fail`,
+  `set_dep`, `add_alt`, `add_hook`); gone next session. Probe: `game/_scratch/probe.gd` (`extends SceneTree`, env
+  BOOK, KILL_DAY, END_DAY, VICTIMS comma list with `+`, LIST=1; `Director.run` to KILL_DAY - 1, `set_alive`, run to
+  END_DAY, print lost / alts / substitutes); 10 victims in ~30 s; deleted, rebuild it. Look for the OPPOSITE problem
+  too: scenes whose roles are all optional, or that never check a flag, run with their cause gone. Map objects with
+  `"actions": []` mean only NPC talk works there: a hook there needs `talk_with_guest` / `comfort_someone` / `persuade`.
+  `riverfarm.json` has one-line exits: edit the action lists by text, not by a JSON dump.
+
 ## Just done (2026-10-11): ROADMAP.md reorganised (branch `docs/roadmap-reorg`)
 - Order now: At a glance → Next up (M23 – M26) → Waits on the user (M20 touch-screen PC, keystore backup, ask
   pirateaba) → Later → Releases (v0.1.0 – v0.1.4) → Done (M21 at the top, then M22, M19 … M0).

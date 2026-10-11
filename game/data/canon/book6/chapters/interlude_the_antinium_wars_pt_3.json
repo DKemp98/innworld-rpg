@@ -23,7 +23,8 @@
 					"prefer": [
 						"erin_solstice"
 					],
-					"fallback_tags": []
+					"fallback_tags": [],
+					"optional": true
 				}
 			},
 			"requires": {

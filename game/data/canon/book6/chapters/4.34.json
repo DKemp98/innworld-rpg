@@ -74,11 +74,14 @@
 				"alive": [
 					"erin_solstice"
 				],
-				"flags": [],
+				"flags": [
+					"redfang.survivors_follow_the_eater_goats"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b6.the_redfang_kill_the_eater_goats_at_wirclaws",
 				"cancel"
 			],
 			"effects": {
@@ -283,8 +286,7 @@
 					"prefer": [
 						"erin_solstice"
 					],
-					"fallback_tags": [],
-					"optional": true
+					"fallback_tags": []
 				},
 				"hob": {
 					"prefer": [
@@ -339,11 +341,14 @@
 				"alive": [
 					"headscratcher"
 				],
-				"flags": [],
+				"flags": [
+					"redfang.survivors_met_erin"
+				],
 				"not_flags": []
 			},
 			"depends_on": [],
 			"on_fail": [
+				"mutate:b6.the_redfang_go_north_to_seek_rags",
 				"cancel"
 			],
 			"effects": {
@@ -687,6 +692,164 @@
 				"note": "Day and hour are guesses; the text gives none."
 			},
 			"summary": "Erin learns their names, asks them to stay and shakes Headscratcher's hand. They sleep in the basement. Erin replants the 'no killing Goblins' sign. Both cities now know, and the inn has no customers."
+		},
+		"b6.the_redfang_kill_the_eater_goats_at_wirclaws": {
+			"tier": 2,
+			"window": {
+				"earliest": 115,
+				"latest": 115,
+				"confidence": "guess"
+			},
+			"location": "wirclaw_village",
+			"roles": {
+				"swordsman": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": []
+				},
+				"archer": {
+					"prefer": [
+						"badarrow"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"guard": {
+					"prefer": [
+						"shorthilt"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"fighter": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"shield": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"front": {
+					"prefer": [
+						"bugear"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"farmer": {
+					"prefer": [
+						"wirclaw"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"headscratcher"
+				],
+				"flags": [
+					"redfang.survivors_follow_the_eater_goats"
+				],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wirclaw_village.eater_goats_killed",
+					"redfang.saved_wirclaws_village"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 6,
+				"chapter": "4.34",
+				"confidence": "guess",
+				"note": "Not in the book (M23.5, divergence only): runs instead of the goat attack when Erin is dead: no Human innkeeper is in the village to see the Goblins fight."
+			},
+			"summary": "The Eater Goats fall on Wirclaw's village. The Redfang survivors kill them and slip away before the villagers know who saved them."
+		},
+		"b6.the_redfang_go_north_to_seek_rags": {
+			"tier": 2,
+			"window": {
+				"earliest": 115,
+				"latest": 115,
+				"confidence": "guess"
+			},
+			"location": "wirclaw_village",
+			"roles": {
+				"hob": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": []
+				},
+				"archer": {
+					"prefer": [
+						"badarrow"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"second": {
+					"prefer": [
+						"shorthilt"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"fourth": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"reader": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"headscratcher"
+				],
+				"flags": [
+					"redfang.survivors_follow_the_eater_goats"
+				],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"redfang.seek_rags",
+					"redfang.went_north_without_erin"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 6,
+				"chapter": "4.34",
+				"confidence": "guess",
+				"note": "Not in the book (M23.5, divergence only): runs instead of the welcome at the inn when the Redfang never met Erin: no one invites them in."
+			},
+			"summary": "With no Human to bow to them and no inn to shelter in, the Redfang survivors turn north to look for Rags."
 		}
 	},
 	"system": []

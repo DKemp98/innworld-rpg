@@ -140,4 +140,4 @@ func test_book6_records_and_looks() -> void:
 	for id: String in ["headscratcher", "numbtongue", "badarrow", "shorthilt", "rabbiteater", "wirclaw",
 			"falene_skystrall", "dawil", "purple_smile"]:
 		assert_eq(CharacterSprite.look_for(id, String(c.npcs[id]["race"])), id, "own look for %s" % id)
-	assert_eq(CharacterSprite.look_for("dasha", "Dwarf"), "race_dwarf", "Dwarves get a generic look")
+	assert_eq(CharacterSprite.look_for("a_dwarf_with_no_look", "Dwarf"), "race_dwarf", "Dwarves get a generic look")  # Dasha has her own look since 4dce883
