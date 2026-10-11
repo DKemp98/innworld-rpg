@@ -1,5 +1,12 @@
 # Handoff
 
+## Just done (2026-10-11, local): M24.3 skills (branch `feat/m24.3-skills`)
+- Data only. 63 rare Skills appended to `game/data/skills.json`: every class in `classes.json` now has a rare Skill for its level 10 capstone (pool 10 - 30) and a second for level 20 (pool 20 - 30). Capstone levels always pick a rare Skill first (`SkillSystem.grant_random(..., prefer_rare)`), so no class falls back to a common one at 10 or 20. Four are combat actions: `crushing_blow` (veteran_warrior), `lance_strike` (knight), `backstab` (assassin), `trampling_charge` (dragoon, area). The rest are passive `stat_mod` / `xp_mult`. Names and numbers are guesses (`confidence: guess`).
+- Level 30 is not covered for every class (only the 10 - 30 skill and the 20 - 30 skill exist; level 30 falls back to any Skill).
+- Tests run (pass): `unit_m24_skills` (new, 3), `unit_data_db`, `unit_class_tree_step2`, `unit_skill_system`, `unit_combat_skills`, `unit_class_system`, `unit_levels`, `unit_stats`, `unit_night`, `unit_breakthrough`, `unit_mana`, `unit_journal`, `unit_class_tree_step3`; validator 0 errors. Full suite not run.
+- M24 is done. Next: M25.0 NPC levels **[Opus · high]** (DESIGN section 4.5; save change + migration).
+- Gotchas: the patch script (`scratchpad/gen_m243.py`) is gone next session. `skills.json` is CRLF with one-line sub-objects; new entries were appended on bytes before the final `}` `}`. Never `sed -i` a CRLF file (it did strip `docs/ROADMAP.md`; restored with Python).
+
 ## Just done (2026-10-11, local): M24.2 spells (branch `feat/m24.2-spells`)
 - Data only. New spell `gust` (line, Pisces teaches after `b1.pisces_saves_erin_from_flies`). Spellbooks `spellbook_gust`, `_ice_spike`, `_flashfire`, `_frozen_wind` (each spell's `learn.book`), `spellbook_fireball` now costs 320. Shop `liscor_mages_guild` on object `spell_shelf` ([10,2], liscor_mages_guild). Pisces' NPC spell list: `frozen_wind` first, then `gust` (the NPC picks the first ready spell). Prices are guesses.
 - Not added: [Ice Wall], [Barrier of Air], [Mend], [Light] are canon but the spell shapes are attack-only (`one`, `line`, `blast`, `around`). They need an engine step (utility / defence shapes).

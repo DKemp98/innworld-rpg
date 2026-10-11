@@ -9,13 +9,13 @@ When every box of a milestone is ticked, move it to the top of Done. A new miles
 
 | Milestone | State | Open items |
 |---|---|---|
-| M24 Level by living | open | M24.3 |
+| M24 Level by living | done | – |
 | M25 NPC life | not started | M25.0 – M25.4 |
 | M26 Code health | not started | M26.0, M26.1 |
 | M20 Touch controls | waits on the user | play on a PC with a touch screen |
 | Later | idea | Book 8 plan (after M25), LLM flavour layer, small asks |
 
-Last release: v0.1.4-alpha (2026-10-10). Next step: **M24.3 Skills** [Sonnet · high].
+Last release: v0.1.4-alpha (2026-10-10). Next step: **M25.0 NPC levels** [Opus · high].
 
 ---
 
@@ -31,7 +31,7 @@ cascades are easy to get wrong; low for mechanical steps.
 - [x] M24.0 Actions for the new classes: hunt, shoot a bow, brew a potion, forge, teach; with map objects or stations on existing art **[Sonnet · medium]** (done 2026-10-11: actions `hunt`, `shoot_bow`, `brew_potion`, `forge_tool`, `teach_lesson`; objects `hunting_blind` (floodplains_south), `archery_target` (inn_hill), `brewing_cauldron` (liscor_mages_guild), `smiths_forge` (liscor_market), `lesson_slate` (inn_interior); sounds reuse existing cues)
 - [x] M24.1 Recipes and goods: more dishes from the Books (canon names, numbers are guesses), tools and weapons in shops **[Sonnet · medium]** (done 2026-10-11: recipes `pizza`, `roast_meat`, `vegetable_soup` + actions; shop `liscor_smith` at `smith_counter` (liscor_market) sells `wooden_club`, `iron_dagger`, `hand_axe`; numbers are guesses)
 - [x] M24.2 Spells: more spells from Books 1 – 7 with teachers and spellbooks **[Sonnet · medium]** (done 2026-10-11: spell `gust` (Pisces teaches, 1.22); spellbooks for `gust`, `ice_spike`, `flashfire`, `frozen_wind` (and `fireball` now has a price) sold at `spell_shelf` in liscor_mages_guild, shop `liscor_mages_guild`; Pisces casts `gust` as a fallback. Only attack shapes fit the engine, so [Ice Wall], [Barrier of Air], [Mend] and [Light] wait for an engine step)
-- [ ] M24.3 Skills: capstone Skills at 10 / 20 for the main classes; Skills for the class-tree step 1 – 3 classes that have none **[Sonnet · high]**
+- [x] M24.3 Skills: capstone Skills at 10 / 20 for the main classes; Skills for the class-tree step 1 – 3 classes that have none **[Sonnet · high]** (done 2026-10-11: 63 rare Skills in `skills.json`: every class has a rare Skill for level 10 (pool 10 – 30) and a second for level 20 (pool 20 – 30); 4 are combat actions (`crushing_blow`, `lance_strike`, `backstab`, `trampling_charge`); the rest are passive stat / XP bonuses; names and numbers are guesses; no schema or engine change)
 **Done when:** every class in `classes.json` has at least one action that feeds it; the new data has unit tests.
 
 ## M25 — NPC life
