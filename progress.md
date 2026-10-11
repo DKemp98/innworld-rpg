@@ -120,6 +120,11 @@ M0–M16 detail (roadmap bullets, decisions, ADR 0001–0026) lives in
 - [ ] Legal: policy read 2026-10-09 (DESIGN §7). Games not named; book titles in marketing are forbidden. Page text reworded 2026-10-09 (no title in marketing). Asking pirateaba is still optional (user).
 - [ ] About 9 "the user plays …" checks are open (M17, M18, M19 rain, M20 phone, touch stick, phone UI, long road, class objects, north road).
 
+## Google Play (ADR 0037, `docs/PLAY_STORE.md`)
+- [x] Prep (2026-10-11, branch `feat/play-store-prep`, local): preset `Android Play` (Gradle, AAB, target API 36, min 29); `tools/release.ps1` builds `export/InnworldRPG-v<version>-play.aab` (`-PlayOnly` for only that); Gradle template in `game/android/` (gitignored); store graphics tool `tools/build_store_art.py`; `PRIVACY.md`; listing text and form answers. Built and checked: AAB 88 MB, signed with the release key (jarsigner ok), no permissions. Python tool tests 116 OK. No game code changed, so no GUT run. Full suite not run.
+- [ ] pirateaba says yes in writing (user). **No upload before this** (user pick 2026-10-11).
+- [ ] Play developer account, internal test on a phone, closed test (12 testers, 14 days), tablet check, production.
+
 ## Releases (ADR 0029)
 - [x] v0.1.3-alpha (branch `release/v0.1.3`, 2026-10-08, local): version bump (code 2), `tools/release.ps1` now also builds the signed apk. Smoke tests pass (events=1089, maps=40, problems=0). Three zips + `InnworldRPG-v0.1.3-alpha-android.apk` built. Waits: user merges the PR, then tag + `gh release create` with all four files.
 - Older releases v0.1.0 – v0.1.2, the README rewrite and the web build: see `docs/PROGRESS_ARCHIVE.md`.

@@ -19,3 +19,6 @@ Thumbs.db
 # Android signing keys: never commit
 *.keystore
 *.jks
+
+# Godot Android Gradle build template (re-made by tools/release.ps1)
+game/android/
