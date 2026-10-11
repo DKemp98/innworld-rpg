@@ -24,6 +24,7 @@
 		{"id": "market_well", "kind": "well", "at": [15, 15], "name": "Well", "actions": ["carry_water"], "solid": true},
 		{"id": "brazier_west", "kind": "brazier", "at": [6, 9], "name": "Brazier", "actions": [], "solid": true, "warm": true},
 		{"id": "brazier_east", "kind": "brazier", "at": [26, 9], "name": "Brazier", "actions": [], "solid": true, "warm": true},
+		{"id": "smith_counter", "kind": "market_stall", "at": [3, 8], "name": "Smith's counter", "actions": ["buy_supplies"], "solid": true, "shop": "liscor_smith", "sign": {"icon": "coin"}},
 		{"id": "smiths_forge", "kind": "hearth", "at": [4, 9], "name": "Smith's forge", "actions": ["forge_tool"]}
 	],
 	"legend": {"#": "city_wall", "B": "building", "_": "cobble", "b": "building_b"},

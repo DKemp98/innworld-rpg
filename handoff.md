@@ -1,5 +1,11 @@
 # Handoff
 
+## Just done (2026-10-11, local): M24.1 recipes and goods (branch `feat/m24.1-recipes-goods`)
+- Data only. Recipes `pizza` (flour+vegetables+meat -> 2, stove, confidence likely: pizza is in 2.31), `roast_meat`, `vegetable_soup` (stove or campfire); actions `bake_pizza`, `roast_meat`, `cook_vegetable_soup` (sound `cook`); goods and items `wooden_club`, `iron_dagger`, `hand_axe`; shop `liscor_smith` on object `smith_counter` (liscor_market [3,8]). Inn stove and road camp campfire got the new actions; the three are in `rules.json` `inn_work_actions`. All numbers are guesses.
+- Tests run (pass): `unit_m24_goods` (new, 3), `unit_cooking` (recipe count 7), `unit_world_view` (stove menu now 8 entries), and the list in `progress.md`. Full suite not run.
+- Next: M24.2 spells **[Sonnet · medium]**.
+- Gotchas: a new stove action lengthens the use menu; `unit_world_view` counts it. `GameState.new_game` needs `(seed, db, start)`.
+
 ## Just done (2026-10-11, local): M24.0 class actions (branch `feat/m24.0-class-actions`)
 - Data only. Actions `hunt`, `shoot_bow`, `brew_potion`, `forge_tool`, `teach_lesson` in `game/data/actions.json` (tags copy each class's weights; `hunt` has cold duress). Sounds in `audio.json` reuse `pick_up`, `swing`, `water`, `hammer`, `book`.
 - Map objects on existing art: `hunting_blind` (floodplains_south [9,23], kind reeds), `archery_target` (inn_hill [28,14], dead_tree), `brewing_cauldron` (liscor_mages_guild [3,6], brazier), `smiths_forge` (liscor_market [4,9], hearth), `lesson_slate` (inn_interior [2,8], papers). Positions and numbers are guesses.

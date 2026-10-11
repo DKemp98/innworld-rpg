@@ -222,7 +222,7 @@
 			"floor": 0.5,
 			"inn_location": "wandering_inn",
 			"inn_npc": "erin_solstice",
-			"inn_work_actions": ["cook_simple_meal", "cook_stew", "cook_pasta", "bake_bread", "serve_guests",
+			"inn_work_actions": ["cook_simple_meal", "cook_stew", "cook_pasta", "bake_bread", "bake_pizza", "roast_meat", "cook_vegetable_soup", "serve_guests",
 				"clean_room", "sweep_floor", "wash_dishes", "repair_furniture", "chop_wood", "carry_water"],
 			"hungry_line": "You went to bed hungry. Your max HP is down %d%% until you eat.",
 			"fed_line": "You eat at the inn after your work."

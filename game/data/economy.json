@@ -26,7 +26,13 @@
 		"dry_pasta": {"name": "Dry pasta", "confidence": "guess", "buy": 4, "sell": 0},
 		"simple_meal": {"name": "Simple meal", "confidence": "guess", "buy": 0, "sell": 4, "food": true},
 		"stew": {"name": "Stew", "confidence": "guess", "buy": 0, "sell": 8, "food": true},
-		"pasta_dish": {"name": "Pasta dish", "confidence": "guess", "buy": 0, "sell": 8, "food": true}
+		"pasta_dish": {"name": "Pasta dish", "confidence": "guess", "buy": 0, "sell": 8, "food": true},
+		"pizza": {"name": "Pizza", "confidence": "likely", "buy": 0, "sell": 9, "food": true, "canon_ref": {"book": 2, "chapter": "2.31", "confidence": "likely", "note": "Pizza is an Earth dish Erin makes in the inn. Recipe amounts and price are guesses."}},
+		"roast_meat": {"name": "Roast meat", "confidence": "guess", "buy": 0, "sell": 5, "food": true},
+		"vegetable_soup": {"name": "Vegetable soup", "confidence": "guess", "buy": 0, "sell": 3, "food": true},
+		"wooden_club": {"name": "Wooden club", "confidence": "guess", "buy": 12, "sell": 0, "item": "wooden_club"},
+		"iron_dagger": {"name": "Iron dagger", "confidence": "guess", "buy": 40, "sell": 0, "item": "iron_dagger"},
+		"hand_axe": {"name": "Hand axe", "confidence": "guess", "buy": 55, "sell": 0, "item": "hand_axe"}
 	},
 	"shops": {
 		"krshia_stall": {"name": "Krshia's stall", "sells": ["bread", "firewood", "winter_clothes", "flour",
@@ -44,7 +50,8 @@
 		"crag_pig": {"name": "The Crag Pig", "sells": ["hot_meal", "bread"], "buys": []},
 		"invrisil_merchants": {"name": "Invrisil Merchants' Guild", "sells": ["bread", "flour", "winter_clothes"], "buys": ["herbs", "firewood", "blue_fruit"]},
 		"frenzied_hare": {"name": "The Frenzied Hare", "sells": ["hot_meal", "bread"], "buys": []},
-		"wandering_inn": {"name": "The Wandering Inn", "sells": ["hot_meal", "bread"], "buys": []}
+		"wandering_inn": {"name": "The Wandering Inn", "sells": ["hot_meal", "bread"], "buys": []},
+		"liscor_smith": {"name": "Liscor smithy", "sells": ["wooden_club", "iron_dagger", "hand_axe"], "buys": []}
 	},
 	"yields": {
 		"forage_fruit": {"blue_fruit": 2},

@@ -9,13 +9,13 @@ When every box of a milestone is ticked, move it to the top of Done. A new miles
 
 | Milestone | State | Open items |
 |---|---|---|
-| M24 Level by living | open | M24.1 – M24.3 |
+| M24 Level by living | open | M24.2 – M24.3 |
 | M25 NPC life | not started | M25.0 – M25.4 |
 | M26 Code health | not started | M26.0, M26.1 |
 | M20 Touch controls | waits on the user | play on a PC with a touch screen |
 | Later | idea | Book 8 plan (after M25), LLM flavour layer, small asks |
 
-Last release: v0.1.4-alpha (2026-10-10). Next step: **M24.1 Recipes and goods** [Sonnet · medium].
+Last release: v0.1.4-alpha (2026-10-10). Next step: **M24.2 Spells** [Sonnet · medium].
 
 ---
 
@@ -29,7 +29,7 @@ cascades are easy to get wrong; low for mechanical steps.
 
 ## M24 — Level by living (content depth)
 - [x] M24.0 Actions for the new classes: hunt, shoot a bow, brew a potion, forge, teach; with map objects or stations on existing art **[Sonnet · medium]** (done 2026-10-11: actions `hunt`, `shoot_bow`, `brew_potion`, `forge_tool`, `teach_lesson`; objects `hunting_blind` (floodplains_south), `archery_target` (inn_hill), `brewing_cauldron` (liscor_mages_guild), `smiths_forge` (liscor_market), `lesson_slate` (inn_interior); sounds reuse existing cues)
-- [ ] M24.1 Recipes and goods: more dishes from the Books (canon names, numbers are guesses), tools and weapons in shops **[Sonnet · medium]**
+- [x] M24.1 Recipes and goods: more dishes from the Books (canon names, numbers are guesses), tools and weapons in shops **[Sonnet · medium]** (done 2026-10-11: recipes `pizza`, `roast_meat`, `vegetable_soup` + actions; shop `liscor_smith` at `smith_counter` (liscor_market) sells `wooden_club`, `iron_dagger`, `hand_axe`; numbers are guesses)
 - [ ] M24.2 Spells: more spells from Books 1 – 7 with teachers and spellbooks **[Sonnet · medium]**
 - [ ] M24.3 Skills: capstone Skills at 10 / 20 for the main classes; Skills for the class-tree step 1 – 3 classes that have none **[Sonnet · high]**
 **Done when:** every class in `classes.json` has at least one action that feeds it; the new data has unit tests.
