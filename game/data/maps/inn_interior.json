@@ -33,7 +33,8 @@
 				{"id": "liscor", "to": "liscor_watch", "pos": [5, 12], "power_flags": ["erin.magical_grounds"], "when_flags": ["albez_door.anchor_at_liscor_wall"]}]}},
 		{"id": "theatre_stage", "kind": "plaque", "at": [20, 6], "name": "The stage", "actions": [], "when_flags": ["wandering_inn.grand_theatre"], "sign": {"icon": "none", "text": "Stage"}},
 		{"id": "stairs_up", "kind": "stairs", "at": [15, 14], "name": "Stairs up", "actions": [], "when_flags": ["wandering_inn.third_floor_built"]},
-		{"id": "trapdoor", "kind": "ladder", "at": [14, 11], "name": "Trapdoor to the basement", "actions": [], "when_flags": ["wandering_inn.expansion_begun"]}
+		{"id": "trapdoor", "kind": "ladder", "at": [14, 11], "name": "Trapdoor to the basement", "actions": [], "when_flags": ["wandering_inn.expansion_begun"]},
+		{"id": "lesson_slate", "kind": "papers", "at": [2, 8], "name": "Lesson slate", "actions": ["teach_lesson"]}
 	],
 	"overlays": [
 		{"id": "grand_theatre", "tile": "wood_floor", "when_flags": ["wandering_inn.grand_theatre"],

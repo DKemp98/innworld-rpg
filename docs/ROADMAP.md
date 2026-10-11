@@ -9,40 +9,26 @@ When every box of a milestone is ticked, move it to the top of Done. A new miles
 
 | Milestone | State | Open items |
 |---|---|---|
-| M23 Canon bends | open | M23.7 drift warning |
-| M24 Level by living | not started | M24.0 – M24.3 |
+| M24 Level by living | open | M24.1 – M24.3 |
 | M25 NPC life | not started | M25.0 – M25.4 |
 | M26 Code health | not started | M26.0, M26.1 |
 | M20 Touch controls | waits on the user | play on a PC with a touch screen |
 | Later | idea | Book 8 plan (after M25), LLM flavour layer, small asks |
 
-Last release: v0.1.4-alpha (2026-10-10). Next step: **M23.7 Drift warning** [Sonnet · medium].
+Last release: v0.1.4-alpha (2026-10-10). Next step: **M24.1 Recipes and goods** [Sonnet · medium].
 
 ---
 
 # Next up
 
-From the project audit of 2026-10-08 (`progress.md` "Audit"). Order: M23 → M24 → M25 → M26, then Book 8.
+From the project audit of 2026-10-08 (`progress.md` "Audit"). Order: M24 → M25 → M26, then Book 8.
 One branch + PR per sub-step. Steps marked (user) need the user to do or decide something.
 Model tag `[Model · effort]` at the end of each step: the model and effort to pick for that session. Default is
 Sonnet · medium. Opus for engine, save and design work and for canon logic; high effort where lore, balance or
 cascades are easy to get wrong; low for mechanical steps.
 
-## M23 — Canon bends (divergence depth)
-Books 2 – 7 events only `cancel` on failure (0 substitute / delay / mutate); 67 of 1089 events have hooks.
-Key NPCs and events per book: `docs/divergence/picks.md`. Model for each book: ADR 0036 and `sim_kill_book5`.
-- [x] M23.0 Tool + list: `tools/divergence_report.py` (per book: roles, fallbacks, hooks, events that depend on one NPC); the user picks the key NPCs and key events per book (user) **[Sonnet · medium]** (done 2026-10-10: report in `docs/divergence/report.md`; user rule: top 5 NPCs + top 3 events per book, in `docs/divergence/picks.md`)
-- [x] M23.1 Book 2: roles with `fallback_tags`, `substitute` / `delay` / `mutate` on the key events, more hooks; `sim_kill_book2` (a key NPC dies, the book still runs and drift is sane) **[Opus · high]** (done 2026-10-10, ADR 0036: story-order links cut, 2 substitutes, 3 alt events, flag hand-off + delay, 19 hooks (one per on-map day), director runs an alt on its own day; Erin's death loses 109 events, was 140)
-- [x] M23.2 Book 3: the same **[Opus · high]** (done 2026-10-10, ADR 0036 "Book 3": links cut, real-cause flags, 1 substitute, 9 alt events, flag hand-offs with delay, 13 hooks (one per on-map day), director lets a dependent wait on a delayed dependency; Book 2 Goblin raid no longer needs Ksmvr; Octavia's death loses 4 events, was 49)
-- [x] M23.3 Book 4: the same **[Opus · high]** (done 2026-10-10, ADR 0036 "Book 4": trip, homecoming and relief links cut, trip-flag hand-offs, 5 alt events (Pawn in the Hive, the wagon hides from the Goblin army, home without the door, Liscor-only relief), 4 hooks (all 9 on-map days); Teriarch's death loses 2 events, was 83)
-- [x] M23.4 Book 5: the same **[Opus · high]** (done 2026-10-11, ADR 0036 "Book 5": hand-off flags, 2 substitutes (Etretta for Quallet, Ijvani for Venitra), 9 alt events (Luan and Aiko go to Geneva, Erin pays for the build, Imenet comes alone, the Necromancer still turns to the Goblins, the Gnolls burn Brunkr, Riverfarm without Laken), 4 hooks (all 16 on-map days); Venitra's death loses 20 events, was 30; Quallet's loses 0, was 6)
-- [x] M23.5 Book 6: the same **[Opus · high]** (done 2026-10-11, ADR 0036 "Book 6": real-cause flags for the Battle of Invrisil and the Redfang at the inn, 1 substitute (Zevara signs the rat contract), 9 alt events (no Zel: the Goblin Lord goes round Invrisil; no Magnolia: Zel stays in Liscor; no Goblin Lord: Zel hunts the raiders; no Erin: the Redfang go north), the five Chosen optional in the trap, 9 hooks (all 15 on-map days); Olesm's death loses 7 events, was 13; Oom's 1, was 9)
-- [x] M23.6 Book 7: the same **[Opus · high]** (done 2026-10-11, ADR 0036 "Book 7": real-cause flags for the Pallass door, the inn's moth fight, Zel's will, Selys's kidnap, Magnolia's gathering and the Redfang five (Book 6 flag); rain and flood no longer need Erin; 3 substitutes for Zevara (Relc, Ilvriss, Tekshia), 10 alt events (no Erin: Liscor fights the moths alone; no Selys: the armour goes to Magnolia; no Laken: Durene and Tessia keep Riverfarm going; no Magnolia: Laken feeds his own villages; no Rags: Pyrite leads the tribe), 5 hooks (all 14 on-map days); Zevara's death loses 5 events, was 17; Erin's 51, was 38)
-- [x] M23.7 Drift warning: at high drift the journal and the morning page say canon knowledge is unreliable (DESIGN §4.1) **[Sonnet · medium]** (done 2026-10-11: the journal line and the one-time warning page already existed; added a morning reminder line every day at high drift)
-**Done when:** each book has a kill sim that passes; each book has at least one hook per day of on-map canon; `sim_canon_book1` – `7` still run with drift 0.
-
 ## M24 — Level by living (content depth)
-- [ ] M24.0 Actions for the new classes: hunt, shoot a bow, brew a potion, forge, teach; with map objects or stations on existing art **[Sonnet · medium]**
+- [x] M24.0 Actions for the new classes: hunt, shoot a bow, brew a potion, forge, teach; with map objects or stations on existing art **[Sonnet · medium]** (done 2026-10-11: actions `hunt`, `shoot_bow`, `brew_potion`, `forge_tool`, `teach_lesson`; objects `hunting_blind` (floodplains_south), `archery_target` (inn_hill), `brewing_cauldron` (liscor_mages_guild), `smiths_forge` (liscor_market), `lesson_slate` (inn_interior); sounds reuse existing cues)
 - [ ] M24.1 Recipes and goods: more dishes from the Books (canon names, numbers are guesses), tools and weapons in shops **[Sonnet · medium]**
 - [ ] M24.2 Spells: more spells from Books 1 – 7 with teachers and spellbooks **[Sonnet · medium]**
 - [ ] M24.3 Skills: capstone Skills at 10 / 20 for the main classes; Skills for the class-tree step 1 – 3 classes that have none **[Sonnet · high]**
@@ -114,6 +100,19 @@ uploads the signed Android apk too.
 ---
 
 # Done (newest first)
+
+## M23 — Canon bends (divergence depth)
+Books 2 – 7 events only `cancel` on failure (0 substitute / delay / mutate); 67 of 1089 events have hooks.
+Key NPCs and events per book: `docs/divergence/picks.md`. Model for each book: ADR 0036 and `sim_kill_book5`.
+- [x] M23.0 Tool + list: `tools/divergence_report.py` (per book: roles, fallbacks, hooks, events that depend on one NPC); the user picks the key NPCs and key events per book (user) **[Sonnet · medium]** (done 2026-10-10: report in `docs/divergence/report.md`; user rule: top 5 NPCs + top 3 events per book, in `docs/divergence/picks.md`)
+- [x] M23.1 Book 2: roles with `fallback_tags`, `substitute` / `delay` / `mutate` on the key events, more hooks; `sim_kill_book2` (a key NPC dies, the book still runs and drift is sane) **[Opus · high]** (done 2026-10-10, ADR 0036: story-order links cut, 2 substitutes, 3 alt events, flag hand-off + delay, 19 hooks (one per on-map day), director runs an alt on its own day; Erin's death loses 109 events, was 140)
+- [x] M23.2 Book 3: the same **[Opus · high]** (done 2026-10-10, ADR 0036 "Book 3": links cut, real-cause flags, 1 substitute, 9 alt events, flag hand-offs with delay, 13 hooks (one per on-map day), director lets a dependent wait on a delayed dependency; Book 2 Goblin raid no longer needs Ksmvr; Octavia's death loses 4 events, was 49)
+- [x] M23.3 Book 4: the same **[Opus · high]** (done 2026-10-10, ADR 0036 "Book 4": trip, homecoming and relief links cut, trip-flag hand-offs, 5 alt events (Pawn in the Hive, the wagon hides from the Goblin army, home without the door, Liscor-only relief), 4 hooks (all 9 on-map days); Teriarch's death loses 2 events, was 83)
+- [x] M23.4 Book 5: the same **[Opus · high]** (done 2026-10-11, ADR 0036 "Book 5": hand-off flags, 2 substitutes (Etretta for Quallet, Ijvani for Venitra), 9 alt events (Luan and Aiko go to Geneva, Erin pays for the build, Imenet comes alone, the Necromancer still turns to the Goblins, the Gnolls burn Brunkr, Riverfarm without Laken), 4 hooks (all 16 on-map days); Venitra's death loses 20 events, was 30; Quallet's loses 0, was 6)
+- [x] M23.5 Book 6: the same **[Opus · high]** (done 2026-10-11, ADR 0036 "Book 6": real-cause flags for the Battle of Invrisil and the Redfang at the inn, 1 substitute (Zevara signs the rat contract), 9 alt events (no Zel: the Goblin Lord goes round Invrisil; no Magnolia: Zel stays in Liscor; no Goblin Lord: Zel hunts the raiders; no Erin: the Redfang go north), the five Chosen optional in the trap, 9 hooks (all 15 on-map days); Olesm's death loses 7 events, was 13; Oom's 1, was 9)
+- [x] M23.6 Book 7: the same **[Opus · high]** (done 2026-10-11, ADR 0036 "Book 7": real-cause flags for the Pallass door, the inn's moth fight, Zel's will, Selys's kidnap, Magnolia's gathering and the Redfang five (Book 6 flag); rain and flood no longer need Erin; 3 substitutes for Zevara (Relc, Ilvriss, Tekshia), 10 alt events (no Erin: Liscor fights the moths alone; no Selys: the armour goes to Magnolia; no Laken: Durene and Tessia keep Riverfarm going; no Magnolia: Laken feeds his own villages; no Rags: Pyrite leads the tribe), 5 hooks (all 14 on-map days); Zevara's death loses 5 events, was 17; Erin's 51, was 38)
+- [x] M23.7 Drift warning: at high drift the journal and the morning page say canon knowledge is unreliable (DESIGN §4.1) **[Sonnet · medium]** (done 2026-10-11: the journal line and the one-time warning page already existed; added a morning reminder line every day at high drift)
+**Done when:** each book has a kill sim that passes; each book has at least one hook per day of on-map canon; `sim_canon_book1` – `7` still run with drift 0.
 
 ## M21 — Housekeeping (cleanup)
 Small and fast. No game change.
