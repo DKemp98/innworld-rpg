@@ -1,5 +1,24 @@
 # Handoff
 
+## Just done (2026-10-11, local): Google Play prep (branch `feat/play-store-prep`)
+- User asked to prepare a Google Play release. User picks: build now, upload only after pirateaba says yes in
+  writing; Gradle template gitignored. ADR 0037, guide `docs/PLAY_STORE.md`, `PRIVACY.md`.
+- Preset `Android Play` (preset.4): Gradle, AAB, target SDK 36, arm64. `tools/release.ps1` builds
+  `export/InnworldRPG-v<version>-play.aab` after the apk; `-PlayOnly` builds only the aab.
+- `python tools/build_store_art.py` makes `export/play/` (feature graphic, 32-bit icon, 2x screenshots) from `export/itch/`.
+- Checked: AAB 88 MB, jarsigner ok, release-key SHA256 1A:13:D3..., merged manifest versionCode 3, min 29,
+  target 36, no permissions. Python tests 116 OK. No GUT run (no game code changed). Full suite not run.
+- Next: user merges the PR; user asks pirateaba; user makes the Play account. Then internal test. Then M25.0.
+- Gotchas:
+  - Gradle needs `GRADLE_OPTS='-Xmx2g -Dorg.gradle.daemon=false -Dorg.gradle.jvmargs=-Xmx2g'` (set by release.ps1).
+    The template's 4.5 GB daemon crashed (out of memory, 16 GB PC); a daemon also keeps Godot's output open, so
+    the script never ends; with no daemon the build runs in the 64 MB client unless `-Xmx2g`.
+  - PowerShell: `$x = if (...) { @('a') } else { @() }` unrolls to a string; splatting `@x` then drops it.
+  - Godot's headless import crashes at random on `PixelOperator-Bold.ttf` (0xC0000005). Run `--import` again.
+  - Godot 4.7 writes `screenOrientation="fullUser"` in the manifest (apk too) and sets landscape at run time.
+  - API 36 ignores the landscape lock on screens 600 dp and up: tablet check is open.
+  - An export rewrites `game/project.godot` and `game/icon.png.import` (order only): `git checkout --` them.
+
 ## Just done (2026-10-11, local): M24.3 skills (branch `feat/m24.3-skills`)
 - Data only. 63 rare Skills appended to `game/data/skills.json`: every class in `classes.json` now has a rare Skill for its level 10 capstone (pool 10 - 30) and a second for level 20 (pool 20 - 30). Capstone levels always pick a rare Skill first (`SkillSystem.grant_random(..., prefer_rare)`), so no class falls back to a common one at 10 or 20. Four are combat actions: `crushing_blow` (veteran_warrior), `lance_strike` (knight), `backstab` (assassin), `trampling_charge` (dragoon, area). The rest are passive `stat_mod` / `xp_mult`. Names and numbers are guesses (`confidence: guess`).
 - Level 30 is not covered for every class (only the 10 - 30 skill and the 20 - 30 skill exist; level 30 falls back to any Skill).
