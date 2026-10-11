@@ -13,6 +13,7 @@ When every box of a milestone is ticked, move it to the top of Done. A new miles
 | M25 NPC life | not started | M25.0 – M25.4 |
 | M26 Code health | not started | M26.0, M26.1 |
 | M20 Touch controls | waits on the user | play on a PC with a touch screen |
+| Google Play | waits on the user | pirateaba's yes, Play account, tests (`docs/PLAY_STORE.md`) |
 | Later | idea | Book 8 plan (after M25), LLM flavour layer, small asks |
 
 Last release: v0.1.4-alpha (2026-10-10). Next step: **M25.0 NPC levels** [Opus · high].
@@ -70,9 +71,20 @@ Planned 2026-10-05 (cloud, `docs/plans/m20.md`). User answers: InputMap actions 
 **Done when:** the whole game (title, walking, menus, fights, the System dialog) can be played with touch only;
 the keys work as before; the GUT tests that touch it pass; the user has played it on a phone.
 
+## Google Play (ADR 0037, `docs/PLAY_STORE.md`)
+- [x] Prep (2026-10-11, branch `feat/play-store-prep`): preset `Android Play` (Gradle, AAB, target API 36), AAB in
+  `tools/release.ps1`, store graphics tool `tools/build_store_art.py`, listing text and form answers, `PRIVACY.md`
+- [ ] pirateaba says yes in writing (user). **No upload before this.**
+- [ ] Play developer account: fee, ID check (user)
+- [ ] Internal test: install from Play on a phone and play (user)
+- [ ] Closed test: 12 testers for 14 days (personal account only) (user)
+- [ ] Check a tablet or a large-screen emulator: API 36 can not lock landscape there
+- [ ] Production release
+**Done when:** the game is public on Google Play with pirateaba's written yes on file.
+
 ## Other user to-dos
 - [ ] Back up the release keystore and its password file (`%USERPROFILE%\.android\`). A lost key means no app updates.
-- [ ] Optional: ask pirateaba about the fan game (M21.5 result in `docs/DESIGN.md` §7).
+- [ ] Ask pirateaba about the fan game (M21.5 result in `docs/DESIGN.md` §7). Needed before Google Play.
 
 ---
 

@@ -36,5 +36,5 @@ $env:GODOT_ANDROID_KEYSTORE_RELEASE_PASSWORD = "<password>"
 - Output: `export/android/InnworldRPG-v0.1.2-alpha.apk` (87 MB, signed with the release key).
 
 ## Not done
-- AAB (Play Store) needs the Gradle build; not set up.
+- AAB (Play Store): done in ADR 0037 (preset `Android Play`).
 - Not played on a device yet.
