@@ -13,7 +13,7 @@
 		{"at": [31, 5, 1, 2], "to": "esthelm_ruins", "arrive": [1, 4], "minutes": 180, "sign": {"icon": "none", "text": "Side road to Esthelm"}}
 	],
 	"objects": [
-		{"id": "campfire", "kind": "campfire", "at": [20, 12], "name": "Campfire", "actions": ["cook_simple_meal", "keep_watch"], "solid": true, "warm": true},
+		{"id": "campfire", "kind": "campfire", "at": [20, 12], "name": "Campfire", "actions": ["cook_simple_meal", "roast_meat", "cook_vegetable_soup", "keep_watch"], "solid": true, "warm": true},
 		{"id": "bedroll", "kind": "bedroll", "at": [21, 14], "name": "Bedroll", "actions": [], "sleep": true},
 		{"id": "camp_dead_tree", "kind": "dead_tree", "at": [10, 11], "name": "Dead tree", "actions": ["chop_wood"], "solid": true},
 		{"id": "camp_stream", "kind": "reeds", "at": [22, 7], "name": "Stream crossing", "actions": ["carry_water"]},

@@ -13,6 +13,9 @@
 			"break_chance": 0.0, "tags": []},
 		"seed_core": {"name": "Blue fruit seed core", "confidence": "likely", "melee": [0, 1], "throw": [0, 1], "throw_range": 5,
 			"break_chance": 1.0, "tags": ["repels_crab"],
-			"canon_ref": {"book": 1, "chapter": "1.02", "confidence": "confirmed", "note": "The seed core stinks; a Rock Crab panics and backs off."}}
+			"canon_ref": {"book": 1, "chapter": "1.02", "confidence": "confirmed", "note": "The seed core stinks; a Rock Crab panics and backs off."}},
+		"wooden_club": {"name": "Wooden club", "confidence": "guess", "melee": [2, 4], "throw": [1, 2], "throw_range": 3, "break_chance": 0.1, "tags": []},
+		"iron_dagger": {"name": "Iron dagger", "confidence": "guess", "melee": [2, 5], "throw": [2, 4], "throw_range": 5, "break_chance": 0.0, "tags": ["iron"]},
+		"hand_axe": {"name": "Hand axe", "confidence": "guess", "melee": [3, 6], "throw": [2, 4], "throw_range": 4, "break_chance": 0.0, "tags": ["iron"]}
 	}
 }
