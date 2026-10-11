@@ -1,4 +1,4 @@
-# Build the release files (Windows, Linux, Web zips + signed Android apk) into export/. See docs/adr/0029-release-builds.md
+# Build the release files (Windows, Linux, Web zips + signed Android apk + Google Play aab) into export/. See docs/adr/0029-release-builds.md
 # and docs/adr/0031-web-build.md.
 #
 #   $env:GODOT = "<path to Godot_v4.7.2-stable_win64_console.exe>"
@@ -10,9 +10,10 @@
 # Android: signed with the release key kept OUTSIDE the repo (ADR 0034). If the three env vars
 # GODOT_ANDROID_KEYSTORE_RELEASE_PATH / _USER / _PASSWORD are not set, they are read from
 # %USERPROFILE%\.android\innworld-release.txt (lines path=, alias=, password=).
-# Also bump version/code in the Android preset (game/export_presets.cfg) for each release.
+# Also bump version/code in both Android presets (game/export_presets.cfg) for each release.
+# -PlayOnly builds only the Google Play aab (docs/PLAY_STORE.md).
 
-param([string]$Godot = $env:GODOT)
+param([string]$Godot = $env:GODOT, [switch]$PlayOnly)
 
 # Godot writes notes to stderr: do not let them stop the script. Checks throw below.
 $ErrorActionPreference = 'Continue'
@@ -32,6 +33,7 @@ $builds = @(
     @{ Preset = 'Web'; Dir = 'web'; File = 'index.html'; Pack = 'index.pck'; Web = $true }
 )
 
+if ($PlayOnly) { $builds = @() }
 foreach ($b in $builds) {
     $name = "InnworldRPG-v$version-$($b.Dir)"
     $dir = "$out/$name"
@@ -74,12 +76,28 @@ if (-not $env:GODOT_ANDROID_KEYSTORE_RELEASE_PATH) {
     $env:GODOT_ANDROID_KEYSTORE_RELEASE_USER = $kv.alias
     $env:GODOT_ANDROID_KEYSTORE_RELEASE_PASSWORD = $kv.password
 }
-Write-Host 'Export Android...'
-$apk = "$out/InnworldRPG-v$version-android.apk"
-if (Test-Path $apk) { Remove-Item -Force $apk }
-& $Godot --headless --path "$root/game" --export-release Android $apk *> "$out/export_android.log"
-if ($LASTEXITCODE -ne 0 -or -not (Test-Path $apk)) { throw 'Export failed: see export/export_android.log' }
-Write-Host "Made $apk"
+if (-not $PlayOnly) {
+    Write-Host 'Export Android...'
+    $apk = "$out/InnworldRPG-v$version-android.apk"
+    if (Test-Path $apk) { Remove-Item -Force $apk }
+    & $Godot --headless --path "$root/game" --export-release Android $apk *> "$out/export_android.log"
+    if ($LASTEXITCODE -ne 0 -or -not (Test-Path $apk)) { throw 'Export failed: see export/export_android.log' }
+    Write-Host "Made $apk"
+}
+
+# Google Play AAB: preset 'Android Play' (Gradle build, signed with the same key, which Play uses as the upload key).
+# See docs/PLAY_STORE.md. The Gradle template lives in game/android/ (gitignored); the first run installs it.
+# GRADLE_OPTS: no daemon, because a daemon left running holds Godot's output open and the script then waits for
+# ever. Without a daemon Gradle builds in its own small JVM (64 MB), so -Xmx2g; the template's 4.5 GB crashed a 16 GB PC.
+$env:GRADLE_OPTS = '-Xmx2g -Dorg.gradle.daemon=false -Dorg.gradle.jvmargs=-Xmx2g'
+$install = @()  # an `if` expression would unroll a one-item array to a string, and the splat below would drop it
+if (-not (Test-Path "$root/game/android/build")) { $install = @('--install-android-build-template') }
+Write-Host 'Export Android Play (aab)...'
+$aab = "$out/InnworldRPG-v$version-play.aab"
+if (Test-Path $aab) { Remove-Item -Force $aab }
+& $Godot --headless --path "$root/game" @install --export-release 'Android Play' $aab *> "$out/export_play.log"
+if ($LASTEXITCODE -ne 0 -or -not (Test-Path $aab)) { throw 'Export failed: see export/export_play.log' }
+Write-Host "Made $aab"
 
 Write-Host 'Done. If git now shows .import files as changed and you did not change art:'
 Write-Host '  git checkout -- game/assets'
