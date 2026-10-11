@@ -18,6 +18,8 @@ const PROGRESS := "progress"
 const NEWS := "news"
 const RUMORS := "rumors"
 const DRIFT := "drift"
+## Every morning once the drift passes `unreliable_at` (M23.7; the one-time warning page stays).
+const DRIFT_REMINDER := "What you remember of the story may not hold."
 const OFFER := "offer"
 const CONFIRM := "confirm"
 const RESULT := "result"
@@ -97,6 +99,8 @@ static func pages(night: Dictionary, gs: GameState, db: DataDb) -> Array[Diction
 	if out.is_empty():
 		morning.append(SILENT_LINE)
 	morning.append("You wake on day %d at %s." % [Clock.player_day(gs.clock.day(), db.rules["clock"]), gs.clock.time_string()])
+	if gs.world.drift >= float(db.rules["director"]["unreliable_at"]):
+		morning.append(DRIFT_REMINDER)
 	out.append(page(MORNING, "Morning", morning))
 	return out
 

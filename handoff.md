@@ -1,5 +1,10 @@
 # Handoff
 
+## Just done (2026-10-11, local): M23.7 drift warning
+- Journal drift line and one-time warning page already existed. Added `SystemMessages.DRIFT_REMINDER` on the Morning page every day while drift >= `unreliable_at`.
+- Tests run (pass): `unit_system_messages` (18), `unit_journal`, `unit_director`. Full suite not run.
+- Next: M24.0 **[Sonnet · medium]**. M23 is done.
+
 ## Just done (2026-10-11, local): M23.6 Book 7 canon bends (branch `feat/m23.6-book7-bends`)
 - ADR 0036 "Book 7" lists every change. Data only (21 Book 7 chapter files), no engine change.
 - Book 7 had almost no `depends_on` and no flag checks, so most scenes ran with their cause gone (Pallass soldiers
