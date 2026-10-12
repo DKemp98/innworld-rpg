@@ -143,7 +143,7 @@
     "haggle": "coins",
     "buy_supplies": "coins",
     "sell_goods": "coins",
-    "deliver_parcel": "coins",
+    "deliver_parcel": "coins", "take_guild_job": "coins", "tally_ledgers": "coins", "haul_goods": "coins",
     "play_chess": "chess",
     "teach_chess": "chess",
     "talk_to_fairy": "sparkle",

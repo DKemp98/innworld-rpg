@@ -13,7 +13,7 @@
 	"objects": [
 		{"id": "invrisil_stall", "kind": "market_stall", "at": [26, 14], "name": "Market stall", "actions": ["buy_supplies", "sell_goods", "haggle"], "solid": true, "shop": "invrisil_stall", "sign": {"icon": "coin"}},
 		{"id": "invrisil_well", "kind": "well", "at": [16, 12], "name": "Well", "actions": ["carry_water"], "solid": true},
-		{"id": "invrisil_notice", "kind": "notice_board", "at": [12, 10], "name": "Notice board", "actions": [], "solid": true},
+		{"id": "invrisil_notice", "kind": "notice_board", "at": [12, 10], "name": "Notice board", "actions": ["haul_goods"], "solid": true},
 		{"id": "invrisil_brazier_west", "kind": "brazier", "at": [10, 7], "name": "Brazier", "actions": [], "solid": true, "warm": true},
 		{"id": "invrisil_brazier_east", "kind": "brazier", "at": [22, 7], "name": "Brazier", "actions": [], "solid": true, "warm": true}
 	],

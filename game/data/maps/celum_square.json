@@ -17,6 +17,7 @@
 		{"id": "celum_home_a", "kind": "plaque", "at": [19, 3], "name": "A private home", "actions": [], "sign": {"icon": "home"}},
 		{"id": "celum_home_b", "kind": "plaque", "at": [29, 3], "name": "Closed", "actions": [], "sign": {"icon": "closed"}},
 		{"id": "rats_tail_door", "kind": "door", "at": [24, 3], "name": "The Rat's Tail", "actions": ["buy_supplies"], "shop": "rats_tail", "sleep": true, "price": 10, "sign": {"icon": "mug"}},
+		{"id": "celum_job_board", "kind": "notice_board", "at": [20, 14], "name": "Merchants' board", "actions": ["haul_goods"], "solid": true},
 		{"id": "celum_well", "kind": "well", "at": [16, 12], "name": "Well", "actions": ["carry_water"], "solid": true},
 		{"id": "celum_stall", "kind": "market_stall", "at": [26, 14], "name": "Market stall", "actions": ["buy_supplies", "sell_goods", "haggle"], "solid": true, "shop": "celum_stall", "sign": {"icon": "coin"}},
 		{"id": "celum_brazier_west", "kind": "brazier", "at": [10, 7], "name": "Brazier", "actions": [], "solid": true, "warm": true},

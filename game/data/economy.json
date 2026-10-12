@@ -68,6 +68,9 @@
 		"chop_wood": {"firewood": 1}
 	},
 	"jobs": {
-		"deliver_parcel": {"pay": [3, 6]}
+		"deliver_parcel": {"pay": [3, 6]},
+		"take_guild_job": {"pay": [6, 12]},
+		"tally_ledgers": {"pay": [4, 8]},
+		"haul_goods": {"pay": [3, 5]}
 	}
 }

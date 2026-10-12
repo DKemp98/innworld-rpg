@@ -1,5 +1,14 @@
 # Handoff
 
+## Just done (2026-10-12, local): M25.2 job boards (branch `feat/m25.2-job-boards`)
+- Data only. Actions `take_guild_job` (120 min, pay 6-12), `tally_ledgers` (60 min, 4-8), `haul_goods` (60 min, 3-5) in
+  `actions.json`, `economy.json` jobs, `audio.json` (sound `coins`). Pay and tags are guesses.
+- Boards: `liscor_adventurers_guild/job_board` (take_guild_job), `invrisil_merchants_guild/contract_board` (new, tally_ledgers),
+  `invrisil_square/invrisil_notice` and `celum_square/celum_job_board` (new, haul_goods). Celum has no Merchants' Guild map, so its board is on the square.
+- New test `unit_m25_job_boards` (3). Other tests: see `progress.md` M25 line. Validator 0 errors. Full suite not run.
+- Next: user merges the PR. Then M25.3 character sheets **[Sonnet · medium]**.
+- Gotchas: patch CRLF data files with Python on bytes. The user has not walked to the new boards.
+
 ## Just done (2026-10-12, local): M25.1 talk topics (branch `feat/m25.1-talk-topics`)
 - User picked "hints only": requests are hint lines, no state, no reward, no save change. ADR 0039.
 - New `game/core/talk_topics.gd` (`TalkTopics`). `Interact.perform` adds one line after the greeting on the first
