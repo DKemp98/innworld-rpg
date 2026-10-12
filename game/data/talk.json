@@ -1,0 +1,311 @@
+{
+	"schema_version": 1,
+	"note": "M25.1 (ADR 0039). Talk topics: what NPCs say on the first talk of the day. Texts are our own words. kind news/rumor/request; 'request' is a hint to a game feature, not canon. Gate: who (npcs/tags/towns, any), flags, not_flags, days [from,to].",
+	"topics": {
+		"b1.rock_crabs": {
+			"kind": "news",
+			"text": "Do not walk the floodplains alone. Rock Crabs sit in the grass like boulders until you step too close.",
+			"confidence": "likely",
+			"who": {
+				"towns": [
+					"liscor"
+				]
+			},
+			"canon_ref": {
+				"book": 1,
+				"chapter": "1.01",
+				"confidence": "likely"
+			}
+		},
+		"b1.goblins_on_the_plains": {
+			"kind": "news",
+			"text": "Goblins roam the hills around the city. Keep to the road and do not carry food in the open.",
+			"confidence": "likely",
+			"who": {
+				"towns": [
+					"liscor"
+				]
+			},
+			"not_flags": [
+				"goblin_tribe.feathered_chieftain_dead"
+			],
+			"canon_ref": {
+				"book": 1,
+				"chapter": "1.00",
+				"confidence": "likely"
+			}
+		},
+		"b1.inn_reopened": {
+			"kind": "news",
+			"text": "Someone opened the old inn on the hill. A Human, they say, and she serves pasta.",
+			"confidence": "likely",
+			"who": {
+				"towns": [
+					"liscor"
+				]
+			},
+			"flags": [
+				"wandering_inn.serves_pasta"
+			],
+			"not_flags": [
+				"wandering_inn.raided"
+			],
+			"canon_ref": {
+				"book": 1,
+				"chapter": "1.05",
+				"confidence": "likely"
+			}
+		},
+		"b1.necromancer_wanted": {
+			"kind": "news",
+			"text": "The Watch wants a Human [Necromancer] in a dirty robe. Tell a guard if you see him.",
+			"confidence": "likely",
+			"who": {
+				"tags": [
+					"guard"
+				]
+			},
+			"flags": [
+				"liscor.hunting_pisces"
+			],
+			"not_flags": [
+				"pisces.tab_paid"
+			],
+			"canon_ref": {
+				"book": 1,
+				"chapter": "1.09",
+				"confidence": "likely"
+			}
+		},
+		"b1.chess_in_the_market": {
+			"kind": "news",
+			"text": "The Human from the inn beat Olesm at chess, right there in the market.",
+			"confidence": "confirmed",
+			"who": {
+				"npcs": [
+					"krshia",
+					"lism",
+					"relc"
+				]
+			},
+			"flags": [
+				"liscor.knows_erin_chess"
+			],
+			"canon_ref": {
+				"book": 1,
+				"chapter": "1.17",
+				"confidence": "confirmed"
+			}
+		},
+		"b1.ruins_found": {
+			"kind": "news",
+			"text": "Ruins were found under the plains. Adventurers come from all over to dig in them.",
+			"confidence": "confirmed",
+			"who": {
+				"towns": [
+					"liscor"
+				]
+			},
+			"flags": [
+				"liscor.adventurer_influx"
+			],
+			"not_flags": [
+				"skinner.awake"
+			],
+			"canon_ref": {
+				"book": 1,
+				"chapter": "1.24",
+				"confidence": "confirmed"
+			}
+		},
+		"b1.ruins_monsters": {
+			"kind": "rumor",
+			"text": "Things crawl out of the ruins at night. Stay well away from the dig.",
+			"confidence": "likely",
+			"who": {
+				"tags": [
+					"guard",
+					"adventurer"
+				]
+			},
+			"flags": [
+				"liscor_dungeon.monsters_crawl_out"
+			],
+			"not_flags": [
+				"skinner.awake"
+			],
+			"canon_ref": {
+				"book": 1,
+				"chapter": "1.49",
+				"confidence": "likely"
+			}
+		},
+		"b1.horns_lost": {
+			"kind": "rumor",
+			"text": "The Horns of Hammerad went into the ruins and did not come back.",
+			"confidence": "likely",
+			"who": {
+				"tags": [
+					"adventurer"
+				],
+				"towns": [
+					"liscor"
+				]
+			},
+			"flags": [
+				"horns_of_hammerad.destroyed"
+			],
+			"not_flags": [
+				"ceria.rescued"
+			],
+			"canon_ref": {
+				"book": 1,
+				"chapter": "1.59H",
+				"confidence": "likely"
+			}
+		},
+		"b1.runner_leg": {
+			"kind": "rumor",
+			"text": "The barefoot City Runner broke her leg in the street. Nobody will say who did it.",
+			"confidence": "guess",
+			"who": {
+				"towns": [
+					"celum"
+				]
+			},
+			"flags": [
+				"ryoka.leg_crushed"
+			],
+			"not_flags": [
+				"ryoka.leg_healed"
+			],
+			"canon_ref": {
+				"book": 1,
+				"chapter": "1.27R",
+				"confidence": "guess"
+			},
+			"note": "What Celum gossip says is a guess; the attack itself is canon."
+		},
+		"b1.magnolia_busy_runners": {
+			"kind": "news",
+			"text": "Lady Reinhart keeps every Runner in the guild busy with her deliveries.",
+			"confidence": "likely",
+			"who": {
+				"towns": [
+					"celum"
+				],
+				"tags": [
+					"runner"
+				]
+			},
+			"flags": [
+				"runners.overworked_for_magnolia"
+			],
+			"not_flags": [
+				"ryoka.left_celum"
+			],
+			"canon_ref": {
+				"book": 1,
+				"chapter": "1.39R",
+				"confidence": "likely"
+			}
+		},
+		"b2.winter": {
+			"kind": "news",
+			"text": "Winter is here. Frost Fairies ride the wind now. Do not annoy them.",
+			"confidence": "likely",
+			"flags": [
+				"frost_fairies.abroad"
+			],
+			"not_flags": [
+				"izril.spring"
+			],
+			"canon_ref": {
+				"book": 2,
+				"chapter": "2.05",
+				"confidence": "likely"
+			}
+		},
+		"hint.parcels": {
+			"kind": "request",
+			"text": "The Runners' Guild pins parcels on its request board. A few coppers each, if you have the legs.",
+			"confidence": "guess",
+			"who": {
+				"towns": [
+					"celum",
+					"invrisil"
+				],
+				"tags": [
+					"runner"
+				]
+			},
+			"note": "Points to deliver_parcel at the request boards."
+		},
+		"hint.spellbooks": {
+			"kind": "request",
+			"text": "The Mages' Guild sells spellbooks off its shelf. Not cheap, but you learn the spell.",
+			"confidence": "guess",
+			"who": {
+				"tags": [
+					"mage"
+				],
+				"towns": [
+					"liscor"
+				]
+			},
+			"note": "Points to the liscor_mages_guild shop."
+		},
+		"hint.smithy": {
+			"kind": "request",
+			"text": "Want a real weapon? The smithy in Liscor sells them. Better than a kitchen knife.",
+			"confidence": "guess",
+			"who": {
+				"tags": [
+					"guard",
+					"warrior"
+				]
+			},
+			"note": "Points to the liscor_smith shop."
+		},
+		"hint.krshia_stall": {
+			"kind": "request",
+			"text": "Buy from my stall, yes? Fair prices, not like some Drakes.",
+			"confidence": "guess",
+			"who": {
+				"npcs": [
+					"krshia"
+				]
+			},
+			"note": "Points to krshia_stall."
+		},
+		"hint.inn_help": {
+			"kind": "request",
+			"text": "Erin could use another pair of hands at the inn. She feeds the people who work for her.",
+			"confidence": "guess",
+			"who": {
+				"npcs": [
+					"relc",
+					"klbkch"
+				]
+			},
+			"flags": [
+				"wandering_inn.open"
+			],
+			"not_flags": [
+				"wandering_inn.raided"
+			],
+			"note": "Points to the inn work actions (rules.economy.hunger)."
+		},
+		"hint.hunting": {
+			"kind": "request",
+			"text": "Fresh meat sells in the market. A hunter with a bow does well on the plains.",
+			"confidence": "guess",
+			"who": {
+				"tags": [
+					"gnoll"
+				]
+			},
+			"note": "Points to the hunt and shoot_bow actions."
+		}
+	}
+}

@@ -156,6 +156,9 @@ static func perform(gs: GameState, db: DataDb, object_id: String, action_id: Str
 		var greeting: String = Standing.band(gs, db, object_id)["line"]
 		if greeting != "":
 			gs.combat.lines.append(greeting % db.canon.npcs[object_id]["name"])
+		var topic := TalkTopics.line(gs, db, object_id)  # M25.1: news, rumours, request hints
+		if topic != "":
+			gs.combat.lines.append(topic)
 	return {"record": rec, "error": ""}
 
 

@@ -20,6 +20,7 @@ static func db() -> DataDb:
 	rules["skills"] = {"on_accept": 1, "chance_per_level": 1.0, "base_weight": 0.1}
 	rules.erase("winter")  # no winter in toy worlds (M8.W); ToyWinter adds it
 	rules.erase("economy")  # no hunger, sleep anywhere in toy worlds (M8.6)
+	rules.erase("talk")  # no talk topics in toy worlds (M25.1)
 	# M17.2: toy fights run in world time (the M5 parts); ToyCombat.tactical turns combat mode on
 	rules["combat"]["tactical"]["enabled"] = false
 	rules["combat"]["tactical"]["hp_scale"] = 1.0  # M17.7: toy fights keep their small HP numbers

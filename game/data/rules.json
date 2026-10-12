@@ -266,6 +266,14 @@
 		"served_line": "You serve %s to %s. You are paid %s.",
 		"income_line": "The inn took in %s from your serving today."
 	},
+	"talk": {
+		"confidence": "guess",
+		"note": "M25.1 (ADR 0039). On the first talk of the day an NPC shares one topic: news of the last news_days days (own = an event that cast the NPC, town = an event in its town), T1 rumours, or a data/talk.json topic or request hint. Weights pick one (gs.rng). An NPC below min_regard says nothing. Numbers are design values.",
+		"news_days": 5,
+		"min_regard": 0,
+		"weights": {"own": 4, "town": 3, "rumor": 2, "topic": 2, "request": 1},
+		"line": "%s: \"%s\""
+	},
 	"standing": {
 		"confidence": "guess",
 		"note": "M14.3 (ADR 0021). Relationships and reputation. Numbers are game balance, not canon. Reputation is +-cap; a town is the nearest settlement above a map's location, a faction is an NPC's canon faction.",

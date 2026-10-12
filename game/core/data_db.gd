@@ -75,6 +75,8 @@ var combat: CombatDb = CombatDb.new()
 var economy: EconomyDb = EconomyDb.new()
 ## Spells (data/spells.json, M17.5). Empty in toy dbs.
 var spells: SpellDb = SpellDb.new()
+## Talk topics (data/talk.json, M25.1): topic id → topic. Empty in toy dbs.
+var talk: Dictionary = {}
 var errors: Array[String] = []
 
 
@@ -106,6 +108,8 @@ static func load_dir(dir: String = "res://data") -> DataDb:
 	db.errors.append_array(Brawl.validate(db))  # rules.brawl (M14.5)
 	db.errors.append_array(XpWindow.validate(db))  # xp_window boost tiers (M17.8)
 	db.errors.append_array(Breakthrough.validate(db))  # rules, class trials, hook effects (M22)
+	db.talk = _read_json(dir.path_join("talk.json"), load_errors).get("topics", {})
+	db.errors.append_array(TalkTopics.validate(db))  # rules.talk, talk.json (M25.1)
 	db.errors = load_errors + db.errors + db.canon.errors + db.maps.errors + db.behaviour.errors \
 			+ db.combat.errors + db.economy.errors + db.spells.errors
 	for e in db.errors:
