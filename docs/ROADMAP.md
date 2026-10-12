@@ -22,18 +22,11 @@ Last release: v0.1.4-alpha (2026-10-10). Next step: **M25.1 Talk topics** [Opus 
 
 # Next up
 
-From the project audit of 2026-10-08 (`progress.md` "Audit"). Order: M24 → M25 → M26, then Book 8.
+From the project audit of 2026-10-08 (`progress.md` "Audit"). Order: M25 → M26, then Book 8 (M24 done 2026-10-11).
 One branch + PR per sub-step. Steps marked (user) need the user to do or decide something.
 Model tag `[Model · effort]` at the end of each step: the model and effort to pick for that session. Default is
 Sonnet · medium. Opus for engine, save and design work and for canon logic; high effort where lore, balance or
 cascades are easy to get wrong; low for mechanical steps.
-
-## M24 — Level by living (content depth)
-- [x] M24.0 Actions for the new classes: hunt, shoot a bow, brew a potion, forge, teach; with map objects or stations on existing art **[Sonnet · medium]** (done 2026-10-11: actions `hunt`, `shoot_bow`, `brew_potion`, `forge_tool`, `teach_lesson`; objects `hunting_blind` (floodplains_south), `archery_target` (inn_hill), `brewing_cauldron` (liscor_mages_guild), `smiths_forge` (liscor_market), `lesson_slate` (inn_interior); sounds reuse existing cues)
-- [x] M24.1 Recipes and goods: more dishes from the Books (canon names, numbers are guesses), tools and weapons in shops **[Sonnet · medium]** (done 2026-10-11: recipes `pizza`, `roast_meat`, `vegetable_soup` + actions; shop `liscor_smith` at `smith_counter` (liscor_market) sells `wooden_club`, `iron_dagger`, `hand_axe`; numbers are guesses)
-- [x] M24.2 Spells: more spells from Books 1 – 7 with teachers and spellbooks **[Sonnet · medium]** (done 2026-10-11: spell `gust` (Pisces teaches, 1.22); spellbooks for `gust`, `ice_spike`, `flashfire`, `frozen_wind` (and `fireball` now has a price) sold at `spell_shelf` in liscor_mages_guild, shop `liscor_mages_guild`; Pisces casts `gust` as a fallback. Only attack shapes fit the engine, so [Ice Wall], [Barrier of Air], [Mend] and [Light] wait for an engine step)
-- [x] M24.3 Skills: capstone Skills at 10 / 20 for the main classes; Skills for the class-tree step 1 – 3 classes that have none **[Sonnet · high]** (done 2026-10-11: 63 rare Skills in `skills.json`: every class has a rare Skill for level 10 (pool 10 – 30) and a second for level 20 (pool 20 – 30); 4 are combat actions (`crushing_blow`, `lance_strike`, `backstab`, `trampling_charge`); the rest are passive stat / XP bonuses; names and numbers are guesses; no schema or engine change)
-**Done when:** every class in `classes.json` has at least one action that feeds it; the new data has unit tests.
 
 ## M25 — NPC life
 - [x] M25.0 NPCs level at low detail through the same System (DESIGN §4.5); save change + migration **[Opus · high]** (2026-10-12, ADR 0038: `NpcLevels`, save v21, `rules.npc.levels`, console `npclevels <npc>`)
@@ -92,6 +85,7 @@ the keys work as before; the GUT tests that touch it pass; the user has played i
 - Book 8 plan (after M25)
 - Optional LLM flavour layer
 - Console `skip <days>` command (offered 2026-10-11, no answer yet)
+- Outside PR #164 (DKemp98, more Skills and classes): changes asked 2026-10-12; wait for rebased, split PRs
 - Web build on its own subdomain (CNAME + Settings → Pages → Custom domain)
 - Runners' Guild staff in Invrisil: no canon NPC found, so none added (user, 2026-10-08)
 
@@ -112,6 +106,13 @@ uploads the signed Android apk too.
 ---
 
 # Done (newest first)
+
+## M24 — Level by living (content depth)
+- [x] M24.0 Actions for the new classes: hunt, shoot a bow, brew a potion, forge, teach; with map objects or stations on existing art **[Sonnet · medium]** (done 2026-10-11: actions `hunt`, `shoot_bow`, `brew_potion`, `forge_tool`, `teach_lesson`; objects `hunting_blind` (floodplains_south), `archery_target` (inn_hill), `brewing_cauldron` (liscor_mages_guild), `smiths_forge` (liscor_market), `lesson_slate` (inn_interior); sounds reuse existing cues)
+- [x] M24.1 Recipes and goods: more dishes from the Books (canon names, numbers are guesses), tools and weapons in shops **[Sonnet · medium]** (done 2026-10-11: recipes `pizza`, `roast_meat`, `vegetable_soup` + actions; shop `liscor_smith` at `smith_counter` (liscor_market) sells `wooden_club`, `iron_dagger`, `hand_axe`; numbers are guesses)
+- [x] M24.2 Spells: more spells from Books 1 – 7 with teachers and spellbooks **[Sonnet · medium]** (done 2026-10-11: spell `gust` (Pisces teaches, 1.22); spellbooks for `gust`, `ice_spike`, `flashfire`, `frozen_wind` (and `fireball` now has a price) sold at `spell_shelf` in liscor_mages_guild, shop `liscor_mages_guild`; Pisces casts `gust` as a fallback. Only attack shapes fit the engine, so [Ice Wall], [Barrier of Air], [Mend] and [Light] wait for an engine step)
+- [x] M24.3 Skills: capstone Skills at 10 / 20 for the main classes; Skills for the class-tree step 1 – 3 classes that have none **[Sonnet · high]** (done 2026-10-11: 63 rare Skills in `skills.json`: every class has a rare Skill for level 10 (pool 10 – 30) and a second for level 20 (pool 20 – 30); 4 are combat actions (`crushing_blow`, `lance_strike`, `backstab`, `trampling_charge`); the rest are passive stat / XP bonuses; names and numbers are guesses; no schema or engine change)
+**Done when:** every class in `classes.json` has at least one action that feeds it; the new data has unit tests.
 
 ## M23 — Canon bends (divergence depth)
 Books 2 – 7 events only `cancel` on failure (0 substitute / delay / mutate); 67 of 1089 events have hooks.

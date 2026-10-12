@@ -1,5 +1,9 @@
 # Handoff
 
+## Just done (2026-10-12, local): roadmap tidy
+- `docs/ROADMAP.md`: M24 (all ticked) moved from Next up to the top of Done; order line now M25 → M26;
+  outside PR #164 noted under Later. Docs only, no tests run.
+
 ## Just done (2026-10-12, local): M25.0 NPC levels (branch `feat/m25.0-npc-levels`)
 - ADR 0038. New `game/core/npc_levels.gd` (`NpcLevels`). `Director.run` calls `NpcLevels.grow(gs, db, day)` after each
   day's events (also the days before the player arrives).
