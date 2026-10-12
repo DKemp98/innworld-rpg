@@ -19,6 +19,13 @@ func open(gs: GameState, db: DataDb) -> void:
 	show()
 
 
+## An NPC's sheet (M25.3, NpcSheet.lines): same panel, no time passes.
+func open_lines(text: Array[String]) -> void:
+	_text.text = "
+".join(text)
+	show()
+
+
 func close() -> void:
 	hide()
 

@@ -37,7 +37,10 @@ events) gain the most.
 ## Not done (later steps)
 - NPCs do not gain new classes yet. A canon class gain needs an event effect (a schema change: ask first).
 - NPC levels do not change NPC fight stats or skills yet.
-- Nothing shows NPC levels in play except the debug console (`npclevels <npc>`). M25.3 adds character sheets.
+- ~~Nothing shows NPC levels in play except the debug console.~~ M25.3 (2026-10-12): an NPC row "Appraise" opens the NPC's
+  sheet (`core/npc_sheet.gd`, `NpcSheet.lines`) when the player holds the Skill named in `rules.npc.appraisal_skill`
+  (`appraisal`, user pick). It lists the NPC's classes and levels; a canon `null` level shows `?`; the total is never shown.
+  No time passes; no state is saved.
 
 ## Consequences
 - Canon NPCs drift a little from their canon levels over time. That is emergent, not canon: no canon data changes.

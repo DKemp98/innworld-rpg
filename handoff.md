@@ -1,5 +1,15 @@
 # Handoff
 
+## Just done (2026-10-12, local): M25.3 NPC sheets (branch `feat/m25.3-npc-sheets`)
+- User pick: sheets need the Skill [Appraisal]. New `core/npc_sheet.gd` (`NpcSheet.can_read`, `NpcSheet.lines`): name, race,
+  classes with level (`?` when canon level is null), never a total. Works for every canon NPC (Merec, Raisha, Ressa, Reynold, Magnolia, golems incl.).
+- `Interact.options` NPC rows get `"appraise"`; `Interact.APPRAISE`; menu row "Appraise" (`ui/interact_menu.gd`);
+  `main.use` opens `CharacterSheet.open_lines`. New rule `rules.npc.appraisal_skill: "appraisal"` (additive). No save change, no time cost.
+- [Appraisal] is an uncommon merchant Skill (class pool level 4 - 15), so a player must be a merchant to get it.
+- Tests: `unit_npc_sheet` (new, 6), plus the list in `progress.md`. Full suite not run.
+- Next: user merges the PR. Then M25.4 Magnolia's whereabouts **[Opus · medium]**.
+- Gotchas: `WorldState.is_alive(canon, npc)` takes the canon db. New `class_name` needs `--import`. The user has not tried the row in play (needs `skill appraisal` or a merchant).
+
 ## Just done (2026-10-12, local): M25.2 job boards (branch `feat/m25.2-job-boards`)
 - Data only. Actions `take_guild_job` (120 min, pay 6-12), `tally_ledgers` (60 min, 4-8), `haul_goods` (60 min, 3-5) in
   `actions.json`, `economy.json` jobs, `audio.json` (sound `coins`). Pay and tags are guesses.
