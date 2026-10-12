@@ -1,5 +1,36 @@
 # Handoff
 
+## Just done (2026-10-12, local): M25.0 NPC levels (branch `feat/m25.0-npc-levels`)
+- ADR 0038. New `game/core/npc_levels.gd` (`NpcLevels`). `Director.run` calls `NpcLevels.grow(gs, db, day)` after each
+  day's events (also the days before the player arrives).
+- Each living canon NPC with classes gets `rules.npc.levels.daily_xp` (12) a day, plus `event_xp` (50) on a day a
+  canon event that happened cast them by name. XP is split evenly between the NPC's classes. Cost = the player's
+  curve on the NPC's total level (`Levels.xp_to_next`), total cap holds. Capstones need a key: being cast in an
+  event one level under a capstone gives it. Canon `null` level = `unknown_level` (12), shown as `known: false`.
+- NPCs with no class never grow (Ryoka, Dragon, Erin). A later-book NPC starts on its book's first day
+  (`CanonDb.book_start` / `first_day_of`, from event rank + window).
+- State: `gs.world.npc_levels` npc → {class name → {gain, xp, key?}}. Save v21; migration adds `{}`.
+- Debug console: `npclevels <npc>`. No UI yet (M25.3 sheets read `NpcLevels.classes_of`).
+- Probe over Books 1 - 6 (day 129): 119 NPCs tracked, 73 grew, top +12 (Pawn, Laken). Relc never grows (total 57).
+- Tests run (all pass): `unit_npc_levels` (new, 12), `sim_npc_levels` (new, 6), `unit_game_state`, `unit_mana`
+  (removed the `SAVE_VERSION == 20` pin), `unit_director`, `unit_canon_db`, `unit_console`, `unit_save_slots`,
+  `sim_canon_book1`; validator book1 0 errors. Full suite not run.
+- Next: user merges the PR. Then M25.1 talk topics **[Opus · medium]**.
+- Gotchas: a new `class_name` needs `godot --headless --path game --import` before a `-s` script sees it. The import
+  touches ~290 `.import` files (stat only): `git update-index -q --refresh` clears them. Not done: NPCs gain no new
+  classes (needs an event effect = schema change, ask first); NPC levels do not change fight stats.
+
+## Just done (2026-10-12, local): review of outside PR #164 (DKemp98, "Expanded Skills, Classes and Sundry")
+- Review only. No code changed, nothing committed, no comment posted on the PR.
+- Findings: PR is based on main before M23.5 (23 commits behind) and conflicts. `classes.json` and `skills.json`
+  are rewritten flat (no `schema_version`, no `classes`/`skills` wrapper), so `DataDb` loads 0 classes and 0 skills.
+  One-item lists became strings (`excludes` null, `neglect_tags`, `tags`, trial `action`/`outcome`). Number
+  ranges (`heal` [8,15], yields [1,3], `base_stats` [2,4]) break `int()` reads in economy.gd, monster_sim.gd, spells.gd
+  and have no RNG code. `grill_meat`/`make_pastry` have no recipe, so they make no food. It drops 4 skills
+  (`steady_seat`, `keen_draw`, `forge_arms`, `patient_voice`) and would wipe the 63 M24.3 rare skills. 210 of 216 new
+  skills have no effect. No tests.
+- User picked option 1 (ask for changes). Reply text drafted in chat; the user posts it. Next: wait for the rebased, split PRs.
+
 ## Just done (2026-10-11, local): Google Play prep (branch `feat/play-store-prep`)
 - User asked to prepare a Google Play release. User picks: build now, upload only after pirateaba says yes in
   writing; Gradle template gitignored. ADR 0037, guide `docs/PLAY_STORE.md`, `PRIVACY.md`.
