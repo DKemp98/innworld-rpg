@@ -12,7 +12,7 @@
 	],
 	"crowd": {"lanes": [{"path": [[3, 3], [8, 3]], "walkers": 2, "looks": ["race_drake", "race_human"]}, {"path": [[10, 6], [10, 10]], "walkers": 1, "looks": ["race_gnoll"]}, {"path": [[5, 7]], "walkers": 1, "looks": ["race_gnoll"]}, {"path": [[9, 7]], "walkers": 1, "looks": ["race_drake"]}, {"path": [[13, 6]], "walkers": 1, "looks": ["race_human"]}, {"path": [[14, 9]], "walkers": 1, "looks": ["race_gnoll"]}]},
 	"objects": [
-		{"id": "job_board", "kind": "notice_board", "at": [4, 1], "name": "Job board", "actions": [], "solid": true},
+		{"id": "job_board", "kind": "notice_board", "at": [4, 1], "name": "Job board", "actions": ["take_guild_job"], "solid": true},
 		{"id": "guild_hearth", "kind": "hearth", "at": [10, 1], "name": "Hearth", "actions": [], "solid": true, "warm": true},
 		{"id": "reception_desk_a", "kind": "counter", "at": [11, 3], "name": "Reception desk", "actions": [], "solid": true},
 		{"id": "reception_desk_b", "kind": "counter", "at": [12, 3], "name": "Reception desk", "actions": [], "solid": true},

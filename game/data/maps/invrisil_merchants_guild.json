@@ -12,6 +12,7 @@
 	],
 	"objects": [
 		{"id": "merchants_counter", "kind": "counter", "at": [10, 3], "name": "Merchants' counter", "actions": ["buy_supplies", "sell_goods", "haggle"], "solid": true, "shop": "invrisil_merchants", "sign": {"icon": "coin"}},
+		{"id": "contract_board", "kind": "notice_board", "at": [5, 1], "name": "Contract board", "actions": ["tally_ledgers"], "solid": true},
 		{"id": "truth_stone", "kind": "plaque", "at": [3, 1], "name": "Truth stone", "actions": [], "sign": {"icon": "star", "text": "Truth stone"}},
 		{"id": "merchants_hearth", "kind": "hearth", "at": [17, 1], "name": "Hearth", "actions": [], "solid": true, "warm": true},
 		{"id": "merchants_shelf", "kind": "shelves", "at": [7, 1], "name": "Ledger shelf", "actions": [], "solid": true},
