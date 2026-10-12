@@ -47,6 +47,7 @@ const HELP := [
 	"  spell <id>                         learn a spell at once (debug, e.g. ice_spike)",
 	"  cast <id> [x y]                    cast a spell in a fight (default: at the nearest foe)",
 	"  kill <npc>                         kill a canon NPC (debug)",
+	"  npclevels <npc>                    a canon NPC's classes and levels (debug)",
 	"  flag <key> [value] / flag <key> off   set or clear a world flag (debug)",
 	"  history                            what happened to canon events (debug)",
 	"  drift                              how far the world left canon",
@@ -188,6 +189,10 @@ func execute(line: String) -> Array[String]:
 			if out.is_empty():
 				var err := Commands.kill_npc(gs, db, args[0])
 				out.append(err if err != "" else "%s is dead." % db.canon.npcs[args[0]]["name"])
+		"npclevels":
+			out = _need_arg(args, "npclevels <npc>")
+			if out.is_empty():
+				out = _npc_levels(args[0])
 		"flag":
 			out = _flag(args)
 		"history":
@@ -569,6 +574,21 @@ func _flag(args: Array) -> Array[String]:
 		value = false if args[1] == "off" else _value(args[1])
 	Commands.set_flag(gs, args[0], value)
 	out.append("%s = %s" % [args[0], gs.flags[args[0]]] if gs.flags.has(args[0]) else "%s cleared." % args[0])
+	return out
+
+
+## M25.0: the NPC's classes with levels (? = not known in canon; +N = gained).
+func _npc_levels(npc: String) -> Array[String]:
+	var out: Array[String] = []
+	if not db.canon.npcs.has(npc):
+		out.append("No canon NPC '%s'." % npc)
+		return out
+	for c: Dictionary in NpcLevels.classes_of(gs, db, npc):
+		out.append("  %s level %s%s" % [c["name"], str(c["level"]) if c["known"] else "?",
+				" (+%d)" % int(c["gain"]) if int(c["gain"]) > 0 else ""])
+	if out.is_empty():
+		out.append("  no class")
+	out.push_front("%s:" % db.canon.npcs[npc]["name"])
 	return out
 
 

@@ -33,6 +33,9 @@ var alt_only: Dictionary = {}
 var stages: Array[String] = []
 ## Events with an `xp_window` (hidden XP boost, M17.8; see XpWindow), in run order.
 var windows: Array[String] = []
+## Book number → the earliest window day of its events (M25.0: an NPC of a
+## later book starts to level on that day). From `rank`; toy dbs have none.
+var book_start: Dictionary = {}
 var errors: Array[String] = []
 
 
@@ -116,6 +119,7 @@ static func from_dicts(npc_map: Dictionary, location_map: Dictionary, event_map:
 	for id: String in event_map:
 		db._validate_event(id, event_map[id])
 	db._build_order()
+	db._build_book_start()
 	return db
 
 
@@ -350,6 +354,24 @@ func _build_order() -> void:
 			windows.append(id)
 			if alt_only.has(id):
 				errors.append("event '%s': an xp_window on a mutate target never opens." % id)
+
+
+func _build_book_start() -> void:
+	for id: String in rank:
+		if not events.has(id):
+			continue
+		var book := int(rank[id][0])
+		var day := _whole(events[id].get("window", {}).get("earliest", 0))
+		if book > 0 and day > 0 and (not book_start.has(book) or day < int(book_start[book])):
+			book_start[book] = day
+
+
+## The first day of the NPC's book (canon_ref.book); 0 = no book or no events.
+func first_day_of(npc: String) -> int:
+	var ref: Variant = npcs.get(npc, {}).get("canon_ref")
+	if not ref is Dictionary:
+		return 0
+	return int(book_start.get(_whole(ref.get("book", 0)), 0))
 
 
 func _before(a: String, b: String) -> bool:

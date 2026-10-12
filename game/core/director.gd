@@ -38,7 +38,8 @@ const NEWS := "news"
 const RUMOR := "rumor"
 
 
-## Runs every day from world.last_day + 1 up to `through_day`.
+## Runs every day from world.last_day + 1 up to `through_day`. After each day's
+## events, canon NPCs grow their levels (NpcLevels, M25.0).
 ## Returns the lines for the morning summary (T1 rumors, drift warning).
 static func run(gs: GameState, db: DataDb, through_day: int) -> Array[String]:
 	var lines: Array[String] = []
@@ -46,6 +47,7 @@ static func run(gs: GameState, db: DataDb, through_day: int) -> Array[String]:
 	var drift_before := w.drift
 	for day in range(w.last_day + 1, through_day + 1):
 		_run_day(gs, db, day, lines)
+		NpcLevels.grow(gs, db, day)
 		w.last_day = day
 	var limit := float(db.rules["director"]["unreliable_at"])
 	if drift_before < limit and w.drift >= limit:
