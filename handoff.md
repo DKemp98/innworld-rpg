@@ -1,5 +1,25 @@
 # Handoff
 
+## Just done (2026-10-12, local): M25.1 talk topics (branch `feat/m25.1-talk-topics`)
+- User picked "hints only": requests are hint lines, no state, no reward, no save change. ADR 0039.
+- New `game/core/talk_topics.gd` (`TalkTopics`). `Interact.perform` adds one line after the greeting on the first
+  talk of the day (`NpcSim.note_talk` true): `rules.talk.line` = `Name: "text"`.
+- Pool: news of the last `news_days` (5) days: `own` (event cast the NPC), `town` (event location in the NPC's town,
+  from canon `home`), T1 `rumor`; plus `game/data/talk.json` topics (`news`/`rumor` → "topic", `request`). Weighted
+  pick with `gs.rng` (weights own 4, town 3, rumor 2, topic 2, request 1). Regard under `min_regard` (0) = no line.
+- `talk.json` schema v1: id → {kind, text, confidence, who {npcs, tags, towns}?, flags?, not_flags?, days?,
+  canon_ref?, note?}. 11 canon topics (Books 1 - 2; chapter refs from the event that sets the flag) and 6 request
+  hints (`confidence: guess`). Loaded and validated in `DataDb.load_dir`; `db.talk`.
+- `Standing.town_of_location(db, loc)` split out of `town_of`.
+- `ToyData.db()` erases `rules.talk` (toy rules copy the real ones; otherwise toy talks would roll RNG).
+- Tests (all pass): `unit_talk_topics` (new, 6), `unit_standing`, `unit_data_db`, `unit_npc_sim`, and the 27 sims
+  that talk through Interact (sim_book3_* … sim_book7_*, sim_esthelm_siege, sim_npc_day, sim_balance_progress);
+  validator book1 0 errors; Python 116 OK. Full suite not run.
+- Next: user merges the PR. Then M25.2 job boards **[Sonnet · medium]** (real requests could join there).
+- Gotchas: a talk with a canon NPC now uses one RNG roll when its pool is not empty. Topics can repeat on later
+  days (no state). Books 3+ have event news but no talk.json topics yet. `rules.json`, `standing.gd`,
+  `interact.gd`, `data_db.gd` are CRLF: patch with Python, keep CRLF.
+
 ## Just done (2026-10-12, local): roadmap tidy
 - `docs/ROADMAP.md`: M24 (all ticked) moved from Next up to the top of Done; order line now M25 → M26;
   outside PR #164 noted under Later. Docs only, no tests run.

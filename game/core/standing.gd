@@ -29,7 +29,11 @@ static func on(db: DataDb) -> bool:
 
 ## The town of `area`: the nearest settlement at or above the map's location. "" if none.
 static func town_of(db: DataDb, area: String) -> String:
-	var loc: String = db.maps.areas.get(area, {}).get("location", "")
+	return town_of_location(db, db.maps.areas.get(area, {}).get("location", ""))
+
+
+## The nearest settlement at or above canon location `loc`. "" if none.
+static func town_of_location(db: DataDb, loc: String) -> String:
 	var guard := 0
 	while loc != "" and db.canon.locations.has(loc) and guard < 16:
 		var l: Dictionary = db.canon.locations[loc]
