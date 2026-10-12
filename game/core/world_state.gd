@@ -14,6 +14,9 @@ var relationships: Dictionary = {}
 var reputation: Dictionary = {}
 ## M14.3: canon NPC id → the last day the player had contact with them.
 var contact: Dictionary = {}
+## M25.0 (NpcLevels): canon NPC id → {class name → {"gain": levels gained since
+## the start, "xp": float, "key"?: true (may pass the next capstone)}}.
+var npc_levels: Dictionary = {}
 ## Event runtime state: id → {"status", "day", "roles", "latest"}. Missing = pending.
 ## status: pending | done | substituted | mutated | cancelled.
 var events: Dictionary = {}
@@ -80,6 +83,7 @@ func to_dict() -> Dictionary:
 		"relationships": relationships.duplicate(true),
 		"reputation": reputation.duplicate(),
 		"contact": contact.duplicate(),
+		"npc_levels": npc_levels.duplicate(true),
 		"events": events.duplicate(true),
 		"history": history.duplicate(true),
 		"news": news.duplicate(true),
@@ -101,6 +105,14 @@ static func from_dict(d: Dictionary) -> WorldState:
 		w.reputation[key] = int(d["reputation"][key])
 	for npc: String in d.get("contact", {}):
 		w.contact[npc] = int(d["contact"][npc])
+	for npc: String in d.get("npc_levels", {}):
+		var held := {}
+		for cls: String in d["npc_levels"][npc]:
+			var c: Dictionary = d["npc_levels"][npc][cls]
+			held[cls] = {"gain": int(c["gain"]), "xp": float(c["xp"])}
+			if bool(c.get("key", false)):
+				held[cls]["key"] = true
+		w.npc_levels[npc] = held
 	for id: String in d.get("events", {}):
 		var e: Dictionary = (d["events"][id] as Dictionary).duplicate(true)
 		for k: String in ["day", "latest"]:

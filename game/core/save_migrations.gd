@@ -36,6 +36,7 @@ static func migrate(data: Dictionary) -> Dictionary:
 			17: out = _migrate_17_to_18(out)
 			18: out = _migrate_18_to_19(out)
 			19: out = _migrate_19_to_20(out)
+			20: out = _migrate_20_to_21(out)
 		version += 1
 	out["save_version"] = GameState.SAVE_VERSION
 	return out
@@ -209,4 +210,13 @@ static func _migrate_19_to_20(d: Dictionary) -> Dictionary:
 		e["npc_mp"] = {}
 		c["encounter"] = e
 		d["combat"] = c
+	return d
+
+
+## v21 (M25.0): NPC levels. No NPC has gained XP or levels yet; they grow
+## from the next night on.
+static func _migrate_20_to_21(d: Dictionary) -> Dictionary:
+	var w: Dictionary = d.get("world", {})
+	w["npc_levels"] = {}
+	d["world"] = w
 	return d

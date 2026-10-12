@@ -145,7 +145,6 @@ func test_v19_saves_load_with_full_mana_and_no_spells() -> void:
 	data["save_version"] = 19
 	var migrated := SaveMigrations.migrate(data)
 	assert_eq(int(migrated["save_version"]), GameState.SAVE_VERSION)
-	assert_eq(GameState.SAVE_VERSION, 20)
 	var back := GameState.from_dict(migrated)
 	assert_eq(back.player.mp, -1)
 	assert_eq(back.progression.spells.size(), 0)

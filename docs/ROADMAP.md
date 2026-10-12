@@ -10,13 +10,13 @@ When every box of a milestone is ticked, move it to the top of Done. A new miles
 | Milestone | State | Open items |
 |---|---|---|
 | M24 Level by living | done | – |
-| M25 NPC life | not started | M25.0 – M25.4 |
+| M25 NPC life | in progress | M25.1 – M25.4 |
 | M26 Code health | not started | M26.0, M26.1 |
 | M20 Touch controls | waits on the user | play on a PC with a touch screen |
 | Google Play | waits on the user | pirateaba's yes, Play account, tests (`docs/PLAY_STORE.md`) |
 | Later | idea | Book 8 plan (after M25), LLM flavour layer, small asks |
 
-Last release: v0.1.4-alpha (2026-10-10). Next step: **M25.0 NPC levels** [Opus · high].
+Last release: v0.1.4-alpha (2026-10-10). Next step: **M25.1 Talk topics** [Opus · medium].
 
 ---
 
@@ -36,7 +36,7 @@ cascades are easy to get wrong; low for mechanical steps.
 **Done when:** every class in `classes.json` has at least one action that feeds it; the new data has unit tests.
 
 ## M25 — NPC life
-- [ ] M25.0 NPCs level at low detail through the same System (DESIGN §4.5); save change + migration **[Opus · high]**
+- [x] M25.0 NPCs level at low detail through the same System (DESIGN §4.5); save change + migration **[Opus · high]** (2026-10-12, ADR 0038: `NpcLevels`, save v21, `rules.npc.levels`, console `npclevels <npc>`)
 - [ ] M25.1 Talk topics: NPCs share news, rumours and requests (short summaries in our words, from events and flags) **[Opus · medium]**
 - [ ] M25.2 Job boards in more places (Liscor Adventurers' Guild, Invrisil, Celum Merchants) **[Sonnet · medium]**
 - [ ] M25.3 Character sheets for Merec, Raisha and the estate NPCs **[Sonnet · medium]**
