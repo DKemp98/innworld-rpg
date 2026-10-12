@@ -12,6 +12,8 @@
 			"stations": ["stove"], "confidence": "guess"},
 		"pizza": {"action": "bake_pizza", "inputs": {"flour": 1, "vegetables": 1, "meat": 1}, "outputs": {"pizza": 2},
 			"stations": ["stove"], "confidence": "likely"},
+		"blue_pastry": {"action": "make_pastry", "inputs": {"flour": 1, "blue_fruit": 1, "egg": 1}, "outputs": {"blue_pastry": 2},
+			"stations": ["stove"], "confidence": "guess"},
 		"roast_meat": {"action": "roast_meat", "inputs": {"meat": 1}, "outputs": {"roast_meat": 2},
 			"stations": ["stove", "campfire"], "confidence": "guess"},
 		"vegetable_soup": {"action": "cook_vegetable_soup", "inputs": {"vegetables": 2}, "outputs": {"vegetable_soup": 3},
