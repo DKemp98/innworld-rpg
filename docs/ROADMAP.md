@@ -16,7 +16,7 @@ When every box of a milestone is ticked, move it to the top of Done. A new miles
 | Google Play | waits on the user | pirateaba's yes, Play account, tests (`docs/PLAY_STORE.md`) |
 | Later | idea | Book 8 plan (after M25), LLM flavour layer, small asks |
 
-Last release: v0.1.4-alpha (2026-10-10). Next step: **M25.1 Talk topics** [Opus · medium].
+Last release: v0.1.4-alpha (2026-10-10). Next step: **M25.2 Job boards** [Sonnet · medium].
 
 ---
 
@@ -30,7 +30,7 @@ cascades are easy to get wrong; low for mechanical steps.
 
 ## M25 — NPC life
 - [x] M25.0 NPCs level at low detail through the same System (DESIGN §4.5); save change + migration **[Opus · high]** (2026-10-12, ADR 0038: `NpcLevels`, save v21, `rules.npc.levels`, console `npclevels <npc>`)
-- [ ] M25.1 Talk topics: NPCs share news, rumours and requests (short summaries in our words, from events and flags) **[Opus · medium]**
+- [x] M25.1 Talk topics: NPCs share news, rumours and requests (short summaries in our words, from events and flags) **[Opus · medium]** (2026-10-12, ADR 0039: `TalkTopics`, `data/talk.json`, `rules.talk`; request hints only, no save change)
 - [ ] M25.2 Job boards in more places (Liscor Adventurers' Guild, Invrisil, Celum Merchants) **[Sonnet · medium]**
 - [ ] M25.3 Character sheets for Merec, Raisha and the estate NPCs **[Sonnet · medium]**
 - [ ] M25.4 Magnolia's real whereabouts by flags (Celum in Book 1, the road, the estate); the Earth transplants' stay (2.37) **[Opus · medium]**
