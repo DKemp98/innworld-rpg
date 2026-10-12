@@ -9,32 +9,23 @@ When every box of a milestone is ticked, move it to the top of Done. A new miles
 
 | Milestone | State | Open items |
 |---|---|---|
-| M24 Level by living | done | – |
-| M25 NPC life | in progress | M25.1 – M25.4 |
+| M25 NPC life | done | – |
 | M26 Code health | not started | M26.0, M26.1 |
 | M20 Touch controls | waits on the user | play on a PC with a touch screen |
 | Google Play | waits on the user | pirateaba's yes, Play account, tests (`docs/PLAY_STORE.md`) |
 | Later | idea | Book 8 plan (after M25), LLM flavour layer, small asks |
 
-Last release: v0.1.4-alpha (2026-10-10). Next step: **M25.4 Magnolia's whereabouts** [Opus · medium].
+Last release: v0.1.4-alpha (2026-10-10). Next step: **M26.0 Split `main.gd`** [Opus · medium].
 
 ---
 
 # Next up
 
-From the project audit of 2026-10-08 (`progress.md` "Audit"). Order: M25 → M26, then Book 8 (M24 done 2026-10-11).
+From the project audit of 2026-10-08 (`progress.md` "Audit"). Order: M26, then Book 8 (M25 done 2026-10-12).
 One branch + PR per sub-step. Steps marked (user) need the user to do or decide something.
 Model tag `[Model · effort]` at the end of each step: the model and effort to pick for that session. Default is
 Sonnet · medium. Opus for engine, save and design work and for canon logic; high effort where lore, balance or
 cascades are easy to get wrong; low for mechanical steps.
-
-## M25 — NPC life
-- [x] M25.0 NPCs level at low detail through the same System (DESIGN §4.5); save change + migration **[Opus · high]** (2026-10-12, ADR 0038: `NpcLevels`, save v21, `rules.npc.levels`, console `npclevels <npc>`)
-- [x] M25.1 Talk topics: NPCs share news, rumours and requests (short summaries in our words, from events and flags) **[Opus · medium]** (2026-10-12, ADR 0039: `TalkTopics`, `data/talk.json`, `rules.talk`; request hints only, no save change)
-- [x] M25.2 Job boards in more places (Liscor Adventurers' Guild, Invrisil, Celum Merchants) **[Sonnet · medium]** (2026-10-12: `take_guild_job`, `tally_ledgers`, `haul_goods`; 4 boards; data only)
-- [x] M25.3 Character sheets for Merec, Raisha and the estate NPCs **[Sonnet · medium]** (2026-10-12: any canon NPC, read with [Appraisal]; `NpcSheet`, "Appraise" menu row; ADR 0038 note)
-- [ ] M25.4 Magnolia's real whereabouts by flags (Celum in Book 1, the road, the estate); the Earth transplants' stay (2.37) **[Opus · medium]**
-**Done when:** NPC levels change in a long sim; talking gives news or a job; the new art draws.
 
 ## M26 — Code health
 No behaviour change.
@@ -106,6 +97,14 @@ uploads the signed Android apk too.
 ---
 
 # Done (newest first)
+
+## M25 — NPC life
+- [x] M25.0 NPCs level at low detail through the same System (DESIGN §4.5); save change + migration **[Opus · high]** (2026-10-12, ADR 0038: `NpcLevels`, save v21, `rules.npc.levels`, console `npclevels <npc>`)
+- [x] M25.1 Talk topics: NPCs share news, rumours and requests (short summaries in our words, from events and flags) **[Opus · medium]** (2026-10-12, ADR 0039: `TalkTopics`, `data/talk.json`, `rules.talk`; request hints only, no save change)
+- [x] M25.2 Job boards in more places (Liscor Adventurers' Guild, Invrisil, Celum Merchants) **[Sonnet · medium]** (2026-10-12: `take_guild_job`, `tally_ledgers`, `haul_goods`; 4 boards; data only)
+- [x] M25.3 Character sheets for Merec, Raisha and the estate NPCs **[Sonnet · medium]** (2026-10-12: any canon NPC, read with [Appraisal]; `NpcSheet`, "Appraise" menu row; ADR 0038 note)
+- [x] M25.4 Magnolia's real whereabouts by flags (Celum in Book 1, the road, the estate); the Earth transplants' stay (2.37) **[Opus · medium]** (2026-10-12: data only, `npc_behaviour.json`: Magnolia and Ressa off map in Celum until `magnolia.gone_north`, on the road until `magnolia.watches_the_inn`, the estate, away in the north from `magnolia.gone_to_first_landing` until `magnolia.sends_gold_to_esthelm`; Rose, Imani, Joseph on the estate maps by day from `magnolia.hides_other_earthers`)
+**Done when:** NPC levels change in a long sim; talking gives news or a job; the new art draws.
 
 ## M24 — Level by living (content depth)
 - [x] M24.0 Actions for the new classes: hunt, shoot a bow, brew a potion, forge, teach; with map objects or stations on existing art **[Sonnet · medium]** (done 2026-10-11: actions `hunt`, `shoot_bow`, `brew_potion`, `forge_tool`, `teach_lesson`; objects `hunting_blind` (floodplains_south), `archery_target` (inn_hill), `brewing_cauldron` (liscor_mages_guild), `smiths_forge` (liscor_market), `lesson_slate` (inn_interior); sounds reuse existing cues)

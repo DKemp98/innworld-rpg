@@ -719,8 +719,14 @@
 		},
 		"magnolia_reinhart": {
 			"confidence": "guess",
-			"notes": "Magnolia's estate (2.37, 2.38). Canon puts her in Celum or on the road at other times and the data cannot track that yet, so this is only a guess: she sits in the hall by day.",
+			"notes": "M25.4: where she is goes by canon flags. Book 1: her Celum house (1.19R - 1.44R; no map, so off map in Celum). After her Liscor visit (1.63, magnolia.gone_north): on the road north until she watches the inn from Invrisil (2.06). Then the estate (2.37, 2.38, 3.13). From 3.14 (First Landing) she is away in the north until she is back at the estate in 4.38B; the data has no map for First Landing or her camps, so 'away' is off map in north Izril. Hours and spot at the estate are guesses.",
 			"goals": [
+				{"goal": "off_map", "base": 5, "unless_flags": ["magnolia.gone_north"],
+					"target": {"off_map": "celum"}},
+				{"goal": "travel", "base": 5, "when_flags": ["magnolia.gone_north"], "unless_flags": ["magnolia.watches_the_inn"],
+					"target": {"off_map": "north_izril"}},
+				{"goal": "travel", "base": 5, "when_flags": ["magnolia.gone_to_first_landing"], "unless_flags": ["magnolia.sends_gold_to_esthelm"],
+					"target": {"off_map": "north_izril"}},
 				{"goal": "work", "base": 2, "hours": [[10, 20, 1]],
 					"target": {"area": "magnolia_estate_hall", "pos": [10, 5]}},
 				{"goal": "off_map", "base": 1, "target": {"off_map": "magnolia_estate"}}
@@ -728,10 +734,43 @@
 		},
 		"ressa": {
 			"confidence": "guess",
-			"notes": "Magnolia's Head Maid (2.37). Resident at the estate by day; hours and spot are guesses.",
+			"notes": "Magnolia's Head Maid (1.19R, 2.37). M25.4: she goes where Magnolia goes (same flags; see magnolia_reinhart). Hours and spot at the estate are guesses.",
 			"goals": [
+				{"goal": "off_map", "base": 5, "unless_flags": ["magnolia.gone_north"],
+					"target": {"off_map": "celum"}},
+				{"goal": "travel", "base": 5, "when_flags": ["magnolia.gone_north"], "unless_flags": ["magnolia.watches_the_inn"],
+					"target": {"off_map": "north_izril"}},
+				{"goal": "travel", "base": 5, "when_flags": ["magnolia.gone_to_first_landing"], "unless_flags": ["magnolia.sends_gold_to_esthelm"],
+					"target": {"off_map": "north_izril"}},
 				{"goal": "work", "base": 2, "hours": [[6, 22, 1]],
 					"target": {"area": "magnolia_estate_hall", "pos": [12, 3]}},
+				{"goal": "off_map", "base": 1, "target": {"off_map": "magnolia_estate"}}
+			]
+		},
+		"rose": {
+			"confidence": "guess",
+			"notes": "Earther who stays at Magnolia's estate (2.23, 2.37). M25.4: seen in the hall by day once Magnolia hides the Earthers (magnolia.hides_other_earthers, 2.23); before that, and at night, inside the estate. Hours and spot are guesses.",
+			"goals": [
+				{"goal": "work", "base": 2, "hours": [[8, 20, 1]], "when_flags": ["magnolia.hides_other_earthers"],
+					"target": {"area": "magnolia_estate_hall", "pos": [5, 7]}},
+				{"goal": "off_map", "base": 1, "target": {"off_map": "magnolia_estate"}}
+			]
+		},
+		"imani": {
+			"confidence": "guess",
+			"notes": "Earther who stays at Magnolia's estate (2.23, 2.37). M25.4: same rule as rose. Hours and spot are guesses.",
+			"goals": [
+				{"goal": "work", "base": 2, "hours": [[7, 21, 1]], "when_flags": ["magnolia.hides_other_earthers"],
+					"target": {"area": "magnolia_estate_hall", "pos": [14, 7]}},
+				{"goal": "off_map", "base": 1, "target": {"off_map": "magnolia_estate"}}
+			]
+		},
+		"joseph": {
+			"confidence": "guess",
+			"notes": "Earther who stays at Magnolia's estate (2.23, 2.37). M25.4: same rule as rose, but out on the grounds. Hours and spot are guesses.",
+			"goals": [
+				{"goal": "work", "base": 2, "hours": [[9, 19, 1]], "when_flags": ["magnolia.hides_other_earthers"],
+					"target": {"area": "magnolia_estate_grounds", "pos": [22, 12]}},
 				{"goal": "off_map", "base": 1, "target": {"off_map": "magnolia_estate"}}
 			]
 		},
