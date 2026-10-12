@@ -81,6 +81,9 @@ func open(options: Array[Dictionary], db: DataDb) -> bool:
 			var i := _items.add_item("%s — Learn %s (%s)" % [label, Spells.name_of(db, sid),
 					_hours(int(Spells.spell(db, sid).get("learn", {}).get("minutes", 60)))])
 			_items.set_item_metadata(i, [o["id"], Interact.LEARN + sid])
+		if o.get("appraise", false):  # M25.3: [Appraisal] reads an NPC's sheet
+			var i := _items.add_item("%s — Appraise" % label)
+			_items.set_item_metadata(i, [o["id"], Interact.APPRAISE])
 		if o.get("attack", false):  # the last row of an NPC, in red (M14.5)
 			var i := _items.add_item("%s — Attack" % label)
 			_items.set_item_metadata(i, [o["id"], Interact.ATTACK])

@@ -50,6 +50,8 @@ const PORTAL := "portal"
 const PORTAL_LINK := "portal:"
 ## M17.5: "learn:<spell>" learns a spell from the NPC of the row (Commands.learn_spell).
 const LEARN := "learn:"
+## M25.3: an NPC row for a player with [Appraisal]; opens the NPC's sheet (NpcSheet). No time passes.
+const APPRAISE := "appraise"
 
 
 ## Objects on or next to the player, nearest first, then NPCs next to the
@@ -71,7 +73,8 @@ static func options(gs: GameState, db: DataDb) -> Array[Dictionary]:
 			"actions": (db.rules["npc"]["talk_actions"] as Array).duplicate(), "sleep": false,
 			"item": "", "price": 0, "trades": [] as Array[Dictionary], "ride": {},
 			"serve": Guests.serve_choices(gs, db, id), "standing": Standing.band(gs, db, id)["label"],
-			"attack": Brawl.on(db), "teach": Spells.teachable(gs, db, id)})
+			"attack": Brawl.on(db), "teach": Spells.teachable(gs, db, id),
+			"appraise": NpcSheet.can_read(gs, db)})
 	for g in Guests.near(gs):
 		var gid := Guests.GUEST + String(g["id"])
 		out.append({"id": gid, "name": Guests.patron_name(g), "npc": false, "guest": true,

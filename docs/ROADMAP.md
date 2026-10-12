@@ -16,7 +16,7 @@ When every box of a milestone is ticked, move it to the top of Done. A new miles
 | Google Play | waits on the user | pirateaba's yes, Play account, tests (`docs/PLAY_STORE.md`) |
 | Later | idea | Book 8 plan (after M25), LLM flavour layer, small asks |
 
-Last release: v0.1.4-alpha (2026-10-10). Next step: **M25.3 Character sheets** [Sonnet · medium].
+Last release: v0.1.4-alpha (2026-10-10). Next step: **M25.4 Magnolia's whereabouts** [Opus · medium].
 
 ---
 
@@ -32,7 +32,7 @@ cascades are easy to get wrong; low for mechanical steps.
 - [x] M25.0 NPCs level at low detail through the same System (DESIGN §4.5); save change + migration **[Opus · high]** (2026-10-12, ADR 0038: `NpcLevels`, save v21, `rules.npc.levels`, console `npclevels <npc>`)
 - [x] M25.1 Talk topics: NPCs share news, rumours and requests (short summaries in our words, from events and flags) **[Opus · medium]** (2026-10-12, ADR 0039: `TalkTopics`, `data/talk.json`, `rules.talk`; request hints only, no save change)
 - [x] M25.2 Job boards in more places (Liscor Adventurers' Guild, Invrisil, Celum Merchants) **[Sonnet · medium]** (2026-10-12: `take_guild_job`, `tally_ledgers`, `haul_goods`; 4 boards; data only)
-- [ ] M25.3 Character sheets for Merec, Raisha and the estate NPCs **[Sonnet · medium]**
+- [x] M25.3 Character sheets for Merec, Raisha and the estate NPCs **[Sonnet · medium]** (2026-10-12: any canon NPC, read with [Appraisal]; `NpcSheet`, "Appraise" menu row; ADR 0038 note)
 - [ ] M25.4 Magnolia's real whereabouts by flags (Celum in Book 1, the road, the estate); the Earth transplants' stay (2.37) **[Opus · medium]**
 **Done when:** NPC levels change in a long sim; talking gives news or a job; the new art draws.
 
