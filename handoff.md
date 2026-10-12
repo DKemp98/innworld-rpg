@@ -1,5 +1,19 @@
 # Handoff
 
+## Just done (2026-10-12, local): M25.4 Magnolia's whereabouts (branch `feat/m25.4-magnolia-whereabouts`)
+- Data only, existing behaviour schema (`when_flags` / `unless_flags`). No save change, no engine change, no ADR.
+- `game/data/npc_behaviour.json`: Magnolia and Ressa get base-5 goals that beat the estate goals:
+  `@celum` until `magnolia.gone_north` (1.63); `@north_izril` (the road) until `magnolia.watches_the_inn` (2.06);
+  the estate after; `@north_izril` again (away) from `magnolia.gone_to_first_landing` (3.14) until
+  `magnolia.sends_gold_to_esthelm` (4.38B). No map exists for her Celum house or First Landing, so those are off map.
+- New behaviour for the Earthers Rose (hall 5,7), Imani (hall 14,7), Joseph (grounds 22,12): seen by day from
+  `magnolia.hides_other_earthers` (2.23, day 49), else inside the estate (off map). Spots and hours are guesses.
+  They use the generic human look (no own sprite).
+- Tests: `unit_m25_whereabouts` (new, 5) + the list in `progress.md`. All pass. Full suite not run.
+- M25 is all ticked: moved to Done in `docs/ROADMAP.md`. Next: user merges the PR. Then M26.0 split `main.gd` **[Opus · medium]**.
+- Gotchas: on the road an NPC walking between off-map places shows up on a map along the way if the player is there
+  (normal NpcSim). The user has not seen this in play. Own looks for the 3 Earthers would need `tools/build_sprites.py`.
+
 ## Just done (2026-10-12, local): M25.3 NPC sheets (branch `feat/m25.3-npc-sheets`)
 - User pick: sheets need the Skill [Appraisal]. New `core/npc_sheet.gd` (`NpcSheet.can_read`, `NpcSheet.lines`): name, race,
   classes with level (`?` when canon level is null), never a total. Works for every canon NPC (Merec, Raisha, Ressa, Reynold, Magnolia, golems incl.).
