@@ -11,12 +11,12 @@ When every box of a milestone is ticked, move it to the top of Done. A new miles
 |---|---|---|
 | M25 NPC life | done | – |
 | M26 Code health | done | – |
-| Branch `data/m25.4-earther-looks` | PR open | user merges |
+| Branch `docs/state-cleanup` | PR open | user merges |
 | M20 Touch controls | waits on the user | play on a PC with a touch screen |
 | Google Play | waits on the user | pirateaba's yes, Play account, tests (`docs/PLAY_STORE.md`) |
 | Later | idea | Book 8 plan (after M25), LLM flavour layer, small asks |
 
-Last release: v0.1.4-alpha (2026-10-10). Next step: user merges the open PR, then the Book 8 plan.
+Last release: v0.1.4-alpha (2026-10-10). Next step: user merges the cleanup PR, then the Book 8 plan.
 
 ---
 
