@@ -19,7 +19,7 @@ const GONE := 4
 
 
 ## data/objects.json "signs": icon id -> [x, y, w, h] pixels on the "signs" sheet ({} when missing).
-static func load_table(path: String = WorldView.OBJECT_ART_PATH) -> Dictionary:
+static func load_table(path: String = ViewArt.OBJECT_ART_PATH) -> Dictionary:
 	if not FileAccess.file_exists(path):
 		return {}
 	var d: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
@@ -31,7 +31,7 @@ static func load_table(path: String = WorldView.OBJECT_ART_PATH) -> Dictionary:
 ## The sheet region of an icon, or an empty Rect2 (size 0) when the icon or its art is missing.
 static func icon_region(table: Dictionary, icon: String) -> Rect2:
 	var r: Variant = table.get(icon)
-	if not r is Array or (r as Array).size() != 4 or WorldView.sheet_path("signs") == "":
+	if not r is Array or (r as Array).size() != 4 or ViewArt.sheet_path("signs") == "":
 		return Rect2()
 	return Rect2(r[0], r[1], r[2], r[3])
 

@@ -51,12 +51,12 @@ var _label: Label
 
 func _ready() -> void:
 	_label = Label.new()
-	_label.add_theme_font_size_override("font_size", WorldView.NAME_FONT_SIZE)
+	_label.add_theme_font_size_override("font_size", ViewArt.NAME_FONT_SIZE)
 	_label.add_theme_color_override("font_color", Color.WHITE)
 	_label.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.9))
 	_label.add_theme_constant_override("outline_size", 8)
 	_label.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
-	_label.scale = Vector2.ONE / WorldView.TEXT_SCALE
+	_label.scale = Vector2.ONE / ViewArt.TEXT_SCALE
 	_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_label.z_index = 5
 	_label.visible = false
@@ -78,9 +78,9 @@ func show_plan(cells: Array[Vector2i], foe: bool, at: Vector2i = Vector2i.ZERO, 
 	_label.text = text
 	_label.visible = text != ""
 	if _label.visible:
-		var size := _label.get_minimum_size() / WorldView.TEXT_SCALE
-		var c := WorldView.cell_center(at)
-		_label.position = c + Vector2(-size.x / 2.0, WorldView.TILE / 2.0)  # under the foe
+		var size := _label.get_minimum_size() / ViewArt.TEXT_SCALE
+		var c := ViewArt.cell_center(at)
+		_label.position = c + Vector2(-size.x / 2.0, ViewArt.TILE / 2.0)  # under the foe
 	queue_redraw()
 
 
@@ -136,7 +136,7 @@ func label_text() -> String:
 
 
 func _draw() -> void:
-	var t := float(WorldView.TILE)
+	var t := float(ViewArt.TILE)
 	for cell: Vector2i in reach:
 		var r := Rect2(Vector2(cell) * t + Vector2.ONE, Vector2(t - 2, t - 2))
 		draw_rect(r, EXIT if exits.has(cell) else REACH)
@@ -151,20 +151,20 @@ func _draw() -> void:
 		for side: Vector2i in covers[cell]:
 			_draw_cover(cell, side, String(covers[cell][side]) == Cover.HALF)
 	for cell in path:
-		draw_circle(WorldView.cell_center(cell), DOT, PATH)
+		draw_circle(ViewArt.cell_center(cell), DOT, PATH)
 	for cell in marks:
 		draw_rect(Rect2(Vector2(cell) * t + Vector2.ONE * 2.0, Vector2(t - 4, t - 4)), SKILL, false, FRAME)
 	if has_target:
 		draw_rect(Rect2(Vector2(target) * t, Vector2(t, t)), TARGET, false, FRAME)
 	if has_active:
-		var c := WorldView.cell_center(active) + Vector2(0, t / 2.0 - 5.0)
+		var c := ViewArt.cell_center(active) + Vector2(0, t / 2.0 - 5.0)
 		draw_arc(c, t / 2.5, 0.0, TAU, 24, ACTIVE, FRAME)
 
 
 ## A bar on the edge of `cell` that faces its cover: short and gold for half cover, the
 ## whole edge and blue for full cover (M17.6).
 func _draw_cover(cell: Vector2i, side: Vector2i, half: bool) -> void:
-	var t := float(WorldView.TILE)
-	var centre := WorldView.cell_center(cell) + Vector2(side) * (t / 2.0 - 2.0)
+	var t := float(ViewArt.TILE)
+	var centre := ViewArt.cell_center(cell) + Vector2(side) * (t / 2.0 - 2.0)
 	var along := Vector2(side.y, side.x).abs() * (t * (0.25 if half else 0.5) - 2.0)
 	draw_line(centre - along, centre + along, COVER_HALF if half else COVER_FULL, 3.0 if not half else 2.0)

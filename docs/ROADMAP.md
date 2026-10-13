@@ -10,28 +10,24 @@ When every box of a milestone is ticked, move it to the top of Done. A new miles
 | Milestone | State | Open items |
 |---|---|---|
 | M25 NPC life | done | – |
-| M26 Code health | in progress | M26.0 done; M26.1 |
+| M26 Code health | done | – |
 | M20 Touch controls | waits on the user | play on a PC with a touch screen |
 | Google Play | waits on the user | pirateaba's yes, Play account, tests (`docs/PLAY_STORE.md`) |
 | Later | idea | Book 8 plan (after M25), LLM flavour layer, small asks |
 
-Last release: v0.1.4-alpha (2026-10-10). Next step: **M26.1 Split `world_view.gd`** [Opus · medium].
+Last release: v0.1.4-alpha (2026-10-10). Next step: user merges the M26.1 PR, then the Book 8 plan.
 
 ---
 
 # Next up
 
-From the project audit of 2026-10-08 (`progress.md` "Audit"). Order: M26, then Book 8 (M25 done 2026-10-12).
+From the project audit of 2026-10-08 (`progress.md` "Audit"). Order: Book 8 next (M25 done 2026-10-12, M26 done 2026-10-13).
 One branch + PR per sub-step. Steps marked (user) need the user to do or decide something.
 Model tag `[Model · effort]` at the end of each step: the model and effort to pick for that session. Default is
 Sonnet · medium. Opus for engine, save and design work and for canon logic; high effort where lore, balance or
 cascades are easy to get wrong; low for mechanical steps.
 
-## M26 — Code health
-No behaviour change.
-- [x] M26.0 Split `game/world/main.gd` (965 lines): input, travel and panel parts in their own scripts **[Opus · medium]** (done 2026-10-13: `main.gd` 499 lines + `main_input.gd`, `main_aim.gd`, `main_travel.gd`, `main_panels.gd`; ADR 0040)
-- [ ] M26.1 Split `game/world/world_view.gd` (1285 lines): markers, overlays, effects **[Opus · medium]**
-**Done when:** both files are under about 500 lines; `unit_world_view`, `unit_play_loop`, `unit_touch_controls` and the UI scripts that touch them pass.
+(Nothing open. Next: the Book 8 plan, see Later.)
 
 ---
 
@@ -97,6 +93,12 @@ uploads the signed Android apk too.
 ---
 
 # Done (newest first)
+
+## M26 — Code health
+No behaviour change.
+- [x] M26.0 Split `game/world/main.gd` (965 lines): input, travel and panel parts in their own scripts **[Opus · medium]** (done 2026-10-13: `main.gd` 499 lines + `main_input.gd`, `main_aim.gd`, `main_travel.gd`, `main_panels.gd`; ADR 0040)
+- [x] M26.1 Split `game/world/world_view.gd` (1285 lines): markers, overlays, effects **[Opus · medium]** (done 2026-10-13: `world_view.gd` 335 lines + `view_art.gd`, `view_map.gd`, `view_markers.gd`, `view_effects.gd`; ADR 0041)
+**Done when:** both files are under about 500 lines; `unit_world_view`, `unit_play_loop`, `unit_touch_controls` and the UI scripts that touch them pass.
 
 ## M25 — NPC life
 - [x] M25.0 NPCs level at low detail through the same System (DESIGN §4.5); save change + migration **[Opus · high]** (2026-10-12, ADR 0038: `NpcLevels`, save v21, `rules.npc.levels`, console `npclevels <npc>`)
