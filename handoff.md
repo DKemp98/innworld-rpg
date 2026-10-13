@@ -1,5 +1,23 @@
 # Handoff
 
+## Just done (2026-10-13, local): M26.1 split `world_view.gd` (branch `refactor/m26.1-split-world-view`)
+- No behaviour change. `game/world/world_view.gd` 1285 -> 335 lines. It keeps nodes, state, `setup`, `refresh`, `_process`.
+- New in `game/world/`: `view_art.gd` `ViewArt` (static only: TILE, sheet paths, tile sets, object art, `square`,
+  `rect`, `poly`, `add_label`, `region_sprite`, `tile_prop`), `view_map.gd` `ViewMap` (ground, objects, props, signs,
+  crowd, animated objects), `view_markers.gd` `ViewMarkers` (NPCs, patrons, monsters, fairies, traps, bars, `labelled`),
+  `view_effects.gd` `ViewEffects` (AnimDiff `play`, turn replay). ADR 0041.
+- Public names stay on WorldView (constants copied from helpers, statics and `play`/`replay`/`skip_replay`/`is_replaying`
+  pass on). No test changed.
+- `GroundArt`, `SignArt`, `CombatOverlay` now name `ViewArt` instead of `WorldView` (else a script cycle: "resources
+  still in use at exit" in every view test).
+- M26 is all ticked: moved to Done in `docs/ROADMAP.md`. Next: user merges the PR. Then the Book 8 plan (see ROADMAP "Later").
+- Tests: list in `progress.md` M26 line. All pass. Full suite not run.
+- Gotchas: `unit_art` fails on main too (Imani, Joseph, Rose from M25.4 have no own look; the test wants one for every
+  canon NPC). Fix = sprites via `tools/build_sprites.py` or a test exception: ask the user.
+  Scripts that load the main scene sometimes print "8 ObjectDB instances leaked" + "4 resources still in use" at exit,
+  not every run. main shows the same (checked 2026-10-13), so it is not from the split. Helpers keep the view in an UNTYPED `_v` (ADR 0040 rule).
+  New `class_name` needs `godot --headless --path game --import`.
+
 ## Just done (2026-10-13, local): M26.0 split `main.gd` (branch `refactor/m26.0-split-main`)
 - No behaviour change. `game/world/main.gd` 967 -> 499 lines, now `class_name MainScreen`: commands + turn replay.
 - New RefCounted helpers (made in `MainScreen._ready`): `main_input.gd` `MainInput` (keys, held direction, mouse),

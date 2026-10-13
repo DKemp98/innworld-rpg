@@ -36,8 +36,8 @@ const AROUND: Array[Vector2i] = [Vector2i(0, -1), Vector2i(-1, 0), Vector2i(1, 0
 ## "edges": Vector2i (or absent), "z": float (or absent), "key"}; {} = no art.
 ## Two tiles with the same key are one terrain (no edge between them).
 static func look(def: Dictionary, winter: bool) -> Dictionary:
-	var sp := WorldView.sprite_def(def, winter)
-	if sp.is_empty() or WorldView.sheet_path(String(sp.get("sheet", ""))) == "":
+	var sp := ViewArt.sprite_def(def, winter)
+	if sp.is_empty() or ViewArt.sheet_path(String(sp.get("sheet", ""))) == "":
 		return {}
 	var cells: Array[Vector2i] = []
 	for c: Array in sp.get("cells", []):
@@ -56,7 +56,7 @@ static func look(def: Dictionary, winter: bool) -> Dictionary:
 ## The cliff look of a tile def: {"sheet", "block": Vector2i, "key"}; {} = none.
 static func cliff_look(def: Dictionary, winter: bool) -> Dictionary:
 	var cliff: Variant = def.get("winter_cliff") if winter and def.has("winter_cliff") else def.get("cliff")
-	if not cliff is Dictionary or WorldView.sheet_path(String((cliff as Dictionary).get("sheet", ""))) == "":
+	if not cliff is Dictionary or ViewArt.sheet_path(String((cliff as Dictionary).get("sheet", ""))) == "":
 		return {}
 	var block: Array = cliff.get("block", [])
 	if block.size() != 2:
@@ -91,7 +91,7 @@ static func cliff_piece(same: Callable) -> Vector2i:
 ## "door": bool, "see_through": bool, "key"}; {} = none. The key names the sheet and block.
 static func house_look(def: Dictionary, winter: bool) -> Dictionary:
 	var house: Variant = def.get("winter_house") if winter and def.has("winter_house") else def.get("house")
-	if not house is Dictionary or WorldView.sheet_path(String((house as Dictionary).get("sheet", ""))) == "":
+	if not house is Dictionary or ViewArt.sheet_path(String((house as Dictionary).get("sheet", ""))) == "":
 		return {}
 	var block: Array = house.get("block", [])
 	if block.size() != 2:
@@ -150,7 +150,7 @@ static func plan(maps: MapDb, area: String, winter: bool) -> Dictionary:
 			if not (looks[cell] as Dictionary).is_empty():
 				continue
 			var def: Dictionary = maps.tiles.get(maps.tile_at(area, cell), {})
-			if WorldView.sprite_def(def, winter, "prop").is_empty() and cliff_look(def, winter).is_empty() \
+			if ViewArt.sprite_def(def, winter, "prop").is_empty() and cliff_look(def, winter).is_empty() \
 					and not bool(house_look(def, winter).get("see_through", false)):
 				continue
 			for d in AROUND:
@@ -170,7 +170,7 @@ static func plan(maps: MapDb, area: String, winter: bool) -> Dictionary:
 		var lk: Dictionary = looks[cell]
 		if lk.is_empty():
 			continue
-		var entry := {"base": [lk["sheet"], WorldView.pick_cell(lk["cells"], cell)]}
+		var entry := {"base": [lk["sheet"], ViewArt.pick_cell(lk["cells"], cell)]}
 		if lk.has("edges") and lk.has("z"):
 			var low := {}
 			var under := {}
@@ -182,7 +182,7 @@ static func plan(maps: MapDb, area: String, winter: bool) -> Dictionary:
 						under = n
 			var pieces := edge_pieces(low)
 			if not pieces.is_empty():
-				entry["base"] = [under["sheet"], WorldView.pick_cell(under["cells"], cell)]
+				entry["base"] = [under["sheet"], ViewArt.pick_cell(under["cells"], cell)]
 				var block: Vector2i = lk["edges"]
 				if pieces.size() == 1:
 					entry["over"] = [lk["sheet"], block + pieces[0]]
