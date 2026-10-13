@@ -874,6 +874,87 @@
 			"confidence": "likely",
 			"note": "A Worker (1.61); hunts birds with a bow (3.05L); LPC has no walk frames for the bow, so none is drawn."
 		},
+		"rose": {
+			"body": "female",
+			"skin": "light",
+			"parts": [
+				{
+					"part": "heads_human_female"
+				},
+				{
+					"part": "hair_long",
+					"color": "blonde"
+				},
+				{
+					"part": "torso_clothes_longsleeve",
+					"color": "sky"
+				},
+				{
+					"part": "legs_pants",
+					"color": "navy"
+				},
+				{
+					"part": "feet_shoes_basic",
+					"color": "white"
+				}
+			],
+			"confidence": "guess",
+			"note": "Earther from a Chicago airport (2.37); modern travel clothes. Hair and colours are guesses."
+		},
+		"imani": {
+			"body": "female",
+			"skin": "brown",
+			"parts": [
+				{
+					"part": "heads_human_female"
+				},
+				{
+					"part": "hair_curly_short",
+					"color": "black"
+				},
+				{
+					"part": "torso_clothes_longsleeve",
+					"color": "white"
+				},
+				{
+					"part": "legs_pants",
+					"color": "charcoal"
+				},
+				{
+					"part": "feet_shoes_basic",
+					"color": "brown"
+				}
+			],
+			"confidence": "guess",
+			"note": "Earther, sole survivor of her group (2.37); modern clothes. Skin, hair and colours are guesses."
+		},
+		"joseph": {
+			"body": "male",
+			"skin": "light",
+			"parts": [
+				{
+					"part": "heads_human_male"
+				},
+				{
+					"part": "hair_messy1",
+					"color": "dark_brown"
+				},
+				{
+					"part": "torso_clothes_tshirt",
+					"color": "red"
+				},
+				{
+					"part": "legs_pants",
+					"color": "navy"
+				},
+				{
+					"part": "feet_shoes_basic",
+					"color": "black"
+				}
+			],
+			"confidence": "guess",
+			"note": "American Earther from a Chicago airport (2.37); modern clothes. Hair and colours are guesses."
+		},
 		"race_human": {
 			"body": "male",
 			"skin": "light",

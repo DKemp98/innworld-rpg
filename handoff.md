@@ -1,5 +1,15 @@
 # Handoff
 
+## Just done (2026-10-13, local): own looks for Rose, Imani, Joseph (branch `data/m25.4-earther-looks`)
+- User pick A (fix the old `unit_art` fail with sprites). Data + art only, no engine change.
+- `game/data/appearance.json`: looks `rose`, `imani`, `joseph` (all `confidence: guess`; modern clothes).
+- Built `game/assets/characters/{rose,imani,joseph}.png` with `tools/build_sprites.py --only rose,imani,joseph`.
+  CREDITS.md did not change (the parts were already credited).
+- Tests: `unit_art` 11/11 (was 1 fail), `unit_m25_whereabouts`, Python 116 OK. Full suite not run.
+- Next: user merges the PR. Then the Book 8 plan (ROADMAP "Later").
+- Gotchas: after `git sparse-checkout add` the LPC files may not be there at once; run
+  `git -C ulpc sparse-checkout reapply` before the build, else the sheets come out empty (3 KB).
+
 ## Just done (2026-10-13, local): M26.1 split `world_view.gd` (branch `refactor/m26.1-split-world-view`)
 - No behaviour change. `game/world/world_view.gd` 1285 -> 335 lines. It keeps nodes, state, `setup`, `refresh`, `_process`.
 - New in `game/world/`: `view_art.gd` `ViewArt` (static only: TILE, sheet paths, tile sets, object art, `square`,
