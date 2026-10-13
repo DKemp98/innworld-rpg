@@ -11,11 +11,12 @@ When every box of a milestone is ticked, move it to the top of Done. A new miles
 |---|---|---|
 | M25 NPC life | done | – |
 | M26 Code health | done | – |
+| Branch `docs/state-cleanup` | PR open | user merges |
 | M20 Touch controls | waits on the user | play on a PC with a touch screen |
 | Google Play | waits on the user | pirateaba's yes, Play account, tests (`docs/PLAY_STORE.md`) |
 | Later | idea | Book 8 plan (after M25), LLM flavour layer, small asks |
 
-Last release: v0.1.4-alpha (2026-10-10). Next step: user merges the M26.1 PR, then the Book 8 plan.
+Last release: v0.1.4-alpha (2026-10-10). Next step: user merges the cleanup PR, then the Book 8 plan.
 
 ---
 
@@ -101,31 +102,31 @@ No behaviour change.
 **Done when:** both files are under about 500 lines; `unit_world_view`, `unit_play_loop`, `unit_touch_controls` and the UI scripts that touch them pass.
 
 ## M25 — NPC life
-- [x] M25.0 NPCs level at low detail through the same System (DESIGN §4.5); save change + migration **[Opus · high]** (2026-10-12, ADR 0038: `NpcLevels`, save v21, `rules.npc.levels`, console `npclevels <npc>`)
-- [x] M25.1 Talk topics: NPCs share news, rumours and requests (short summaries in our words, from events and flags) **[Opus · medium]** (2026-10-12, ADR 0039: `TalkTopics`, `data/talk.json`, `rules.talk`; request hints only, no save change)
-- [x] M25.2 Job boards in more places (Liscor Adventurers' Guild, Invrisil, Celum Merchants) **[Sonnet · medium]** (2026-10-12: `take_guild_job`, `tally_ledgers`, `haul_goods`; 4 boards; data only)
-- [x] M25.3 Character sheets for Merec, Raisha and the estate NPCs **[Sonnet · medium]** (2026-10-12: any canon NPC, read with [Appraisal]; `NpcSheet`, "Appraise" menu row; ADR 0038 note)
-- [x] M25.4 Magnolia's real whereabouts by flags (Celum in Book 1, the road, the estate); the Earth transplants' stay (2.37) **[Opus · medium]** (2026-10-12: data only, `npc_behaviour.json`: Magnolia and Ressa off map in Celum until `magnolia.gone_north`, on the road until `magnolia.watches_the_inn`, the estate, away in the north from `magnolia.gone_to_first_landing` until `magnolia.sends_gold_to_esthelm`; Rose, Imani, Joseph on the estate maps by day from `magnolia.hides_other_earthers`)
+- [x] M25.0 NPCs level at low detail through the same System (DESIGN §4.5); save change + migration **[Opus · high]**
+- [x] M25.1 Talk topics: NPCs share news, rumours and requests (short summaries in our words, from events and flags) **[Opus · medium]**
+- [x] M25.2 Job boards in more places (Liscor Adventurers' Guild, Invrisil, Celum Merchants) **[Sonnet · medium]**
+- [x] M25.3 Character sheets for Merec, Raisha and the estate NPCs **[Sonnet · medium]**
+- [x] M25.4 Magnolia's real whereabouts by flags (Celum in Book 1, the road, the estate); the Earth transplants' stay (2.37) **[Opus · medium]**
 **Done when:** NPC levels change in a long sim; talking gives news or a job; the new art draws.
 
 ## M24 — Level by living (content depth)
-- [x] M24.0 Actions for the new classes: hunt, shoot a bow, brew a potion, forge, teach; with map objects or stations on existing art **[Sonnet · medium]** (done 2026-10-11: actions `hunt`, `shoot_bow`, `brew_potion`, `forge_tool`, `teach_lesson`; objects `hunting_blind` (floodplains_south), `archery_target` (inn_hill), `brewing_cauldron` (liscor_mages_guild), `smiths_forge` (liscor_market), `lesson_slate` (inn_interior); sounds reuse existing cues)
-- [x] M24.1 Recipes and goods: more dishes from the Books (canon names, numbers are guesses), tools and weapons in shops **[Sonnet · medium]** (done 2026-10-11: recipes `pizza`, `roast_meat`, `vegetable_soup` + actions; shop `liscor_smith` at `smith_counter` (liscor_market) sells `wooden_club`, `iron_dagger`, `hand_axe`; numbers are guesses)
-- [x] M24.2 Spells: more spells from Books 1 – 7 with teachers and spellbooks **[Sonnet · medium]** (done 2026-10-11: spell `gust` (Pisces teaches, 1.22); spellbooks for `gust`, `ice_spike`, `flashfire`, `frozen_wind` (and `fireball` now has a price) sold at `spell_shelf` in liscor_mages_guild, shop `liscor_mages_guild`; Pisces casts `gust` as a fallback. Only attack shapes fit the engine, so [Ice Wall], [Barrier of Air], [Mend] and [Light] wait for an engine step)
-- [x] M24.3 Skills: capstone Skills at 10 / 20 for the main classes; Skills for the class-tree step 1 – 3 classes that have none **[Sonnet · high]** (done 2026-10-11: 63 rare Skills in `skills.json`: every class has a rare Skill for level 10 (pool 10 – 30) and a second for level 20 (pool 20 – 30); 4 are combat actions (`crushing_blow`, `lance_strike`, `backstab`, `trampling_charge`); the rest are passive stat / XP bonuses; names and numbers are guesses; no schema or engine change)
+- [x] M24.0 Actions for the new classes: hunt, shoot a bow, brew a potion, forge, teach; with map objects or stations on existing art **[Sonnet · medium]**
+- [x] M24.1 Recipes and goods: more dishes from the Books (canon names, numbers are guesses), tools and weapons in shops **[Sonnet · medium]**
+- [x] M24.2 Spells: more spells from Books 1 – 7 with teachers and spellbooks **[Sonnet · medium]**
+- [x] M24.3 Skills: capstone Skills at 10 / 20 for the main classes; Skills for the class-tree step 1 – 3 classes that have none **[Sonnet · high]**
 **Done when:** every class in `classes.json` has at least one action that feeds it; the new data has unit tests.
 
 ## M23 — Canon bends (divergence depth)
 Books 2 – 7 events only `cancel` on failure (0 substitute / delay / mutate); 67 of 1089 events have hooks.
 Key NPCs and events per book: `docs/divergence/picks.md`. Model for each book: ADR 0036 and `sim_kill_book5`.
-- [x] M23.0 Tool + list: `tools/divergence_report.py` (per book: roles, fallbacks, hooks, events that depend on one NPC); the user picks the key NPCs and key events per book (user) **[Sonnet · medium]** (done 2026-10-10: report in `docs/divergence/report.md`; user rule: top 5 NPCs + top 3 events per book, in `docs/divergence/picks.md`)
-- [x] M23.1 Book 2: roles with `fallback_tags`, `substitute` / `delay` / `mutate` on the key events, more hooks; `sim_kill_book2` (a key NPC dies, the book still runs and drift is sane) **[Opus · high]** (done 2026-10-10, ADR 0036: story-order links cut, 2 substitutes, 3 alt events, flag hand-off + delay, 19 hooks (one per on-map day), director runs an alt on its own day; Erin's death loses 109 events, was 140)
-- [x] M23.2 Book 3: the same **[Opus · high]** (done 2026-10-10, ADR 0036 "Book 3": links cut, real-cause flags, 1 substitute, 9 alt events, flag hand-offs with delay, 13 hooks (one per on-map day), director lets a dependent wait on a delayed dependency; Book 2 Goblin raid no longer needs Ksmvr; Octavia's death loses 4 events, was 49)
-- [x] M23.3 Book 4: the same **[Opus · high]** (done 2026-10-10, ADR 0036 "Book 4": trip, homecoming and relief links cut, trip-flag hand-offs, 5 alt events (Pawn in the Hive, the wagon hides from the Goblin army, home without the door, Liscor-only relief), 4 hooks (all 9 on-map days); Teriarch's death loses 2 events, was 83)
-- [x] M23.4 Book 5: the same **[Opus · high]** (done 2026-10-11, ADR 0036 "Book 5": hand-off flags, 2 substitutes (Etretta for Quallet, Ijvani for Venitra), 9 alt events (Luan and Aiko go to Geneva, Erin pays for the build, Imenet comes alone, the Necromancer still turns to the Goblins, the Gnolls burn Brunkr, Riverfarm without Laken), 4 hooks (all 16 on-map days); Venitra's death loses 20 events, was 30; Quallet's loses 0, was 6)
-- [x] M23.5 Book 6: the same **[Opus · high]** (done 2026-10-11, ADR 0036 "Book 6": real-cause flags for the Battle of Invrisil and the Redfang at the inn, 1 substitute (Zevara signs the rat contract), 9 alt events (no Zel: the Goblin Lord goes round Invrisil; no Magnolia: Zel stays in Liscor; no Goblin Lord: Zel hunts the raiders; no Erin: the Redfang go north), the five Chosen optional in the trap, 9 hooks (all 15 on-map days); Olesm's death loses 7 events, was 13; Oom's 1, was 9)
-- [x] M23.6 Book 7: the same **[Opus · high]** (done 2026-10-11, ADR 0036 "Book 7": real-cause flags for the Pallass door, the inn's moth fight, Zel's will, Selys's kidnap, Magnolia's gathering and the Redfang five (Book 6 flag); rain and flood no longer need Erin; 3 substitutes for Zevara (Relc, Ilvriss, Tekshia), 10 alt events (no Erin: Liscor fights the moths alone; no Selys: the armour goes to Magnolia; no Laken: Durene and Tessia keep Riverfarm going; no Magnolia: Laken feeds his own villages; no Rags: Pyrite leads the tribe), 5 hooks (all 14 on-map days); Zevara's death loses 5 events, was 17; Erin's 51, was 38)
-- [x] M23.7 Drift warning: at high drift the journal and the morning page say canon knowledge is unreliable (DESIGN §4.1) **[Sonnet · medium]** (done 2026-10-11: the journal line and the one-time warning page already existed; added a morning reminder line every day at high drift)
+- [x] M23.0 Tool + list: `tools/divergence_report.py` (per book: roles, fallbacks, hooks, events that depend on one NPC); the user picks the key NPCs and key events per book (user) **[Sonnet · medium]**
+- [x] M23.1 Book 2: roles with `fallback_tags`, `substitute` / `delay` / `mutate` on the key events, more hooks; `sim_kill_book2` (a key NPC dies, the book still runs and drift is sane) **[Opus · high]**
+- [x] M23.2 Book 3: the same **[Opus · high]**
+- [x] M23.3 Book 4: the same **[Opus · high]**
+- [x] M23.4 Book 5: the same **[Opus · high]**
+- [x] M23.5 Book 6: the same **[Opus · high]**
+- [x] M23.6 Book 7: the same **[Opus · high]**
+- [x] M23.7 Drift warning: at high drift the journal and the morning page say canon knowledge is unreliable (DESIGN §4.1) **[Sonnet · medium]**
 **Done when:** each book has a kill sim that passes; each book has at least one hook per day of on-map canon; `sim_canon_book1` – `7` still run with drift 0.
 
 ## M21 — Housekeeping (cleanup)
@@ -136,16 +137,16 @@ Small and fast. No game change.
 - [x] M21.3 Disk (done 2026-10-09, user said start; `export/` 2.8 GB to under 1 GB, v0.1.3 files kept): delete old builds in `export/` (v0.1.0 – v0.1.2, about 1.9 GB; they are on GitHub releases) (user confirms) **[Sonnet · low]**
 - [x] M21.4 (done 2026-10-09: 6 red found; 4 fixed in PR 147, 2 fixed by making 35 NPC sheets) Full GUT suite once, in a subagent; fix any red script (user asks for the run) **[Sonnet · medium; Opus · high if a red script is in `core/`]**
 - [x] M21.5 Legal (done 2026-10-09; open: ask pirateaba, user): read pirateaba's stance on fan games; write the result in `docs/DESIGN.md` §7 and `docs/ITCH.md` (user) **[Sonnet · low]**
-- [x] M21.6 Play pass: one session that closes the open "the user plays …" checks (fights, Book 6, rain, phone, touch stick, phone UI, long road, class objects, north road) and lists bugs (user) **[Sonnet · medium]** (done 2026-10-11: the user played all checks, all fine)
+- [x] M21.6 Play pass: one session that closes the open "the user plays …" checks (fights, Book 6, rain, phone, touch stick, phone UI, long road, class objects, north road) and lists bugs (user) **[Sonnet · medium]**
 **Done when:** no stray files or merged branches; README counts are true; the full suite is green; the open play checks have a result.
 
 ## M22 — Breakthroughs (fix: no class can pass level 9)
 Capstones 10 / 20 / 30 need a breakthrough, and only the debug console grants one today.
-- [x] M22.0 Design + ADR: how a breakthrough is earned (canon moments, a hard fight with high duress, an `xp_window` event, a class's own trial) (user picks). Ask before the schema change **[Opus · high]** (done 2026-10-09: ADR 0035; user picked all three sources, from level 9, a vague hint; schema changes approved: `classes.json` `breakthrough`, hook `then: boon`, effect `breakthrough`, `rules.levels.breakthrough`)
-- [x] M22.1 Engine: event effect `breakthrough` (director) + emergent triggers in the night pipeline; System message when it happens; no save change expected (`breakthroughs` is already saved) **[Opus · medium]** (done 2026-10-10: `core/breakthrough.gd`, night steps 2 and 5b, hook `boon`, checks in `DataDb` and the validator; `unit_breakthrough` 16 tests)
-- [x] M22.2 Data: breakthrough sources for the main class lines (inn, cook, warrior, runner, mage, scout, priest, crafter) **[Sonnet · medium]** (done 2026-10-10: trials + hints on 8 classes in `classes.json`, 6 `boon` hooks in Books 1 – 3)
-- [x] M22.3 Consolidation on top of breakthroughs (redo 565bc9b: M21.1 said yes; start from `git show 565bc9b`) **[Opus · medium]** (done 2026-10-10: automatic at night, a source class at level 10, so after its breakthrough; `consolidate_ready`, `rules.offers.consolidation_min_level`)
-- [x] M22.4 A probe sim: a busy player passes level 10 in one class within the Book 1 – 3 days **[Sonnet · high]** (done 2026-10-10: `sim_breakthrough_probe`; busy inn level 10 on night 31 – 32, quiet inn on night 73, fighter on night 17 – 22; bar numbers kept)
+- [x] M22.0 Design + ADR: how a breakthrough is earned (canon moments, a hard fight with high duress, an `xp_window` event, a class's own trial) (user picks). Ask before the schema change **[Opus · high]**
+- [x] M22.1 Engine: event effect `breakthrough` (director) + emergent triggers in the night pipeline; System message when it happens; no save change expected (`breakthroughs` is already saved) **[Opus · medium]**
+- [x] M22.2 Data: breakthrough sources for the main class lines (inn, cook, warrior, runner, mage, scout, priest, crafter) **[Sonnet · medium]**
+- [x] M22.3 Consolidation on top of breakthroughs (redo 565bc9b: M21.1 said yes; start from `git show 565bc9b`) **[Opus · medium]**
+- [x] M22.4 A probe sim: a busy player passes level 10 in one class within the Book 1 – 3 days **[Sonnet · high]**
 **Done when:** a player can reach level 10+ in normal play; `unit_levels`, `unit_class_system` and the new probe pass.
 
 ## M19 — Book 7 (The Rains of Liscor)
