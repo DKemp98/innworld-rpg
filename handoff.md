@@ -1,5 +1,20 @@
 # Handoff
 
+## Just done (2026-10-13, local): M26.0 split `main.gd` (branch `refactor/m26.0-split-main`)
+- No behaviour change. `game/world/main.gd` 967 -> 499 lines, now `class_name MainScreen`: commands + turn replay.
+- New RefCounted helpers (made in `MainScreen._ready`): `main_input.gd` `MainInput` (keys, held direction, mouse),
+  `main_aim.gd` `MainAim` (armed Skill/spell, click walk, tap, turn overlay + plan), `main_travel.gd` `MainTravel`
+  (long-road prompt; `main.travel` = `road.prompt`), `main_panels.gd` `MainPanels` (is_busy, console, use menu, bag,
+  touch pad, UI scale, history, night pages, morning autosave). ADR 0040.
+- Public members tests use stay on MainScreen as pass-on calls (`step`, `click`, `tap`, `hover`, `cancel`, `is_busy`,
+  `armed_skill`, `_walking`, `toggle_console`, `open_use_menu`, ...). No test changed.
+- Tests: the 20 scripts listed in `progress.md` M26 line, all pass. Full suite not run.
+- Next: user merges the PR. Then M26.1 split `world_view.gd` (1285 lines) **[Opus · medium]**.
+- Gotchas: helpers keep the screen in an UNTYPED `_m`. A typed `_m: MainScreen` makes a script cycle and Godot
+  reports "N resources still in use at exit". Values read from `_m` need explicit types (`:=` cannot infer).
+  "ObjectDB instances leaked" warnings at exit come and go between runs: audio streams still playing (not ours).
+  New `class_name` needs `godot --headless --path game --import`.
+
 ## Just done (2026-10-12, local): M25.4 Magnolia's whereabouts (branch `feat/m25.4-magnolia-whereabouts`)
 - Data only, existing behaviour schema (`when_flags` / `unless_flags`). No save change, no engine change, no ADR.
 - `game/data/npc_behaviour.json`: Magnolia and Ressa get base-5 goals that beat the estate goals:
