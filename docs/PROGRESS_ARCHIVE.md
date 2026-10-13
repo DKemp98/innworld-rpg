@@ -825,3 +825,430 @@ Session notes from M13 – M17.8, moved out of `handoff.md`. Headings are one le
 - M19.1 note: a door link `pos` must be a walkable tile on the far map; the flood rects must not cover the door, the inn hill,
   an exit or an object, and a player or NPC standing on a tile that floods is not moved (check the spots when you draw the rects).
 
+## Archived 2026-10-13 (cleanup)
+
+### handoff.md: old 'Just done' entries (M25.4 back to the 2026-10-08 audit)
+## Just done (2026-10-12, local): M25.4 Magnolia's whereabouts (branch `feat/m25.4-magnolia-whereabouts`)
+- Data only, existing behaviour schema (`when_flags` / `unless_flags`). No save change, no engine change, no ADR.
+- `game/data/npc_behaviour.json`: Magnolia and Ressa get base-5 goals that beat the estate goals:
+  `@celum` until `magnolia.gone_north` (1.63); `@north_izril` (the road) until `magnolia.watches_the_inn` (2.06);
+  the estate after; `@north_izril` again (away) from `magnolia.gone_to_first_landing` (3.14) until
+  `magnolia.sends_gold_to_esthelm` (4.38B). No map exists for her Celum house or First Landing, so those are off map.
+- New behaviour for the Earthers Rose (hall 5,7), Imani (hall 14,7), Joseph (grounds 22,12): seen by day from
+  `magnolia.hides_other_earthers` (2.23, day 49), else inside the estate (off map). Spots and hours are guesses.
+  They use the generic human look (no own sprite).
+- Tests: `unit_m25_whereabouts` (new, 5) + the list in `progress.md`. All pass. Full suite not run.
+- M25 is all ticked: moved to Done in `docs/ROADMAP.md`. Next: user merges the PR. Then M26.0 split `main.gd` **[Opus · medium]**.
+- Gotchas: on the road an NPC walking between off-map places shows up on a map along the way if the player is there
+  (normal NpcSim). The user has not seen this in play. Own looks for the 3 Earthers would need `tools/build_sprites.py`.
+
+## Just done (2026-10-12, local): M25.3 NPC sheets (branch `feat/m25.3-npc-sheets`)
+- User pick: sheets need the Skill [Appraisal]. New `core/npc_sheet.gd` (`NpcSheet.can_read`, `NpcSheet.lines`): name, race,
+  classes with level (`?` when canon level is null), never a total. Works for every canon NPC (Merec, Raisha, Ressa, Reynold, Magnolia, golems incl.).
+- `Interact.options` NPC rows get `"appraise"`; `Interact.APPRAISE`; menu row "Appraise" (`ui/interact_menu.gd`);
+  `main.use` opens `CharacterSheet.open_lines`. New rule `rules.npc.appraisal_skill: "appraisal"` (additive). No save change, no time cost.
+- [Appraisal] is an uncommon merchant Skill (class pool level 4 - 15), so a player must be a merchant to get it.
+- Tests: `unit_npc_sheet` (new, 6), plus the list in `progress.md`. Full suite not run.
+- Next: user merges the PR. Then M25.4 Magnolia's whereabouts **[Opus · medium]**.
+- Gotchas: `WorldState.is_alive(canon, npc)` takes the canon db. New `class_name` needs `--import`. The user has not tried the row in play (needs `skill appraisal` or a merchant).
+
+## Just done (2026-10-12, local): M25.2 job boards (branch `feat/m25.2-job-boards`)
+- Data only. Actions `take_guild_job` (120 min, pay 6-12), `tally_ledgers` (60 min, 4-8), `haul_goods` (60 min, 3-5) in
+  `actions.json`, `economy.json` jobs, `audio.json` (sound `coins`). Pay and tags are guesses.
+- Boards: `liscor_adventurers_guild/job_board` (take_guild_job), `invrisil_merchants_guild/contract_board` (new, tally_ledgers),
+  `invrisil_square/invrisil_notice` and `celum_square/celum_job_board` (new, haul_goods). Celum has no Merchants' Guild map, so its board is on the square.
+- New test `unit_m25_job_boards` (3). Other tests: see `progress.md` M25 line. Validator 0 errors. Full suite not run.
+- Next: user merges the PR. Then M25.3 character sheets **[Sonnet · medium]**.
+- Gotchas: patch CRLF data files with Python on bytes. The user has not walked to the new boards.
+
+## Just done (2026-10-12, local): M25.1 talk topics (branch `feat/m25.1-talk-topics`)
+- User picked "hints only": requests are hint lines, no state, no reward, no save change. ADR 0039.
+- New `game/core/talk_topics.gd` (`TalkTopics`). `Interact.perform` adds one line after the greeting on the first
+  talk of the day (`NpcSim.note_talk` true): `rules.talk.line` = `Name: "text"`.
+- Pool: news of the last `news_days` (5) days: `own` (event cast the NPC), `town` (event location in the NPC's town,
+  from canon `home`), T1 `rumor`; plus `game/data/talk.json` topics (`news`/`rumor` → "topic", `request`). Weighted
+  pick with `gs.rng` (weights own 4, town 3, rumor 2, topic 2, request 1). Regard under `min_regard` (0) = no line.
+- `talk.json` schema v1: id → {kind, text, confidence, who {npcs, tags, towns}?, flags?, not_flags?, days?,
+  canon_ref?, note?}. 11 canon topics (Books 1 - 2; chapter refs from the event that sets the flag) and 6 request
+  hints (`confidence: guess`). Loaded and validated in `DataDb.load_dir`; `db.talk`.
+- `Standing.town_of_location(db, loc)` split out of `town_of`.
+- `ToyData.db()` erases `rules.talk` (toy rules copy the real ones; otherwise toy talks would roll RNG).
+- Tests (all pass): `unit_talk_topics` (new, 6), `unit_standing`, `unit_data_db`, `unit_npc_sim`, and the 27 sims
+  that talk through Interact (sim_book3_* … sim_book7_*, sim_esthelm_siege, sim_npc_day, sim_balance_progress);
+  validator book1 0 errors; Python 116 OK. Full suite not run.
+- Next: user merges the PR. Then M25.2 job boards **[Sonnet · medium]** (real requests could join there).
+- Gotchas: a talk with a canon NPC now uses one RNG roll when its pool is not empty. Topics can repeat on later
+  days (no state). Books 3+ have event news but no talk.json topics yet. `rules.json`, `standing.gd`,
+  `interact.gd`, `data_db.gd` are CRLF: patch with Python, keep CRLF.
+
+## Just done (2026-10-12, local): roadmap tidy
+- `docs/ROADMAP.md`: M24 (all ticked) moved from Next up to the top of Done; order line now M25 → M26;
+  outside PR #164 noted under Later. Docs only, no tests run.
+
+## Just done (2026-10-12, local): M25.0 NPC levels (branch `feat/m25.0-npc-levels`)
+- ADR 0038. New `game/core/npc_levels.gd` (`NpcLevels`). `Director.run` calls `NpcLevels.grow(gs, db, day)` after each
+  day's events (also the days before the player arrives).
+- Each living canon NPC with classes gets `rules.npc.levels.daily_xp` (12) a day, plus `event_xp` (50) on a day a
+  canon event that happened cast them by name. XP is split evenly between the NPC's classes. Cost = the player's
+  curve on the NPC's total level (`Levels.xp_to_next`), total cap holds. Capstones need a key: being cast in an
+  event one level under a capstone gives it. Canon `null` level = `unknown_level` (12), shown as `known: false`.
+- NPCs with no class never grow (Ryoka, Dragon, Erin). A later-book NPC starts on its book's first day
+  (`CanonDb.book_start` / `first_day_of`, from event rank + window).
+- State: `gs.world.npc_levels` npc → {class name → {gain, xp, key?}}. Save v21; migration adds `{}`.
+- Debug console: `npclevels <npc>`. No UI yet (M25.3 sheets read `NpcLevels.classes_of`).
+- Probe over Books 1 - 6 (day 129): 119 NPCs tracked, 73 grew, top +12 (Pawn, Laken). Relc never grows (total 57).
+- Tests run (all pass): `unit_npc_levels` (new, 12), `sim_npc_levels` (new, 6), `unit_game_state`, `unit_mana`
+  (removed the `SAVE_VERSION == 20` pin), `unit_director`, `unit_canon_db`, `unit_console`, `unit_save_slots`,
+  `sim_canon_book1`; validator book1 0 errors. Full suite not run.
+- Next: user merges the PR. Then M25.1 talk topics **[Opus · medium]**.
+- Gotchas: a new `class_name` needs `godot --headless --path game --import` before a `-s` script sees it. The import
+  touches ~290 `.import` files (stat only): `git update-index -q --refresh` clears them. Not done: NPCs gain no new
+  classes (needs an event effect = schema change, ask first); NPC levels do not change fight stats.
+
+## Just done (2026-10-12, local): review of outside PR #164 (DKemp98, "Expanded Skills, Classes and Sundry")
+- Review only. No code changed, nothing committed, no comment posted on the PR.
+- Findings: PR is based on main before M23.5 (23 commits behind) and conflicts. `classes.json` and `skills.json`
+  are rewritten flat (no `schema_version`, no `classes`/`skills` wrapper), so `DataDb` loads 0 classes and 0 skills.
+  One-item lists became strings (`excludes` null, `neglect_tags`, `tags`, trial `action`/`outcome`). Number
+  ranges (`heal` [8,15], yields [1,3], `base_stats` [2,4]) break `int()` reads in economy.gd, monster_sim.gd, spells.gd
+  and have no RNG code. `grill_meat`/`make_pastry` have no recipe, so they make no food. It drops 4 skills
+  (`steady_seat`, `keen_draw`, `forge_arms`, `patient_voice`) and would wipe the 63 M24.3 rare skills. 210 of 216 new
+  skills have no effect. No tests.
+- User picked option 1 (ask for changes). Reply text drafted in chat; the user posts it. Next: wait for the rebased, split PRs.
+
+## Just done (2026-10-11, local): Google Play prep (branch `feat/play-store-prep`)
+- User asked to prepare a Google Play release. User picks: build now, upload only after pirateaba says yes in
+  writing; Gradle template gitignored. ADR 0037, guide `docs/PLAY_STORE.md`, `PRIVACY.md`.
+- Preset `Android Play` (preset.4): Gradle, AAB, target SDK 36, arm64. `tools/release.ps1` builds
+  `export/InnworldRPG-v<version>-play.aab` after the apk; `-PlayOnly` builds only the aab.
+- `python tools/build_store_art.py` makes `export/play/` (feature graphic, 32-bit icon, 2x screenshots) from `export/itch/`.
+- Checked: AAB 88 MB, jarsigner ok, release-key SHA256 1A:13:D3..., merged manifest versionCode 3, min 29,
+  target 36, no permissions. Python tests 116 OK. No GUT run (no game code changed). Full suite not run.
+- Next: user merges the PR; user asks pirateaba; user makes the Play account. Then internal test. Then M25.0.
+- Gotchas:
+  - Gradle needs `GRADLE_OPTS='-Xmx2g -Dorg.gradle.daemon=false -Dorg.gradle.jvmargs=-Xmx2g'` (set by release.ps1).
+    The template's 4.5 GB daemon crashed (out of memory, 16 GB PC); a daemon also keeps Godot's output open, so
+    the script never ends; with no daemon the build runs in the 64 MB client unless `-Xmx2g`.
+  - PowerShell: `$x = if (...) { @('a') } else { @() }` unrolls to a string; splatting `@x` then drops it.
+  - Godot's headless import crashes at random on `PixelOperator-Bold.ttf` (0xC0000005). Run `--import` again.
+  - Godot 4.7 writes `screenOrientation="fullUser"` in the manifest (apk too) and sets landscape at run time.
+  - API 36 ignores the landscape lock on screens 600 dp and up: tablet check is open.
+  - An export rewrites `game/project.godot` and `game/icon.png.import` (order only): `git checkout --` them.
+
+## Just done (2026-10-11, local): M24.3 skills (branch `feat/m24.3-skills`)
+- Data only. 63 rare Skills appended to `game/data/skills.json`: every class in `classes.json` now has a rare Skill for its level 10 capstone (pool 10 - 30) and a second for level 20 (pool 20 - 30). Capstone levels always pick a rare Skill first (`SkillSystem.grant_random(..., prefer_rare)`), so no class falls back to a common one at 10 or 20. Four are combat actions: `crushing_blow` (veteran_warrior), `lance_strike` (knight), `backstab` (assassin), `trampling_charge` (dragoon, area). The rest are passive `stat_mod` / `xp_mult`. Names and numbers are guesses (`confidence: guess`).
+- Level 30 is not covered for every class (only the 10 - 30 skill and the 20 - 30 skill exist; level 30 falls back to any Skill).
+- Tests run (pass): `unit_m24_skills` (new, 3), `unit_data_db`, `unit_class_tree_step2`, `unit_skill_system`, `unit_combat_skills`, `unit_class_system`, `unit_levels`, `unit_stats`, `unit_night`, `unit_breakthrough`, `unit_mana`, `unit_journal`, `unit_class_tree_step3`; validator 0 errors. Full suite not run.
+- M24 is done. Next: M25.0 NPC levels **[Opus · high]** (DESIGN section 4.5; save change + migration).
+- Gotchas: the patch script (`scratchpad/gen_m243.py`) is gone next session. `skills.json` is CRLF with one-line sub-objects; new entries were appended on bytes before the final `}` `}`. Never `sed -i` a CRLF file (it did strip `docs/ROADMAP.md`; restored with Python).
+
+## Just done (2026-10-11, local): M24.2 spells (branch `feat/m24.2-spells`)
+- Data only. New spell `gust` (line, Pisces teaches after `b1.pisces_saves_erin_from_flies`). Spellbooks `spellbook_gust`, `_ice_spike`, `_flashfire`, `_frozen_wind` (each spell's `learn.book`), `spellbook_fireball` now costs 320. Shop `liscor_mages_guild` on object `spell_shelf` ([10,2], liscor_mages_guild). Pisces' NPC spell list: `frozen_wind` first, then `gust` (the NPC picks the first ready spell). Prices are guesses.
+- Not added: [Ice Wall], [Barrier of Air], [Mend], [Light] are canon but the spell shapes are attack-only (`one`, `line`, `blast`, `around`). They need an engine step (utility / defence shapes).
+- Tests run (pass): `unit_m24_spells` (new, 4), `unit_spell_learning`, `unit_spells`, `unit_spell_ui`, `unit_economy`, `unit_map_db`, `unit_ground_art`, `unit_data_db`, `unit_behaviour_db`, `unit_npc_sim`; validator 0 errors. Full suite not run.
+- Next: M24.3 skills **[Sonnet · high]**.
+
+## Just done (2026-10-11, local): M24.1 recipes and goods (branch `feat/m24.1-recipes-goods`)
+- Data only. Recipes `pizza` (flour+vegetables+meat -> 2, stove, confidence likely: pizza is in 2.31), `roast_meat`, `vegetable_soup` (stove or campfire); actions `bake_pizza`, `roast_meat`, `cook_vegetable_soup` (sound `cook`); goods and items `wooden_club`, `iron_dagger`, `hand_axe`; shop `liscor_smith` on object `smith_counter` (liscor_market [3,8]). Inn stove and road camp campfire got the new actions; the three are in `rules.json` `inn_work_actions`. All numbers are guesses.
+- Tests run (pass): `unit_m24_goods` (new, 3), `unit_cooking` (recipe count 7), `unit_world_view` (stove menu now 8 entries), and the list in `progress.md`. Full suite not run.
+- Next: M24.2 spells **[Sonnet · medium]**.
+- Gotchas: a new stove action lengthens the use menu; `unit_world_view` counts it. `GameState.new_game` needs `(seed, db, start)`.
+
+## Just done (2026-10-11, local): M24.0 class actions (branch `feat/m24.0-class-actions`)
+- Data only. Actions `hunt`, `shoot_bow`, `brew_potion`, `forge_tool`, `teach_lesson` in `game/data/actions.json` (tags copy each class's weights; `hunt` has cold duress). Sounds in `audio.json` reuse `pick_up`, `swing`, `water`, `hammer`, `book`.
+- Map objects on existing art: `hunting_blind` (floodplains_south [9,23], kind reeds), `archery_target` (inn_hill [28,14], dead_tree), `brewing_cauldron` (liscor_mages_guild [3,6], brazier), `smiths_forge` (liscor_market [4,9], hearth), `lesson_slate` (inn_interior [2,8], papers). Positions and numbers are guesses.
+- New test `unit_class_actions` (3). Tests run (pass): that, `unit_class_tree_step2`, `_step3`, `unit_actions`, `unit_tags`, `unit_audio_data`, `unit_sound_cues`, `unit_map_db`, `unit_ground_art`, `unit_world_view`, `unit_gated_exits`; validator 0 errors; Python 114 OK. Full suite not run.
+- Roadmap: M23 moved to Done; At a glance now starts with M24.
+- Next: M24.1 recipes and goods **[Sonnet · medium]**.
+- Gotchas: a map object must not sit under a map overlay (the `flood` overlay on floodplains_south covers most free grass: the only free grass is (9,23), (8,23), (31,11), (31,12)). `map_db` logs "covers an exit or an object" for it. The user has not walked to the new objects yet.
+
+## Just done (2026-10-11, local): M23.7 drift warning
+- Journal drift line and one-time warning page already existed. Added `SystemMessages.DRIFT_REMINDER` on the Morning page every day while drift >= `unreliable_at`.
+- Tests run (pass): `unit_system_messages` (18), `unit_journal`, `unit_director`. Full suite not run.
+- Next: M24.0 **[Sonnet · medium]**. M23 is done.
+
+## Just done (2026-10-11, local): M23.6 Book 7 canon bends (branch `feat/m23.6-book7-bends`)
+- ADR 0036 "Book 7" lists every change. Data only (21 Book 7 chapter files), no engine change.
+- Book 7 had almost no `depends_on` and no flag checks, so most scenes ran with their cause gone (Pallass soldiers
+  crossed a door that was never set, Pisces saved Selys from a kidnap that never happened, Magnolia's letter came
+  from a dead Magnolia, the Redfang five stayed at the inn after a Book 6 alt sent them north). They now wait on
+  real-cause flags. The rain (`izril.rains`) and flood (`izril.flood`) no longer need Erin.
+- Book 7 lost on a day-130 death: Erin 38 → 51, Selys 18 → 25 (more: real causes), Zevara 17 → 5 (3 stand-ins,
+  optional in 8 scenes), Laken 26, Rags 14, Magnolia 0 → 12, Kerrig 5 → 3. Erin dead on day 114: Book 7 38 → 64.
+  The user has not seen this trade yet: say it plainly in the PR.
+- New `game/tests/sim_kill_book7.gd` (10): kills Erin, Laken, Selys, Zevara, Rags, Magnolia, Kerrig on day 130;
+  hook-per-day (14 days); sweeping at the inn broom on day 136 changes the fire scene.
+- Changed old tests: `sim_book7_goblin_road` (alt events left out of the 5.19G – 5.20G count), `sim_player_hooks` (128).
+- Tests run (all pass): `sim_kill_book7`, `sim_kill_book2..6`, `sim_canon_book7`, `sim_book7_*` (8), `sim_player_hooks`,
+  `unit_rains`, `unit_canon_db`, `unit_event_order`, `sim_divergence`; validator 0 / 0 on Books 1 – 7; Python 114 OK.
+  Full suite not run. `docs/divergence/report.md` regenerated.
+- Next: M23.7 drift warning **[Sonnet · medium]** (journal + morning page say canon knowledge is unreliable at high
+  drift, DESIGN §4.1). Then M24.
+- Gotchas: Book 7 chapter files round-trip exactly (`json.dumps(indent="	", ensure_ascii=False)` + "
+", CRLF).
+  The patch script was `scratchpad/patch_m236.py` (helpers `req_flags`, `optional`, `required`, `substitute`,
+  `mutate`, `set_dep`, `add_sets`, `add_alt`, `add_hook`); gone next session. Probe: `game/_scratch/probe.gd`
+  (`extends SceneTree`; env BOOK, KILL_DAY, END_DAY, VICTIMS comma list with `+`, LIST=1, FRESH=1 rebuilds the
+  cached base in `user://probe_base_<day>.json`); deleted, rebuild it. A substitute never picks an NPC who is
+  already cast in the same event (an optional role counts): Tekshia cannot stand in for Zevara at the funeral
+  because she is already there, so there Zevara is optional instead. The older kill sims stop at their book's
+  last day, so later-book losses do not show in their drift. Open: a Zel killed in Book 6 still gets the Book 7
+  casket with the Heartflame on him.
+
+## Just done (2026-10-11, local): M23.5 Book 6 canon bends (branch `feat/m23.5-book6-bends`)
+- ADR 0036 "Book 6" lists every change. Data only (15 Book 6 chapter files + 3 object actions on `maps/riverfarm.json`),
+  no engine change.
+- Book 6 had scenes with no link to their cause: the Battle of Invrisil ran with Zel dead, the trap ran with no
+  battle, the Redfang moved into the inn with Erin dead. They now wait on real-cause flags. So Zel / Magnolia /
+  Goblin Lord / Erin deaths lose MORE events than before (25 → 35, 17 → 36, 16 → 27, 14 → 22); Olesm 13 → 7, Oom 9 → 1.
+  The user has not seen this trade yet: say it plainly in the PR.
+- New `game/tests/sim_kill_book6.gd` (9): kills Zel, Magnolia, the Goblin Lord, Erin, Olesm, Oom + Venitra on day 114;
+  hook-per-day (15 days); chopping wood at the Riverfarm trebuchet frame on day 118 changes that day. Copy it for Book 7.
+- Changed old tests: `sim_kill_book5` (Erin's drift ceiling 31 → 33.5: her Book 6 days 114 – 115 now need her),
+  `sim_player_hooks` count 123, `sim_book6_world` (stale assert: Dasha has her own look since 4dce883; was red on main).
+- Tests run (all pass): `sim_kill_book6`, `sim_kill_book5`, `sim_canon_book6`, `sim_canon_book7`, `sim_book6_*` (7),
+  `sim_player_hooks`, `unit_canon_db`, `sim_divergence`, `unit_event_order`, `unit_map_db`, `unit_north_road`,
+  `sim_book7_riverfarm`; validator 0 / 0 on Books 1 – 7; Python 114 OK. Full suite not run.
+  `docs/divergence/report.md` regenerated.
+- Next: M23.6 Book 7 **[Opus · high]**. Picks: Erin, Laken, Selys, Zevara, Rags; key events in `docs/divergence/picks.md`.
+- Gotchas: Book 6 chapter files round-trip exactly through `json.load` / `json.dumps(indent="	", ensure_ascii=False)`
+  + "
+", written with CRLF, so a plain load-edit-dump patch is safe (check Book 7 the same way first). The patch
+  script was `scratchpad/patch_m235.py` (helpers `req_flags`, `req_alive`, `required`, `optional`, `on_fail`,
+  `set_dep`, `add_alt`, `add_hook`); gone next session. Probe: `game/_scratch/probe.gd` (`extends SceneTree`, env
+  BOOK, KILL_DAY, END_DAY, VICTIMS comma list with `+`, LIST=1; `Director.run` to KILL_DAY - 1, `set_alive`, run to
+  END_DAY, print lost / alts / substitutes); 10 victims in ~30 s; deleted, rebuild it. Look for the OPPOSITE problem
+  too: scenes whose roles are all optional, or that never check a flag, run with their cause gone. Map objects with
+  `"actions": []` mean only NPC talk works there: a hook there needs `talk_with_guest` / `comfort_someone` / `persuade`.
+  `riverfarm.json` has one-line exits: edit the action lists by text, not by a JSON dump.
+
+## Just done (2026-10-11): ROADMAP.md reorganised (branch `docs/roadmap-reorg`)
+- Order now: At a glance → Next up (M23 – M26) → Waits on the user (M20 touch-screen PC, keystore backup, ask
+  pirateaba) → Later → Releases (v0.1.0 – v0.1.4) → Done (M21 at the top, then M22, M19 … M0).
+- M20 phone check ticked from the M21.6 play pass. Nothing lost (old file: 170 ticked / 15 open; new: 173 / 17).
+- Next: M23.5 Book 6 **[Opus · high]**. Picks in `docs/divergence/picks.md`.
+
+## Just done (2026-10-11, local): M23.4 Book 5 canon bends (branch `feat/m23.4-book5-bends`)
+- ADR 0036 "Book 5" lists every change. Data only (13 Book 5 chapter files), no engine change.
+- New `game/tests/sim_kill_book5.gd` (10): kills Ryoka, Erin, Laken, Venitra, Lyonette on day 97 and Ken, Quallet
+  on day 78 (second base save for the Baleros thread); hook-per-day (16 days); washing up on day 103 changes the
+  new staff's first day. Copy it for Book 6.
+- Changed old tests: `sim_canon_book5` (no Ryoka: Erin pays for the build; no Venitra: the Word of Death still
+  falls), `sim_book5_geneva` (alt events left out of the arc list; no Ken: the Red Cross is still founded),
+  `sim_player_hooks` count 114.
+- Tests run (all pass): `sim_kill_book5`, `sim_canon_book5..7`, `sim_book5_*` (7 scripts), `sim_player_hooks`,
+  `unit_canon_db`, `sim_divergence`, `sim_kill_book4`; validator 0 / 0 on Books 1 – 7; Python 114 OK. Full suite
+  not run. `docs/divergence/report.md` regenerated.
+- Next: M23.5 Book 6 **[Opus · high]**. Picks in `docs/divergence/picks.md`.
+- Gotchas: Book 5 chapter files are fully expanded JSON (tab indent, CRLF), but 4.06KM and 4.07 mix in one-line
+  objects. The patch helper kept each untouched event's original text and dumped only changed events (split on
+  `		"b5.<id>": {` ... `
+		}`). The M23.0 report counts `depends_on` only; Book 5 chains run on flags, so
+  measure with a director run: a scratch `extends SceneTree` script (`GameState.new_game`, `Director.run` to the
+  day before, `gs.world.set_alive(npc, false)`, `Director.run` to the end, count `b<N>.` events that are not
+  happened and not alt-only). A script error in a `-s` script hangs Godot (no quit): kill it by command line.
+  An alt event that replaces a revival needs the `revive` effect too.
+
+## Just done (2026-10-11): M21.6 closed, journal focus picker removed (branch `fix/journal-no-focus-picker`)
+- The user played every open check: all fine. M21.6 and M21 are ticked.
+- Journal: the Focus list, its hint line and the "Focus:" line are gone (`ui/journal.gd`, `journal.tscn`, `main.gd`). `focus_choices`, `focus_name`, `main_tags` stay (character sheet, console, tests). Focus still works through the console `focus` command.
+- Tests run (pass): `unit_journal` (7), `unit_touch_controls` (18; the tap test now uses its own ItemList), `unit_character_sheet`. Full suite not run.
+- Next: M23.4 Book 5 **[Opus · high]**. Optional: console `skip <days>` command (offered to the user, no answer yet).
+
+## Just done (2026-10-10): ROADMAP.md reorganised
+- `docs/ROADMAP.md`: added an "At a glance" table. Open work is first (M21, M23 – M26). M20 and Releases sit under "Waits on a user check". M22 (all ticked) moved to the top of Done. No content lost. Not committed yet.
+
+## Just done (2026-10-10): release v0.1.4-alpha
+- Built from branch `feat/m23.3-book4-bends` (version bump commit, tag `v0.1.4-alpha` pushed). Pre-release with 4 files (win, linux, web zips + signed apk): https://github.com/Daddy-Ousen/innworld-rpg/releases/tag/v0.1.4-alpha
+- Not done: the M23.3 PR is not merged yet. The itch.io / GitHub Pages web build is not re-uploaded.
+
+## Just done (2026-10-10, local): M23.3 Book 4 canon bends (branch `feat/m23.3-book4-bends`)
+- ADR 0036 "Book 4" lists every change. Data only (15 Book 4 chapter files), no engine change.
+- Patch scripts were in the session scratchpad (`patch_m233*.py`: text edits per event block, keep CRLF; helpers
+  `set_field`, `requires`, `optional`, `on_fail`, `add_alt`, `add_hook`). Gone next session; rebuild if needed.
+- New `game/tests/sim_kill_book4.gd` (10): kills Erin, Zel, Ceria, Teriarch, Klbkch, Lyonette, Pisces on day 85;
+  hook-per-day (9 days); cooking at the inn stove on day 96 changes the solstice dawn. Copy it for Book 5.
+- `sim_kill_book3`: the Ceria and Pisces tests now see Erin home on day 91 (Book 4 hand-off), not still on the wagon.
+- Tests run (all pass): `sim_kill_book4`, `sim_kill_book3`, `sim_kill_book2`, `sim_player_hooks` (110), `unit_canon_db`,
+  `sim_divergence`, `sim_canon_book3..7`, `sim_book4_christmas`, `_homecoming`, `_mrsha`, `_relief_home`, `_wistram`;
+  validator 0 / 0; Python 114 OK. Full suite not run. `docs/divergence/report.md` regenerated.
+- Next: M23.4 Book 5 **[Opus · high]**. Picks: Ryoka, Erin, Laken, Venitra, Lyonette; key events in `docs/divergence/picks.md`
+  (small chains: 5 dependents at most). Book 5 days 97 – 115.
+- Gotchas: `horns_of_hammerad.bound_for_liscor` is set in Book 1 (1.47R) and never cleared until Book 4: use
+  `horns_of_hammerad.left_celum` to test that the Horns left Celum. Cutting links reorders a day: watch a flag that
+  one event sets and another clears on the same day (`ryoka.heading_home_to_liscor` broke `sim_book4_christmas` until
+  Laken's request waited for Ryoka's replies). Chapter files have more top-level keys after `events` (insert alts
+  before the first `
+	}` after `"events": {`). The probe (`game/_scratch/probe.gd`, `extends SceneTree`, env BOOK,
+  KILL_DAY, END_DAY, VICTIMS (comma, `+` for several, `none`), LIST=1) runs `Director.run` only: 11 victims in ~20 s.
+  It is deleted; rebuild from `GameState.new_game` + `Director.run` + `Director.player_kill`.
+
+## Earlier (2026-10-10): M23.2 Book 3 (merged, PR #156)
+- `Director._wait_until`: a dependent waits while a dependency is delayed. `sim_kill_book3` is the model for the kill sims.
+
+## Earlier (2026-10-10): M23.0 divergence report
+- `tools/divergence_report.py`; rerun `python tools/divergence_report.py game/data/canon --out docs/divergence/report.md`
+  after data changes (done for M23.1). "Pinned" = fails if that one NPC dies; "Lost" adds the same-book cascade.
+
+## Just done (2026-10-10, local): M22.4 probe sim (branch `feat/m22.4-probe-sim`)
+- New `game/tests/sim_breakthrough_probe.gd` (2 tests, ~3 min of sim): busy inn worker, quiet inn worker, fighter, days 1 – 87,
+  3 seeds. Busy inn passes level 10 on night 31 – 32; quiet inn waits for its key until night 73; fighter level 10 on
+  night 17 – 22. Table and decision in ADR 0035 "Probe result". No bar number changed. No code or data changed.
+- Tests run: `sim_breakthrough_probe` (2 pass). Full suite not run. M22.3's state-file notes are committed here too.
+- M22 is complete. Next: the user picks M23 (canon bends, **[Opus · high]** per book) or M21.6 (play pass). Start M23.0
+  (`tools/divergence_report.py`, **[Sonnet · medium]**) first; it needs the user to pick key NPCs.
+- Gotchas: a GutTest method named `_summary` makes a parse error ("Member is not a function"): the probe uses `_describe`
+  and `_log_lines`. `BALANCE_LOG=<file>` writes every night row. 11 merged local branches (M21 / M22) can be cleaned up.
+
+## Just done (2026-10-10, local): M22.3 consolidation (branch `feat/m22.3-consolidation`)
+- Cherry-picked 565bc9b onto main (code + tests + DESIGN). Fixed the `rules.json` conflict by hand (kept
+  `levels.breakthrough`, added `offers.consolidation_min_level: 10`). Old state-file edits from 565bc9b dropped.
+- `unit_class_tree_step3` now calls `make_offers(gs, db, budget)` (no `kind`). New test in `unit_class_tree_step2`:
+  consolidation waits for the source class's level 10 breakthrough; keys do not carry over.
+- ADR 0035 "Steps" has the M22.3 build note. ROADMAP ticked.
+- Tests run (all pass): `unit_class_system`, `unit_class_tree_step2`, `unit_class_tree_step3`, `unit_night`,
+  `unit_system_messages`, `unit_journal`, `unit_game_state`, `unit_data_db`, `unit_breakthrough`, `sim_decline`;
+  Python 107 OK; validator 0 errors. Full suite not run.
+- PR #152 merged. Local branches `feat/class-tree-wiki` and `feat/m22.3-consolidation` deleted (user OK).
+  Remote `origin/feat/class-tree-wiki` still exists. This note and the `progress.md` line are NOT committed yet:
+  commit them on the M22.4 branch.
+- Next: M22.4 probe sim **[Sonnet · high]**. 11 merged local branches (M21 / M22) can be cleaned up later.
+- Gotchas: a source class that gets its canon key in night step 5b reaches level 10 there, so it consolidates on
+  the NEXT night (step 4 runs before 5b). The Python test run prints validator ERROR lines from its fixtures: read
+  only the `Ran` / `OK` lines.
+
+## Just done (2026-10-10, local): M22.2 breakthrough data (branch `feat/m22.2-breakthrough-data`)
+- `game/data/classes.json`: `breakthrough` {hint, trials} on innkeeper, cook, warrior, runner, mage, scout, priest, carpenter.
+- Six `boon` hooks (tags effect) in `1.21`, `1.29`, `1.60`, `2.26`, `2.31`, `3.20T`. `sim_player_hooks` count is 74 now.
+- Tests run (all pass): `unit_breakthrough` (17), `unit_data_db`, `unit_canon_db`, `unit_director`, `unit_player_hooks`,
+  `sim_player_hooks`, `sim_canon_book1..3`; Python 107 OK; validator 0 errors. Full suite not run.
+- Next: M22.3 consolidation **[Opus · medium]** (start from `git show 565bc9b`), then M22.4 probe sim **[Sonnet · high]**
+  (tunes the bar numbers; they are guesses).
+- Gotchas: all these data files are CRLF in the working copy: patch on bytes (scratchpad script), not `sed -i`.
+
+## Just done (2026-10-10, local): M22.1 breakthrough engine (branch `feat/m22.1-breakthrough-engine`)
+- New `game/core/breakthrough.gd` (sources 1 – 3, hint, key line, `validate`). `Night.resolve_xp` checks a waiting
+  class before `level_up`; new `Night.level_lines` and `Night.resolve_canon_keys` (step 5b). `Director._fire` runs
+  `boon` hooks (outcome stays, history `"boons"`, no `"by"`); `_player_hook` skips them. `_record_matches` is now
+  public `Director.record_matches` (trials use it). `_apply_effects` takes `db` now.
+- `rules.json` `levels.breakthrough` added (ADR numbers). No class has a `breakthrough` block yet; no canon hook
+  uses `boon` yet. That is M22.2.
+- Tests run (all pass): `unit_breakthrough` (new, 16), `unit_levels`, `unit_class_system`, `unit_night`,
+  `unit_director`, `unit_canon_db`, `unit_player_hooks`, `unit_data_db`, `sim_canon_book1`; Python 107 OK;
+  validator 0 errors. Full suite not run.
+- Next: M22.2 data **[Sonnet · medium]**: trials + hints in `game/data/classes.json` for inn, cook, warrior, runner,
+  mage, scout, priest, crafter; a few `boon` hooks (Books 1 – 3). Run `unit_breakthrough` (real-data test),
+  `unit_data_db`, the validator, Python tests and `sim_canon_book1..3`.
+- Gotchas: the Python validator only checks the `breakthrough` shape; class and tag ids are checked by
+  `Breakthrough.validate` (in `DataDb.load_dir`). Toy capstone is 3, so toy classes wait at level 2.
+  A heredoc `\` + newline lost the backslash in a Python patch: use the Edit tool for GDScript line breaks.
+
+## Just done (2026-10-09, local): M22.0 breakthrough design (branch `docs/m22.0-breakthrough-design`)
+- ADR `docs/adr/0035-breakthroughs.md`. User picks: all three sources (hard moment, class trial, canon `boon` hook),
+  a moment counts only at level 9 / 19 / 29 (key kept until XP fills), a vague hint line. Docs only, no tests run.
+- Schema changes the user approved (build them in M22.1): `rules.json` `levels.breakthrough`; optional `classes.json`
+  `breakthrough` {hint, default, trials}; hook `"then": "boon"` (event runs as canon, no drift, hook effects apply);
+  hook effect `breakthrough` {tags | class}. No save change.
+- Next: M22.1 engine **[Opus · medium]**. Files: new `core/breakthrough.gd`, `core/night.gd` (step 2 check, step 5b
+  level again), `core/director.gd` + `core/canon_db.gd` (boon), `core/data_db.gd` + `tools/validate_data.py` (checks).
+- Gotchas: the director runs AFTER `resolve_xp`, so a canon key needs the step-5b `level_up`. A `change` hook adds
+  0.25 drift; that is why `boon` is a new hook result. Records already store `risk`, `duress`, `window`.
+
+## Just done (2026-10-09, local): M21.4 NPC art (branch `feat/m21.4-npc-art`)
+- 35 new looks at the end of `game/data/appearance.json` (all Book 6 – 7 NPCs with a schedule that had none) and their sheets in `game/assets/characters/`. Portraits are cut from the sheets. `unit_art` and `unit_portrait` pass. Most looks are guesses (noted per look). The LPC clone was in the scratchpad (gone later). CREDITS.md was rewritten by the builder.
+- Next: M21.6 play pass (user), then M22.0 (user picks how a breakthrough is earned).
+
+## Just done (2026-10-09, local): M21.4 full suite (branch `fix/m21.4-red-tests`)
+- Full run: 166 scripts, 6 red. Fixed 4: `sim_player_hooks` (68), `unit_cover` (bones half cover; estate plaque not solid), `unit_sign_art` (plaque sign), `unit_portal` (links form). Still red: `unit_art`, `unit_portrait` (35 NPCs have no sheet, 10 or so no portrait; list in the test output). User chose to make the art (option 2).
+- Next: build the missing character sheets and portraits (needs the LPC clone, about 240 MB: ask the user first).
+
+## Just done (2026-10-09, local): M21.5 (branch `docs/m21.5-legal`)
+- Read https://wanderinginn.com/fanworks-permissions/ . Result in `docs/DESIGN.md` §7 and `docs/ITCH.md` ("Policy check"). Docs only.
+- Open for the user: the policy bans book titles in marketing material; ask pirateaba or reword the itch.io and README text.
+
+## Just done (2026-10-09, local): M21.3 (branch `chore/m21.3-export-cleanup`)
+- Deleted local v0.1.0 – v0.1.2 builds in `export/` (still on GitHub releases). v0.1.3 files, `android/` and `itch/` kept. Docs only.
+- Next: M21.4 (full suite; user asks), M21.5 (legal), M21.6 (play pass).
+
+## Just done (2026-10-09, local): M21.2 (branch `chore/m21.2-docs`)
+- README counts fixed (1,089 events, 296 NPCs, 122 places, 50 maps, 166 GUT scripts, 105 Python tests). Old detail from `progress.md` and `handoff.md` moved to `docs/PROGRESS_ARCHIVE.md`. Gotchas were not deduped.
+- Next: M21.3 (delete old builds in `export/`; user confirms), M21.4 (full suite; user asks), M21.5 (legal, user).
+
+## Just done (2026-10-09, local): M21.1 (branch `chore/m21.1-consolidation-decision`)
+- Decision: 565bc9b is not merged now. Redo it in M22.3. Branch `feat/class-tree-wiki` stays as the source. Docs only.
+- Next: M21.2 (docs cleanup).
+
+## Just done (2026-10-09, local): M21.0 (branch `chore/m21.0-housekeeping`)
+- Committed the stray `.uid`; deleted 39 merged local branches. Only `main` and `feat/class-tree-wiki` (unmerged, M21.1) remain. No tests needed (no code).
+- Next: M21.1 (user decides on 565bc9b), then M21.2 docs. M22.0 needs a user design pick.
+
+## Just done (2026-10-08, local): full project audit (read-only, branch `feat/magnolia-npcs`, PR 137 already merged)
+- Findings are in `progress.md` "Audit". No code or data changed. Memory `targeted-tests` updated to match CLAUDE.md.
+- Biggest bug: capstone level 10 is unreachable in play (no breakthrough source except the debug console). Check: `grep -rn grant_breakthrough game --include=*.gd`.
+- Biggest vision gap: Books 2–7 events only `cancel` on failure; few hooks. The director cannot patch the story after Book 1.
+- 2026-10-09: on `main`, pulled (at 1a94073). Findings are now modules M21 – M26 in `docs/ROADMAP.md` "Audit work".
+  These ROADMAP / progress / handoff edits are NOT committed yet: commit them on a branch (`docs/audit-modules`) with M21.0.
+- Next: start M21.0 (stray .uid, merged branches), then M22.0 (user picks how a breakthrough is earned).
+- 2026-10-09: PR 138 merged. Each roadmap step M21 – M26 now ends with `[Model · effort]` (branch `docs/roadmap-model-tags`).
+  The user runs Sonnet · medium by default; tell them to switch when a step says Opus or another effort.
+- 2026-10-09: `docs/ROADMAP.md` reordered (branch `docs/roadmap-open-first`): "Next up" (M21 – M26) first, then "Open: waits on a user
+  check" (M20, Releases), Later, then "Done (newest first)" M19 … M0. No line text changed. When a milestone is fully ticked, move it to the top of Done.
+
+
+### progress.md: class tree, north road, Invrisil, estate (2026-10-07/08)
+- [ ] Class tree from the wiki (branch `feat/class-tree-wiki`, 2026-10-07, local). Step 1 done: 6 advancement classes on today's tags
+  (`veteran_warrior`, `exemplar_warrior`, `scout`, `veteran_scout`, `elementalist`, `cryomancer`) + 7 passive Skills. Advancements use
+  `prereqs.classes` (no schema change; the base class stays). Tests run: `unit_data_db`, `unit_class_system`, `unit_skill_system`,
+  `unit_levels`, `unit_journal`, `unit_system_messages`, `sim_decline`, validator, Python tool tests (105). All pass. Full suite not run.
+  - [x] Step 2 (2026-10-07, local): tags `riding`, `animals`, `gardening`, `faith`; actions `ride_horse`, `tend_animals`, `tend_garden`, `pray`
+    (sounds reuse `creak`, `pick_up`, `chime`); map objects on existing art: `garden_bed` (inn_hill), `hitching_post` and `stable_yard` (celum_gate),
+    `wayside_shrine` (celum_square); classes `rider`, `gardener`, `beast_tamer`, `acolyte`, `priest`, `bishop`, consolidations `dragoon`
+    (warrior+rider, cost 2) and `druid` (gardener+beast_tamer+mage, cost 3); 8 passive Skills. Tests run: `unit_class_tree_step2` (new, 4),
+    `unit_data_db`, `unit_tags`, `unit_actions`, `unit_audio_data`, `unit_sound_cues`, `unit_map_db`, `unit_ground_art`, `unit_class_system`,
+    `unit_skill_system`, `unit_world_view`, `sim_winter`, validator, Python tool tests (105). All pass. Full suite not run.
+  - [x] Step 3 (2026-10-08, local; branch `feat/class-tree-step3`): classes `hunter`, `archer`, `alchemist`, `blacksmith`, `teacher`, advancements `knight` (after `exemplar_warrior`) and `assassin` (after `rogue`); 8 passive Skills. Existing tags only, no new actions or objects. Tests run: `unit_class_tree_step3` (new, 3), `unit_class_tree_step2`, `unit_data_db`, `unit_class_system`, `unit_skill_system`, `unit_levels`, `unit_journal`, validator. All pass. Full suite not run.
+  - [ ] The user plays: do the new objects feel right? Later steps could add NPC users of these classes.
+  - Skipped on purpose: Erin/NPC-unique classes (Rocksoup Cook, Wandering Innkeeper, Goblinfriend Innkeeper), Skeleton, Bandit, Necromancer lines.
+- [x] North road (2026-10-08, local; branch `feat/invrisil-road`): maps `celum_north_gate`, `road_to_invrisil` (camp), `invrisil_gate`, `invrisil_square`; `celum_main_street` got a north exit; `riverfarm` got its road to the Invrisil gate (west edge). Times 1500 / 3100 / 900 min (guess). Data only. Tests run: `unit_north_road` (new, 5), `unit_map_db`, `unit_audio_data`, `unit_ambience`, `unit_ground_art`, `unit_world_view`, `unit_gated_exits`, `unit_other_maps`, `unit_travel`, `unit_travel_prompt`, `sim_book7_riverfarm` (updated), validator, Python tool tests (105). All pass. Full suite not run. The user walks it (`godot --path game`, Celum main street north).
+- [x] Invrisil city (2026-10-08, local; branch `feat/invrisil-city`): `invrisil_main_street` (north of the square) with `invrisil_runners_guild` (parcel board), `invrisil_crag_pig` (inn, bed 10, shop `crag_pig`), `invrisil_merchants_guild` (shop `invrisil_merchants`, truth-stone plaque); square stall `invrisil_stall`. Hedault's house is a closed plaque. Data only; layouts, prices and stock are guesses. Tests run: `unit_north_road` (now 7), `unit_map_db`, `unit_economy`, `unit_audio_data`, `unit_ambience`, `unit_ground_art`, `unit_world_view`, `unit_other_maps`, `unit_data_db`, `sim_celum_trip`, validator, Python tool tests (105). All pass. Full suite not run. The user walks it.
+- [x] Invrisil staff (2026-10-08, local; branch `feat/invrisil-staff`): behaviour for canon NPCs `merec` (Merchants' Guild, 8-18) and `raisha` (gnoll guard, `invrisil_gate`, 6-20); off-map place `invrisil`. Posts are guesses; no art (square markers). The Invrisil Runners' board already had `deliver_parcel`. Tests run: `unit_north_road` (now 8), `unit_behaviour_db`, `unit_npc_sim`, validator. All pass. Full suite not run.
+- [x] Magnolia's estate (2026-10-08, local; branch `feat/magnolia-estate`): maps `magnolia_estate_grounds` and `magnolia_estate_hall` (chess table, hearth); `invrisil_gate` got an east exit (20 min, guess). Layout and direction are guesses; no golems, no NPCs, no events. Tests run: `unit_north_road` (9), `unit_map_db`, `unit_audio_data`, `unit_ambience`, `unit_ground_art`, `unit_world_view`, `unit_other_maps`, `unit_gated_exits`, `unit_data_db`, `unit_travel`, validator, Python tool tests (105). All pass. Full suite not run.
+- [x] Estate NPCs (2026-10-08, local; branch `feat/magnolia-npcs`): behaviour for `magnolia_reinhart` (hall 10-20), `ressa`, `reynold` (hall 6-22), new canon records `reinhart_golem_west` / `_east` (book2, confidence likely; guard posts on the grounds, always). Off-map place `magnolia_estate`. Magnolia's whereabouts in other books (Celum, road) are not tracked: the sim shows her at the estate by day, a guess. No art (square markers). Tests run: `unit_north_road` (10), `unit_behaviour_db`, `unit_npc_sim`, `unit_canon_db`, `sim_canon_book1` - `3`, `sim_book6_world`, validator, Python tool tests (105). All pass. Full suite not run.
+
+### progress.md: M21 - M26 test lists
+- [x] M21 Housekeeping (M21.0 – M21.6 done 2026-10-11) · [x] M22 Breakthroughs (M22.0 – M22.4 done) · [x] M23 Canon bends (M23.0 – M23.7 done; M23.7: morning reminder line at high drift, `SystemMessages.DRIFT_REMINDER`; tests `unit_system_messages` 18, `unit_journal`, `unit_director` pass; full suite not run) · [x] M24 Level by living (M24.3 done 2026-10-11: 63 rare Skills in `skills.json`, every class has a rare one for level 10 (pool 10 – 30) and a second for level 20 (pool 20 – 30); 4 are combat actions (`crushing_blow`, `lance_strike`, `backstab`, `trampling_charge`), the rest are passive stat / XP bonuses; data only; tests `unit_m24_skills` (new, 3), `unit_data_db`, `unit_class_tree_step2`, `unit_skill_system`, `unit_combat_skills`, `unit_class_system`, `unit_levels`, `unit_stats`, `unit_night`, `unit_breakthrough`, `unit_mana`, `unit_journal`, `unit_class_tree_step3`, validator 0 errors; full suite not run. M24.2 done 2026-10-11: spell `gust`, 4 spellbooks on sale at the Mages' Guild shelf; data only; tests `unit_m24_spells` (new, 4), `unit_spell_learning`, `unit_spells`, `unit_spell_ui`, `unit_economy`, `unit_map_db`, `unit_ground_art`, `unit_data_db`, `unit_behaviour_db`, `unit_npc_sim`, validator 0 errors; full suite not run. M24.1 done 2026-10-11: recipes `pizza`, `roast_meat`, `vegetable_soup`; shop `liscor_smith` with 3 held weapons; data only; tests `unit_m24_goods` (new, 3), `unit_cooking`, `unit_world_view` (stove menu 8), `unit_economy`, `unit_class_actions`, `unit_audio_data`, `unit_sound_cues`, `unit_map_db`, `unit_ground_art`, `unit_bag`, `unit_combat_db`, `unit_data_db`, `unit_tags`, `unit_actions`, validator 0 errors, Python 114 OK; full suite not run. M24.0 done 2026-10-11: actions `hunt`, `shoot_bow`, `brew_potion`, `forge_tool`, `teach_lesson` + 5 map objects + sounds; data only; tests `unit_class_actions` (new, 3), `unit_class_tree_step2`, `unit_class_tree_step3`, `unit_actions`, `unit_tags`, `unit_audio_data`, `unit_sound_cues`, `unit_map_db`, `unit_ground_art`, `unit_world_view`, `unit_gated_exits`, validator 0 errors, Python 114 OK; full suite not run) · [x] M25 NPC life (M25.0 done 2026-10-12: canon NPCs level once a day through the player's curve, `core/npc_levels.gd`, ADR 0038; `world.npc_levels`, save v21 + migration; rules `npc.levels` unknown_level 12, daily_xp 12, event_xp 50 (guesses); a canon event gives the capstone key; later-book NPCs start on their book's first day (`CanonDb.book_start`); debug console `npclevels <npc>`; tests `unit_npc_levels` (new, 12), `sim_npc_levels` (new, 6), `unit_game_state`, `unit_mana`, `unit_director`, `unit_canon_db`, `unit_console`, `unit_save_slots`, `sim_canon_book1`, validator book1 0 errors; full suite not run. M25.1 done 2026-10-12: talk topics, `core/talk_topics.gd`, ADR 0039; on the first talk of the day an NPC says one topic: own / town news of the last 5 days, T1 rumours, or a `data/talk.json` topic (11 canon news/rumours for Books 1 - 2, 6 request hints); request hints only, no save change; `rules.talk`; toy dbs have no talk; tests `unit_talk_topics` (new, 6), `unit_standing`, `unit_data_db`, `unit_npc_sim`, the 27 sims that talk through Interact (all pass), validator book1 0 errors, Python 116 OK; full suite not run. M25.2 done 2026-10-12: 3 paid job actions (`take_guild_job` 6-12, `tally_ledgers` 4-8, `haul_goods` 3-5, all guesses) on 4 boards: Liscor Adventurers' Guild, Invrisil Merchants' Guild (new `contract_board`), Invrisil square, Celum square (new `celum_job_board`); data only; tests `unit_m25_job_boards` (new, 3), see handoff; full suite not run. M25.3 done 2026-10-12: NPC character sheets, `core/npc_sheet.gd`; an "Appraise" row on an NPC (needs the Skill [Appraisal], `rules.npc.appraisal_skill`); classes + levels, `?` if unknown, no total; tests `unit_npc_sheet` (new, 6) + list in handoff; full suite not run. M25.4 done 2026-10-12: Magnolia's whereabouts by canon flags, data only (`npc_behaviour.json`): Magnolia + Ressa off map in Celum until `magnolia.gone_north`, road (@north_izril) until `magnolia.watches_the_inn`, estate, away (@north_izril) from `magnolia.gone_to_first_landing` until `magnolia.sends_gold_to_esthelm`; Rose, Imani, Joseph on the estate maps by day from `magnolia.hides_other_earthers`; tests `unit_m25_whereabouts` (new, 5), `unit_north_road`, `unit_behaviour_db`, `unit_npc_sim`, `sim_book3_stages`, `sim_book4_homecoming`, `sim_book6_silver_swords`, `sim_book6_zel_dies`, `sim_book7_riverfarm`, `sim_canon_book1`, `sim_canon_book3`, `sim_npc_levels`, `unit_talk_topics`, validator book1 0 errors; full suite not run) · [x] M26 Code health (M26.1 done 2026-10-13: `world_view.gd` split, 1285 -> 335 lines; static `ViewArt` + RefCounted `ViewMap`, `ViewMarkers`, `ViewEffects` in `game/world/`; public names stay on WorldView as pass-ons; `GroundArt`, `SignArt`, `CombatOverlay` now name `ViewArt` (script cycle); ADR 0041; no behaviour change, no test change; tests `unit_world_view`, `unit_anim`, `unit_atmosphere`, `unit_ambience`, `unit_audio`, `unit_combat_screen`, `unit_cover_ui`, `unit_crowd`, `unit_gated_exits`, `unit_ground_art`, `unit_guests`, `unit_monster_art`, `unit_rains`, `unit_sign_art`, `unit_skill_bar`, `unit_spell_ui`, `unit_touch_controls`, `unit_traps`, `unit_ui_scale`, `unit_brawl`, `unit_play_loop`, `sim_m4_done`, `sim_m5_done`, `sim_m6_done` pass; `unit_art` had 1 old fail (Imani, Joseph, Rose had no own look), fixed 2026-10-13 with own sheets (`appearance.json` guesses + built art; `unit_art` 11/11); full suite not run. M26.0 done 2026-10-13: `main.gd` split, 967 -> 499 lines; `class_name MainScreen` keeps commands + replay; new RefCounted helpers `MainInput`, `MainAim`, `MainTravel`, `MainPanels` in `game/world/`; every member tests use stays on MainScreen as a pass-on call; ADR 0040; no behaviour change, no test change; tests `sim_m4_done`, `sim_m5_done`, `sim_m6_done`, `unit_bag`, `unit_brawl`, `unit_combat_screen`, `unit_cover_ui`, `unit_hud_log`, `unit_input_actions`, `unit_music_pick`, `unit_no_xp_shown`, `unit_play_loop`, `unit_skill_bar`, `unit_spell_ui`, `unit_system_messages`, `unit_touch_controls`, `unit_travel_prompt`, `unit_ui_scale`, `unit_world_view`, `unit_console` all pass; full suite not run)
+
+### progress.md: M22 / M23 test lists
+- [ ] Divergence is thin: Books 2–7 have 0 `substitute` / `delay` / `mutate` fallbacks (all 838 events are `cancel` only); 67 of 1089 events have hooks (Book 2: 3 of 207).
+  - [x] M23.0 (2026-10-10, branch `feat/m23.0-divergence-report`): tool + picks. `tools/divergence_report.py` + `test_divergence_report` (7); report in `docs/divergence/report.md`. Python 114 OK. Finding: Books 2 – 4 hang on one long `depends_on` chain (one Horns event in Book 2 has 113 dependents); Erin's death loses 140 of 207 Book 2 events. User rule: top 5 NPCs + top 3 events per book (`docs/divergence/picks.md`). Next: M23.1 Book 2.
+  - [x] M23.1 Book 2 (2026-10-10, branch `feat/m23.1-book2-bends`, ADR 0036): story-order `depends_on` cut, substitutes (Klbkch rescue, Relc warning), 3 alt events (Horns short-handed, Goblin Lord army, Erin winters in Liscor), flag hand-off + delay, 19 `change` hooks (all 22 on-map days hooked). Director: an alt reached by propagation waits for its own day. Book 2 lost on a day-41 death: Erin 140 → 109, Ryoka 76 → 64, Toren 77 → 57, Rags 42 → 27, Ceria 42 → 25, Pisces 30 → 13, Yvlon 7 → 4. Tests: `sim_kill_book2` (new, 10), `unit_director` (26), `sim_divergence`, `sim_canon_book1`, `sim_canon_book2`, `sim_canon_book3`, `sim_book2_end_stages`, `sim_player_hooks` (count 93), `unit_canon_db`, validator 0 errors / 0 warnings, Python 114 OK. Full suite not run.
+  - [x] M23.2 Book 3 (2026-10-10, branch `feat/m23.2-book3-bends`, ADR 0036 "Book 3"): story-order links cut, real-cause flags (Remendia, Ocre bank, Klbkch's praise, street battle), 1 substitute (Ceria digs up the Albez door), 9 alt events, flag hand-offs + delay, 13 `change` hooks (all 23 on-map days hooked). Director: a dependent waits while its dependency is delayed (`_wait_until`). Book 2 Goblin raid no longer needs Ksmvr (day-41 death: Book 3 lost 40 → 1). Book 3 lost on a day-72 death: Erin 52 → 27, Octavia 49 → 4, Ceria 40 → 30, Pisces 39 → 9, Lyonette 34 → 19, Yvlon 33 → 3, Ksmvr 31 → 1. Tests: `sim_kill_book3` (new, 11), `unit_director` (27), `unit_canon_db`, `sim_player_hooks` (106), `sim_canon_book1..4`, `sim_book3_finale`, `sim_book3_stages`, `sim_book4_relief_home`, `sim_esthelm_siege`, `sim_divergence`, `sim_book2_end_stages`, `sim_kill_book2`, validator 0 / 0, Python 114 OK. Full suite not run.
+  - [x] M23.3 Book 4 (2026-10-10, branch `feat/m23.3-book4-bends`, ADR 0036 "Book 4"): data only, no engine change. Trip, homecoming, party and relief links cut (hand-offs on `erin.on_wagon_south`, `horns_of_hammerad.left_celum`, `erin.home_at_the_inn`, `erin.level_30`), real-cause flags (Antinium at Esthelm, the door for Celum trips), 5 alt events (Pawn leads Mrsha out of the Hive, the wagon / the Horns hide from the Goblin army, home without the door, Liscor-only relief wagons), 2 delay hand-offs, 4 hooks (all 9 on-map days hooked). Book 4 lost on a day-85 death: Erin 85 → 55, Zel 83 → 14, Ceria 85 → 15, Teriarch 83 → 2, Klbkch 77 → 6, Lyonette 79 → 5, Pisces 85 → 11. Tests: `sim_kill_book4` (new, 10), `sim_kill_book3` (2 asserts now check the Book 4 hand-off), `sim_kill_book2`, `sim_player_hooks` (110), `unit_canon_db`, `sim_divergence`, `sim_canon_book3..7`, `sim_book4_christmas`, `sim_book4_homecoming`, `sim_book4_mrsha`, `sim_book4_relief_home`, `sim_book4_wistram`, validator 0 / 0, Python 114 OK. Full suite not run.
+  - [x] M23.4 Book 5 (2026-10-11, branch `feat/m23.4-book5-bends`, ADR 0036 "Book 5"): data only, no engine change. Hand-off flags (`earthers.joined_the_last_light`, `bird.to_guard_the_inn`, `azkerash.servants_in_liscor`, `ryoka.seized_by_the_necromancers_servants`), 2 substitutes (Etretta for Quallet at the valley, Ijvani for Venitra in the Word of Death), 9 alt events, Lyonette optional in 3 inn scenes, 4 hooks (all 16 on-map days hooked). Book 5 lost on a day-97 death: Ryoka 34 → 31, Erin 30 → 30, Laken 15 → 15, Venitra 30 → 20, Lyonette 12 → 8; day 78: Ken 7 → 3, Quallet 6 → 0. Tests: `sim_kill_book5` (new, 10), `sim_canon_book5` (2 tests changed), `sim_book5_geneva` (1 test changed, alts left out of the arc list), `sim_player_hooks` (114), `sim_book5_creler_nest`, `_last_light`, `_pawns_faith`, `_rift_undead`, `_ryoka_home`, `_soups`, `unit_canon_db`, `sim_divergence`, `sim_canon_book6`, `sim_canon_book7`, `sim_kill_book4`, validator 0 / 0 (Books 1 – 7), Python 114 OK. Full suite not run.
+  - [x] M23.5 Book 6 (2026-10-11, branch `feat/m23.5-book6-bends`, ADR 0036 "Book 6"): data only, no engine change. Real-cause flags: the Battle of Invrisil and the trap wait on the alliance, the speech, the attack order and each other; the Redfang move into the inn only if they met Erin. 1 substitute (Zevara signs the rat contract), 9 alt events, the five Chosen optional in the trap, Oom no longer gates Zel's end, 9 hooks (all 15 on-map days hooked), 3 Riverfarm map objects got actions. Book 6 lost on a day-114 death: Zel 25 → 35, Magnolia 17 → 36, Goblin Lord 16 → 27, Erin 14 → 22 (those scenes ran without their cause before), Olesm 13 → 7, Oom 9 → 1. Tests: `sim_kill_book6` (new, 9), `sim_kill_book5` (Erin drift ceiling 31 → 33.5), `sim_player_hooks` (123), `sim_canon_book6`, `sim_book6_*` (7 scripts; `sim_book6_world` had a stale Dasha look assert, fixed), `unit_canon_db`, `sim_divergence`, `unit_event_order`, `sim_canon_book7`, `unit_map_db`, `unit_north_road`, `sim_book7_riverfarm`, validator 0 / 0 (Books 1 – 7), Python 114 OK. Full suite not run.
+  - [x] M23.6 Book 7 (2026-10-11, branch `feat/m23.6-book7-bends`, ADR 0036 "Book 7"): data only, no engine change. Book 7 had almost no cause links, so most scenes ran with their cause gone. Real-cause flags now: the Pallass door chain, the inn's moth fight (`wandering_inn.fought_the_moths`), the wall and parade (`liscor.face_eater_moths_attacked`, `liscor.moths_driven_back`), Zel's will and funeral, the Heartflame (`heartflame.selys_inherits`), Selys's kidnap, Magnolia's letter / test / nobles, the Redfang five (`redfang.in_the_inn`, a Book 6 flag). Rain and flood no longer need Erin. 3 substitutes for Zevara (Relc ×2, Ilvriss, Tekshia), Zevara optional in 8 scenes, 10 alt events, kill-link cut (rout follows the scout, not Kerrig), 5 hooks (all 14 on-map days). Book 7 lost on a day-130 death: Erin 38 → 51, Laken 26 → 26, Selys 18 → 25, Zevara 17 → 5, Rags 14 → 14, Magnolia 0 → 12, Kerrig 5 → 3. Erin dead on day 114: Book 7 lost 38 → 64. Tests: `sim_kill_book7` (new, 10), `sim_book7_goblin_road` (alts left out of the batch count), `sim_player_hooks` (128), `sim_canon_book7`, `sim_book7_*` (8), `unit_rains`, `unit_canon_db`, `unit_event_order`, `sim_divergence`, `sim_kill_book2..6`, validator 0 / 0 (Books 1 – 7), Python 114 OK. Full suite not run.
+
+### ROADMAP.md: long step notes for M23 – M25 (short form kept in the roadmap)
+- [x] M25.0 NPCs level at low detail through the same System (DESIGN §4.5); save change + migration **[Opus · high]** (2026-10-12, ADR 0038: `NpcLevels`, save v21, `rules.npc.levels`, console `npclevels <npc>`)
+- [x] M25.1 Talk topics: NPCs share news, rumours and requests (short summaries in our words, from events and flags) **[Opus · medium]** (2026-10-12, ADR 0039: `TalkTopics`, `data/talk.json`, `rules.talk`; request hints only, no save change)
+- [x] M25.2 Job boards in more places (Liscor Adventurers' Guild, Invrisil, Celum Merchants) **[Sonnet · medium]** (2026-10-12: `take_guild_job`, `tally_ledgers`, `haul_goods`; 4 boards; data only)
+- [x] M25.3 Character sheets for Merec, Raisha and the estate NPCs **[Sonnet · medium]** (2026-10-12: any canon NPC, read with [Appraisal]; `NpcSheet`, "Appraise" menu row; ADR 0038 note)
+- [x] M25.4 Magnolia's real whereabouts by flags (Celum in Book 1, the road, the estate); the Earth transplants' stay (2.37) **[Opus · medium]** (2026-10-12: data only, `npc_behaviour.json`: Magnolia and Ressa off map in Celum until `magnolia.gone_north`, on the road until `magnolia.watches_the_inn`, the estate, away in the north from `magnolia.gone_to_first_landing` until `magnolia.sends_gold_to_esthelm`; Rose, Imani, Joseph on the estate maps by day from `magnolia.hides_other_earthers`)
+- [x] M24.0 Actions for the new classes: hunt, shoot a bow, brew a potion, forge, teach; with map objects or stations on existing art **[Sonnet · medium]** (done 2026-10-11: actions `hunt`, `shoot_bow`, `brew_potion`, `forge_tool`, `teach_lesson`; objects `hunting_blind` (floodplains_south), `archery_target` (inn_hill), `brewing_cauldron` (liscor_mages_guild), `smiths_forge` (liscor_market), `lesson_slate` (inn_interior); sounds reuse existing cues)
+- [x] M24.1 Recipes and goods: more dishes from the Books (canon names, numbers are guesses), tools and weapons in shops **[Sonnet · medium]** (done 2026-10-11: recipes `pizza`, `roast_meat`, `vegetable_soup` + actions; shop `liscor_smith` at `smith_counter` (liscor_market) sells `wooden_club`, `iron_dagger`, `hand_axe`; numbers are guesses)
+- [x] M24.2 Spells: more spells from Books 1 – 7 with teachers and spellbooks **[Sonnet · medium]** (done 2026-10-11: spell `gust` (Pisces teaches, 1.22); spellbooks for `gust`, `ice_spike`, `flashfire`, `frozen_wind` (and `fireball` now has a price) sold at `spell_shelf` in liscor_mages_guild, shop `liscor_mages_guild`; Pisces casts `gust` as a fallback. Only attack shapes fit the engine, so [Ice Wall], [Barrier of Air], [Mend] and [Light] wait for an engine step)
+- [x] M24.3 Skills: capstone Skills at 10 / 20 for the main classes; Skills for the class-tree step 1 – 3 classes that have none **[Sonnet · high]** (done 2026-10-11: 63 rare Skills in `skills.json`: every class has a rare Skill for level 10 (pool 10 – 30) and a second for level 20 (pool 20 – 30); 4 are combat actions (`crushing_blow`, `lance_strike`, `backstab`, `trampling_charge`); the rest are passive stat / XP bonuses; names and numbers are guesses; no schema or engine change)
+- [x] M23.0 Tool + list: `tools/divergence_report.py` (per book: roles, fallbacks, hooks, events that depend on one NPC); the user picks the key NPCs and key events per book (user) **[Sonnet · medium]** (done 2026-10-10: report in `docs/divergence/report.md`; user rule: top 5 NPCs + top 3 events per book, in `docs/divergence/picks.md`)
+- [x] M23.1 Book 2: roles with `fallback_tags`, `substitute` / `delay` / `mutate` on the key events, more hooks; `sim_kill_book2` (a key NPC dies, the book still runs and drift is sane) **[Opus · high]** (done 2026-10-10, ADR 0036: story-order links cut, 2 substitutes, 3 alt events, flag hand-off + delay, 19 hooks (one per on-map day), director runs an alt on its own day; Erin's death loses 109 events, was 140)
+- [x] M23.2 Book 3: the same **[Opus · high]** (done 2026-10-10, ADR 0036 "Book 3": links cut, real-cause flags, 1 substitute, 9 alt events, flag hand-offs with delay, 13 hooks (one per on-map day), director lets a dependent wait on a delayed dependency; Book 2 Goblin raid no longer needs Ksmvr; Octavia's death loses 4 events, was 49)
+- [x] M23.3 Book 4: the same **[Opus · high]** (done 2026-10-10, ADR 0036 "Book 4": trip, homecoming and relief links cut, trip-flag hand-offs, 5 alt events (Pawn in the Hive, the wagon hides from the Goblin army, home without the door, Liscor-only relief), 4 hooks (all 9 on-map days); Teriarch's death loses 2 events, was 83)
+- [x] M23.4 Book 5: the same **[Opus · high]** (done 2026-10-11, ADR 0036 "Book 5": hand-off flags, 2 substitutes (Etretta for Quallet, Ijvani for Venitra), 9 alt events (Luan and Aiko go to Geneva, Erin pays for the build, Imenet comes alone, the Necromancer still turns to the Goblins, the Gnolls burn Brunkr, Riverfarm without Laken), 4 hooks (all 16 on-map days); Venitra's death loses 20 events, was 30; Quallet's loses 0, was 6)
+- [x] M23.5 Book 6: the same **[Opus · high]** (done 2026-10-11, ADR 0036 "Book 6": real-cause flags for the Battle of Invrisil and the Redfang at the inn, 1 substitute (Zevara signs the rat contract), 9 alt events (no Zel: the Goblin Lord goes round Invrisil; no Magnolia: Zel stays in Liscor; no Goblin Lord: Zel hunts the raiders; no Erin: the Redfang go north), the five Chosen optional in the trap, 9 hooks (all 15 on-map days); Olesm's death loses 7 events, was 13; Oom's 1, was 9)
+- [x] M23.6 Book 7: the same **[Opus · high]** (done 2026-10-11, ADR 0036 "Book 7": real-cause flags for the Pallass door, the inn's moth fight, Zel's will, Selys's kidnap, Magnolia's gathering and the Redfang five (Book 6 flag); rain and flood no longer need Erin; 3 substitutes for Zevara (Relc, Ilvriss, Tekshia), 10 alt events (no Erin: Liscor fights the moths alone; no Selys: the armour goes to Magnolia; no Laken: Durene and Tessia keep Riverfarm going; no Magnolia: Laken feeds his own villages; no Rags: Pyrite leads the tribe), 5 hooks (all 14 on-map days); Zevara's death loses 5 events, was 17; Erin's 51, was 38)
+- [x] M23.7 Drift warning: at high drift the journal and the morning page say canon knowledge is unreliable (DESIGN §4.1) **[Sonnet · medium]** (done 2026-10-11: the journal line and the one-time warning page already existed; added a morning reminder line every day at high drift)
+- [x] M21.6 Play pass: one session that closes the open "the user plays …" checks (fights, Book 6, rain, phone, touch stick, phone UI, long road, class objects, north road) and lists bugs (user) **[Sonnet · medium]** (done 2026-10-11: the user played all checks, all fine)
+- [x] M22.0 Design + ADR: how a breakthrough is earned (canon moments, a hard fight with high duress, an `xp_window` event, a class's own trial) (user picks). Ask before the schema change **[Opus · high]** (done 2026-10-09: ADR 0035; user picked all three sources, from level 9, a vague hint; schema changes approved: `classes.json` `breakthrough`, hook `then: boon`, effect `breakthrough`, `rules.levels.breakthrough`)
+- [x] M22.1 Engine: event effect `breakthrough` (director) + emergent triggers in the night pipeline; System message when it happens; no save change expected (`breakthroughs` is already saved) **[Opus · medium]** (done 2026-10-10: `core/breakthrough.gd`, night steps 2 and 5b, hook `boon`, checks in `DataDb` and the validator; `unit_breakthrough` 16 tests)
+- [x] M22.2 Data: breakthrough sources for the main class lines (inn, cook, warrior, runner, mage, scout, priest, crafter) **[Sonnet · medium]** (done 2026-10-10: trials + hints on 8 classes in `classes.json`, 6 `boon` hooks in Books 1 – 3)
+- [x] M22.3 Consolidation on top of breakthroughs (redo 565bc9b: M21.1 said yes; start from `git show 565bc9b`) **[Opus · medium]** (done 2026-10-10: automatic at night, a source class at level 10, so after its breakthrough; `consolidate_ready`, `rules.offers.consolidation_min_level`)
+- [x] M22.4 A probe sim: a busy player passes level 10 in one class within the Book 1 – 3 days **[Sonnet · high]** (done 2026-10-10: `sim_breakthrough_probe`; busy inn level 10 on night 31 – 32, quiet inn on night 73, fighter on night 17 – 22; bar numbers kept)
