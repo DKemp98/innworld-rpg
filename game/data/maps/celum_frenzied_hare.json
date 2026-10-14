@@ -13,7 +13,7 @@
 	"crowd": {"lanes": [{"path": [[4, 8]], "walkers": 1, "looks": ["race_human"], "hours": [12, 23]}, {"path": [[15, 8]], "walkers": 1, "looks": ["race_human"], "hours": [12, 23]}, {"path": [[8, 10]], "walkers": 1, "looks": ["race_gnoll"], "hours": [12, 23]}]},
 	"objects": [
 		{"id": "hare_bar", "kind": "counter", "at": [5, 2], "name": "Bar", "actions": ["buy_supplies", "wash_dishes"], "solid": true, "shop": "frenzied_hare"},
-		{"id": "hare_stove", "kind": "stove", "at": [17, 1], "name": "Kitchen stove", "actions": ["cook_simple_meal", "cook_stew"], "solid": true, "warm": true},
+		{"id": "hare_stove", "kind": "stove", "at": [17, 1], "name": "Kitchen stove", "actions": ["cook_simple_meal", "cook_stew","cook_vegetable_soup"], "solid": true, "warm": true},
 		{"id": "hare_table_west", "kind": "table", "at": [6, 7], "name": "Table", "actions": ["serve_guests", "talk_with_guest"], "solid": true},
 		{"id": "hare_table_east", "kind": "table", "at": [12, 7], "name": "Table", "actions": ["serve_guests", "talk_with_guest"], "solid": true},
 		{"id": "hare_room", "kind": "bed", "at": [17, 9], "name": "Rented bed", "actions": [], "solid": true, "sleep": true, "price": 6},
