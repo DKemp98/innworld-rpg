@@ -5,9 +5,9 @@
 		"simple_meal": {"action": "cook_simple_meal", "inputs": {"vegetables": 1}, "outputs": {"simple_meal": 1},
 			"stations": ["stove", "campfire"], "confidence": "guess"},
 		"stew": {"action": "cook_stew", "inputs": {"meat": 1, "vegetables": 2}, "outputs": {"stew": 3},
-			"stations": ["stove"], "confidence": "guess"},
+			"stations": ["stove"], "confidence": "likely"},
 		"pasta": {"action": "cook_pasta", "inputs": {"dry_pasta": 1, "vegetables": 1}, "outputs": {"pasta_dish": 2},
-			"stations": ["stove"], "confidence": "guess"},
+			"stations": ["stove"], "confidence": "likely"},
 		"bread": {"action": "bake_bread", "inputs": {"flour": 2}, "outputs": {"bread": 4},
 			"stations": ["stove"], "confidence": "guess"},
 		"pizza": {"action": "bake_pizza", "inputs": {"flour": 1, "vegetables": 1, "meat": 1}, "outputs": {"pizza": 2},
@@ -15,6 +15,8 @@
 		"roast_meat": {"action": "roast_meat", "inputs": {"meat": 1}, "outputs": {"roast_meat": 2},
 			"stations": ["stove", "campfire"], "confidence": "guess"},
 		"vegetable_soup": {"action": "cook_vegetable_soup", "inputs": {"vegetables": 2}, "outputs": {"vegetable_soup": 3},
-			"stations": ["stove", "campfire"], "confidence": "guess"}
+			"stations": ["stove", "campfire"], "confidence": "guess"},
+		"blue_pastry": {"action": "make_pastry", "inputs": {"flour": 1, "egg": 1, "blue_fruit": 1}, "outputs": {"blue_pastry": 3},
+			"stations": ["stove"], "confidence": "guess"}		
 	}
 }

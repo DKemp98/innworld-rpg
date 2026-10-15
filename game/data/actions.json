@@ -3,25 +3,36 @@
 	"actions": {
 		"cook_simple_meal": {"name": "Cook a simple meal", "minutes": 45, "base_xp": 6, "risk": 0.0,
 			"duress": [{"key": "guests", "from": 2, "to": 12, "max": 2.0}],
-			"tags": {"cooking": 1.0},
+			"tags": {"cooking": 0.8, "cooking.simple": 0.2},
 			"context": [{"key": "guests", "min": 5, "add_tags": {"hospitality": 0.5}}]},
 		"cook_stew": {"name": "Cook a stew", "minutes": 90, "base_xp": 10, "risk": 0.0,
 			"duress": [{"key": "guests", "from": 2, "to": 12, "max": 2.0}],
-			"tags": {"cooking.stew": 1.0},
+			"tags": {"cooking.stew": 0.7, "cooking.simple":0.3},
 			"context": [
 				{"key": "guests", "min": 10, "add_tags": {"hospitality": 0.5}},
-				{"key": "location", "equals": "wandering_inn", "add_tags": {"hospitality": 0.2}}
-			]},
-		"cook_pasta": {"name": "Cook pasta", "minutes": 60, "base_xp": 9, "risk": 0.0,
+				{"key": "location", "equals": "wandering_inn", "add_tags": {"hospitality": 0.2}}]},
+		"roast_meat": {
+			"name": "Roast meat", "minutes": 30, "base_xp": 3, "risk": 0.0, 
+			"tags": {"cooking.simple": 0.6, "cooking": 0.4}},			
+		"cook_pasta": {
+			"name": "Cook pasta", "minutes": 60, "base_xp": 9, "risk": 0.0,
 			"duress": [{"key": "guests", "from": 2, "to": 12, "max": 2.0}],
 			"tags": {"cooking.pasta": 1.0},
 			"context": [{"key": "guests", "min": 10, "add_tags": {"hospitality": 0.5}}]},
 		"bake_bread": {"name": "Bake bread", "minutes": 120, "base_xp": 10, "risk": 0.0,
 			"duress": [{"key": "guests", "from": 2, "to": 12, "max": 2.0}],
 			"tags": {"cooking.baking": 1.0}},
-		"bake_pizza": {"name": "Bake a pizza", "minutes": 100, "base_xp": 11, "risk": 0.0, "duress": [{"key": "guests", "from": 2, "to": 12, "max": 2.0}], "tags": {"cooking.baking": 1.0}, "context": [{"key": "location", "equals": "wandering_inn", "add_tags": {"hospitality": 0.2}}]},
-		"roast_meat": {"name": "Roast meat", "minutes": 80, "base_xp": 9, "risk": 0.0, "tags": {"cooking.stew": 0.6, "cooking": 0.4}},
-		"cook_vegetable_soup": {"name": "Cook vegetable soup", "minutes": 70, "base_xp": 8, "risk": 0.0, "tags": {"cooking.stew": 1.0}},
+		"bake_pizza": {
+			"name": "Bake a pizza", "minutes": 100, "base_xp": 11, "risk": 0.0, 
+			"duress": [{"key": "guests", "from": 2, "to": 12, "max": 2.0}], 
+			"tags": {"cooking.baking": 1.0}, "context": [{"key": "location", "equals": "wandering_inn", "add_tags": {"hospitality": 0.2}}]},
+		"make_pastry": {
+			"name": "Make Pastry", "minutes": 180, "base_xp": 19, "risk": 0.0,
+			"duress": [{"key": "guests", "from": 2, "to": 12, "max": 2.0}],
+			"tags": {"cooking.baking": 1.0}},
+		"cook_vegetable_soup": {
+			"name": "Cook vegetable soup", "minutes": 70, "base_xp": 8, "risk": 0.0, 
+			"tags": {"cooking.stew": 0.8, "cooking.simple":0.2}},
 		"serve_guests": {"name": "Serve guests", "minutes": 60, "base_xp": 8, "risk": 0.0,
 			"duress": [{"key": "guests", "from": 2, "to": 12, "max": 2.0}],
 			"tags": {"hospitality.service": 1.0, "social.conversation": 0.2},
