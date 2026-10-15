@@ -17,6 +17,6 @@
 		"vegetable_soup": {"action": "cook_vegetable_soup", "inputs": {"vegetables": 2}, "outputs": {"vegetable_soup": 3},
 			"stations": ["stove", "campfire"], "confidence": "guess"},
 		"blue_pastry": {"action": "make_pastry", "inputs": {"flour": 1, "egg": 1, "blue_fruit": 1}, "outputs": {"blue_pastry": 3},
-			"stations": ["stove"], "confidence": "guess"},		
+			"stations": ["stove"], "confidence": "guess"}		
 	}
 }

@@ -35,14 +35,15 @@ func test_context_adds_tags() -> void:
 	var gs := _new_game()
 	var rec := Actions.perform(gs, _db, "cook_stew", {"context": {"guests": 12, "location": "wandering_inn"}})
 	var tags: Dictionary = rec["tags"]
-	assert_almost_eq(float(tags["cooking.stew"]), 1.0 / 1.7, EPS)
+	assert_almost_eq(float(tags["cooking.stew"]), 0.7 / 1.7, EPS)
+	assert_almost_eq(float(tags["cooking.simple"]), 0.3 / 1.7, EPS)
 	assert_almost_eq(float(tags["hospitality"]), 0.7 / 1.7, EPS)
 
 
 func test_context_rule_not_met_adds_nothing() -> void:
 	var gs := _new_game()
 	var rec := Actions.perform(gs, _db, "cook_stew", {"context": {"guests": 3, "location": "road"}})
-	assert_eq(rec["tags"], {"cooking.stew": 1.0})
+	assert_eq(rec["tags"], {"cooking.stew": 0.7, "cooking.simple": 0.3})
 
 
 func test_repetition_gives_less_xp() -> void:
