@@ -334,15 +334,15 @@ static func interact(gs: GameState, db: DataDb, object_id: String, action_id: St
 	return r
 
 
-## Buys one `good` at the nearby shop object `object_id` (M8.6). Returns
+## Buys `count` of `good` at the nearby shop object `object_id` (M8.6, M27.2). Returns
 ## {"record", "error"}; what happened is in gs.combat.lines.
-static func buy(gs: GameState, db: DataDb, object_id: String, good: String) -> Dictionary:
-	return _shop_command(gs, db, func() -> Dictionary: return Economy.buy(gs, db, object_id, good))
+static func buy(gs: GameState, db: DataDb, object_id: String, good: String, count: int = 1) -> Dictionary:
+	return _shop_command(gs, db, func() -> Dictionary: return Economy.buy(gs, db, object_id, good, count))
 
 
-## Sells one `good` from the bag at the nearby shop object `object_id`.
-static func sell(gs: GameState, db: DataDb, object_id: String, good: String) -> Dictionary:
-	return _shop_command(gs, db, func() -> Dictionary: return Economy.sell(gs, db, object_id, good))
+## Sells `count` of `good` from the bag at the nearby shop object `object_id`.
+static func sell(gs: GameState, db: DataDb, object_id: String, good: String, count: int = 1) -> Dictionary:
+	return _shop_command(gs, db, func() -> Dictionary: return Economy.sell(gs, db, object_id, good, count))
 
 
 ## Eats or drinks a good from the bag (Economy.use_good). Returns "" or an error.

@@ -346,10 +346,10 @@ func use(object_id: String, action_id: String) -> void:
 	if action_id == Interact.APPRAISE:  # M25.3: no time passes
 		sheet.open_lines(NpcSheet.lines(gs, db, object_id))
 		return
-	if action_id.begins_with(Interact.BUY) or action_id.begins_with(Interact.SELL):
-		var buying := action_id.begins_with(Interact.BUY)
-		var good := action_id.substr((Interact.BUY if buying else Interact.SELL).length())
-		var r := Commands.buy(gs, db, object_id, good) if buying else Commands.sell(gs, db, object_id, good)
+	if Interact.is_trade_action(action_id):
+		var t := Interact.trade_parts(action_id)
+		var r := Commands.buy(gs, db, object_id, t["good"], t["count"]) if t["buying"] \
+				else Commands.sell(gs, db, object_id, t["good"], t["count"])
 		_command_error(_action_sound_if_ok(r["error"], action_id))
 		return
 	if action_id.begins_with(Interact.LEARN):  # M17.5: a teacher's lesson

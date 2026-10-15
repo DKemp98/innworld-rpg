@@ -215,6 +215,8 @@
 		"note": "M8.6 (ADR 0015; user choices 2026-09-25). Coins are counted in copper. The copper-to-silver rate is a guess: the Book 1 text gives no rate.",
 		"copper_per_silver": 10,
 		"trade_minutes": 5,
+		"trade_extra_minutes": 1,
+		"bulk_buy": 5,
 		"eat_minutes": 10,
 		"haggle_share": 0.1,
 		"rest": {
