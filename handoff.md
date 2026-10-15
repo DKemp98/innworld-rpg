@@ -1,11 +1,15 @@
 # Handoff
 
+## Just done (2026-10-15, local): release v0.1.5-alpha (branch `release/v0.1.5`)
+- Bumped `game/project.godot` and both Android presets (code 4). `tools/release.ps1` ran OK from the PowerShell tool with `C:\Windows\System32` first in PATH (Git Bash tar fails on `D:` paths).
+- Next: user merges the PR; then tag `v0.1.5-alpha` on main and `gh release create` with 3 zips + apk. Web Pages publishes from the release.
+
 ## Just done (2026-10-15, local): M27 balance from player feedback (branch `feat/m27-balance-feedback`)
 - Feedback from a contributor: slow levels, level-10 consolidation, slow selling, fast forgetting. User picked all 4 fixes.
 - Plan `docs/plans/m27.md`, ADR 0042. Four commits: M27.0 XP curve + repeat penalty, M27.1 consolidation at 5,
   M27.2 buy/sell many (`Economy.buy/sell(..., count)`, `Interact.trade_action/trade_parts`, menu rows, console `[n]`),
   M27.3 slower decay. Test list in `progress.md` M27 line. Full suite not run.
-- Next: user merges the PR, then plays (`godot --path game`). If level 10+ is now too fast, raise `base_xp` first.
+- Merged: PR #188, merge commit 0812d6d (2026-10-15). Next: user plays (`godot --path game`). If level 10+ is now too fast, raise `base_xp` first.
 - Gotchas: menu trade picks may carry `#<count>`; read them with `Interact.trade_parts`, not `substr`.
   A heredoc with many quotes broke Git Bash once: put long patch scripts in a scratchpad .py file.
   The PR #185 entry below is from another session; it is not part of M27.
