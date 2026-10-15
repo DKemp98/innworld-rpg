@@ -33,6 +33,8 @@ M0–M16 detail (roadmap bullets, decisions, ADR 0001–0026) lives in
   - [x] The user made the itch.io page: https://rhasasn229.itch.io/innworld-rpg (public, browser play, comments on).
   - [x] README links the itch.io page (top links and "In your browser").
 - [x] Class tree from the wiki, steps 1 – 3 (2026-10-07/08): advancement classes, riding / animals / gardening / faith tags, hunter, archer, alchemist, blacksmith, teacher, knight, assassin. Test lists in the archive.
+- [x] Class tree step 4 (2026-10-13, branch `feat/class-tree-step4`): 15 classes (4 base: tailor, glassblower, tinkerer, bard; 7 advancements: pyromancer, necromancer, illusionist, armorer, weaponsmith, trader, diplomat; 4 consolidations: battlemage, paladin, spymaster, apothecary) + 15 passive Skills. Data only, existing tags. All `confidence: guess`. Tests: `unit_class_tree_step4` (new, 5), step2, step3, `unit_class_system`, `unit_class_actions` pass. Full suite not run.
+  - [ ] The user plays: do the new classes get offered at sensible times?
   - [ ] The user plays: do the new objects feel right?
 - [x] North road, Invrisil city and staff, Magnolia's estate and NPCs (2026-10-08): data only; maps `celum_north_gate`, `road_to_invrisil`, `invrisil_*`, `magnolia_estate_*`. Layouts and times are guesses. The user walks them. Test lists in the archive.
 - [ ] Later (user, 2026-10-08): (1) Runners' Guild staff in Invrisil: no canon NPC found, so none added. (2) Character sheets for Merec, Raisha and the estate NPCs. (3) Track Magnolia's real whereabouts by flags; the Earth-transplants' stay (2.37).

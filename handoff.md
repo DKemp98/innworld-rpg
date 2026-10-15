@@ -1,5 +1,11 @@
 # Handoff
 
+## Just done (2026-10-13, local): class tree step 4 (branch `feat/class-tree-step4`)
+- Added 15 classes to `game/data/classes.json` and 15 passive Skills to `game/data/skills.json`. Data only. All `confidence: guess`.
+- Test: `game/tests/unit_class_tree_step4.gd` (new).
+- Next: user reviews names and thresholds, then merge. Not committed yet.
+- Gotcha: skill id `measured_dose` already existed (alchemist). The new one is `careful_dose`. Check ids before you add Skills.
+
 ## Just done (2026-10-13, local): cleanup of state files
 - Moved old entries from `handoff.md`, `progress.md` and `docs/ROADMAP.md` to `docs/PROGRESS_ARCHIVE.md` (section "Archived 2026-10-13"). Nothing deleted. Docs only, no tests run.
 - Next: user merges the cleanup PR (PR #183, earther looks, is already merged). Then the Book 8 plan (ROADMAP "Later").
