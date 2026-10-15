@@ -90,7 +90,7 @@ static func make_offers(gs: GameState, db: DataDb, budget: int) -> Array[String]
 ## Lowest level that at least one `from` class must have before a consolidation
 ## can happen (rules.offers.consolidation_min_level).
 static func consolidation_min_level(db: DataDb) -> int:
-	return int(db.rules["offers"].get("consolidation_min_level", 10))
+	return int(db.rules["offers"].get("consolidation_min_level", 5))
 
 
 ## True if the player holds every `from` class, one of them is at the minimum
