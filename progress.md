@@ -36,7 +36,7 @@ M0–M16 detail (roadmap bullets, decisions, ADR 0001–0026) lives in
 - [x] Class tree step 4 (2026-10-13, branch `feat/class-tree-step4`): 15 classes (4 base: tailor, glassblower, tinkerer, bard; 7 advancements: pyromancer, necromancer, illusionist, armorer, weaponsmith, trader, diplomat; 4 consolidations: battlemage, paladin, spymaster, apothecary) + 15 passive Skills. Data only, existing tags. All `confidence: guess`. Tests: `unit_class_tree_step4` (new, 5), step2, step3, `unit_class_system`, `unit_class_actions` pass. Full suite not run.
   - [ ] The user plays: do the new classes get offered at sensible times?
   - [ ] The user plays: do the new objects feel right?
-- [ ] M27 — Balance from player feedback (2026-10-15, branch `feat/m27-balance-feedback`, plan `docs/plans/m27.md`, ADR 0042).
+- [ ] M27 — Balance from player feedback (2026-10-15, merged [PR #188](https://github.com/Daddy-Ousen/innworld-rpg/pull/188), merge commit 0812d6d, plan `docs/plans/m27.md`, ADR 0042).
   - [x] M27.0 leveling: `base_xp` 40 -> 30, `growth` 1.25 -> 1.2; novelty `k` 0.35 -> 0.2, `floor` 0.1 -> 0.3. Sims: inn worker level 5 on night 7 (was 9 - 10); fighter 14 - 15 on day 22.
   - [x] M27.1 `consolidation_min_level` 10 -> 5.
   - [x] M27.2 buy / sell many in one trade (`trade_extra_minutes` 1, `bulk_buy` 5; picks `sell:<good>#<n>`).
@@ -119,6 +119,7 @@ M0–M16 detail (roadmap bullets, decisions, ADR 0001–0026) lives in
 - [ ] Play developer account, internal test on a phone, closed test (12 testers, 14 days), tablet check, production.
 
 ## Releases (ADR 0029)
+- [x] v0.1.5-alpha (branch `release/v0.1.5`, 2026-10-15, local): version bump (Android code 4). Smoke tests pass (events=1134, maps=50, problems=0). Windows, Linux, Web zips + signed apk + play aab built in `export/`. Waits: user merges the PR, then tag `v0.1.5-alpha` + `gh release create` with the four files (zips + apk; the aab stays out, no Play upload yet).
 - [x] v0.1.3-alpha (branch `release/v0.1.3`, 2026-10-08, local): version bump (code 2), `tools/release.ps1` now also builds the signed apk. Smoke tests pass (events=1089, maps=40, problems=0). Three zips + `InnworldRPG-v0.1.3-alpha-android.apk` built. Waits: user merges the PR, then tag + `gh release create` with all four files.
 - Older releases v0.1.0 – v0.1.2, the README rewrite and the web build: see `docs/PROGRESS_ARCHIVE.md`.
 - [ ] Web build: later, own subdomain (CNAME + Settings → Pages → Custom domain).
