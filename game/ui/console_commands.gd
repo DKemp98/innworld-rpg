@@ -32,7 +32,7 @@ const HELP := [
 	"  sleep [bed | *]                    end the day where you stand (indoors or a camp),",
 	"                                     in a bed next to you, or anywhere (*, debug)",
 	"  bag                                coins, goods, hunger",
-	"  buy <object> <good> / sell <object> <good>   trade at a nearby shop",
+	"  buy <object> <good> [n] / sell <object> <good> [n]   trade at a nearby shop",
 	"  eat <good>                         eat or drink a good from the bag",
 	"  ride <object>                      take a nearby paid ride (a wagon)",
 	"  portal <object> [link]             step through a nearby magic door (a door with links: name one)",
@@ -87,8 +87,9 @@ func execute(line: String) -> Array[String]:
 			if args.size() < 2:
 				out.append("Usage: %s <object> <good>." % parts[0])
 			else:
-				var r := Commands.buy(gs, db, args[0], args[1]) if parts[0] == "buy" \
-						else Commands.sell(gs, db, args[0], args[1])
+				var n := maxi(int(args[2]), 1) if args.size() > 2 else 1
+				var r := Commands.buy(gs, db, args[0], args[1], n) if parts[0] == "buy" \
+						else Commands.sell(gs, db, args[0], args[1], n)
 				out = _combat(r["error"])
 		"eat":
 			out = _need_arg(args, "eat <good>")

@@ -44,16 +44,16 @@ func test_novelty_first_time_bonus() -> void:
 
 
 func test_novelty_falls_with_repetition() -> void:
-	# One record right now: w = 1 → 1 / 1.35
-	assert_almost_eq(Xp.novelty_mult(_log_with([1000]), "a", 1000, _xp), 1.0 / 1.35, EPS)
+	# One record right now: w = 1 → 1 / 1.2 (k = 0.2)
+	assert_almost_eq(Xp.novelty_mult(_log_with([1000]), "a", 1000, _xp), 1.0 / 1.2, EPS)
 	var twice := Xp.novelty_mult(_log_with([1000, 1000]), "a", 1000, _xp)
-	assert_almost_eq(twice, 1.0 / 1.7, EPS)
+	assert_almost_eq(twice, 1.0 / 1.4, EPS)
 
 
 func test_novelty_recovers_over_days() -> void:
 	# Two days old = one half-life: w = 0.5
 	var v := Xp.novelty_mult(_log_with([0]), "a", 2880, _xp)
-	assert_almost_eq(v, 1.0 / 1.175, EPS)
+	assert_almost_eq(v, 1.0 / 1.1, EPS)
 	# Outside the 7-day window: full novelty, but no first-time bonus.
 	assert_almost_eq(Xp.novelty_mult(_log_with([0]), "a", 1440 * 8, _xp), 1.0, EPS)
 
@@ -67,7 +67,7 @@ func test_novelty_has_a_floor() -> void:
 	var times := []
 	for i in 200:
 		times.append(1000)
-	assert_almost_eq(Xp.novelty_mult(_log_with(times), "a", 1000, _xp), 0.1, EPS)
+	assert_almost_eq(Xp.novelty_mult(_log_with(times), "a", 1000, _xp), 0.3, EPS)
 
 
 func test_compute_multiplies_everything() -> void:

@@ -4,6 +4,8 @@
 ##   Trade: a map object with "shop" sells and buys goods. A trade is the
 ##   action buy_supplies / sell_goods for trade_minutes. Haggling at a shop
 ##   gives haggle_share better prices there for the rest of the day.
+##   M27.2: one trade can buy or sell many of a good: trade_minutes plus
+##   trade_extra_minutes for each extra good, and one action record.
 ##   Yields and jobs: some actions put goods in the bag or pay coins.
 ##   Goods: food is eaten from the bag (fed today), a potion heals, clothes
 ##   are worn at once (wear_flag), a meal (eat_now) is eaten where bought.
@@ -77,17 +79,31 @@ static func trades(gs: GameState, db: DataDb, obj: Dictionary) -> Array[Dictiona
 		if not db.economy.on_sale(g, gs.flags):
 			continue
 		out.append({"kind": BUY, "good": g, "name": db.economy.goods[g]["name"],
-			"price": price(gs, db, shop, g, BUY)})
+			"price": price(gs, db, shop, g, BUY), "bulk": bulk_of(db, g)})
 	for g: String in s["buys"]:
 		if gs.economy.count(g) > 0:
 			out.append({"kind": SELL, "good": g, "name": db.economy.goods[g]["name"],
-				"price": price(gs, db, shop, g, SELL)})
+				"price": price(gs, db, shop, g, SELL), "have": gs.economy.count(g)})
 	return out
 
 
-## Buys one `good` at the nearby shop object `object_id`. Returns
+## M27.2: how many of `good` the use menu offers to buy in one trade (rules.economy.bulk_buy),
+## or 0. A meal eaten where bought or clothes put on are always one.
+static func bulk_of(db: DataDb, good: String) -> int:
+	if _single(db, good):
+		return 0
+	var n := int(rules(db).get("bulk_buy", 0))
+	return n if n > 1 else 0
+
+
+static func _single(db: DataDb, good: String) -> bool:
+	return db.economy.use_of(good) in ["eat_now", "wear_flag"]
+
+
+## Buys `count` of `good` at the nearby shop object `object_id`. Returns
 ## {"record", "error"} (see Interact.perform). What happened is in gs.combat.lines.
-static func buy(gs: GameState, db: DataDb, object_id: String, good: String) -> Dictionary:
+## M27.2: the player must afford them all. A meal eaten there or clothes are always one.
+static func buy(gs: GameState, db: DataDb, object_id: String, good: String, count: int = 1) -> Dictionary:
 	var obj := _shop_object(gs, db, object_id)
 	if obj.is_empty():
 		return _fail("There is no shop '%s' here." % object_id)
@@ -96,17 +112,18 @@ static func buy(gs: GameState, db: DataDb, object_id: String, good: String) -> D
 		return _fail("%s does not sell that." % obj["name"])
 	if not db.economy.on_sale(good, gs.flags):
 		return _fail("That is not for sale yet.")
-	var cost := price(gs, db, shop, good, BUY)
+	count = 1 if _single(db, good) else maxi(count, 1)
+	var cost := price(gs, db, shop, good, BUY) * count
 	if gs.economy.coins < cost:
 		return _fail("You cannot afford it (%s; you have %s)." % [format(db, cost),
 				format(db, gs.economy.coins)])
-	var r := _trade(gs, db, object_id, BUY_ACTION, good)
+	var r := _trade(gs, db, object_id, BUY_ACTION, good, count)
 	if r["error"] != "":
 		return r
 	gs.economy.coins -= cost
 	var g: Dictionary = db.economy.goods[good]
 	var lines := gs.combat.lines
-	lines.append("You buy %s for %s." % [String(g["name"]).to_lower(), format(db, cost)])
+	lines.append("You buy %s for %s." % [_amount(g, count), format(db, cost)])
 	match db.economy.use_of(good):
 		"eat_now":
 			_eat(gs, db, good)
@@ -115,13 +132,13 @@ static func buy(gs: GameState, db: DataDb, object_id: String, good: String) -> D
 			gs.flags[g["wear_flag"]] = true
 			lines.append("You put it on.")
 		_:
-			gs.economy.add(good, 1)
+			gs.economy.add(good, count)
 	return r
 
 
-## Sells one `good` from the bag at the nearby shop object `object_id`.
-## Returns {"record", "error"}.
-static func sell(gs: GameState, db: DataDb, object_id: String, good: String) -> Dictionary:
+## Sells `count` of `good` from the bag at the nearby shop object `object_id`.
+## Returns {"record", "error"}. M27.2: more than the bag holds sells all of it.
+static func sell(gs: GameState, db: DataDb, object_id: String, good: String, count: int = 1) -> Dictionary:
 	var obj := _shop_object(gs, db, object_id)
 	if obj.is_empty():
 		return _fail("There is no shop '%s' here." % object_id)
@@ -130,15 +147,22 @@ static func sell(gs: GameState, db: DataDb, object_id: String, good: String) -> 
 		return _fail("%s does not buy that." % obj["name"])
 	if gs.economy.count(good) <= 0:
 		return _fail("You have none to sell.")
-	var paid := price(gs, db, shop, good, SELL)
-	var r := _trade(gs, db, object_id, SELL_ACTION, good)
+	count = clampi(count, 1, gs.economy.count(good))
+	var paid := price(gs, db, shop, good, SELL) * count
+	var r := _trade(gs, db, object_id, SELL_ACTION, good, count)
 	if r["error"] != "":
 		return r
-	gs.economy.add(good, -1)
+	gs.economy.add(good, -count)
 	gs.economy.coins += paid
-	gs.combat.lines.append("You sell %s for %s." % [String(db.economy.goods[good]["name"]).to_lower(),
+	gs.combat.lines.append("You sell %s for %s." % [_amount(db.economy.goods[good], count),
 			format(db, paid)])
 	return r
+
+
+## "bread" for one, "5 bread" for more (names stay as they are; no plural forms).
+static func _amount(g: Dictionary, count: int) -> String:
+	var name := String(g["name"]).to_lower()
+	return name if count == 1 else "%d %s" % [count, name]
 
 
 ## After a done action (Commands.perform / Commands.interact): its yields go
@@ -355,9 +379,12 @@ static func _shop_object(gs: GameState, db: DataDb, object_id: String) -> Dictio
 	return {}
 
 
-## The trade action for trade_minutes, with the good in the context.
-static func _trade(gs: GameState, db: DataDb, object_id: String, action: String, good: String) -> Dictionary:
-	var minutes := int(rules(db).get("trade_minutes", db.actions[action]["minutes"]))
+## The trade action for trade_minutes (+ trade_extra_minutes per extra good), with the good in
+## the context. One record for the whole trade.
+static func _trade(gs: GameState, db: DataDb, object_id: String, action: String, good: String,
+		count: int = 1) -> Dictionary:
+	var minutes := int(rules(db).get("trade_minutes", db.actions[action]["minutes"])) \
+			+ int(rules(db).get("trade_extra_minutes", 0)) * (count - 1)
 	return Interact.perform(gs, db, object_id, action, {
 		"minutes": minutes,
 		"intensity": float(minutes) / float(db.actions[action]["minutes"]),

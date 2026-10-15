@@ -1,5 +1,22 @@
 # Handoff
 
+## Just done (2026-10-15, local): M27 balance from player feedback (branch `feat/m27-balance-feedback`)
+- Feedback from a contributor: slow levels, level-10 consolidation, slow selling, fast forgetting. User picked all 4 fixes.
+- Plan `docs/plans/m27.md`, ADR 0042. Four commits: M27.0 XP curve + repeat penalty, M27.1 consolidation at 5,
+  M27.2 buy/sell many (`Economy.buy/sell(..., count)`, `Interact.trade_action/trade_parts`, menu rows, console `[n]`),
+  M27.3 slower decay. Test list in `progress.md` M27 line. Full suite not run.
+- Next: user merges the PR, then plays (`godot --path game`). If level 10+ is now too fast, raise `base_xp` first.
+- Gotchas: menu trade picks may carry `#<count>`; read them with `Interact.trade_parts`, not `substr`.
+  A heredoc with many quotes broke Git Bash once: put long patch scripts in a scratchpad .py file.
+  The PR #185 entry below is from another session; it is not part of M27.
+
+## Just done (2026-10-15, local): review and fix of PR #185 (Blue Pastry, by DKemp98)
+- Worktree `D:\ClaudeC\innworld-pr185`, branch `fix/pr185-blue-pastry` (fetched as `pr-185`). One fix commit a38c6e9..
+- Fixed: trailing comma in `recipes.json`; `"bake_"` typo -> `make_pastry` on `pig_stove`; added `sell_goods` to `pig_bar`; 3 tests updated (`unit_actions`, `unit_cooking`, `unit_economy`).
+- Tests run (all pass): unit_cooking, unit_actions, unit_economy, unit_guests, unit_map_db, unit_other_maps, unit_celum_map, sim_inn_service, unit_tags. Validator: 0 errors. Full suite not run.
+- Open: user says stew and pasta are canon (no `canon_ref` yet). Blue pastry price (17 each, 3 per batch) may be too rich. `roast_meat` rebalanced (30 min, 3 xp).
+- Done: merged as PR #187, #185 closed, worktree removed.
+
 ## Just done (2026-10-13, local): class tree step 4 (branch `feat/class-tree-step4`)
 - Added 15 classes to `game/data/classes.json` and 15 passive Skills to `game/data/skills.json`. Data only. All `confidence: guess`.
 - Test: `game/tests/unit_class_tree_step4.gd` (new).

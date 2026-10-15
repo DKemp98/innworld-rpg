@@ -93,7 +93,7 @@ func test_a_quiet_relationship_fades_toward_zero() -> void:
 	var gs := _game()
 	gs.world.add_relationship("krshia", NpcSim.PLAYER, 5)
 	gs.world.contact["krshia"] = 1
-	_set_day(gs, 20)
+	_set_day(gs, 40)
 	Standing.night(gs, _db)
 	assert_eq(gs.world.relationship("krshia", NpcSim.PLAYER), 4)
 	Standing.night(gs, _db)
@@ -107,22 +107,25 @@ func test_a_quiet_relationship_fades_toward_zero() -> void:
 func test_a_recent_contact_keeps_the_relationship() -> void:
 	var gs := _game()
 	gs.world.add_relationship("krshia", NpcSim.PLAYER, 5)
-	_set_day(gs, 20)
-	gs.world.contact["krshia"] = 14
+	_set_day(gs, 40)
+	gs.world.contact["krshia"] = 26
 	Standing.night(gs, _db)
-	assert_eq(gs.world.relationship("krshia", NpcSim.PLAYER), 5, "6 days: still within 7")
-	gs.world.contact["krshia"] = 12
+	assert_eq(gs.world.relationship("krshia", NpcSim.PLAYER), 5, "M27.3: a 14-day trip is not forgotten")
+	gs.world.contact["krshia"] = 10
 	Standing.night(gs, _db)
-	assert_eq(gs.world.relationship("krshia", NpcSim.PLAYER), 4, "8 days: fading")
+	assert_eq(gs.world.relationship("krshia", NpcSim.PLAYER), 5, "30 days: still within 30")
+	gs.world.contact["krshia"] = 8
+	Standing.night(gs, _db)
+	assert_eq(gs.world.relationship("krshia", NpcSim.PLAYER), 4, "32 days: fading")
 
 
 func test_no_contact_record_starts_the_clock_and_never_passes_zero() -> void:
 	var gs := _game()
 	gs.world.add_relationship("krshia", NpcSim.PLAYER, 1)
-	_set_day(gs, 30)
+	_set_day(gs, 40)
 	Standing.night(gs, _db)
 	assert_eq(gs.world.relationship("krshia", NpcSim.PLAYER), 1)
-	assert_eq(gs.world.contact["krshia"], 30)
+	assert_eq(gs.world.contact["krshia"], 40)
 	gs.world.contact["krshia"] = 1
 	Standing.night(gs, _db)
 	assert_eq(gs.world.relationship("krshia", NpcSim.PLAYER), 0)
@@ -138,18 +141,18 @@ func test_other_relationships_do_not_fade() -> void:
 	assert_eq(gs.world.relationship("krshia", "lism"), 5)
 
 
-func test_reputation_fades_every_third_day() -> void:
+func test_reputation_fades_every_tenth_day() -> void:
 	var gs := _game()
 	Standing.add_reputation(gs, _db, "liscor", 5)
 	Standing.add_reputation(gs, _db, "celum", -2)
-	_set_day(gs, 10)
-	Standing.night(gs, _db)
-	assert_eq(Standing.reputation(gs, "liscor"), 5, "day 10: no fade")
 	_set_day(gs, 9)
+	Standing.night(gs, _db)
+	assert_eq(Standing.reputation(gs, "liscor"), 5, "day 9: no fade")
+	_set_day(gs, 10)
 	Standing.night(gs, _db)
 	assert_eq(Standing.reputation(gs, "liscor"), 4)
 	assert_eq(Standing.reputation(gs, "celum"), -1)
-	_set_day(gs, 12)
+	_set_day(gs, 20)
 	Standing.night(gs, _db)
 	assert_false(gs.world.reputation.has("celum"), "faded to 0: removed")
 
@@ -157,7 +160,7 @@ func test_reputation_fades_every_third_day() -> void:
 func test_night_runs_the_decay() -> void:
 	var gs := _game()
 	gs.world.add_relationship("krshia", NpcSim.PLAYER, 5)
-	gs.world.contact["krshia"] = -20
+	gs.world.contact["krshia"] = -40
 	Night.run(gs, _db)
 	assert_eq(gs.world.relationship("krshia", NpcSim.PLAYER), 4)
 

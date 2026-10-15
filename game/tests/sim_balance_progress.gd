@@ -69,9 +69,9 @@ func test_levels_come_at_a_fair_pace_on_every_seed() -> void:
 		assert_gte(int(r["first_class_night"]), 1, "seed %d gets a class" % s)
 		assert_lte(int(r["first_class_night"]), 3, "seed %d: first class by night 3" % s)
 		assert_gte(gs.progression.total_level(), 5, "seed %d: level 5 by day 22" % s)
-		assert_lte(int(r["level5_night"]), 10, "seed %d: M17.9 target, level 5 by night 9 - 10" % s)
-		assert_gte(int(r["level5_night"]), 8, "seed %d: the fighter (night 6 - 7) keeps a lead" % s)
-		assert_lte(gs.progression.total_level(), 14, "seed %d: not a runaway" % s)
+		assert_lte(int(r["level5_night"]), 8, "seed %d: M27.0 target, level 5 by night 7 - 8" % s)
+		assert_gte(int(r["level5_night"]), 6, "seed %d: the fighter (night 4 - 5) keeps a lead" % s)
+		assert_lte(gs.progression.total_level(), 16, "seed %d: not a runaway (M27.0: about 11)" % s)
 	var path := OS.get_environment("BALANCE_LOG")
 	if path != "":
 		var f := FileAccess.open(path, FileAccess.WRITE)

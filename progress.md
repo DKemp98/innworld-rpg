@@ -36,6 +36,13 @@ M0–M16 detail (roadmap bullets, decisions, ADR 0001–0026) lives in
 - [x] Class tree step 4 (2026-10-13, branch `feat/class-tree-step4`): 15 classes (4 base: tailor, glassblower, tinkerer, bard; 7 advancements: pyromancer, necromancer, illusionist, armorer, weaponsmith, trader, diplomat; 4 consolidations: battlemage, paladin, spymaster, apothecary) + 15 passive Skills. Data only, existing tags. All `confidence: guess`. Tests: `unit_class_tree_step4` (new, 5), step2, step3, `unit_class_system`, `unit_class_actions` pass. Full suite not run.
   - [ ] The user plays: do the new classes get offered at sensible times?
   - [ ] The user plays: do the new objects feel right?
+- [ ] M27 — Balance from player feedback (2026-10-15, branch `feat/m27-balance-feedback`, plan `docs/plans/m27.md`, ADR 0042).
+  - [x] M27.0 leveling: `base_xp` 40 -> 30, `growth` 1.25 -> 1.2; novelty `k` 0.35 -> 0.2, `floor` 0.1 -> 0.3. Sims: inn worker level 5 on night 7 (was 9 - 10); fighter 14 - 15 on day 22.
+  - [x] M27.1 `consolidation_min_level` 10 -> 5.
+  - [x] M27.2 buy / sell many in one trade (`trade_extra_minutes` 1, `bulk_buy` 5; picks `sell:<good>#<n>`).
+  - [x] M27.3 `decay_after_days` 7 -> 30, `reputation_decay_every` 3 -> 10.
+  - Tests run (all pass): unit_xp, unit_levels, unit_actions, sim_balance_progress, sim_balance_fighter, sim_30_days, sim_breakthrough_probe, unit_class_system, unit_class_tree_step2/3/4, unit_breakthrough, unit_night, unit_system_messages, unit_economy, unit_interact, unit_console, unit_sound_cues, sim_celum_trip, unit_cooking, unit_data_db, unit_standing, sim_balance_money, sim_inn_service, unit_brawl, unit_guests. Validator books 1-7: 0 errors. Python 116 OK. Full suite not run.
+  - [ ] The user plays: level pace, trading, friends after a trip.
 - [x] North road, Invrisil city and staff, Magnolia's estate and NPCs (2026-10-08): data only; maps `celum_north_gate`, `road_to_invrisil`, `invrisil_*`, `magnolia_estate_*`. Layouts and times are guesses. The user walks them. Test lists in the archive.
 - [ ] Later (user, 2026-10-08): (1) Runners' Guild staff in Invrisil: no canon NPC found, so none added. (2) Character sheets for Merec, Raisha and the estate NPCs. (3) Track Magnolia's real whereabouts by flags; the Earth-transplants' stay (2.37).
 - [x] Release keystore + icon check (2026-10-08): already done in M20.2 / v0.1.3 (keystore `%USERPROFILE%\.android\innworld-release.keystore`, password file next to it, outside git; icon `game/icon.png` 512 x 512 looked at: house at night, fine). v0.1.3-alpha is released with the signed apk.

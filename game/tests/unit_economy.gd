@@ -261,3 +261,72 @@ func test_economy_data_errors_are_caught() -> void:
 	errs = e.validate(_db)
 	for want: String in ["warm_minutes needs food or eat_now", "warm_minutes must be > 0", "from_flag must be a flag"]:
 		assert_true(errs.any(func(x: String) -> bool: return x.contains(want)), want)
+
+
+## M27.2: selling many is one trade: trade_minutes + trade_extra_minutes per extra good, one record.
+func test_sell_many_is_one_short_trade() -> void:
+	var gs := _game_at("celum_stitchworks_street", "stitchworks_door")
+	Commands.give(gs, _db, 0, "herbs", 10)
+	var each := Economy.price(gs, _db, "stitchworks", "herbs", Economy.SELL)
+	var before := gs.clock.total_minutes
+	var records := gs.action_log.records.size()
+	var r := Commands.sell(gs, _db, "stitchworks_door", "herbs", 10)
+	assert_eq(r["error"], "")
+	assert_eq(gs.economy.count("herbs"), 0)
+	assert_eq(gs.economy.coins, each * 10)
+	var rules: Dictionary = _db.rules["economy"]
+	assert_eq(gs.clock.total_minutes - before, int(rules["trade_minutes"]) + int(rules["trade_extra_minutes"]) * 9,
+			"10 goods: 5 + 9 minutes")
+	assert_eq(gs.action_log.records.size() - records, 1, "one record for the whole trade")
+	assert_true(gs.combat.lines.any(func(l: String) -> bool: return l.begins_with("You sell 10 ")))
+
+
+func test_sell_more_than_the_bag_sells_all() -> void:
+	var gs := _game_at("celum_stitchworks_street", "stitchworks_door")
+	Commands.give(gs, _db, 0, "herbs", 3)
+	assert_eq(Commands.sell(gs, _db, "stitchworks_door", "herbs", 10)["error"], "")
+	assert_eq(gs.economy.count("herbs"), 0)
+
+
+func test_buy_many_needs_coins_for_all() -> void:
+	var gs := _game_at("celum_square", "celum_stall")
+	var each := Economy.price(gs, _db, "celum_stall", "bread", Economy.BUY)
+	Commands.give(gs, _db, each * 5 - 1)
+	assert_string_contains(Commands.buy(gs, _db, "celum_stall", "bread", 5)["error"], "cannot afford")
+	assert_eq(gs.economy.count("bread"), 0, "nothing bought")
+	Commands.give(gs, _db, 1)
+	assert_eq(Commands.buy(gs, _db, "celum_stall", "bread", 5)["error"], "")
+	assert_eq(gs.economy.count("bread"), 5)
+	assert_eq(gs.economy.coins, 0)
+
+
+func test_a_meal_or_clothes_are_always_one() -> void:
+	var gs := _game_at("celum_square", "rats_tail_door")
+	Commands.give(gs, _db, 100)
+	assert_eq(Economy.bulk_of(_db, "hot_meal"), 0, "no buy-many row for a meal")
+	assert_eq(Economy.bulk_of(_db, "bread"), int(_db.rules["economy"]["bulk_buy"]))
+	var each := Economy.price(gs, _db, "rats_tail", "hot_meal", Economy.BUY)
+	assert_eq(Commands.buy(gs, _db, "rats_tail_door", "hot_meal", 5)["error"], "")
+	assert_eq(gs.economy.coins, 100 - each, "pays for one meal only")
+
+
+func test_trades_list_the_bag_count_and_the_bulk_size() -> void:
+	var gs := _game_at("celum_stitchworks_street", "stitchworks_door")
+	Commands.give(gs, _db, 0, "herbs", 4)
+	var obj := Interact.object_of(_db, "celum_stitchworks_street", "stitchworks_door")
+	var sells := Economy.trades(gs, _db, obj).filter(func(t: Dictionary) -> bool: return t["kind"] == Economy.SELL)
+	assert_eq(int(sells[0]["have"]), 4)
+
+
+func test_the_use_menu_offers_sell_all_and_buy_many() -> void:
+	var gs := _game_at("celum_square", "celum_stall")
+	Commands.give(gs, _db, 0, "herbs", 4)
+	var menu: InteractMenu = add_child_autofree(load("res://ui/interact_menu.tscn").instantiate())
+	assert_true(menu.open(Interact.options(gs, _db), _db))
+	var items: ItemList = menu.get_node("%Items")
+	var picks: Array[String] = []
+	for i in items.item_count:
+		picks.append(String(items.get_item_metadata(i)[1]))
+	assert_has(picks, "sell:herbs", "one at a time stays")
+	assert_has(picks, "sell:herbs#4", "sell all")
+	assert_has(picks, "buy:bread#%d" % int(_db.rules["economy"]["bulk_buy"]), "buy many")

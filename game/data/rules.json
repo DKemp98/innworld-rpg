@@ -15,10 +15,10 @@
 		"duress": {"floor": 0.5, "even_at": 0.1, "per_percent": 0.01, "cap": 2.0,
 			"note": "M17.8 (hidden; the player never sees it). Fight XP by the most HP the player lost to foes: x0.5 at nothing lost, x1.0 at 10% lost, then +0.01 for each 1% more (100% lost = x1.9), at most x2.0. First setting, all design guesses. boosts: the multiplier of an xp_window tier on a canon event (big events pay more XP; same hidden rule)."},
 		"boosts": {"1": 1.5, "2": 2.0, "3": 3.0},
-		"novelty": {"window_days": 7, "half_life_days": 2.0, "k": 0.35, "floor": 0.1, "first_time_bonus": 1.5},
+		"novelty": {"window_days": 7, "half_life_days": 2.0, "k": 0.2, "floor": 0.3, "first_time_bonus": 1.5},
 		"conviction": {"match_mult": 1.25}
 	},
-	"levels": {"base_xp": 40, "growth": 1.25, "late_from": 10, "late_growth": 1.12, "total_cap": 100, "capstones": [10, 20, 30],
+	"levels": {"base_xp": 30, "growth": 1.2, "late_from": 10, "late_growth": 1.12, "total_cap": 100, "capstones": [10, 20, 30],
 		"breakthrough": {
 			"min_match": 0.5,
 			"bars": {"risk": 0.6, "duress": 1.8, "window": 2.0},
@@ -26,7 +26,7 @@
 			"hint": "Something must still test you as %s."
 		}
 	},
-	"offers": {"max_per_night": 2, "consolidation_min_level": 10},
+	"offers": {"max_per_night": 2, "consolidation_min_level": 5},
 	"skills": {"on_accept": 1, "chance_per_level": 0.75, "base_weight": 0.1},
 	"director": {
 		"default_delay_limit": 3,
@@ -215,6 +215,8 @@
 		"note": "M8.6 (ADR 0015; user choices 2026-09-25). Coins are counted in copper. The copper-to-silver rate is a guess: the Book 1 text gives no rate.",
 		"copper_per_silver": 10,
 		"trade_minutes": 5,
+		"trade_extra_minutes": 1,
+		"bulk_buy": 5,
 		"eat_minutes": 10,
 		"haggle_share": 0.1,
 		"rest": {
@@ -279,9 +281,9 @@
 		"confidence": "guess",
 		"note": "M14.3 (ADR 0021). Relationships and reputation. Numbers are game balance, not canon. Reputation is +-cap; a town is the nearest settlement above a map's location, a faction is an NPC's canon faction.",
 		"cap": 100,
-		"decay_after_days": 7,
+		"decay_after_days": 30,
 		"relationship_decay": 1,
-		"reputation_decay_every": 3,
+		"reputation_decay_every": 10,
 		"talk_town": 1,
 		"talk_faction": 1,
 		"serve_town": 1,

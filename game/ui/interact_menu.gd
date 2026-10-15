@@ -38,10 +38,17 @@ func open(options: Array[Dictionary], db: DataDb) -> bool:
 			label += " (%s)" % o["standing"]
 		var trades: Array = o.get("trades", [])
 		for t: Dictionary in trades:
+			var buying: bool = t["kind"] == Economy.BUY
+			var prefix := Interact.BUY if buying else Interact.SELL
 			var i := _items.add_item("%s — %s %s (%s)" % [label,
-					"Buy" if t["kind"] == Economy.BUY else "Sell", t["name"], Economy.format(db, int(t["price"]))])
-			_items.set_item_metadata(i, [o["id"], (Interact.BUY if t["kind"] == Economy.BUY
-					else Interact.SELL) + String(t["good"])])
+					"Buy" if buying else "Sell", t["name"], Economy.format(db, int(t["price"]))])
+			_items.set_item_metadata(i, [o["id"], Interact.trade_action(prefix, t["good"])])
+			# M27.2: many in one trade (buy a few, sell all).
+			var many := int(t.get("bulk", 0)) if buying else int(t.get("have", 0))
+			if many > 1:
+				i = _items.add_item("%s — %s %d %s (%s)" % [label, "Buy" if buying else "Sell all",
+						many, String(t["name"]).to_lower(), Economy.format(db, int(t["price"]) * many)])
+				_items.set_item_metadata(i, [o["id"], Interact.trade_action(prefix, t["good"], many)])
 		if not (o.get("ride", {}) as Dictionary).is_empty():
 			var r: Dictionary = o["ride"]
 			@warning_ignore("integer_division")

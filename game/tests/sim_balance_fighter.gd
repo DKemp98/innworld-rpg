@@ -99,7 +99,7 @@ func test_a_fighter_levels_at_a_fair_pace_on_every_seed() -> void:
 		assert_gt(int(r["first_class_night"]), 0, "seed %d: a class was offered" % s)
 		assert_lte(int(r["first_class_night"]), 8, "seed %d: the first class comes early" % s)
 		assert_gte(gs.progression.total_level(), 3, "seed %d: level 3 by day %d" % [s, DAYS])
-		assert_lte(gs.progression.total_level(), 14, "seed %d: not a runaway" % s)
+		assert_lte(gs.progression.total_level(), 18, "seed %d: not a runaway (M27.0: about 14 - 15)" % s)
 	_write(lines)
 
 

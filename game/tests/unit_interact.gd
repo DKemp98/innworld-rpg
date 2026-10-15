@@ -123,3 +123,13 @@ func test_take_works_with_enemies_near() -> void:
 	assert_true(Combat.in_danger(gs))
 	assert_eq(Commands.take(gs, d, "stick_pile"), "")
 	assert_eq(gs.player.held, "stick")
+
+
+## M27.2: a trade pick may carry a count after "#".
+func test_trade_action_round_trip() -> void:
+	assert_eq(Interact.trade_action(Interact.SELL, "herbs"), "sell:herbs")
+	assert_eq(Interact.trade_action(Interact.SELL, "herbs", 10), "sell:herbs#10")
+	assert_eq(Interact.trade_parts("sell:herbs#10"), {"buying": false, "good": "herbs", "count": 10})
+	assert_eq(Interact.trade_parts("buy:bread"), {"buying": true, "good": "bread", "count": 1})
+	assert_true(Interact.is_trade_action("buy:bread#5"))
+	assert_false(Interact.is_trade_action("use:bread"))

@@ -35,6 +35,8 @@ const TAKE := "take"
 ## "use:<good>" (from the bag), RIDE and PORTAL (M10.0). They are not actions.
 const BUY := "buy:"
 const SELL := "sell:"
+## M27.2: a trade of many goods adds "#<count>" ("sell:herbs#10"); no "#" = one.
+const COUNT_SEP := "#"
 const USE_GOOD := "use:"
 ## Bag screen picks (M14.0): "hold:<good>" (a tool from the bag into the
 ## hand), "drop_good:<good>" (leave one behind), STOW (the held item into the bag).
@@ -90,6 +92,28 @@ static func options(gs: GameState, db: DataDb) -> Array[Dictionary]:
 
 
 ## The menu id of a door link: PORTAL for the old single form, else "portal:<id>".
+## M27.2: the menu pick for a trade: `prefix` is BUY or SELL.
+static func trade_action(prefix: String, good: String, count: int = 1) -> String:
+	return prefix + good + ("" if count <= 1 else COUNT_SEP + str(count))
+
+
+## True for a BUY or SELL pick.
+static func is_trade_action(action_id: String) -> bool:
+	return action_id.begins_with(BUY) or action_id.begins_with(SELL)
+
+
+## A BUY or SELL pick read back: {"buying": bool, "good": String, "count": int}.
+static func trade_parts(action_id: String) -> Dictionary:
+	var buying := action_id.begins_with(BUY)
+	var rest := action_id.substr((BUY if buying else SELL).length())
+	var count := 1
+	var i := rest.find(COUNT_SEP)
+	if i != -1:
+		count = maxi(int(rest.substr(i + 1)), 1)
+		rest = rest.substr(0, i)
+	return {"buying": buying, "good": rest, "count": count}
+
+
 static func portal_action(link: Dictionary) -> String:
 	return PORTAL if String(link["id"]) == "" else PORTAL_LINK + String(link["id"])
 

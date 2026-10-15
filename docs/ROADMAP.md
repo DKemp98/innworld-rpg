@@ -11,12 +11,12 @@ When every box of a milestone is ticked, move it to the top of Done. A new miles
 |---|---|---|
 | M25 NPC life | done | – |
 | M26 Code health | done | – |
-| Branch `docs/state-cleanup` | PR open | user merges |
+| M27 Balance from player feedback | PR open | user merges, then plays (level pace, trading) |
 | M20 Touch controls | waits on the user | play on a PC with a touch screen |
 | Google Play | waits on the user | pirateaba's yes, Play account, tests (`docs/PLAY_STORE.md`) |
 | Later | idea | Book 8 plan (after M25), LLM flavour layer, small asks |
 
-Last release: v0.1.4-alpha (2026-10-10). Next step: user merges the cleanup PR, then the Book 8 plan.
+Last release: v0.1.4-alpha (2026-10-10). Next step: user merges the M27 PR, then the Book 8 plan.
 
 ---
 
@@ -28,7 +28,15 @@ Model tag `[Model · effort]` at the end of each step: the model and effort to p
 Sonnet · medium. Opus for engine, save and design work and for canon logic; high effort where lore, balance or
 cascades are easy to get wrong; low for mechanical steps.
 
-(Nothing open. Next: the Book 8 plan, see Later.)
+## M27 — Balance from player feedback (plan `docs/plans/m27.md`, ADR 0042)
+- [x] M27.0 Faster leveling (`base_xp` 30, `growth` 1.2) and a softer repeat penalty (novelty `k` 0.2, `floor` 0.3) **[Opus · medium]**
+- [x] M27.1 Consolidation from level 5 (was 10) **[Sonnet · medium]**
+- [x] M27.2 Buy and sell many in one trade (5 min + 1 per extra good, one record; "Sell all" / "Buy 5" rows) **[Opus · medium]**
+- [x] M27.3 Slower forgetting (`decay_after_days` 30, `reputation_decay_every` 10) **[Sonnet · low]**
+- [ ] (user) Play: do level 5 and level 10 come at a fair pace? Does trading feel right? (`godot --path game`)
+**Done when:** the touched tests pass; the user has played it.
+
+After M27: the Book 8 plan, see Later.
 
 ---
 
