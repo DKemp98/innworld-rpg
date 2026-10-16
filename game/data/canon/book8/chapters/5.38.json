@@ -1,0 +1,1455 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.38",
+	"order": 70,
+	"events": {
+		"b8.erin_feeds_the_returning_raid": {
+			"tier": 2,
+			"window": {
+				"earliest": 160,
+				"latest": 160,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"flyer": {
+					"prefer": [
+						"bevussa_slenderscale"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"barmaid": {
+					"prefer": [
+						"drassi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cave_goblin": {
+					"prefer": [
+						"pebblesnatch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wandering_inn.ground_floor_shutters_on",
+					"pebblesnatch.works_for_the_redfangs",
+					"erin.serves_gamblers_manicotti"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed",
+				"note": "Day 160 evening (guess)."
+			},
+			"summary": "As the boats come back, the teams fight off Rock Crabs and a Lurkersnatch Fish. Erin lures them in with hot food, towels and the door to Liscor. The Hobs and Pebblesnatch, who now obeys them, have nailed shutters on the ground floor."
+		},
+		"b8.griffon_hunt_will_dive_with_the_horns": {
+			"tier": 2,
+			"window": {
+				"earliest": 160,
+				"latest": 160,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"stitch": {
+					"prefer": [
+						"revi"
+					],
+					"fallback_tags": []
+				},
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"old_mage": {
+					"prefer": [
+						"typhenous"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"revi"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"griffon_hunt.dives_with_the_horns",
+					"halfseekers.dive_with_the_silver_swords",
+					"horns_of_hammerad.told_they_fight_like_silver_ranks"
+				],
+				"clear_flags": [
+					"halfseekers.dive_with_the_horns",
+					"griffon_hunt.dives_with_the_silver_swords"
+				],
+				"relationship": [
+					{
+						"from": "halrac",
+						"to": "ceria_springwalker",
+						"delta": 1
+					},
+					{
+						"from": "ceria_springwalker",
+						"to": "revi",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed"
+			},
+			"summary": "Revi tells the Horns they fight like Silver-ranks: each Gold-rank is an expert, while Pisces is merely good at much. She misses Ulrien. Griffon Hunt asks the Horns to dive with them tomorrow; the Halfseekers get on well with the Silver Swords."
+		},
+		"b8.keldrass_holds_a_team_captains_meeting": {
+			"tier": 2,
+			"window": {
+				"earliest": 160,
+				"latest": 160,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"captain": {
+					"prefer": [
+						"keldrass"
+					],
+					"fallback_tags": []
+				},
+				"dungeon_leader": {
+					"prefer": [
+						"earlia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"keldrass"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dungeon.purer_gold_found_in_a_chest",
+					"dungeon.masked_adventurer_warns_teams",
+					"keldrass.leads_the_team_captains",
+					"liscor.adventurers_man_the_walls_at_night"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed",
+				"note": "The masked adventurer stays unnamed (ADR 0043). The Belfast Hunters have no record."
+			},
+			"summary": "Keldrass runs the captains' meeting: tomorrow they hunt the Raskghar lair. Earlia says the cursed chest held gold purer than coin. Two teams met a lone masked adventurer who helped and left. Zevara wants teams on the walls by dark."
+		},
+		"b8.mrsha_is_sent_to_octavias_for_the_night": {
+			"tier": 2,
+			"window": {
+				"earliest": 160,
+				"latest": 160,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"princess": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"alchemist": {
+					"prefer": [
+						"octavia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"mrsha"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"mrsha.sent_to_celum_for_the_night",
+					"lyonette.guards_mrsha_in_celum"
+				],
+				"relationship": [
+					{
+						"from": "mrsha",
+						"to": "erin_solstice",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed"
+			},
+			"summary": "At dusk Erin opens the door to Celum and sends Mrsha to Octavia's shop with Lyonette. Mrsha howls and clings to Erin, afraid she will never see her again. Erin stays to guard the inn with the Horns, the Halfseekers and the Hobs."
+		},
+		"b8.the_second_night_raid_breaks_on_the_walls_and_the_inn": {
+			"tier": 2,
+			"window": {
+				"earliest": 160,
+				"latest": 160,
+				"confidence": "guess"
+			},
+			"location": "liscor_walls",
+			"roles": {
+				"watch_captain": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": []
+				},
+				"strategist": {
+					"prefer": [
+						"olesm"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"antinium": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"zevara"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"liscor.second_night_raid_repelled",
+					"wandering_inn.second_raid_repelled",
+					"olesm.saw_armed_workers_at_the_inn",
+					"zevara.will_report_the_armed_workers"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed",
+				"note": "Ten Raskghar and sixty Goblins are Zevara's guess; events use no counts. Pawn leads the guard (5.36)."
+			},
+			"summary": "With lit walls and sharpshooters, Liscor picks off swimming Raskghar. A pack with sixty Cave Goblins hits the inn instead, but the Raskghar that break in meet two teams, the Hobs, Pawn's Antinium and Erin's aura. Olesm spots the armed Workers.",
+			"news": "A second Raskghar raid by night failed against Liscor's walls and the Wandering Inn."
+		},
+		"b8.the_redfangs_spare_cave_goblins_and_bird_shoots_halrac": {
+			"tier": 2,
+			"window": {
+				"earliest": 160,
+				"latest": 160,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": []
+				},
+				"bow": {
+					"prefer": [
+						"badarrow"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"archer": {
+					"prefer": [
+						"bird"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"sword": {
+					"prefer": [
+						"shorthilt"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"hob": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"halrac"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"redfang.captured_cave_goblins",
+					"halrac.shot_fleeing_cave_goblins",
+					"shorthilt.took_an_arrow_for_a_cave_goblin",
+					"badarrow.shot_warnings_at_halrac",
+					"bird.shot_at_halrac",
+					"halrac.caught_birds_arrow"
+				],
+				"relationship": [
+					{
+						"from": "halrac",
+						"to": "bird",
+						"delta": -2
+					},
+					{
+						"from": "halrac",
+						"to": "badarrow",
+						"delta": -1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed",
+				"note": "Halrac's [Arrow Grab] is in the system records."
+			},
+			"summary": "The Hobs beat the fleeing Cave Goblins with fists and flats to capture them. Halrac keeps shooting them; Shorthilt takes an arrow in the arm for one. Badarrow fires warning shots at Halrac, then Bird fires a homing shot at his chest. Halrac catches it."
+		},
+		"b8.erin_tells_zevara_she_keeps_cave_goblins": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "liscor_walls",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"watch_captain": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"zevara.watches_the_inn_for_goblins",
+					"liscor.hears_of_dwarfhalls_rest",
+					"erin.will_hide_the_cave_goblins"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed",
+				"note": "Day 161 dawn (guess). Zevara's news matches 5.32 G and 5.37 G."
+			},
+			"summary": "At dawn the Raskghar swim off; Erin and Zevara both think the night was a ruse. Erin admits she keeps captured Goblins. Zevara will watch both doors and kill any Goblin entering Liscor, and tells her of Tyrion's army chasing the Goblin Lord."
+		},
+		"b8.bird_learns_he_could_have_killed_halrac": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"archer": {
+					"prefer": [
+						"bird"
+					],
+					"fallback_tags": []
+				},
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"antinium": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"bird"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"bird.knows_he_could_have_killed_halrac",
+					"bird.apologised_to_halrac",
+					"halrac.understands_bird",
+					"pawn.guards_the_inn_by_night"
+				],
+				"clear_flags": [
+					"mrsha.sent_to_celum_for_the_night",
+					"lyonette.guards_mrsha_in_celum"
+				],
+				"relationship": [
+					{
+						"from": "halrac",
+						"to": "bird",
+						"delta": 1
+					},
+					{
+						"from": "bird",
+						"to": "halrac",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed",
+				"note": "Halrac still does not trust the Hobs and says so."
+			},
+			"summary": "Erin brings Halrac to the inn. Bird thought a Gold-rank could not die; when he understands, he curls up repeating sorry. Halrac calms him. Pawn's Antinium leave, promising to return. Mrsha comes home and pats sulking Bird."
+		},
+		"b8.the_redfangs_hide_the_cave_goblins_away_west": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"cloak": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": []
+				},
+				"bard": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rabbiteater"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"redfang.keep_cave_goblins_in_a_hidden_place",
+					"wandering_inn.sends_food_to_the_hidden_goblins",
+					"numbtongue.promised_a_new_guitar"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed",
+				"note": "The hiding place is not named here."
+			},
+			"summary": "The Hobs take the captured Cave Goblins somewhere secret to the west (Erin's Plan G). Rabbiteater swims back to report and fishes by hand; he and Numbtongue row off with food. Erin has promised Numbtongue a new guitar."
+		},
+		"b8.erin_buries_bear_traps_on_the_hill": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"cloak": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"bard": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wandering_inn.bear_traps_buried",
+					"erin.hears_a_faint_dangersense_ring"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed",
+				"note": "The traps come from Celum, so springless traps do exist."
+			},
+			"summary": "Erin buys the only three bear traps in Celum (the Adventurers' Guild sells them) and the Hobs bury them near the water. Her ears ring the whole time, a danger warning Rabbiteater cannot feel."
+		},
+		"b8.erin_sees_the_moons_need_not_be_seen": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "liscor_walls",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"strategist": {
+					"prefer": [
+						"olesm"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"barmaid": {
+					"prefer": [
+						"drassi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [
+					"raskghar.awakened_by_the_moons"
+				],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"izril.moons_full",
+					"erin.knows_the_moons_need_not_be_seen",
+					"liscor.daylight_alarm"
+				],
+				"clear_flags": [
+					"izril.moons_nearly_full"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed",
+				"note": "Moon by flags (ADR 0043): the full-moon days have come, so 'nearly full' is cleared and 'full' set. Lyonette explains how [Dangersense] can miss a threat."
+			},
+			"summary": "In the late afternoon Erin realises the moons still orbit behind the clouds and by day: the Raskghar are as strong and clever now as at night. She runs to Olesm on the walls and the alarm horns sound just in time.",
+			"news": "Liscor sounded the alarm by day: the Raskghar attacked under the clouds."
+		},
+		"b8.raskghar_storm_liscors_walls_by_day": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "liscor_walls",
+			"roles": {
+				"watch_captain": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": []
+				},
+				"brawler": {
+					"prefer": [
+						"relc"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"wing_commander": {
+					"prefer": [
+						"embria_grasstongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"strategist": {
+					"prefer": [
+						"olesm"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"zevara"
+				],
+				"flags": [
+					"raskghar.awakened_by_the_moons"
+				],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.erin_sees_the_moons_need_not_be_seen"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"liscor.daylight_raid_on_the_walls",
+					"raskghar.use_a_wind_staff_and_plate",
+					"liscor.walls_held_by_day"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed",
+				"note": "The Gnoll guard's fate is not said."
+			},
+			"summary": "Raskghar in plate, one with a wind staff, rise from behind the hills and blast the sentries flat, then throw grappling hooks. One drags a Gnoll guard into the water. Zevara's fire, Relc's kick and Embria's spear throw them back off the wall."
+		},
+		"b8.raskghar_raid_the_inn_by_daylight": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"princess": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": []
+				},
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"archer": {
+					"prefer": [
+						"bird"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"watch_captain": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"brawler": {
+					"prefer": [
+						"relc"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"lyonette"
+				],
+				"flags": [
+					"raskghar.awakened_by_the_moons"
+				],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wandering_inn.raided_by_daylight",
+					"lyonette.wrist_broken_by_a_raskghar",
+					"apista.badly_hurt_by_a_raskghar"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed",
+				"note": "Fight stage (M28.7). The text does not show the fight; hours are guesses (late afternoon, before dark). Apista has no record."
+			},
+			"summary": "While the walls hold, Raskghar break down the inn's door, where only Lyonette, Mrsha and a sleeping Bird remain. They ignore Lyonette's sword, break her wrist, stun her and smash Apista. Erin and Zevara's squad arrive too late.",
+			"news": "Raskghar raided the Wandering Inn in daylight while Liscor fought on its walls.",
+			"xp_window": {
+				"boost": 3,
+				"hours": [
+					15,
+					18
+				]
+			},
+			"stage": {
+				"area": "inn_hill",
+				"hours": [
+					15,
+					18
+				],
+				"kind": "fight",
+				"foes": [
+					{
+						"enemy": "raskghar_armoured",
+						"pos": [
+							20,
+							15
+						]
+					},
+					{
+						"enemy": "awakened_raskghar",
+						"pos": [
+							22,
+							14
+						]
+					},
+					{
+						"enemy": "cave_goblin",
+						"pos": [
+							18,
+							15
+						]
+					},
+					{
+						"enemy": "cave_goblin",
+						"pos": [
+							13,
+							15
+						]
+					}
+				],
+				"line": "In grey daylight, wet shapes climb the hill from the flood. The moons are full behind the clouds, and the Raskghar go for the inn's door.",
+				"waves": [
+					{
+						"after_seconds": 20,
+						"from": [
+							16,
+							12
+						],
+						"allies": [
+							"lyonette",
+							"bird"
+						],
+						"line": "Lyonette runs out with her sword drawn. Bird stumbles down from his room with his bow."
+					},
+					{
+						"after_seconds": 40,
+						"left_at_most": 4,
+						"from": [
+							27,
+							14
+						],
+						"foes": [
+							"awakened_raskghar",
+							"not_gnoll",
+							"cave_goblin",
+							"cave_goblin"
+						],
+						"line": "A second pack wades out of the water by the archery target, sniffing for something in the inn."
+					},
+					{
+						"after_seconds": 70,
+						"left_at_most": 5,
+						"from": [
+							16,
+							12
+						],
+						"allies": [
+							"erin_solstice",
+							"zevara",
+							"relc"
+						],
+						"line": "Erin sprints back through the door from Liscor, with Zevara and Relc on her heels."
+					},
+					{
+						"after_seconds": 100,
+						"left_at_most": 3,
+						"from": [
+							5,
+							14
+						],
+						"foes": [
+							"raskghar_armoured",
+							"awakened_raskghar",
+							"cave_goblin"
+						],
+						"line": "Armoured Raskghar circle in from the west shore to cover the retreat into the water."
+					}
+				],
+				"note": "M28.7: the daylight raid on the hill. About 11 foes; the awakened Raskghar stand for their full-moon strength. Fighting does not change the canon: Mrsha is still taken."
+			}
+		},
+		"b8.mrsha_is_taken_from_the_inn": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": []
+				},
+				"princess": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"watch_captain": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"mrsha"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.raskghar_raid_the_inn_by_daylight"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"mrsha.taken_by_the_raskghar",
+					"wandering_inn.lost_mrsha",
+					"wandering_inn.cave_goblin_caught_in_a_bear_trap"
+				],
+				"relationship": [
+					{
+						"from": "lyonette",
+						"to": "erin_solstice",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed",
+				"note": "Mrsha stays alive (5.38 ends with her caged in the Raskghar camp)."
+			},
+			"summary": "Mrsha is gone. Erin searches the inn and every door. Outside, a Cave Goblin left behind screams in one of her bear traps. Erin frees his leg, and when he cuts at her she knocks him out and drags him in to answer.",
+			"news": "A white Gnoll child was taken from the Wandering Inn by the Raskghar."
+		},
+		"b8.fess_dies_on_a_scraped_trap": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"victim": {
+					"prefer": [
+						"fess"
+					],
+					"fallback_tags": []
+				},
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"fess"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dungeon.trap_marks_scraped_off",
+					"tail_of_xil.lost_fess"
+				],
+				"kill": [
+					"fess"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed",
+				"note": "Named death (plan). Day 161 midday dive (guess)."
+			},
+			"summary": "In a corridor marked safe, Fess of the Tail of Xil chatters, walks ahead and bursts apart on a trap. Halrac finds the warning paint scraped off: someone wants the adventurers caught."
+		},
+		"b8.the_raskghar_ambush_the_great_raid": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": []
+				},
+				"stitch": {
+					"prefer": [
+						"revi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"halrac"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.fess_dies_on_a_scraped_trap"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dungeon.raskghar_ambush_the_great_raid",
+					"dungeon.monsters_attack_on_cue",
+					"dungeon.raskghar_carry_off_more_gnolls",
+					"yvlon.arm_bent_by_an_armoured_raskghar"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed",
+				"note": "Yvlon is healed within the hour (no lasting flag set)."
+			},
+			"summary": "A howl rings out and the dungeon wakes: Ghouls, a giant Face-Eater Moth and Raskghar flood the tunnels. Raskghar from above, carrying captive Gnolls, charge the retreating teams. A plated Raskghar's axe bends Yvlon's bone-braced arm.",
+			"news": "The Raskghar ambushed the adventurers in Liscor's dungeon."
+		},
+		"b8.ceria_is_carried_off_by_an_armoured_raskghar": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": []
+				},
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"antinium": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"old_mage": {
+					"prefer": [
+						"typhenous"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_raskghar_ambush_the_great_raid"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"ceria.taken_by_the_raskghar",
+					"pisces.failed_to_save_ceria"
+				],
+				"relationship": [
+					{
+						"from": "pisces",
+						"to": "ceria_springwalker",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed"
+			},
+			"summary": "The plated Raskghar drops its Gnoll, sniffs Ceria, swats Ksmvr aside and knocks her flat. It carries her away into the dark. Pisces chases it with blink steps, finds no gap in its armour and has to fall back, bleeding.",
+			"news": "Ceria Springwalker of the Horns of Hammerad was taken by the Raskghar."
+		},
+		"b8.the_cave_goblin_names_the_one_armed_chieftain": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"half_giant": {
+					"prefer": [
+						"moore"
+					],
+					"fallback_tags": []
+				},
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"bard": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"moore"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.mrsha_is_taken_from_the_inn",
+				"b8.ceria_is_carried_off_by_an_armoured_raskghar"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"raskghar.ordered_to_take_mrsha_and_ceria",
+					"liscor.knows_a_one_armed_minotaur_leads_the_raskghar",
+					"horns_of_hammerad.fear_calruz_leads_the_raskghar",
+					"pisces.terrorised_the_captive_goblin"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed",
+				"note": "Yvlon says it cannot be. The camp moves every night, so the Goblin can give only old directions."
+			},
+			"summary": "An hour later Moore and Pisces question the trapped Cave Goblin as Numbtongue translates. The Chieftain wanted the white Gnoll and the pointy-eared one alive. Pisces, in an undead illusion, demands his name: one arm, horns, not Raskghar."
+		},
+		"b8.calruz_greets_ceria_in_the_raskghar_camp": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"minotaur": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"calruz",
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.ceria_is_carried_off_by_an_armoured_raskghar"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"calruz.revealed_as_the_raskghar_great_chieftain",
+					"calruz.alive_in_the_dungeon",
+					"calruz.has_gone_mad",
+					"calruz.holds_ceria",
+					"mrsha.caged_in_the_raskghar_camp",
+					"raskghar.camp_holds_the_gnoll_captives"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed",
+				"note": "Same Calruz as Book 1 (the text says so; no merge). He says there are thousands of Raskghar with artifacts."
+			},
+			"summary": "Ceria wakes in a vast domed hall full of Raskghar and Cave Goblins, Gnolls caged on the walls and Mrsha alone in a small cage. One-armed Calruz greets her: he leads the Raskghar to conquer the dungeon and be heroes. He is utterly mad."
+		}
+	},
+	"system": [
+		{
+			"who": "halrac",
+			"kind": "skill",
+			"name": "[Arrow Grab]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Catches Bird's homing arrow an inch from his chest."
+		},
+		{
+			"who": "halrac",
+			"kind": "skill",
+			"name": "[Piercing Shot]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Used on the armoured Raskghar; the arrow snaps on its plate."
+		},
+		{
+			"who": "erin_solstice",
+			"kind": "skill",
+			"name": "[Dangersense]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "A faint ringing warns her of the daylight raid."
+		}
+	]
+}

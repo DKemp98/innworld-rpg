@@ -1,0 +1,832 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.37G",
+	"order": 69,
+	"events": {
+		"b8.reiss_rallies_the_goblins_fleeing_the_mountain": {
+			"tier": 1,
+			"window": {
+				"earliest": 151,
+				"latest": 151,
+				"confidence": "guess"
+			},
+			"location": "dwarfhalls_rest",
+			"roles": {
+				"goblin_lord": {
+					"prefer": [
+						"goblin_lord"
+					],
+					"fallback_tags": []
+				},
+				"hob": {
+					"prefer": [
+						"snapjaw"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"giant": {
+					"prefer": [
+						"eater_of_spears"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"goblin_lord"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"goblin_lord.leads_tremborags_tribe_south",
+					"goblin_lord.sends_undead_against_the_humans",
+					"goblin_lord.army_retreats_south"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.37G",
+				"confidence": "confirmed",
+				"note": "Day 151 (guess, plan). The text follows straight on from 5.32 G (day 150) and may be the same day."
+			},
+			"summary": "The Kingslayer's gaze drives every Goblin from the mountain in terror. Reiss shouts one order: follow me. Snapjaw and Eater of Spears gather Tremborag's leaderless tribe, and Reiss sends his undead north to slow the Human army.",
+			"news": "The Goblin Lord's army flees south from Dwarfhalls Rest with a Human army behind it."
+		},
+		"b8.garen_and_tremborag_maul_the_gold_hunters": {
+			"tier": 1,
+			"window": {
+				"earliest": 151,
+				"latest": 151,
+				"confidence": "guess"
+			},
+			"location": "dwarfhalls_rest",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"garen"
+					],
+					"fallback_tags": []
+				},
+				"rogue": {
+					"prefer": [
+						"minerva"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"great_chieftain": {
+					"prefer": [
+						"tremborag"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"garen"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"minerva.badly_wounded_by_garen",
+					"tremborag.ambushed_the_gold_hunters",
+					"tremborag.vows_to_take_back_his_tribe",
+					"adventurers.know_garen_as_a_team_killer"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.37G",
+				"confidence": "confirmed",
+				"note": "Day 151 (guess, plan). The text follows straight on from 5.32 G (day 150) and may be the same day. Minerva lives (pulled out by her team)."
+			},
+			"summary": "Garen stalks a Gold-rank team and is trapped between it and Minerva's team of Rogues. A Ranger names him the Halfseekers' team killer. Tremborag bursts from a wall, kills a mage and chases the Rogues; Garen cuts Minerva's belly open."
+		},
+		"b8.greydath_duels_garen": {
+			"tier": 1,
+			"window": {
+				"earliest": 151,
+				"latest": 151,
+				"confidence": "guess"
+			},
+			"location": "dwarfhalls_rest",
+			"roles": {
+				"old_goblin": {
+					"prefer": [
+						"greydath"
+					],
+					"fallback_tags": []
+				},
+				"chieftain": {
+					"prefer": [
+						"garen"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"greydath"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.garen_and_tremborag_maul_the_gold_hunters"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"greydath.alive_and_seen",
+					"greydath.killed_three_gold_ranks",
+					"greydath.dueled_garen",
+					"garen.called_not_goblin_by_greydath",
+					"greydath.heads_south"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.37G",
+				"confidence": "confirmed",
+				"note": "Day 151 (guess, plan). The text follows straight on from 5.32 G (day 150) and may be the same day. Greydath says something strange is to the south. His old title is from the text; no more is said here."
+			},
+			"summary": "An old grey-bearded Goblin, called Greybeard in Tremborag's tribe, has killed the three Gold-ranks. He names himself Greydath of Blades, a Goblin Lord thought dead, outfights Garen easily and mocks him as a failed Chieftain who is no Goblin."
+		},
+		"b8.greydath_throws_a_sword_at_the_kingslayer": {
+			"tier": 1,
+			"window": {
+				"earliest": 151,
+				"latest": 151,
+				"confidence": "guess"
+			},
+			"location": "dwarfhalls_rest",
+			"roles": {
+				"old_goblin": {
+					"prefer": [
+						"greydath"
+					],
+					"fallback_tags": []
+				},
+				"kingslayer": {
+					"prefer": [
+						"elia_arcsinger"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"chieftain": {
+					"prefer": [
+						"garen"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"greydath"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.greydath_duels_garen"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"greydath.threw_a_sword_at_elia",
+					"elia_arcsinger.shot_down_greydaths_sword",
+					"adventurers.blame_garen_for_the_dead_team",
+					"garen.wears_looted_enchanted_armour",
+					"garen.rides_from_the_mountain"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.37G",
+				"confidence": "confirmed",
+				"note": "Day 151 (guess, plan). The text follows straight on from 5.32 G (day 150) and may be the same day. The daughter is a young half-Elf adventurer with no record."
+			},
+			"summary": "Greydath hurls a dead man's sword up at Elia Arcsinger; her daughter's warning lets her shoot it apart. Greydath is gone, so the mages blame Garen. He loots the dead team's armour and rides out, sure the whole battle is a trap."
+		},
+		"b8.tyrion_lets_the_goblins_run_from_riverfarm": {
+			"tier": 1,
+			"window": {
+				"earliest": 151,
+				"latest": 151,
+				"confidence": "guess"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"lord": {
+					"prefer": [
+						"tyrion_veltras"
+					],
+					"fallback_tags": []
+				},
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"tyrion_veltras"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"tyrion.lets_rags_tribe_run",
+					"laken.ordered_tyrions_men_to_chase"
+				],
+				"relationship": [
+					{
+						"from": "laken_godart",
+						"to": "tyrion_veltras",
+						"delta": -1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.37G",
+				"confidence": "confirmed",
+				"note": "Day 151 (guess, plan). The text follows straight on from 5.32 G (day 150) and may be the same day."
+			},
+			"summary": "At Riverfarm Tyrion calls his riders off the fleeing Redfangs. Laken's voice sends them back after the Goblins; Tyrion's command stops them again and he asks the Emperor not to order his men. He promises to deal with the Chieftain in two hours."
+		},
+		"b8.laken_holds_the_nobles_for_questioning": {
+			"tier": 1,
+			"window": {
+				"earliest": 151,
+				"latest": 151,
+				"confidence": "guess"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"lord": {
+					"prefer": [
+						"tyrion_veltras"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"steward": {
+					"prefer": [
+						"prost"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lady": {
+					"prefer": [
+						"bevia_veniford"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.tyrion_lets_the_goblins_run_from_riverfarm"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"laken.holds_the_nobles_in_riverfarm",
+					"laken.will_question_everyone_with_magic",
+					"tyrion.offers_truth_spell_mages",
+					"bevia.named_as_tyrions_informant"
+				],
+				"relationship": [
+					{
+						"from": "laken_godart",
+						"to": "tyrion_veltras",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.37G",
+				"confidence": "confirmed",
+				"note": "Day 151 (guess, plan). The text follows straight on from 5.32 G (day 150) and may be the same day. Lord Tourant has no record. Bevia denies the forgery; the culprit is not named."
+			},
+			"summary": "Laken says no one leaves until magic finds who forged his order and knocked out his mage, and asks Prost for an axe. Tyrion backs the inquiry, offers his own mages and his oath, and names Lady Bevia as one who wrote to him."
+		},
+		"b8.tyrion_outrides_redscar_on_the_road": {
+			"tier": 1,
+			"window": {
+				"earliest": 151,
+				"latest": 151,
+				"confidence": "guess"
+			},
+			"location": "riverfarm_road",
+			"roles": {
+				"lord": {
+					"prefer": [
+						"tyrion_veltras"
+					],
+					"fallback_tags": []
+				},
+				"raider": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"tyrion_veltras"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"redscar.failed_to_wound_tyrion",
+					"tyrion.rides_to_lancrel"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.37G",
+				"confidence": "confirmed",
+				"note": "Day 151 (guess, plan). The text follows straight on from 5.32 G (day 150) and may be the same day. Redscar's shoulder wound from 5.32 G is healed."
+			},
+			"summary": "Riding east at a Skill-driven pace, Tyrion passes the wounded Redfangs and ignores them. Redscar charges and rains blows on him; Tyrion blocks them all with his shield until Redscar's wolf tires and falls behind."
+		},
+		"b8.tyrion_appraises_the_goblin_chieftains_at_lancrel": {
+			"tier": 1,
+			"window": {
+				"earliest": 151,
+				"latest": 151,
+				"confidence": "guess"
+			},
+			"location": "lancrel",
+			"roles": {
+				"lord": {
+					"prefer": [
+						"tyrion_veltras"
+					],
+					"fallback_tags": []
+				},
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"welca_caveis"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"tyrion_veltras"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.tyrion_outrides_redscar_on_the_road"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"tyrion.marks_rags_and_pyrite_as_chieftains",
+					"redscar.is_a_raid_leader",
+					"riverfarm.army_lost_thousands",
+					"wiskeria.met_tyrion",
+					"welca.knows_kerrig_is_safe"
+				],
+				"relationship": [
+					{
+						"from": "wiskeria",
+						"to": "tyrion_veltras",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.37G",
+				"confidence": "confirmed",
+				"note": "Day 151 (guess, plan). The text follows straight on from 5.32 G (day 150) and may be the same day. Lord Pellmia and the aide Jericha have no records."
+			},
+			"summary": "At Lancrel Lord Pellmia's charge has saved Wiskeria's army, but thousands are dead. Tyrion looks through an Appraisal monocle: Pyrite and the small Goblin both hold many Chieftain levels; Redscar is a Raid Leader. He marks Rags and Pyrite."
+		},
+		"b8.tyrions_mages_blast_lancrel_open": {
+			"tier": 1,
+			"window": {
+				"earliest": 151,
+				"latest": 151,
+				"confidence": "guess"
+			},
+			"location": "lancrel",
+			"roles": {
+				"lord": {
+					"prefer": [
+						"tyrion_veltras"
+					],
+					"fallback_tags": []
+				},
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"tyrion_veltras"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.tyrion_appraises_the_goblin_chieftains_at_lancrel"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"lancrel.gates_blasted_by_a_siege_fireball",
+					"flooded_waters.driven_out_of_lancrel",
+					"tyrion.mages_cast_a_linked_siege_fireball"
+				],
+				"clear_flags": [
+					"lancrel.fallen_to_goblins",
+					"flooded_waters.driven_back_into_lancrel"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.37G",
+				"confidence": "confirmed",
+				"note": "Day 151 (guess, plan). The text follows straight on from 5.32 G (day 150) and may be the same day."
+			},
+			"summary": "Twenty linked mages cast one huge fireball that blows in Lancrel's gates and walls. The Goblins had planned to flee all along: they stream out the west side as Pellmia's knights ride through the breach.",
+			"news": "Lord Tyrion Veltras's mages blew open Lancrel and drove the Goblins out."
+		},
+		"b8.tyrion_cuts_down_redscar_and_spares_rags": {
+			"tier": 1,
+			"window": {
+				"earliest": 151,
+				"latest": 151,
+				"confidence": "guess"
+			},
+			"location": "lancrel",
+			"roles": {
+				"lord": {
+					"prefer": [
+						"tyrion_veltras"
+					],
+					"fallback_tags": []
+				},
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"raider": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"tyrion_veltras",
+					"rags"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.tyrions_mages_blast_lancrel_open"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"redscar.side_laid_open_by_tyrion",
+					"rags.saved_redscar_from_tyrion",
+					"rags.spared_an_hour_to_run",
+					"rags.spat_at_tyrion",
+					"tyrion.keeps_rags_alive_on_purpose",
+					"tyrion.bets_pellmia_on_the_goblin_chase"
+				],
+				"relationship": [
+					{
+						"from": "rags",
+						"to": "tyrion_veltras",
+						"delta": -2
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.37G",
+				"confidence": "confirmed",
+				"note": "Day 151 (guess, plan). The text follows straight on from 5.32 G (day 150) and may be the same day. Tyrion stops the archers ('you might hit her') and bets Pellmia he cannot corner the tribe in two hours."
+			},
+			"summary": "Redscar's riders charge Tyrion to cover the retreat. Tyrion cuts several down and lays Redscar's side open; Rags rides between them and Pyrite carries Redscar off. Tyrion parries her and gives her an hour to run. She spits at him and flees.",
+			"news": "Rags's tribe broke away from Lancrel. Tyrion Veltras let their Chieftain go."
+		},
+		"b8.tyrion_tells_pellmia_his_plan_has_fourteen_days": {
+			"tier": 1,
+			"window": {
+				"earliest": 151,
+				"latest": 151,
+				"confidence": "guess"
+			},
+			"location": "lancrel",
+			"roles": {
+				"lord": {
+					"prefer": [
+						"tyrion_veltras"
+					],
+					"fallback_tags": []
+				}
+			},
+			"requires": {
+				"alive": [
+					"tyrion_veltras"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.tyrion_cuts_down_redscar_and_spares_rags"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"tyrion.plan_runs_fourteen_days",
+					"tyrion.wants_the_goblins_herded_not_killed"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.37G",
+				"confidence": "confirmed",
+				"note": "Day 151 (guess, plan). The text follows straight on from 5.32 G (day 150) and may be the same day. The goal of the plan is not stated."
+			},
+			"summary": "Tyrion tells Pellmia to herd the Goblins without killing too many: a Chieftain's death scatters a tribe. Asked how long his plan has left, Tyrion answers fourteen days and rides back to Riverfarm without saying more."
+		},
+		"b8.rags_leads_her_tribe_into_the_night": {
+			"tier": 1,
+			"window": {
+				"earliest": 151,
+				"latest": 152,
+				"confidence": "guess"
+			},
+			"location": "riverfarm_road",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": []
+				},
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"raider": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rags"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.tyrion_cuts_down_redscar_and_spares_rags"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"rags.leads_her_beaten_tribe_on",
+					"flooded_waters.cheer_rags",
+					"rags.is_chieftain_level_24"
+				],
+				"relationship": [
+					{
+						"from": "pyrite",
+						"to": "rags",
+						"delta": 1
+					},
+					{
+						"from": "redscar",
+						"to": "rags",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.37G",
+				"confidence": "confirmed",
+				"note": "Day 151 (guess, plan). The text follows straight on from 5.32 G (day 150) and may be the same day. The march goes into the night; the level-up may fall on day 152."
+			},
+			"summary": "Beaten and on the run again, Rags sits tall because her tribe looks to her. Redscar lies near death on a wagon; Pyrite bleeds beside her. The Goblins cheer the little Chieftain who beat Redfang and spat at a Lord, and she levels."
+		}
+	},
+	"system": [
+		{
+			"who": "rags",
+			"kind": "level",
+			"name": "[Chieftain]",
+			"level": 24,
+			"confidence": "confirmed",
+			"note": "Gained at the end of 5.37 G as her tribe flees Lancrel."
+		},
+		{
+			"who": "rags",
+			"kind": "skill",
+			"name": "[Tribe: Rapid Reload]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Gained with [Chieftain] 24."
+		},
+		{
+			"who": "rags",
+			"kind": "skill",
+			"name": "[Flashfire Spellcraft]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Gained with [Chieftain] 24."
+		},
+		{
+			"who": "rags",
+			"kind": "other",
+			"name": "[Burning Blades]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "A spell gained with [Chieftain] 24."
+		},
+		{
+			"who": "garen",
+			"kind": "skill",
+			"name": "[Blur Dodge]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Used against Minerva."
+		},
+		{
+			"who": "garen",
+			"kind": "skill",
+			"name": "[Frenzy Cuts]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Used against Greydath."
+		},
+		{
+			"who": "redscar",
+			"kind": "class",
+			"name": "[Raid Leader]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Tyrion's appraisal: a Goblin commander class; no [Chieftain] levels."
+		},
+		{
+			"who": "redscar",
+			"kind": "skill",
+			"name": "[Flurry Strikes]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Used against Tyrion on the road."
+		},
+		{
+			"who": "pyrite",
+			"kind": "class",
+			"name": "[Chieftain]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Tyrion's appraisal: many levels, a few more than Rags; no number given."
+		},
+		{
+			"who": "wiskeria",
+			"kind": "class",
+			"name": "[General]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "She says she gained it lately, a gift from Laken."
+		}
+	]
+}

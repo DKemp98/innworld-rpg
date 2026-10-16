@@ -1,0 +1,697 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.36",
+	"order": 68,
+	"events": {
+		"b8.pallass_teams_plan_one_great_dive_by_day": {
+			"tier": 2,
+			"window": {
+				"earliest": 160,
+				"latest": 160,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"captain": {
+					"prefer": [
+						"keldrass"
+					],
+					"fallback_tags": []
+				},
+				"lord": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"flyer": {
+					"prefer": [
+						"bevussa_slenderscale"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"selphid": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"keldrass"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dungeon.great_raid_planned",
+					"pallass_teams.dive_by_day",
+					"keldrass.leads_the_pallass_teams"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.36",
+				"confidence": "confirmed",
+				"note": "Day 160 (guess): the morning after the first raid. Issa (the Wings' public captain) has no record."
+			},
+			"summary": "At dawn the Pallass captains meet Ilvriss in the inn. Keldrass of the Flamewardens says the Raskghar are strongest at night, so every team will go down the rift together by day. Bevussa, a Garuda raised by Drakes, chats with Erin."
+		},
+		"b8.erin_sells_scale_salad_to_the_raid": {
+			"tier": 2,
+			"window": {
+				"earliest": 160,
+				"latest": 160,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"selphid": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"half_giant": {
+					"prefer": [
+						"moore"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"rogue": {
+					"prefer": [
+						"seborn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"erin.sells_magic_food_to_adventurers",
+					"erin.renamed_scale_soup_scale_salad"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.36",
+				"confidence": "confirmed"
+			},
+			"summary": "Erin hands out samples of her warming soup and her skin-toughening Scale Salad to the departing teams. Jelaqua worries the crowd of rivals will take the dungeon's prize; Moore tells Erin to guard her inn and Mrsha first."
+		},
+		"b8.erin_plans_defences_and_klbkch_lends_soldiers": {
+			"tier": 2,
+			"window": {
+				"earliest": 160,
+				"latest": 160,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"princess": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cloak": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"antinium": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wandering_inn.outside_shutters_planned",
+					"wandering_inn.potion_box_for_defence",
+					"wandering_inn.tower_door_bar",
+					"klbkch.lends_painted_soldiers_to_the_inn",
+					"antinium.workers_armed_with_bows_in_secret",
+					"wandering_inn.no_play_during_the_raids"
+				],
+				"relationship": [
+					{
+						"from": "erin_solstice",
+						"to": "rabbiteater",
+						"delta": 1
+					},
+					{
+						"from": "erin_solstice",
+						"to": "klbkch",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.36",
+				"confidence": "confirmed",
+				"note": "Klbkch asks that the armed Workers stay secret."
+			},
+			"summary": "Springs do not exist here, so Erin's bear trap plan fails. Rabbiteater mimes shutters on the outside of the windows. Klbkch secretly lends Pawn's Painted Soldiers and some Workers with bows to guard the inn at night. The play is called off."
+		},
+		"b8.erin_saves_pebblesnatch_with_a_chess_lesson": {
+			"tier": 2,
+			"window": {
+				"earliest": 160,
+				"latest": 160,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"hob": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"bard": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"bow": {
+					"prefer": [
+						"badarrow"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"sword": {
+					"prefer": [
+						"shorthilt"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cloak": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cave_goblin": {
+					"prefer": [
+						"pebblesnatch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"barmaid": {
+					"prefer": [
+						"drassi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice",
+					"pebblesnatch"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pebblesnatch.spared_by_the_redfangs",
+					"erin.taught_the_redfangs_about_sides",
+					"redfang.mean_to_win_over_the_cave_goblins",
+					"drassi.warms_to_the_goblins"
+				],
+				"relationship": [
+					{
+						"from": "headscratcher",
+						"to": "erin_solstice",
+						"delta": 3
+					},
+					{
+						"from": "numbtongue",
+						"to": "erin_solstice",
+						"delta": 1
+					},
+					{
+						"from": "pebblesnatch",
+						"to": "erin_solstice",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.36",
+				"confidence": "confirmed",
+				"note": "The captive is Pebblesnatch (named here; she is female in the text). Ishkr also listens."
+			},
+			"summary": "The Redfangs decide they must kill their Cave Goblin captive. Erin stops them with her words, not her aura, then plays Headscratcher at chess and throws the board: sides are made up. Why not turn the captive into a friend? Headscratcher weeps.",
+			"news": "Erin Solstice keeps a captured Cave Goblin alive at her inn."
+		},
+		"b8.the_great_raid_dives_the_rift": {
+			"tier": 2,
+			"window": {
+				"earliest": 160,
+				"latest": 160,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon_rift",
+			"roles": {
+				"captain": {
+					"prefer": [
+						"keldrass"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"antinium": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"flyer": {
+					"prefer": [
+						"bevussa_slenderscale"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"keldrass"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dungeon.first_great_raid",
+					"horns_of_hammerad.dove_the_rift",
+					"ksmvr.terrified_of_water",
+					"dungeon.raid_fortifies_the_rift_landing"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.36",
+				"confidence": "confirmed"
+			},
+			"summary": "Over a hundred adventurers row out in every boat Liscor has and sink down the rift on weighted ropes. Ksmvr panics at the sight of water until Ceria blindfolds him and pushes him in. Four teams stay to fortify the landing.",
+			"news": "Over a hundred adventurers from Pallass and Liscor went down into the dungeon together."
+		},
+		"b8.ceria_asks_the_raid_to_look_for_calruz": {
+			"tier": 2,
+			"window": {
+				"earliest": 160,
+				"latest": 160,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": []
+				},
+				"knight": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"ceria.asked_the_raid_to_seek_calruz",
+					"dungeon.crypt_route_told_to_the_raid"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.36",
+				"confidence": "confirmed",
+				"note": "The old Drake captain has no name or record."
+			},
+			"summary": "Ceria asks the gathered teams to watch for Calruz, her lost Minotaur leader. An old Drake tells her he is long dead. Ceria feels foolish, and she has let slip the crypt route into the dungeon."
+		},
+		"b8.the_horns_learn_from_the_halfseekers_and_griffon_hunt": {
+			"tier": 2,
+			"window": {
+				"earliest": 160,
+				"latest": 160,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": []
+				},
+				"selphid": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"stitch": {
+					"prefer": [
+						"revi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"old_mage": {
+					"prefer": [
+						"typhenous"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"horns_of_hammerad.learn_from_halfseekers",
+					"horns_of_hammerad.suit_griffon_hunt_best",
+					"pisces.raskghar_skeletons_walk_ahead_as_decoys"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.36",
+				"confidence": "confirmed",
+				"note": "The Silver Swords switch too and clash with Griffon Hunt."
+			},
+			"summary": "The Halfseekers chat, take it slow and crush a horde of Children with no plan at all. Griffon Hunt then spends twenty minutes on a joint formation and moves fast in silence, Pisces's Raskghar skeletons walking ahead as decoys. The Horns fit Griffon Hunt best."
+		},
+		"b8.the_dungeon_empties_before_the_raid": {
+			"tier": 2,
+			"window": {
+				"earliest": 160,
+				"latest": 160,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": []
+				},
+				"gnoll_captain": {
+					"prefer": [
+						"nailren"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"flyer": {
+					"prefer": [
+						"bevussa_slenderscale"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"halrac"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dungeon.monsters_and_raskghar_pulled_back",
+					"dungeon.raskghar_mask_trails_with_gnoll_blood",
+					"dungeon.first_great_raid_lost_three",
+					"gekla_raiders.lost_two_to_crypt_lords",
+					"dungeon.cursed_chest_found"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.36",
+				"confidence": "confirmed",
+				"note": "A cursed chest of purer gold hurts one team captain (more in 5.38)."
+			},
+			"summary": "Few monsters show themselves and the Raskghar hide; Halrac thinks something controls the dungeon. Nailren's Gnolls cannot smell their kin through blood rubbed on the walls. Three adventurers die: one to a trap, two Gekla Raiders to Crypt Lords."
+		},
+		"b8.ceria_leaves_a_cow_mark_for_calruz": {
+			"tier": 2,
+			"window": {
+				"earliest": 160,
+				"latest": 160,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": []
+				},
+				"stitch": {
+					"prefer": [
+						"revi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"ceria.left_a_cow_mark_for_calruz",
+					"griffon_hunt.mark_the_way_out"
+				],
+				"relationship": [
+					{
+						"from": "revi",
+						"to": "ceria_springwalker",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.36",
+				"confidence": "confirmed"
+			},
+			"summary": "Halrac marks every crossing with glowing paint pointing to the exit, in case Calruz is alive. Revi gives Ceria the paint and she draws a silly cow with big horns, an old joke only Calruz would know. The raid climbs out at sunset."
+		},
+		"b8.calruz_finds_cerias_mark": {
+			"tier": 2,
+			"window": {
+				"earliest": 160,
+				"latest": 160,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"minotaur": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": []
+				}
+			},
+			"requires": {
+				"alive": [
+					"calruz"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"calruz.found_cerias_mark",
+					"calruz.knows_ceria_is_in_the_dungeon"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.36",
+				"confidence": "confirmed",
+				"note": "Same Calruz as Book 1 (no merge). Only the reader sees him; Liscor does not know yet."
+			},
+			"summary": "When the last adventurer has gone, a one-armed figure walks the marked tunnels. He finds the cow drawing and a strand of Ceria's hair, says her name, and goes back into the dark."
+		}
+	},
+	"system": [
+		{
+			"who": "erin_solstice",
+			"kind": "skill",
+			"name": "[Advanced Crafting]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Named when she plans to make the door bar herself."
+		}
+	]
+}

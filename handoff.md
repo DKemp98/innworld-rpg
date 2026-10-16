@@ -1,5 +1,10 @@
 # Handoff
 
+## Just done (2026-10-16, local): M28.7 canon 5.36, 5.37 G, 5.38 (branch `feat/m28.7-canon-5-36`)
+- 41 events, stage `b8.raskghar_raid_the_inn_by_daylight` (day 161, 15 - 18 h, xp x3), test `sim_book8_raid_two`. 5.38 clears `izril.moons_nearly_full`, sets `izril.moons_full`. Flags `mrsha.taken_by_the_raskghar`, `ceria.taken_by_the_raskghar`, `calruz.revealed_as_the_raskghar_great_chieftain`. ADR 0043 has doubts.
+- Next: user merges the PR. Then M28.8 (5.39 - 5.42, days 161 - 162): Antinium offensive, Calruz and Ceria, Redfang trek. Ask stage and hook choices first (plan: events only).
+- Gotchas: 5.37 G may be day 150 (put on 151). The text never shows the inn fight; the stage is on the hill. Fess dies in 5.3x (kill event).
+
 ## Just done (2026-10-16, local): M28.6 canon 5.33 B - 5.35 H (branch `feat/m28.6-canon-5-33`)
 - 37 events in `canon/book8/chapters/5.33B|interlude_blackmage|5.34|5.35H.json` (orders 64 - 67), test `sim_book8_raid_one`. A delegated agent wrote it. Not committed. ADR 0043 M28.6 has stage, flags, doubts.
 - Stage `b8.raskghar_raid_the_wandering_inn` on `inn_hill` 21 - 24 h, xp x3; hook `player_stood_with_headscratcher_after_the_raid` (5.35 H). `sim_player_hooks` count now 129.
