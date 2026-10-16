@@ -35,7 +35,8 @@ M0–M16 detail (roadmap bullets, decisions, ADR 0001–0026) lives in
 - [ ] M28 — Book 8 (Blood of Liscor), plan `docs/plans/m28.md`, ADR 0043.
   - [x] M28.P plan (2026-10-16, branch `docs/m28-book8-plan`): user picks: 3 fight stages (5.34, 5.38, 5.44), moon by flags, dungeon dive events only, north thread events only. Docs only, no tests run. Waits: user merges the PR.
   - [x] M28.0 engine (2026-10-16, branch `feat/m28.0-boycott`): optional `rules.inn.race_boycott [{flag, race, factor}]`, `Guests.race_weights`. Tests: `unit_guests` (+4), `unit_standing`, `sim_inn_service` pass. Full suite not run.
-  - [ ] M28.1 world and records · M28.2 – M28.9 canon batches.
+  - [x] M28.1 world and records (2026-10-16, branch `feat/m28.1-world-records`): `raskghar_armoured`, `awakened_raskghar` (Gnoll art stand-in), map `raskghar_camp`, `canon/book8` records (20 NPCs, 4 places), Calruz note. Tests: `sim_book8_world` (new, 6) + 11 touched scripts pass; validator 0 errors; Python 116 OK. Full suite not run.
+  - [ ] M28.2 – M28.9 canon batches.
 - [x] Class tree from the wiki, steps 1 – 3 (2026-10-07/08): advancement classes, riding / animals / gardening / faith tags, hunter, archer, alchemist, blacksmith, teacher, knight, assassin. Test lists in the archive.
 - [x] Class tree step 4 (2026-10-13, branch `feat/class-tree-step4`): 15 classes (4 base: tailor, glassblower, tinkerer, bard; 7 advancements: pyromancer, necromancer, illusionist, armorer, weaponsmith, trader, diplomat; 4 consolidations: battlemage, paladin, spymaster, apothecary) + 15 passive Skills. Data only, existing tags. All `confidence: guess`. Tests: `unit_class_tree_step4` (new, 5), step2, step3, `unit_class_system`, `unit_class_actions` pass. Full suite not run.
   - [ ] The user plays: do the new classes get offered at sensible times?

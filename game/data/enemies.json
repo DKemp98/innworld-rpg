@@ -246,7 +246,17 @@
 			"canon_ref": {"book": 7, "chapter": "5.07", "confidence": "guess", "note": "Swarm groups of smaller moths came with the giants (5.07). Design: one unit stands for a cloud of them. No spawns; the M19.4 wave stage brings them."},
 			"tags": ["insect", "moth", "flying", "swarm"], "color": "#c9bfa6", "danger": 0.5, "behaviour": "pack",
 			"hp": 8, "armor": 0, "accuracy": 5, "evasion": 7, "damage": [1, 3], "act_seconds": 4,
-			"aggro_radius": 10, "lose_radius": 99, "chase_turns": 99, "flee_below": 0.0, "scared_by": []}
+			"aggro_radius": 10, "lose_radius": 99, "chase_turns": 99, "flee_below": 0.0, "scared_by": []},
+		"raskghar_armoured": {"name": "Armoured Raskghar", "confidence": "guess",
+			"canon_ref": {"book": 8, "chapter": "5.34", "confidence": "likely", "note": "Raskghar in stolen Watch armour or with enchanted gear and bows raid Liscor and the inn (5.34, 5.38, 5.40). Stats are guesses. No spawns: the M28 raid stages bring them. Drawn with the Gnoll art (look)."},
+			"tags": ["not_gnoll"], "color": "#6a5a4a", "danger": 0.85, "behaviour": "pack", "look": "gnoll_hunter",
+			"hp": 28, "armor": 3, "accuracy": 5, "evasion": 2, "damage": [3, 7], "act_seconds": 7,
+			"aggro_radius": 10, "lose_radius": 14, "chase_turns": 20, "flee_below": 0.0, "scared_by": []},
+		"awakened_raskghar": {"name": "Awakened Raskghar", "confidence": "guess",
+			"canon_ref": {"book": 8, "chapter": "5.43", "confidence": "likely", "note": "Raskghar made lucid by Calruz's sacrifices; fast, speaking, fighting like seasoned Warriors (5.43, 5.44). Stats are guesses. No spawns: the M28.9 battle stage brings them. Drawn with the Gnoll art (look)."},
+			"tags": ["not_gnoll"], "color": "#3e3228", "danger": 1.0, "behaviour": "pack", "look": "gnoll_hunter",
+			"hp": 42, "armor": 2, "accuracy": 7, "evasion": 4, "damage": [5, 10], "act_seconds": 5,
+			"aggro_radius": 12, "lose_radius": 99, "chase_turns": 99, "flee_below": 0.0, "scared_by": []}
 	},
 	"spawns": [
 		{"id": "crab_valley", "area": "floodplains_south", "enemy": "rock_crab", "confidence": "guess",
