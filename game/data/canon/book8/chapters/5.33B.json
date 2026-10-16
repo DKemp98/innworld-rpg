@@ -1,0 +1,512 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.33B",
+	"order": 64,
+	"events": {
+		"b8.klbkch_answers_zevara_for_the_free_queen": {
+			"tier": 2,
+			"window": {
+				"earliest": 157,
+				"latest": 157,
+				"confidence": "guess"
+			},
+			"location": "liscor_watch_barracks",
+			"roles": {
+				"revalantor": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": []
+				},
+				"watch_captain": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"queen": {
+					"prefer": [
+						"free_queen"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"klbkch"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"liscor.questions_the_hive_about_the_dungeon",
+					"antinium.say_the_dungeon_below_is_not_liscors"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.33B",
+				"confidence": "confirmed",
+				"note": "Day 157 (guess). The Queen speaks through Klbkch over a mental link."
+			},
+			"summary": "Zevara questions Revalantor Klbkch about the Hive and the dungeon. The Free Queen listens through him and answers rudely; Klbkch turns her words polite. He points out that Liscor's treaty claim stops at the surface, so the dungeon below is not the city's.",
+			"news": "Watch Captain Zevara met the Antinium Revalantor Klbkch about the Hive's tunnels to the dungeon."
+		},
+		"b8.baiss_brings_a_package_from_the_other_hives": {
+			"tier": 2,
+			"window": {
+				"earliest": 157,
+				"latest": 157,
+				"confidence": "guess"
+			},
+			"location": "liscor",
+			"roles": {
+				"courier": {
+					"prefer": [
+						"baiss"
+					],
+					"fallback_tags": []
+				},
+				"rabbit_courier": {
+					"prefer": [
+						"hawk"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"revalantor": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"klbkch"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"walled_cities.know_of_the_antinium_package"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.33B",
+				"confidence": "confirmed",
+				"note": "The Runners' Guild has no own place record; set in Liscor."
+			},
+			"summary": "The Oteslia Courier Baiss, drunk and nervous, waits in Liscor's Runners' Guild with a bag every Walled City has studied. Hawk sits with him while Klbkch signs for it. The bag comes from the five Hives in the far south-west."
+		},
+		"b8.the_grand_queen_speaks_through_a_proxy_drone": {
+			"tier": 2,
+			"window": {
+				"earliest": 157,
+				"latest": 157,
+				"confidence": "guess"
+			},
+			"location": "liscor_hive",
+			"roles": {
+				"queen": {
+					"prefer": [
+						"free_queen"
+					],
+					"fallback_tags": []
+				},
+				"revalantor": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"free_queen"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.baiss_brings_a_package_from_the_other_hives"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"antinium.grand_queen_proxy_in_the_liscor_hive",
+					"free_antinium.rejoined_the_hives",
+					"grand_queen.orders_the_dungeon_probed",
+					"xrn.back_with_the_hives"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.33B",
+				"confidence": "confirmed",
+				"note": "The Grand Queen has no NPC record; she speaks only through the drone. Other proxies are promised later."
+			},
+			"summary": "Inside the bag is a preserved drone shaped like a small Queen, holding a scrying mirror. The Grand Queen speaks through it: the Free Hive rejoins the others, must probe the dungeon for artifacts, and may not call other Hives. Xrn is home. She is cold to the Free Queen.",
+			"news": "Rumours say the Liscor Hive received a strange package from the Antinium Hives far to the south."
+		},
+		"b8.the_free_queen_tends_her_sealed_workshop": {
+			"tier": 1,
+			"window": {
+				"earliest": 157,
+				"latest": 157,
+				"confidence": "guess"
+			},
+			"location": "liscor_hive",
+			"roles": {
+				"queen": {
+					"prefer": [
+						"free_queen"
+					],
+					"fallback_tags": []
+				},
+				"revalantor": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cook": {
+					"prefer": [
+						"garry"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"free_queen"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"free_queen.keeps_a_sealed_workshop",
+					"garry.given_a_day_off"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.33B",
+				"confidence": "confirmed",
+				"note": "What grows in the sealed room is not said; no flag names it."
+			},
+			"summary": "The Free Queen keeps a sealed room of grown forms and failed work; Klbkch's new body is her best design. She calls the Individuals flawed but useful. On Klbkch's advice she gives Garry, her [Cook], a day off."
+		},
+		"b8.bird_brings_snacks_to_the_individuals": {
+			"tier": 2,
+			"window": {
+				"earliest": 157,
+				"latest": 157,
+				"confidence": "guess"
+			},
+			"location": "liscor_hive",
+			"roles": {
+				"bird": {
+					"prefer": [
+						"bird"
+					],
+					"fallback_tags": []
+				},
+				"pawn": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"anand": {
+					"prefer": [
+						"anand"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"belgrade": {
+					"prefer": [
+						"belgrade"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"garry": {
+					"prefer": [
+						"garry"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"bird"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"bird.is_paid_by_erin",
+					"individuals.meet_in_the_barracks"
+				],
+				"relationship": [
+					{
+						"from": "pawn",
+						"to": "bird",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.33B",
+				"confidence": "confirmed"
+			},
+			"summary": "Bird walks to the Hive with Erin's fish snacks for Pawn, Anand, Belgrade and Garry. They play chess and share news. The others envy Bird's wages and his bed of pillows. He loses a game on purpose to draw a crow with the pieces."
+		},
+		"b8.the_free_queen_judges_bird_and_he_sings": {
+			"tier": 2,
+			"window": {
+				"earliest": 157,
+				"latest": 157,
+				"confidence": "guess"
+			},
+			"location": "liscor_hive",
+			"roles": {
+				"queen": {
+					"prefer": [
+						"free_queen"
+					],
+					"fallback_tags": []
+				},
+				"bird": {
+					"prefer": [
+						"bird"
+					],
+					"fallback_tags": []
+				},
+				"revalantor": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"bird",
+					"free_queen"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.bird_brings_snacks_to_the_individuals"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"free_queen.found_bird_worthy",
+					"bird.sang_for_the_free_queen",
+					"bird.promised_to_return_and_sing"
+				],
+				"relationship": [
+					{
+						"from": "free_queen",
+						"to": "bird",
+						"delta": 3
+					},
+					{
+						"from": "klbkch",
+						"to": "bird",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.33B",
+				"confidence": "confirmed"
+			},
+			"summary": "The Free Queen sees Bird alone, calls him flawed and starts to crush him. He sings a made-up song and she lets go. Workers are not meant to sing. She finds him worthy, but he refuses to stay: he wants birds. She lets him leave if he comes back to sing.",
+			"news": "Word in the Hive says the Free Queen asked a Worker named Bird to sing for her."
+		},
+		"b8.bird_buys_a_bow_with_the_queens_gold": {
+			"tier": 2,
+			"window": {
+				"earliest": 157,
+				"latest": 157,
+				"confidence": "guess"
+			},
+			"location": "liscor_market",
+			"roles": {
+				"bird": {
+					"prefer": [
+						"bird"
+					],
+					"fallback_tags": []
+				},
+				"shopkeeper": {
+					"prefer": [
+						"krshia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"bird"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_free_queen_judges_bird_and_he_sings"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"bird.has_a_new_composite_bow"
+				],
+				"clear_flags": [
+					"bird.bow_broken"
+				],
+				"relationship": [
+					{
+						"from": "krshia",
+						"to": "bird",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.33B",
+				"confidence": "confirmed",
+				"note": "The shop belongs to Krshia's cousin (5.34). Book 7 set bird.bow_broken; the new bow clears it."
+			},
+			"summary": "A worried Gnoll bowyer calls Krshia when Bird asks for a bird-bow. Bird shows his coins, then empties a bag of gold from his Queen onto the floor. That night he comes home with a fine composite bow."
+		},
+		"b8.drakes_heckle_the_play_and_bird_sings_in_the_rain": {
+			"tier": 2,
+			"window": {
+				"earliest": 157,
+				"latest": 157,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"bird": {
+					"prefer": [
+						"bird"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"bird.is_a_singer",
+					"erin.calms_hecklers_with_her_aura"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.33B",
+				"confidence": "confirmed",
+				"note": "Same night Zevara reports to Ilvriss and the Walled Cities (not modelled)."
+			},
+			"summary": "That night Drakes pack the inn to boo the play, and Erin holds them down with her aura. Bird goes up to his tower, sings about the rain that will not stop, and wakes as a [Singer] with [Soothing Melody]."
+		}
+	},
+	"system": [
+		{
+			"who": "bird",
+			"kind": "skill",
+			"name": "[Piercing Shot]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Learned before this chapter; named while he watches the water."
+		},
+		{
+			"who": "bird",
+			"kind": "level",
+			"name": "[Singer]",
+			"level": 7,
+			"confidence": "confirmed",
+			"note": "The first time the class is shown; he sleeps after singing in the tower."
+		},
+		{
+			"who": "bird",
+			"kind": "skill",
+			"name": "[Soothing Melody]",
+			"level": 7,
+			"confidence": "confirmed",
+			"note": "Gained with [Singer] Level 7."
+		}
+	]
+}

@@ -1,0 +1,433 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "interlude_blackmage",
+	"order": 65,
+	"events": {
+		"b8.wistram_dresses_up_for_the_new_students": {
+			"tier": 1,
+			"window": {
+				"earliest": 157,
+				"latest": 157,
+				"confidence": "guess"
+			},
+			"location": "wistram_academy",
+			"roles": {
+				"earther": {
+					"prefer": [
+						"aaron_vanwell"
+					],
+					"fallback_tags": []
+				},
+				"archmage": {
+					"prefer": [
+						"feor"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"warden": {
+					"prefer": [
+						"teura"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"steward": {
+					"prefer": [
+						"cognita"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"aaron_vanwell"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wistram.dresses_up_for_new_students"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "interlude_blackmage",
+				"confidence": "confirmed",
+				"note": "Day 157 (guess). Blackmage counts it as late March or early April. Cessic (no record) leads the first years."
+			},
+			"summary": "Wistram takes up Blackmage's idea of a Halloween welcome: hats, illusions and sweets. Feor wears a wizard hat. Teura brings Blackmage to the hall to look for Earth faces among the new students. Cognita gives her yearly rules."
+		},
+		"b8.wistrams_council_picks_blackmages_brain": {
+			"tier": 1,
+			"window": {
+				"earliest": 157,
+				"latest": 157,
+				"confidence": "guess"
+			},
+			"location": "wistram_academy",
+			"roles": {
+				"earther": {
+					"prefer": [
+						"aaron_vanwell"
+					],
+					"fallback_tags": []
+				},
+				"archmage": {
+					"prefer": [
+						"feor"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"aaron_vanwell"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wistram.sells_recordings_of_battles",
+					"wistram.knows_others_seek_black_powder"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "interlude_blackmage",
+				"confidence": "confirmed",
+				"note": "Gelia, Welaiat, Failess and Foulton have no records."
+			},
+			"summary": "At the high table the mages talk of selling recorded battles like the Liscor siege, a world message network and national debt, all ideas from Blackmage. One mage warns that others are asking about black powder and fine steel."
+		},
+		"b8.blackmage_buys_a_distraction_from_beatrice": {
+			"tier": 1,
+			"window": {
+				"earliest": 157,
+				"latest": 157,
+				"confidence": "guess"
+			},
+			"location": "wistram_academy",
+			"roles": {
+				"earther": {
+					"prefer": [
+						"aaron_vanwell"
+					],
+					"fallback_tags": []
+				},
+				"broker": {
+					"prefer": [
+						"beatrice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"student": {
+					"prefer": [
+						"montressa_du_valeross"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"warden": {
+					"prefer": [
+						"teura"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"aaron_vanwell"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"beatrice.holds_a_secret_from_blackmage",
+					"teura.ambushed_by_students"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "interlude_blackmage",
+				"confidence": "confirmed"
+			},
+			"summary": "Blackmage pays the secret broker Beatrice with a written secret for twenty minutes free of Teura. Montressa rounds up students, and a dozen spells pin Teura down in the hall while he runs."
+		},
+		"b8.blackmage_opens_the_evermote_study": {
+			"tier": 1,
+			"window": {
+				"earliest": 157,
+				"latest": 157,
+				"confidence": "guess"
+			},
+			"location": "wistram_academy",
+			"roles": {
+				"earther": {
+					"prefer": [
+						"aaron_vanwell"
+					],
+					"fallback_tags": []
+				},
+				"student": {
+					"prefer": [
+						"montressa_du_valeross"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"aaron_vanwell"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.blackmage_buys_a_distraction_from_beatrice"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wistram.evermote_study_found",
+					"montressa.knows_of_the_evermote_study"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "interlude_blackmage",
+				"confidence": "confirmed",
+				"note": "How he knew the passphrase stays his secret. Naili has no record."
+			},
+			"summary": "Deep in the lower halls Blackmage speaks a passphrase and a wall opens on the Evermote Study, a lost library and workshop. Montressa has followed him unseen. She offers to bring him to the Revivalist Archmage Naili."
+		},
+		"b8.naili_and_the_revivalists_take_blackmage_in": {
+			"tier": 2,
+			"window": {
+				"earliest": 158,
+				"latest": 158,
+				"confidence": "guess"
+			},
+			"location": "wistram_academy",
+			"roles": {
+				"earther": {
+					"prefer": [
+						"aaron_vanwell"
+					],
+					"fallback_tags": []
+				},
+				"archmage": {
+					"prefer": [
+						"feor"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"warden": {
+					"prefer": [
+						"teura"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"aaron_vanwell"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.blackmage_opens_the_evermote_study"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"aaron_vanwell.protected_by_the_revivalists",
+					"revivalists.hold_the_evermote_study",
+					"feor.meant_to_bind_earthers_with_a_lock_spell"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "interlude_blackmage",
+				"confidence": "confirmed"
+			},
+			"summary": "At breakfast Feor comes to put a silencing spell on Blackmage. Archmage Naili blocks him, and four hundred Revivalists stand up behind her. Feor backs off. The Revivalists get the Evermote Study and will shelter the Earthers.",
+			"news": "At Wistram the Revivalist faction faced down Archmage Feor over a mysterious new student."
+		},
+		"b8.earthers_arrive_at_wistram_by_ship": {
+			"tier": 1,
+			"window": {
+				"earliest": 158,
+				"latest": 158,
+				"confidence": "guess"
+			},
+			"location": "wistram_academy",
+			"roles": {
+				"earther": {
+					"prefer": [
+						"aaron_vanwell"
+					],
+					"fallback_tags": []
+				}
+			},
+			"requires": {
+				"alive": [
+					"aaron_vanwell"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wistram.holds_several_earthers"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "interlude_blackmage",
+				"confidence": "confirmed",
+				"note": "The new Earthers are not named; no records."
+			},
+			"summary": "That evening a second ship brings more students. A small group of Humans shout that it looks like Hogwarts, and Blackmage finds people from Earth. They hug and cry in the entrance hall while Feor watches from above."
+		},
+		"b8.feor_sends_search_teams_for_earthers": {
+			"tier": 2,
+			"window": {
+				"earliest": 158,
+				"latest": 158,
+				"confidence": "guess"
+			},
+			"location": "wistram_academy",
+			"roles": {
+				"archmage": {
+					"prefer": [
+						"feor"
+					],
+					"fallback_tags": []
+				},
+				"warden": {
+					"prefer": [
+						"teura"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"student": {
+					"prefer": [
+						"montressa_du_valeross"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"graduate": {
+					"prefer": [
+						"falene_skystrall"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"feor"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wistram.search_teams_for_earthers",
+					"wistram.team_bound_for_liscor",
+					"wistram.wants_the_inns_magic_door",
+					"falene.refuses_to_spy_for_wistram",
+					"typhenous.reported_to_wistram"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "interlude_blackmage",
+				"confidence": "confirmed",
+				"note": "Typhenous's report is named, not shown. The teams leave once first-year classes start (later than this day)."
+			},
+			"summary": "Feor reads the list of search teams for each continent. The Liscor team, with Montressa on it, must look into batman and L, Erin's link to Earth, the magic door of the Wandering Inn and Pisces. Falene will not spy for the academy; Typhenous sent a report.",
+			"news": "Wistram is said to be sending teams of mages to every continent. One may be bound for Liscor."
+		}
+	},
+	"system": [
+		{
+			"who": "aaron_vanwell",
+			"kind": "level",
+			"name": "[Mage]",
+			"level": 18,
+			"confidence": "confirmed",
+			"note": "Fast, from Archmage Feor's private lessons."
+		},
+		{
+			"who": "aaron_vanwell",
+			"kind": "class",
+			"name": "[Engineer]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "From taking apart his watch and phone; no level given."
+		},
+		{
+			"who": "beatrice",
+			"kind": "class",
+			"name": "[Runeshaper]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "A full mage of Wistram and a secret broker."
+		},
+		{
+			"who": "montressa_du_valeross",
+			"kind": "other",
+			"name": "Close to being named a [Mage]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "A senior student; she senses Blackmage at about Level 20."
+		}
+	]
+}
