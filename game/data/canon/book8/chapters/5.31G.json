@@ -1,0 +1,610 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.31G",
+	"order": 62,
+	"events": {
+		"b8.the_mountain_tunnels_hold_on_the_first_day": {
+			"tier": 2,
+			"window": {
+				"earliest": 149,
+				"latest": 149,
+				"confidence": "confirmed"
+			},
+			"location": "dwarfhalls_rest",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"garen"
+					],
+					"fallback_tags": []
+				},
+				"great_chieftain": {
+					"prefer": [
+						"tremborag"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"shaman": {
+					"prefer": [
+						"ulvama"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lord": {
+					"prefer": [
+						"goblin_lord"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"garen"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_goblin_lord_lays_siege_to_dwarfhalls_rest"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dwarfhalls_rest.tunnels_hold",
+					"garen.raids_the_siege_lines",
+					"ulvama.casts_bloodfury_on_young_goblins"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.31G",
+				"confidence": "confirmed",
+				"note": "First day of the siege; 5.31 G puts it on the same day as Rags's first trebuchet (day 149)."
+			},
+			"summary": "Reiss's soldiers find tunnel after tunnel, but each is a trap-filled choke point. Garen's riders strike the slopes three times. Ulvama burns a crowd from the peak and sends young Goblins, maddened by her spell, down to die."
+		},
+		"b8.reiss_talks_the_siege_over_with_osthia": {
+			"tier": 2,
+			"window": {
+				"earliest": 149,
+				"latest": 149,
+				"confidence": "confirmed"
+			},
+			"location": "dwarfhalls_rest",
+			"roles": {
+				"lord": {
+					"prefer": [
+						"goblin_lord"
+					],
+					"fallback_tags": []
+				},
+				"captive": {
+					"prefer": [
+						"osthia_blackwing"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lieutenant": {
+					"prefer": [
+						"snapjaw"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"champion": {
+					"prefer": [
+						"eater_of_spears"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"goblin_lord",
+					"osthia_blackwing"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_goblin_lord_lays_siege_to_dwarfhalls_rest"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"osthia.advises_reiss_unwillingly",
+					"goblin_lord.rings_two_thirds_of_the_mountain",
+					"goblin_lord.master_too_far_to_help"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.31G",
+				"confidence": "confirmed",
+				"note": "Day 149. Reiss's army is over a hundred thousand, a third of them non-fighters; Tremborag has perhaps forty thousand (text counts)."
+			},
+			"summary": "At the mountain's foot, Reiss weighs the fight with his captive Osthia, who now talks strategy from sheer loneliness. He will ring most of the mountain and watch the back. His master is too far away to help with magic."
+		},
+		"b8.exploding_undead_break_the_tunnel_defence": {
+			"tier": 1,
+			"window": {
+				"earliest": 149,
+				"latest": 149,
+				"confidence": "confirmed"
+			},
+			"location": "dwarfhalls_rest",
+			"roles": {
+				"great_chieftain": {
+					"prefer": [
+						"tremborag"
+					],
+					"fallback_tags": []
+				},
+				"chieftain": {
+					"prefer": [
+						"garen"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lord": {
+					"prefer": [
+						"goblin_lord"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"tremborag"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_mountain_tunnels_hold_on_the_first_day"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"goblin_lord.uses_exploding_undead",
+					"dwarfhalls_rest.outer_tunnels_lost",
+					"tremborag.pulls_back_to_the_bridges"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.31G",
+				"confidence": "confirmed",
+				"note": "Evening of day 149. Night raids follow; the second day is day 150."
+			},
+			"summary": "Reiss sends in the undead. Small undead Goblins blow up among the defenders and the narrow tunnels turn deadly. Tremborag pulls back to the wide halls and rope bridges and vows to hunt Reiss's officers the next day.",
+			"news": "Exploding undead drive Tremborag's Goblins back from the outer tunnels of their mountain."
+		},
+		"b8.the_goblins_copy_the_trebuchet": {
+			"tier": 1,
+			"window": {
+				"earliest": 149,
+				"latest": 149,
+				"confidence": "confirmed"
+			},
+			"location": "lancrel",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"noears"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"raider": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"archer": {
+					"prefer": [
+						"quietstab"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"rogue": {
+					"prefer": [
+						"poisonbite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"kerrig_louis"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rags"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_trebuchets_open_fire_on_lancrel"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"flooded_waters.built_a_trebuchet",
+					"noears.blasts_boulders_in_the_air",
+					"flooded_waters.trebuchets_fire_back"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.31G",
+				"confidence": "confirmed",
+				"note": "Same day as the mountain siege's first day (text). Rags has a few levels in [Tinkerer] (no level stated)."
+			},
+			"summary": "Noears cracks falling boulders with lightning. Rags's crafters copy the trebuchet by eye, using a soldier's head as a measure and timber from houses and the forest. After a failed try, their own trebuchet throws stones at the Human camp.",
+			"news": "The Goblins in Lancrel copy the Humans' trebuchet and hurl stones back at Laken's army."
+		},
+		"b8.rags_sends_kerrig_to_offer_peace": {
+			"tier": 1,
+			"window": {
+				"earliest": 150,
+				"latest": 150,
+				"confidence": "guess"
+			},
+			"location": "lancrel",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": []
+				},
+				"knight": {
+					"prefer": [
+						"kerrig_louis"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rags",
+					"kerrig_louis"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_goblins_copy_the_trebuchet"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"rags.offers_peace_through_kerrig",
+					"kerrig.rides_out_under_a_white_flag",
+					"rags.offers_gold_for_the_dead"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.31G",
+				"confidence": "confirmed",
+				"note": "Kerrig rides out late on day 149 or early on day 150; Laken hears of it on his Day 105, so day 150 (guess)."
+			},
+			"summary": "With trebuchets on both sides, Rags tells Kerrig it is time for peace. She offers gold for the dead and would swear under a truth spell. Pyrite says Goblins only want to live. Kerrig agrees to carry the offer under a white flag.",
+			"news": "A knight rides out of Goblin-held Lancrel under a white flag with a peace offer."
+		},
+		"b8.wiskeria_asks_durene_to_urge_a_delay": {
+			"tier": 2,
+			"window": {
+				"earliest": 150,
+				"latest": 150,
+				"confidence": "guess"
+			},
+			"location": "lancrel",
+			"roles": {
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": []
+				},
+				"paladin": {
+					"prefer": [
+						"durene"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"captain": {
+					"prefer": [
+						"beniar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"engineer": {
+					"prefer": [
+						"tessia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"wiskeria"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_goblins_copy_the_trebuchet"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wiskeria.asks_laken_to_hold_off",
+					"durene.wants_to_fight_the_goblins",
+					"tessia.cannot_build_more_trebuchets",
+					"wiskeria.thinks_the_tribe_is_redfang"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.31G",
+				"confidence": "confirmed",
+				"note": "Day 150 (guess, same scene as Kerrig riding out). Durene fights with a door shield and a club."
+			},
+			"summary": "Tessia cannot match the Goblins' new engines. Beniar wants to charge; Wiskeria fears the walls, Hobs and lightning. She asks Durene to talk Laken into waiting. Durene refuses, angry. A rider with a white flag leaves the city."
+		},
+		"b8.laken_weighs_the_goblin_peace_offer": {
+			"tier": 1,
+			"window": {
+				"earliest": 150,
+				"latest": 150,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"lady": {
+					"prefer": [
+						"rie"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"nesor"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.rags_sends_kerrig_to_offer_peace"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"laken.holds_the_attack_on_lancrel",
+					"laken.summons_kerrig_to_riverfarm",
+					"laken.doubts_all_goblins_are_monsters"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.31G",
+				"confidence": "confirmed",
+				"note": "Laken's Day 105 (firm)."
+			},
+			"summary": "Rie tells Laken a knight of the Petal brings a peace offer from the Flooded Waters tribe. Laken holds the attack but keeps the stones flying. He recalls the Filk army was chasing this tribe, doubts himself, and sends for Kerrig at a gallop."
+		},
+		"b8.bevias_circle_pumps_nesor_for_news": {
+			"tier": 2,
+			"window": {
+				"earliest": 150,
+				"latest": 150,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"lady": {
+					"prefer": [
+						"bevia_veniford"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"nesor"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"advisor": {
+					"prefer": [
+						"rie"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.laken_weighs_the_goblin_peace_offer"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"bevia.drew_nesor_into_her_circle",
+					"riverfarm.nobles_send_their_own_messages"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.31G",
+				"confidence": "confirmed",
+				"note": "Day 105. Laken naps after this; the order comes while he sleeps."
+			},
+			"summary": "Waiting, Laken finds Nesor having tea with Lady Bevia and the young noble ladies, who want news. He pulls Nesor out. Rie is ashamed. Laken knows the nobles send spell messages of their own, then lies down in Wiskeria's cottage."
+		},
+		"b8.a_forged_order_sends_the_army_at_lancrel": {
+			"tier": 1,
+			"window": {
+				"earliest": 150,
+				"latest": 150,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"nesor"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lady": {
+					"prefer": [
+						"rie"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.bevias_circle_pumps_nesor_for_news"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"riverfarm.forged_attack_order",
+					"nesor.knocked_out_and_dumped",
+					"wiskeria.ordered_to_attack_lancrel",
+					"laken.did_not_order_the_attack"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.31G",
+				"confidence": "confirmed",
+				"note": "Day 105. Who sent the false order is not said. Do not name a culprit."
+			},
+			"summary": "Wiskeria gets three spell messages, each sterner, ordering an attack at once. Laken wakes to his army marching. He sent no order. Nesor is found knocked out far outside the village. It is too late to recall the army.",
+			"news": "A false order in Emperor Laken's name sends his army against Lancrel; the Emperor says he sent none."
+		}
+	},
+	"system": []
+}
