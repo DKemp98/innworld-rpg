@@ -1,0 +1,635 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.26L",
+	"order": 57,
+	"events": {
+		"b8.erin_talks_pawn_out_of_his_curl": {
+			"tier": 1,
+			"window": {
+				"earliest": 152,
+				"latest": 152,
+				"confidence": "guess"
+			},
+			"location": "liscor_hive",
+			"roles": {
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"pawn": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"klbkch": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"anand": {
+					"prefer": [
+						"anand"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice",
+					"pawn"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pawn_curls_up_and_klbkch_calls_him_a_disgrace"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pawn.uncurled",
+					"erin.learns_lyonette_lost_her_class",
+					"erin.told_pawn_to_leave_lyonette_be",
+					"pawn.doubts_erins_advice"
+				],
+				"clear_flags": [
+					"pawn.curled_up_in_despair"
+				],
+				"relationship": [
+					{
+						"from": "pawn",
+						"to": "erin_solstice",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.26L",
+				"confidence": "confirmed",
+				"note": "Day 152 (guess). Erin had given Lyonette a day off in Celum with Mrsha."
+			},
+			"summary": "Erin rolls, pokes and yells at the curled Worker, then tells him his unit is starving with him. He unfolds. She learns Lyonette lost her class and tells him to say sorry and give her space. For the first time Pawn feels Erin does not quite understand."
+		},
+		"b8.pawn_eats_with_his_unit_and_calls_erin_the_sky": {
+			"tier": 2,
+			"window": {
+				"earliest": 152,
+				"latest": 152,
+				"confidence": "guess"
+			},
+			"location": "liscor_hive",
+			"roles": {
+				"pawn": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": []
+				},
+				"yellow_splatters": {
+					"prefer": [
+						"yellow_splatters"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"purple_smile": {
+					"prefer": [
+						"purple_smile"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pawn"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.erin_talks_pawn_out_of_his_curl"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pawn.apologised_to_his_unit",
+					"pawn.calls_erin_the_sky",
+					"pawn.calls_lyonette_his_only_friend"
+				],
+				"clear_flags": [
+					"painted_soldiers.hunger_strike_for_pawn",
+					"painted_soldiers.listless_without_pawn",
+					"pawn.neglects_his_unit"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.26L",
+				"confidence": "confirmed",
+				"note": "Day 152 (guess). Erin takes Klbkch away first."
+			},
+			"summary": "Pawn eats, and his Soldiers and Workers eat with him. He says sorry and explains: Erin is not a friend but the sky to the Workers, the Hive is family, and Lyonette is his one friend. Purple Smile mimes Gnoll ears and a counter: ask Krshia."
+		},
+		"b8.krshia_laughs_and_tells_pawn_to_hold_a_ball": {
+			"tier": 2,
+			"window": {
+				"earliest": 152,
+				"latest": 152,
+				"confidence": "guess"
+			},
+			"location": "liscor_market",
+			"roles": {
+				"krshia": {
+					"prefer": [
+						"krshia"
+					],
+					"fallback_tags": []
+				},
+				"pawn": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"purple_smile": {
+					"prefer": [
+						"purple_smile"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"krshia",
+					"pawn"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pawn_eats_with_his_unit_and_calls_erin_the_sky"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"krshia.advises_pawn_to_hold_a_ball",
+					"krshia.knows_lyonette_is_a_princess",
+					"krshia.trusted_by_the_painted_soldiers",
+					"krshia.muses_on_a_roofed_market_street"
+				],
+				"relationship": [
+					{
+						"from": "pawn",
+						"to": "krshia",
+						"delta": 1
+					},
+					{
+						"from": "purple_smile",
+						"to": "krshia",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.26L",
+				"confidence": "confirmed",
+				"note": "Day 152 (guess). Her plan is told off-page; what she said shows in the ball scene."
+			},
+			"summary": "At her rain-soaked stall Krshia shares cheese and hears Pawn out. Purple Smile trusts her because she treats the Antinium fairly. She laughs a long time, says Erin's advice is wrong, and gives him a plan that is just what Erin said not to do."
+		},
+		"b8.pisces_hints_and_sends_a_spider_after_lyonette": {
+			"tier": 2,
+			"window": {
+				"earliest": 153,
+				"latest": 153,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"pisces": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": []
+				},
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"purple_smile": {
+					"prefer": [
+						"purple_smile"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"drassi": {
+					"prefer": [
+						"drassi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pisces",
+					"lyonette"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.krshia_laughs_and_tells_pawn_to_hold_a_ball"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pisces.hints_lyonette_misses_the_point",
+					"pisces.spies_on_the_hive_with_an_undead_spider",
+					"lyonette.led_into_the_hive_by_purple_smile"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.26L",
+				"confidence": "confirmed",
+				"note": "Day 153 (guess). Erin is out with Selys that day."
+			},
+			"summary": "Lyonette frets to Pisces about the quarrel. He says she is missing the real point and will not explain. Purple Smile arrives alone and leads her to the Hive. Pisces sends a tiny undead Shield Spider after them to watch."
+		},
+		"b8.pawn_holds_a_ball_for_lyonette_in_the_hive": {
+			"tier": 1,
+			"window": {
+				"earliest": 153,
+				"latest": 153,
+				"confidence": "guess"
+			},
+			"location": "liscor_hive",
+			"roles": {
+				"pawn": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": []
+				},
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"purple_smile": {
+					"prefer": [
+						"purple_smile"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"yellow_splatters": {
+					"prefer": [
+						"yellow_splatters"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pawn",
+					"lyonette"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pisces_hints_and_sends_a_spider_after_lyonette"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pawn.held_a_ball_for_lyonette",
+					"pawn.bought_lyonette_a_yellow_dress",
+					"lyonette.danced_with_pawn",
+					"pawn.likes_lyonette_romantically",
+					"hive.painted_soldier_memorial_wall",
+					"antinium.learn_to_waltz"
+				],
+				"relationship": [
+					{
+						"from": "lyonette",
+						"to": "pawn",
+						"delta": 2
+					},
+					{
+						"from": "pawn",
+						"to": "lyonette",
+						"delta": 2
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.26L",
+				"confidence": "confirmed",
+				"note": "Day 153 (guess). The wall of painted symbols is a memorial to the fallen Painted Soldiers."
+			},
+			"summary": "In a hollowed barracks with a memorial wall, Pawn shows a yellow dress and a ball for her. Lyonette is angry, until he says he cannot leave her alone. She sees he likes her, more than Erin, and that she missed it. They waltz with no music.",
+			"news": "Rumour says Antinium in Liscor's Hive have learned to waltz."
+		},
+		"b8.the_painted_soldiers_and_workers_waltz": {
+			"tier": 2,
+			"window": {
+				"earliest": 153,
+				"latest": 153,
+				"confidence": "guess"
+			},
+			"location": "liscor_hive",
+			"roles": {
+				"purple_smile": {
+					"prefer": [
+						"purple_smile"
+					],
+					"fallback_tags": []
+				},
+				"pawn": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"yellow_splatters": {
+					"prefer": [
+						"yellow_splatters"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"purple_smile"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pawn_holds_a_ball_for_lyonette_in_the_hive"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"hive.soldiers_and_workers_dance_together",
+					"pawn.found_a_pastime_for_his_unit",
+					"pawn.offered_to_be_lyonettes_subject"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.26L",
+				"confidence": "confirmed",
+				"note": "Day 153 (guess). This answers Pawn's search for a pastime from 5.24 L."
+			},
+			"summary": "The watching Antinium line up to dance; Purple Smile pairs them off, and Workers and Soldiers waltz flawlessly together. Pawn says this is what his unit needed. Dancing, he offers to be her subject and reminds her a [Princess] has duties to her people."
+		},
+		"b8.lyonette_regains_her_class_as_a_worldly_princess": {
+			"tier": 1,
+			"window": {
+				"earliest": 153,
+				"latest": 153,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": []
+				},
+				"mrsha": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"lyonette"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_painted_soldiers_and_workers_waltz"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"lyonette.princess_class_restored",
+					"lyonette.is_a_worldly_princess"
+				],
+				"clear_flags": [
+					"lyonette.lost_her_princess_class"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.26L",
+				"confidence": "confirmed",
+				"note": "Night of day 153 (guess). The new class and Skills are in the system records."
+			},
+			"summary": "Lyonette walks home in the dark rain and goes to bed, unsure what she feels for Pawn. In her sleep her [Princess] class returns as [Worldly Princess], taking her other classes into it, with a burst of new Skills. She feels oddly empty."
+		},
+		"b8.lyonette_and_pawn_hold_hands": {
+			"tier": 1,
+			"window": {
+				"earliest": 154,
+				"latest": 154,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": []
+				},
+				"pawn": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"lyonette",
+					"pawn"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.lyonette_regains_her_class_as_a_worldly_princess"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"lyonette.and_pawn_hold_hands",
+					"pawn.may_love_lyonette",
+					"lyonette.told_pawn_her_class_returned",
+					"lyonette.and_pawn_will_find_out_together"
+				],
+				"relationship": [
+					{
+						"from": "lyonette",
+						"to": "pawn",
+						"delta": 1
+					},
+					{
+						"from": "pawn",
+						"to": "lyonette",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.26L",
+				"confidence": "confirmed",
+				"note": "Day 154 (guess). She keeps it from Erin's questions."
+			},
+			"summary": "Next morning Pawn comes back. Lyonette blushes, tells him her class came back, and stops him from bowing out because his love might be a bother. She takes his hand. Neither is sure it is love, but both want to find out, and they keep holding on."
+		}
+	},
+	"system": [
+		{
+			"who": "lyonette",
+			"kind": "other",
+			"name": "[Princess] restored",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Class conditions met; [Detect Poison] and [Royal Tax] restored."
+		},
+		{
+			"who": "lyonette",
+			"kind": "class",
+			"name": "[Worldly Princess]",
+			"level": 11,
+			"confidence": "confirmed",
+			"note": "[Princess] becomes [Worldly Princess]."
+		},
+		{
+			"who": "lyonette",
+			"kind": "other",
+			"name": "Class consolidation",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "[Warrior], [Barmaid], [Beast Tamer], [Tactician] and [Carer] are folded into [Worldly Princess] and removed as classes."
+		},
+		{
+			"who": "lyonette",
+			"kind": "skill",
+			"name": "[Basic Crafting]",
+			"level": 11,
+			"confidence": "confirmed"
+		},
+		{
+			"who": "lyonette",
+			"kind": "skill",
+			"name": "[Weapon Proficiency: Sword]",
+			"level": 11,
+			"confidence": "confirmed"
+		},
+		{
+			"who": "lyonette",
+			"kind": "skill",
+			"name": "[Basic Negotiator]",
+			"level": 11,
+			"confidence": "confirmed"
+		},
+		{
+			"who": "lyonette",
+			"kind": "skill",
+			"name": "[Basic Leadership]",
+			"level": 11,
+			"confidence": "confirmed"
+		},
+		{
+			"who": "lyonette",
+			"kind": "skill",
+			"name": "[Flawless Attempt]",
+			"level": 11,
+			"confidence": "confirmed",
+			"note": "She does not use it yet."
+		}
+	]
+}
