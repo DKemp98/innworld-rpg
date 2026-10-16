@@ -1,0 +1,726 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.28",
+	"order": 59,
+	"events": {
+		"b8.ilvriss_storms_out_and_drakes_boycott_the_inn": {
+			"tier": 1,
+			"window": {
+				"earliest": 155,
+				"latest": 155,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"ilvriss": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": []
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"relc": {
+					"prefer": [
+						"relc"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"numbtongue": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ilvriss"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.juliet_and_romeo_sets_off_a_brawl"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wandering_inn.drake_boycott",
+					"liscor.uproar_over_the_play",
+					"ilvriss.to_pay_for_the_brawl"
+				],
+				"relationship": [
+					{
+						"from": "ilvriss",
+						"to": "erin_solstice",
+						"delta": -1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.28",
+				"confidence": "confirmed",
+				"note": "The text puts this just after the brawl, near dawn; it is kept on day 155 so the boycott counts from that night (plan: day 159 is boycott day 5)."
+			},
+			"summary": "After the brawl Relc's Watch squad clears the bodies and says Ilvriss will be billed. Ilvriss calls the play a disgrace and vows no proper Drake will visit until it is dropped. Erin tells him to boycott her then.",
+			"news": "Wall Lord Ilvriss vows Liscor's Drakes will shun the Wandering Inn over its play."
+		},
+		"b8.zevara_pays_for_the_damage_and_clears_the_play": {
+			"tier": 2,
+			"window": {
+				"earliest": 156,
+				"latest": 156,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"zevara": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": []
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"wesle": {
+					"prefer": [
+						"wesle"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"zevara"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.ilvriss_storms_out_and_drakes_boycott_the_inn"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"zevara.paid_the_inn_for_the_brawl",
+					"zevara.rules_the_play_lawful",
+					"liscor.petition_against_the_play"
+				],
+				"relationship": [
+					{
+						"from": "erin_solstice",
+						"to": "zevara",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.28",
+				"confidence": "confirmed",
+				"note": "Day 156 (guess). Krshia's stall was wrecked in Book 2 (2.20); this matches that, no change to Book 7."
+			},
+			"summary": "Zevara brings coin for the broken furniture and says the city once paid Krshia for her shop from Lyonette's seized goods. After Erin and Wesle act out the scene, she rules it lawful but warns of few Drake guests."
+		},
+		"b8.zevara_sets_terms_for_the_dungeon_teams": {
+			"tier": 2,
+			"window": {
+				"earliest": 156,
+				"latest": 156,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"zevara": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": []
+				},
+				"jelaqua": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"halrac": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ceria": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"nailren": {
+					"prefer": [
+						"nailren"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"zevara"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.zevara_pays_for_the_damage_and_clears_the_play"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"zevara.demands_divers_send_warnings",
+					"tekshia.declines_to_stop_the_dives",
+					"heartflame.worn_into_the_dungeon"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.28",
+				"confidence": "confirmed",
+				"note": "Day 156 (guess). The Horns say they will use a different entrance."
+			},
+			"summary": "Seeing Jelaqua put on the Heartflame Breastplate, Zevara lets every team go in, as Tekshia did, but she will hold them to account for anything they wake and wants a spell sent the moment they find a threat to Liscor."
+		},
+		"b8.erin_sees_the_gold_teams_to_the_dungeon_gate": {
+			"tier": 1,
+			"window": {
+				"earliest": 156,
+				"latest": 156,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"halrac": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"seborn": {
+					"prefer": [
+						"seborn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"jelaqua": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"revi": {
+					"prefer": [
+						"revi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"typhenous": {
+					"prefer": [
+						"typhenous"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"moore": {
+					"prefer": [
+						"moore"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.zevara_sets_terms_for_the_dungeon_teams"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"griffon_hunt.entered_the_dungeon",
+					"halfseekers.entered_the_dungeon",
+					"seborn.asks_erin_to_keep_a_table"
+				],
+				"relationship": [
+					{
+						"from": "seborn",
+						"to": "erin_solstice",
+						"delta": 1
+					},
+					{
+						"from": "revi",
+						"to": "erin_solstice",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.28",
+				"confidence": "confirmed",
+				"note": "Day 156 (guess). Griffon Hunt is three now (Halrac, Revi, Typhenous); Ulrien died in Book 5."
+			},
+			"summary": "Griffon Hunt and the Halfseekers march through Liscor, Jelaqua ablaze, and over a bridge to the walled mound at the main entrance. Erin follows and hugs them off. Seborn admits the Silver teams' boldness stung."
+		},
+		"b8.the_silver_teams_sink_into_the_rift": {
+			"tier": 1,
+			"window": {
+				"earliest": 156,
+				"latest": 156,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon_rift",
+			"roles": {
+				"earlia": {
+					"prefer": [
+						"earlia"
+					],
+					"fallback_tags": []
+				},
+				"nailren": {
+					"prefer": [
+						"nailren"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.erin_sees_the_gold_teams_to_the_dungeon_gate"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"gemhammer.dove_the_rift",
+					"pride_of_kelia.dove_the_rift"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.28",
+				"confidence": "confirmed",
+				"note": "Day 156 (guess)."
+			},
+			"summary": "At lunch Gemhammer and the Pride of Kelia eat Erin's foul scale soup, take hired boats out over the rift, share a water-breathing potion and drop beneath the flood while half of Liscor watches from the walls."
+		},
+		"b8.the_horns_and_silver_swords_go_in_by_the_crypt": {
+			"tier": 1,
+			"window": {
+				"earliest": 156,
+				"latest": 156,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"ceria": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": []
+				},
+				"pisces": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"yvlon": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ksmvr": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ylawes_byres": {
+					"prefer": [
+						"ylawes_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"falene": {
+					"prefer": [
+						"falene_skystrall"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"dawil": {
+					"prefer": [
+						"dawil"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_silver_teams_sink_into_the_rift"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"horns_of_hammerad.entered_the_dungeon",
+					"silver_swords.entered_the_dungeon",
+					"dungeon.crypt_entrance_used",
+					"pisces.raised_raskghar_skeletons"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.28",
+				"confidence": "confirmed",
+				"note": "Day 156 (guess). Pisces had scouted it before with an undead Shield Spider."
+			},
+			"summary": "The Horns and the Silver Swords row north to Skinner's old crypt, where a shaft found by Pisces and Olesm leads into a Raskghar burial room. Pisces raises Raskghar skeletons as scouts, to Ylawes's disgust."
+		},
+		"b8.erin_hires_drassi_to_wait_at_the_mages_guild": {
+			"tier": 2,
+			"window": {
+				"earliest": 156,
+				"latest": 156,
+				"confidence": "guess"
+			},
+			"location": "liscor_mages_guild",
+			"roles": {
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"drassi": {
+					"prefer": [
+						"drassi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_horns_and_silver_swords_go_in_by_the_crypt"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"drassi.waits_at_the_mages_guild_for_news",
+					"redfang.restless_to_dive_again"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.28",
+				"confidence": "confirmed",
+				"note": "Day 156 (guess). The job is shown in 5.29."
+			},
+			"summary": "With the Redfang Goblins restless and told to wait, Erin goes into Liscor and pays Drassi to sit in the Mages' Guild all day and run back the moment any team sends a message."
+		},
+		"b8.gold_teams_pass_the_trap_rooms": {
+			"tier": 2,
+			"window": {
+				"earliest": 156,
+				"latest": 156,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"halrac": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": []
+				},
+				"seborn": {
+					"prefer": [
+						"seborn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"typhenous": {
+					"prefer": [
+						"typhenous"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"moore": {
+					"prefer": [
+						"moore"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"jelaqua": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"revi": {
+					"prefer": [
+						"revi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"halrac"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.erin_sees_the_gold_teams_to_the_dungeon_gate"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dungeon.trap_layers_passed",
+					"griffon_hunt.bagged_cursed_necklaces",
+					"dungeon.goblins_looted_the_statue_hall"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.28",
+				"confidence": "confirmed",
+				"note": "Day 156 (guess)."
+			},
+			"summary": "Halrac and Seborn lead through seven layers of shifting trap rooms, burning out a bed mimic with flour. Past them, Moore smashes a hall of stone golems. Goblins had looted some of its cursed necklaces; Halrac bags the rest."
+		},
+		"b8.armoured_raskghar_and_a_masked_swordswoman": {
+			"tier": 1,
+			"window": {
+				"earliest": 156,
+				"latest": 156,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon_rift",
+			"roles": {
+				"earlia": {
+					"prefer": [
+						"earlia"
+					],
+					"fallback_tags": []
+				},
+				"nailren": {
+					"prefer": [
+						"nailren"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_silver_teams_sink_into_the_rift"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dungeon.raskghar_ambush_the_rift",
+					"dungeon.raskghar_have_enchanted_gear",
+					"dungeon.masked_swordswoman_seen",
+					"dungeon.cave_goblins_fight_for_the_raskghar"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.28",
+				"confidence": "confirmed",
+				"note": "Day 156 (guess). The swordswoman is never named in the text: no NPC record (plan: keep her unnamed)."
+			},
+			"summary": "Raskghar ambush the climbers at the foot of the rift. Shields and potions hold until a nameless masked swordswoman cuts in. Then a Raskghar in enchanted armour and one with a bow of unseen arrows appear, with many Goblins."
+		},
+		"b8.the_gold_teams_open_a_shield_spider_nest": {
+			"tier": 1,
+			"window": {
+				"earliest": 156,
+				"latest": 156,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"halrac": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": []
+				},
+				"revi": {
+					"prefer": [
+						"revi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"seborn": {
+					"prefer": [
+						"seborn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"jelaqua": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"typhenous": {
+					"prefer": [
+						"typhenous"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"moore": {
+					"prefer": [
+						"moore"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"halrac"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.gold_teams_pass_the_trap_rooms"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dungeon.shield_spider_nest_found",
+					"revi.lost_her_corusdeer_summon"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.28",
+				"confidence": "confirmed",
+				"note": "Day 156 (guess). The adventurers conclude the dungeon breeds monster hordes in lairs."
+			},
+			"summary": "A domed room with a too-perfect floor hides a pit. Revi's summoned Corusdeer opens the far door and falls down a mile-deep shaft of webs full of giant Shield Spiders and countless small ones, which swarm up at once."
+		}
+	},
+	"system": []
+}

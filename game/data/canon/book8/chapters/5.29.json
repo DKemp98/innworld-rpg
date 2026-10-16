@@ -1,0 +1,728 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.29",
+	"order": 60,
+	"events": {
+		"b8.lyonette_teaches_erin_her_aura": {
+			"tier": 2,
+			"window": {
+				"earliest": 156,
+				"latest": 156,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": []
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mrsha": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"headscratcher": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"lyonette"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.erin_hires_drassi_to_wait_at_the_mages_guild"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"erin.practises_her_aura",
+					"lyonette.resists_auras",
+					"erin.learns_ilvriss_used_his_aura",
+					"numbtongue.plays_guitar_in_secret",
+					"headscratcher.feels_a_change_coming"
+				],
+				"relationship": [
+					{
+						"from": "erin_solstice",
+						"to": "lyonette",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.29",
+				"confidence": "confirmed",
+				"note": "Day 156 (guess). Headscratcher senses he is close to a change; Numbtongue practises the guitar in the basement."
+			},
+			"summary": "While they wait, Lyonette guesses Ilvriss's own aura beat Erin's in the brawl and coaches her: no shouting, just authority. Erin weighs down the whole room, but Lyonette, holding Mrsha, stands firm against her."
+		},
+		"b8.liscor_braces_for_the_spider_nest": {
+			"tier": 1,
+			"window": {
+				"earliest": 156,
+				"latest": 156,
+				"confidence": "guess"
+			},
+			"location": "liscor_mages_guild",
+			"roles": {
+				"zevara": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": []
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"drassi": {
+					"prefer": [
+						"drassi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"olesm": {
+					"prefer": [
+						"olesm"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ilvriss": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"embria_grasstongue": {
+					"prefer": [
+						"embria_grasstongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"zevara"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.lyonette_teaches_erin_her_aura",
+				"b8.the_gold_teams_open_a_shield_spider_nest"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"liscor.ready_to_cut_the_water_bridges",
+					"liscor.warned_of_the_spider_nest",
+					"embria.held_back_from_the_walls"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.29",
+				"confidence": "confirmed",
+				"note": "Day 156 (guess). Olesm calls it a horde-style vengeance dungeon."
+			},
+			"summary": "Drassi runs to the inn with news of the nest. Erin sends Lyonette to warn Bird, Celum and Pallass and goes to the Mages' Guild. Zevara holds the walls, ready to cut the bridges, and turns down Embria's soldiers."
+		},
+		"b8.typhenous_breaks_the_nest_with_a_comet_storm": {
+			"tier": 1,
+			"window": {
+				"earliest": 156,
+				"latest": 156,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"typhenous": {
+					"prefer": [
+						"typhenous"
+					],
+					"fallback_tags": []
+				},
+				"halrac": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"jelaqua": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"moore": {
+					"prefer": [
+						"moore"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"seborn": {
+					"prefer": [
+						"seborn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"revi": {
+					"prefer": [
+						"revi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"typhenous"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_gold_teams_open_a_shield_spider_nest"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dungeon.shield_spider_nest_thinned",
+					"dungeon.shield_spider_swarm_loose",
+					"halfseekers.seal_the_spider_nest",
+					"typhenous.showed_valmiras_comet_storm"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.29",
+				"confidence": "confirmed",
+				"note": "Day 156 (guess). No losses. Moore sends the warning on to the other teams."
+			},
+			"summary": "Fire walls on Moore's thorns and Revi's spirit warriors hold the corridor while Jelaqua, unhurt in the Heartflame, drives the swarm back. Typhenous rains Tier 5 comets into the pit. Halrac then sees most spiders fled deeper.",
+			"news": "Gold-rank teams beat back a giant Shield Spider nest in Liscor's dungeon."
+		},
+		"b8.ksmvrs_shrieking_ball_turns_the_spider_wave": {
+			"tier": 1,
+			"window": {
+				"earliest": 156,
+				"latest": 156,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"ksmvr": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": []
+				},
+				"ceria": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"pisces": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"yvlon": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"falene": {
+					"prefer": [
+						"falene_skystrall"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ylawes_byres": {
+					"prefer": [
+						"ylawes_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"dawil": {
+					"prefer": [
+						"dawil"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ksmvr"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.typhenous_breaks_the_nest_with_a_comet_storm",
+				"b8.the_horns_and_silver_swords_go_in_by_the_crypt"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"horns_of_hammerad.survived_the_spider_wave",
+					"falene.barrier_backlash",
+					"ceria.scolds_the_silver_swords",
+					"pisces.stayed_with_his_team"
+				],
+				"relationship": [
+					{
+						"from": "ceria_springwalker",
+						"to": "ksmvr",
+						"delta": 1
+					},
+					{
+						"from": "yvlon_byres",
+						"to": "ksmvr",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.29",
+				"confidence": "confirmed",
+				"note": "Day 156 (guess). The lure ball came back from Invrisil in an earlier book."
+			},
+			"summary": "Ceria rails that the Silver Swords are hopeless in dungeons. Then a wall of spiders floods the tunnel and smashes Falene's barrier, hurting her. Pisces stays. Ksmvr throws a shrieking lure ball down a side tunnel and the wave follows it."
+		},
+		"b8.erin_hauls_the_silver_teams_out_of_the_rift": {
+			"tier": 1,
+			"window": {
+				"earliest": 156,
+				"latest": 156,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon_rift",
+			"roles": {
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"earlia": {
+					"prefer": [
+						"earlia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"nailren": {
+					"prefer": [
+						"nailren"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"headscratcher": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"numbtongue": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"badarrow": {
+					"prefer": [
+						"badarrow"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"shorthilt": {
+					"prefer": [
+						"shorthilt"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"rabbiteater": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.armoured_raskghar_and_a_masked_swordswoman",
+				"b8.typhenous_breaks_the_nest_with_a_comet_storm"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wandering_inn.runs_dungeon_rescue_boats",
+					"redfang.crew_the_rescue_boats",
+					"gemhammer.rescued_by_erin",
+					"pride_of_kelia.rescued_by_erin",
+					"dungeon.raskghar_retreat_from_the_spider_wave"
+				],
+				"relationship": [
+					{
+						"from": "earlia",
+						"to": "erin_solstice",
+						"delta": 2
+					},
+					{
+						"from": "nailren",
+						"to": "erin_solstice",
+						"delta": 2
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.29",
+				"confidence": "confirmed",
+				"note": "Day 156 (guess). Earlia had lost her [Hammer Blow] for the day; one Gnoll lost a thumb."
+			},
+			"summary": "The Raskghar suddenly flee. A dying Goblin croaks a warning, the masked woman bolts, and a spider flood surges at the rift. Ropes drop through the water: Erin and the Hobs on boats pull both Silver teams up alive.",
+			"news": "The Wandering Inn's Goblin boats pull two Silver-rank teams out of the dungeon rift."
+		},
+		"b8.the_horns_lead_the_silver_swords_to_belgrades_kill_zone": {
+			"tier": 1,
+			"window": {
+				"earliest": 156,
+				"latest": 156,
+				"confidence": "guess"
+			},
+			"location": "liscor_hive",
+			"roles": {
+				"belgrade": {
+					"prefer": [
+						"belgrade"
+					],
+					"fallback_tags": []
+				},
+				"ceria": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ksmvr": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"pisces": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ylawes_byres": {
+					"prefer": [
+						"ylawes_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"dawil": {
+					"prefer": [
+						"dawil"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"falene": {
+					"prefer": [
+						"falene_skystrall"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"belgrade"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.ksmvrs_shrieking_ball_turns_the_spider_wave"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dungeon.antinium_entrance_found",
+					"belgrade.caught_by_the_horns",
+					"silver_swords.saw_the_antinium_kill_zone"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.29",
+				"confidence": "confirmed",
+				"note": "Day 156 (guess). Ksmvr guided them; Dawil sees it was staged. Anand is off duty, Klbkch above."
+			},
+			"summary": "The Horns follow the cleared spider trail, then 'happen' on a trapped dirt tunnel. It ends in an Antinium kill zone of Worker archers and Soldiers behind stone walls. Belgrade, reading at a table, sees the Silver Swords and frets."
+		},
+		"b8.pisces_sells_the_antinium_secret_to_ilvriss": {
+			"tier": 1,
+			"window": {
+				"earliest": 156,
+				"latest": 156,
+				"confidence": "guess"
+			},
+			"location": "liscor_watch_barracks",
+			"roles": {
+				"pisces": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": []
+				},
+				"ilvriss": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"zevara": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"embria_grasstongue": {
+					"prefer": [
+						"embria_grasstongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ceria": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"yvlon": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ksmvr": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pisces"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_horns_lead_the_silver_swords_to_belgrades_kill_zone"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"liscor.antinium_dungeon_entrance_known",
+					"ilvriss.suspects_the_antinium_want_the_dungeon",
+					"horns_of_hammerad.leak_the_antinium_entrance",
+					"pisces.sells_the_antinium_secret_abroad",
+					"drakes.warn_the_walled_cities_of_the_antinium"
+				],
+				"relationship": [
+					{
+						"from": "ilvriss",
+						"to": "pisces",
+						"delta": -1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.29",
+				"confidence": "confirmed",
+				"note": "Night of day 156 (guess). Pisces will also sell it to the Walled Cities and northern nobles. Ksmvr says it will not harm his Hive."
+			},
+			"summary": "Pisces steers Ilvriss, Zevara and Embria to fear the Antinium plan to take the dungeon, and Ilvriss pays him in gold. It was the Horns' plan, from what Ksmvr told Ceria: draw many more teams to the dungeon so someone finds Calruz.",
+			"news": "Rumour says Liscor's Antinium have their own tunnel into the dungeon."
+		},
+		"b8.six_teams_celebrate_coming_back_alive": {
+			"tier": 2,
+			"window": {
+				"earliest": 156,
+				"latest": 156,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"halrac": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"jelaqua": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"earlia": {
+					"prefer": [
+						"earlia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"nailren": {
+					"prefer": [
+						"nailren"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ylawes_byres": {
+					"prefer": [
+						"ylawes_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pisces_sells_the_antinium_secret_to_ilvriss"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wandering_inn.dive_survivors_party",
+					"dungeon.first_mass_dive_survived"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.29",
+				"confidence": "confirmed",
+				"note": "Night of day 156 (guess)."
+			},
+			"summary": "All six teams drink at the inn to having lived. No great treasure came out, but there are bounties and, perhaps, levels. Below, the dungeon waits for the next try."
+		}
+	},
+	"system": []
+}

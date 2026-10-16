@@ -1,5 +1,10 @@
 # Handoff
 
+## Just done (2026-10-16, local): M28.4 canon 5.27 - 5.29 (branch `feat/m28.4-canon-5-27`)
+- 27 events, test `sim_book8_liscor_two`, boycott flag and rule entry (factor 0.15 guess). ADR 0043 has doubts.
+- Next: user merges the PR. Then M28.5 (5.30 G - 5.32 G, days 149 - 150, off-map). Ask stage and hook choices first.
+- Gotchas: the plan's Griffon Hunt note was wrong: the lost member is Ulrien (Book 5), no Corry. The dive may be day 157.
+
 ## Just done (2026-10-16, local): M28.3 canon 5.24 L - 5.26 L (branch `feat/m28.3-canon-5-24`)
 - 27 events in `canon/book8/chapters/5.24L|5.25L|5.26L.json`, test `sim_book8_liscor_one`. A delegated agent wrote it; I ran validator and the new test. ADR 0043 has flags and doubts.
 - Next: user merges the PR. Then M28.4 (5.27 - 5.29, days 155 - 157): Goblin team, play brawl, Drake boycott (set `wandering_inn.drake_boycott`, add the `rules.inn.race_boycott` entry), dive, spider nest. Ask stage and hook choices first.
