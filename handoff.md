@@ -1,5 +1,10 @@
 # Handoff
 
+## Just done (2026-10-16, local): M28.2 canon 5.21 E - 5.23 G (branch `feat/m28.2-canon-5-21`)
+- 38 events in `canon/book8/chapters/5.21E|5.22G|5.23G.json`, test `sim_book8_north_one`. A delegated agent wrote it; I checked validator and tests. ADR 0043 has the flags and doubts.
+- Next: user merges the PR. Then M28.3 (5.24 L - 5.26 L, days 144 - 154): ask stage and hook choices at its start (the plan has none; ask if the ball or Pawn scenes want a hook). Put the repair events there (clear `wandering_inn.windows_broken`, Jelaqua's body, Lyonette [Princess] lost then back as [Worldly Princess] 11 as `system` records).
+- Gotchas: Book 7 road battle day 142 vs 5.22 G (143 - 144): left as is. Delegating canon writing to one agent worked: brief it with the Book 7 templates, ADR 0030 sections, and the validator docstring.
+
 ## Just done (2026-10-16, local): M28.1 world and records (branch `feat/m28.1-world-records`)
 - Data only: 2 enemies, map `raskghar_camp`, `canon/book8/{npcs,locations}.json`, Calruz note. ADR 0043 has the list. Plain Raskghar id is `not_gnoll`.
 - Next: user merges the PR. Then M28.2 (canon 5.21 E - 5.23 G, off-map, days 143 - 148): ask the stage and hook choices first (none planned). Repair events (clear `wandering_inn.windows_broken`, Jelaqua's body) go into M28.3 (5.24 L).

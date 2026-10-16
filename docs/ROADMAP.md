@@ -40,7 +40,8 @@ cascades are easy to get wrong; low for mechanical steps.
 - [x] M28.P Plan: 3 fight stages, moon by flags, dungeon dive and north thread as events **[Opus · high]**
 - [x] M28.0 Engine: `rules.inn.race_boycott` (Drake boycott of the inn) **[Opus · medium]**
 - [x] M28.1 World and records: 2 enemies, `raskghar_camp`, 20 NPC + 4 location records, Calruz alive (repair events move to M28.3) **[Sonnet · medium]**
-- [ ] M28.2 – M28.9 Canon batches (5.21 E – 5.44, days 143 – 164) **[Opus · high]**
+- [x] M28.2 Canon 5.21 E – 5.23 G (days 143 – 148, 38 events, off-map) **[Opus · high]**
+- [ ] M28.3 – M28.9 Canon batches (5.24 L – 5.44, days 144 – 164) **[Opus · high]**
 **Done when:** the touched tests, `sim_canon_book8` and the validator pass; the user has played it.
 
 ---

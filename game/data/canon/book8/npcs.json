@@ -442,6 +442,82 @@
 				"note": "Mage who guards Blackmage and welcomes the new arrivals (Interlude - Blackmage). Students ambush her."
 			},
 			"summary": "A Wistram mage who watches Blackmage like a jailer."
+		},
+		"allais_vermot": {
+			"name": "Allais Vermot",
+			"race": "Unknown",
+			"tags": [
+				"mage",
+				"north_izril",
+				"unseen_empire"
+			],
+			"faction": null,
+			"home": null,
+			"classes": [
+				{
+					"name": "[Mage]",
+					"level": null
+				}
+			],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.23G",
+				"confidence": "likely",
+				"note": "Wiskeria's Message-Mage in the field (5.23 G). Race not stated."
+			},
+			"summary": "The Mage who receives Message spells for General Wiskeria's strike force."
+		},
+		"nil_moxae": {
+			"name": "Nil Moxae",
+			"race": "Unknown",
+			"tags": [
+				"knight",
+				"knights_of_the_petal"
+			],
+			"faction": null,
+			"home": null,
+			"classes": [
+				{
+					"name": "[Knight]",
+					"level": null
+				}
+			],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.22G",
+				"confidence": "likely",
+				"note": "One of Bethal's two Knights of the Petal (5.22 G, 5.23 G). Race not stated."
+			},
+			"summary": "A Knight of the Petal who guards Lady Bethal with sword and shield."
+		},
+		"truvia_cartiil": {
+			"name": "Truvia Cartiil",
+			"race": "Unknown",
+			"tags": [
+				"knight",
+				"knights_of_the_petal"
+			],
+			"faction": null,
+			"home": null,
+			"classes": [
+				{
+					"name": "[Knight]",
+					"level": null
+				}
+			],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.22G",
+				"confidence": "likely",
+				"note": "The other of Bethal's two Knights of the Petal, called Dame Truvia (5.22 G, 5.23 G). Race not stated."
+			},
+			"summary": "A Dame of the Petal with a spear and a detection ring who guards Lady Bethal."
 		}
 	}
 }

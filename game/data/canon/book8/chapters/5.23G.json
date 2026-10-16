@@ -1,0 +1,1067 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.23G",
+	"order": 54,
+	"events": {
+		"b8.bethal_walks_into_the_ruined_goblin_camp": {
+			"tier": 1,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "guess"
+			},
+			"location": "goblin_camp_north_of_riverfarm",
+			"roles": {
+				"lady": {
+					"prefer": [
+						"bethal"
+					],
+					"fallback_tags": []
+				},
+				"husband": {
+					"prefer": [
+						"thomast"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"nil_moxae"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"dame": {
+					"prefer": [
+						"truvia_cartiil"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"bethal"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.laken_springs_the_night_ambush_on_the_goblin_camp"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"bethal.declares_herself_the_goblins_prisoner",
+					"bethal.saw_a_goblin_child_weep",
+					"bethal.shaken_by_goblin_grief"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.23G",
+				"confidence": "confirmed",
+				"note": "The night of day 145, soon after the raid. The chapter follows 5.22 G at once, so the day is a close guess."
+			},
+			"summary": "While the fighting rages, the Goblin guards leave. A stray bolt hits Sir Nil's shield. Bethal says they will be prisoners and asks for Kerrig. They ride into the wrecked camp among the dead and thin poison. She sees a Goblin child weeping by a body and learns Goblins can cry."
+		},
+		"b8.kerrig_reunites_with_bethal_and_names_the_attackers": {
+			"tier": 2,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "guess"
+			},
+			"location": "goblin_camp_north_of_riverfarm",
+			"roles": {
+				"knight": {
+					"prefer": [
+						"kerrig_louis"
+					],
+					"fallback_tags": []
+				},
+				"lady": {
+					"prefer": [
+						"bethal"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"husband": {
+					"prefer": [
+						"thomast"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"dame": {
+					"prefer": [
+						"truvia_cartiil"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"sir": {
+					"prefer": [
+						"nil_moxae"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"kerrig_louis"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.bethal_walks_into_the_ruined_goblin_camp"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"bethal.learns_laken_led_the_ambush",
+					"kerrig.told_bethal_who_attacked",
+					"bethal.learns_welca_escaped"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.23G",
+				"confidence": "confirmed",
+				"note": "The night of day 145. Kerrig does not know where Welca is now."
+			},
+			"summary": "Kerrig says he helped Welca escape a day earlier and stayed with the Goblins. He tells of the night attack and gives their war cry, Emperor Laken and the Unseen Empire. Bethal and Thomast link it to the Witch general at Riverfarm. Truvia gives him a potion."
+		},
+		"b8.pyrite_lets_bethal_go_and_kerrig_stays_to_witness": {
+			"tier": 1,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "guess"
+			},
+			"location": "goblin_camp_north_of_riverfarm",
+			"roles": {
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": []
+				},
+				"lady": {
+					"prefer": [
+						"bethal"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"kerrig_louis"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"husband": {
+					"prefer": [
+						"thomast"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"warlord": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"noears"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"dame": {
+					"prefer": [
+						"truvia_cartiil"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pyrite"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.kerrig_reunites_with_bethal_and_names_the_attackers"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"flooded_waters.freed_bethals_party_without_ransom",
+					"bethal.apologised_to_the_goblins",
+					"goblins.say_they_are_not_the_goblin_lords_army",
+					"kerrig.follows_the_goblins_as_witness",
+					"kerrig.holds_a_hidden_dagger"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.23G",
+				"confidence": "confirmed",
+				"note": "The night of day 145. Kerrig's hidden dagger is a gift from Truvia, not stated to be used later."
+			},
+			"summary": "Pyrite tells Bethal to leave and take Kerrig, with no ransom, since Humans are too hard to kill. He says this tribe is not the Goblin Lord's army. Bethal apologises and sees the dead left unburied. Kerrig stays as a witness. Truvia slips him a dagger. Bethal rides away."
+		},
+		"b8.pyrite_carries_the_weeping_child_away": {
+			"tier": 2,
+			"window": {
+				"earliest": 146,
+				"latest": 146,
+				"confidence": "guess"
+			},
+			"location": "goblin_camp_north_of_riverfarm",
+			"roles": {
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": []
+				},
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pyrite"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pyrite_lets_bethal_go_and_kerrig_stays_to_witness"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"flooded_waters.child_wept_for_the_dead",
+					"pyrite.leads_while_rags_sleeps",
+					"pyrite.hand_bitten_by_a_goblin_child",
+					"rags.carried_unconscious_in_a_wagon"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.23G",
+				"confidence": "confirmed",
+				"note": "Dawn of day 146 (guess). The tribe marches on; the dead stay unburied."
+			},
+			"summary": "Pyrite pulls the crying child off the body she is clinging to. She bites his hand. He puts her in the children's wagon and says sorry. He then finds Rags unconscious in another wagon, pale from blood loss. Since she cannot wake, he leads and sets sentries."
+		},
+		"b8.laken_riders_harry_the_marching_goblins": {
+			"tier": 1,
+			"window": {
+				"earliest": 146,
+				"latest": 146,
+				"confidence": "guess"
+			},
+			"location": "northern_high_road",
+			"roles": {
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": []
+				},
+				"warlord": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"healer": {
+					"prefer": [
+						"quietstab"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"raider": {
+					"prefer": [
+						"poisonbite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"captain": {
+					"prefer": [
+						"beniar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pyrite"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pyrite_carries_the_weeping_child_away"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"flooded_waters.harried_day_and_night",
+					"redscar.stabbed_pyrite_over_pursuit",
+					"flooded_waters.third_of_tribe_poisoned_and_lame",
+					"flooded_waters.camps_on_open_ground",
+					"pyrite.leads_while_rags_sleeps"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.23G",
+				"confidence": "confirmed",
+				"note": "Day 146 (guess). What happens to the sixty riders is not shown; only silence and one distant horn."
+			},
+			"summary": "Humans attack again and again at weak spots: at the forest edge, on sentries, in the dark. Redscar wants to ride them down and stabs Pyrite in a struggle. Pyrite finally sends sixty riders and a hundred warriors. A third of the tribe cannot breathe, so he camps in the open.",
+			"news": "Riders of the Unseen Empire attack the marching Goblins day and night."
+		},
+		"b8.laken_reads_the_goblin_march_and_names_lancrel": {
+			"tier": 2,
+			"window": {
+				"earliest": 147,
+				"latest": 147,
+				"confidence": "guess"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"diplomat": {
+					"prefer": [
+						"rie"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"nesor"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"captain": {
+					"prefer": [
+						"beniar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"wife": {
+					"prefer": [
+						"durene"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.laken_sends_the_army_north_and_swears_to_crush_the_goblins"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"laken.directs_the_raids_by_message",
+					"lancrel.refused_lakens_levy",
+					"laken.sees_the_levied_army_marching",
+					"laken.thinks_lancrel_too_strong_for_goblins"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.23G",
+				"confidence": "confirmed",
+				"note": "Day 147 (guess). Rie says the city refused all messengers; Laken estimates its walls at about twenty feet."
+			},
+			"summary": "Wiskeria reports wins in every clash, and the Goblins drift toward Lancrel. Rie finds it on the map. Laken learns it is no ally and refused his levy. He thinks its walls will turn the Goblins away. He tells Nesor to keep raiding and names gaps in their lines. Durene marches with the levy."
+		},
+		"b8.pyrite_falls_to_arrows_as_a_great_army_is_sensed": {
+			"tier": 1,
+			"window": {
+				"earliest": 147,
+				"latest": 147,
+				"confidence": "guess"
+			},
+			"location": "northern_high_road",
+			"roles": {
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": []
+				},
+				"warlord": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"healer": {
+					"prefer": [
+						"quietstab"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"noears"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pyrite"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.laken_riders_harry_the_marching_goblins"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pyrite.takes_five_arrows_and_falls",
+					"flooded_waters.believes_humans_always_know_their_place",
+					"flooded_waters.learns_a_great_army_follows",
+					"flooded_waters.hunted_by_unseen_eyes"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.23G",
+				"confidence": "confirmed",
+				"note": "Day 147 (guess). Pyrite is alive when Rags wakes in the next scene."
+			},
+			"summary": "The Goblins conclude the Humans always know where they are, though no scout is found. Redscar says a large Human army is days off to the southwest. Raiders return, led by an armored rider and a pointed-hat Witch with fire. Pyrite charges to buy time and drops with arrows in his chest.",
+			"news": "A Goblin Hob leads a desperate charge against the Unseen Empire's raiders and falls wounded."
+		},
+		"b8.rags_wakes_to_a_silent_camp": {
+			"tier": 1,
+			"window": {
+				"earliest": 148,
+				"latest": 148,
+				"confidence": "guess"
+			},
+			"location": "north_izril",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": []
+				},
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"noears"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"healer": {
+					"prefer": [
+						"quietstab"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"raider": {
+					"prefer": [
+						"poisonbite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rags"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pyrite_falls_to_arrows_as_a_great_army_is_sensed"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"rags.woke_after_raid",
+					"flooded_waters.cheers_rags_awake",
+					"pyrite.hands_back_command",
+					"rags.told_a_child_crying_can_wake_a_chieftain"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.23G",
+				"confidence": "confirmed",
+				"note": "Day 148 (guess). 'About three days' follows the text; the sequence from the night of day 145 gives 148."
+			},
+			"summary": "Rags wakes in a wagon after about three days and tells the weeping Goblin child that crying wastes water unless it wakes a Chieftain. She finds a thin, sleepy camp too widely spread, with many ill. As the tribe follows her to Pyrite, he is wounded but alive. She says 'Show me'.",
+			"news": "The Goblin Chieftain Rags wakes after three days and the tribe rallies to her."
+		},
+		"b8.rags_hears_the_report_and_names_the_city": {
+			"tier": 1,
+			"window": {
+				"earliest": 148,
+				"latest": 148,
+				"confidence": "guess"
+			},
+			"location": "north_izril",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": []
+				},
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"kerrig_louis"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"warlord": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"healer": {
+					"prefer": [
+						"quietstab"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"noears"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"raider": {
+					"prefer": [
+						"poisonbite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rags"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.rags_wakes_to_a_silent_camp"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"rags.learns_laken_godart_leads_the_raiders",
+					"rags.called_kerrig_a_coward",
+					"rags.decides_to_take_lancrel",
+					"rags.refuses_to_call_the_conflict_just"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.23G",
+				"confidence": "confirmed",
+				"note": "Day 148 (guess). Kerrig says Lancrel is not part of Laken's domain."
+			},
+			"summary": "Pyrite shows a map: a big walled city near, a large army coming. Kerrig names Laken Godart and says the Emperor sees the tribe as the Goblin Lord's. He offers to seek peace if the tribe stops. Rags spits and calls him a coward. She says this is how Goblins die and picks the city."
+		},
+		"b8.wiskeria_decides_to_pin_the_goblins_at_lancrels_walls": {
+			"tier": 2,
+			"window": {
+				"earliest": 148,
+				"latest": 148,
+				"confidence": "guess"
+			},
+			"location": "north_izril",
+			"roles": {
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": []
+				},
+				"captain": {
+					"prefer": [
+						"beniar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"allais_vermot"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"wiskeria"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.rags_hears_the_report_and_names_the_city"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wiskeria.plans_to_pin_the_goblins_at_lancrels_walls",
+					"beniar.thinks_lancrel_will_trap_the_goblins"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.23G",
+				"confidence": "confirmed",
+				"note": "Day 148 (guess)."
+			},
+			"summary": "Wiskeria's Mage reports the Goblins racing for Lancrel. Beniar wants to pin them at the walls. Wiskeria notes the main army is a day or two away and she has about eight hundred riders. She orders the force to move, cavalry held back until the Goblins start the siege."
+		},
+		"b8.the_goblins_storm_lancrel": {
+			"tier": 1,
+			"window": {
+				"earliest": 148,
+				"latest": 148,
+				"confidence": "guess"
+			},
+			"location": "lancrel",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": []
+				},
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"warlord": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"noears"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"healer": {
+					"prefer": [
+						"quietstab"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"captain": {
+					"prefer": [
+						"beniar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rags"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.wiskeria_decides_to_pin_the_goblins_at_lancrels_walls",
+				"b8.rags_hears_the_report_and_names_the_city"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"lancrel.fallen_to_goblins",
+					"rags.took_lancrel_in_under_an_hour",
+					"lancrel.garrison_broken",
+					"flooded_waters.holds_lancrel",
+					"flooded_waters.found_food_and_potions_in_lancrel"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.23G",
+				"confidence": "confirmed",
+				"note": "Day 148 (guess). Casualties are not counted; no named person dies."
+			},
+			"summary": "Lancrel's guards expect the walls to hold. Noears's lightning kills the Watch Captain, and Goblins are thrown over the wall. Hobs break the wooden gates. Wounded Goblins fire crossbows at the Human charge from behind and break it. The city falls in under an hour. The Goblins take its food.",
+			"news": "The Goblins take the walled city of Lancrel in under an hour."
+		},
+		"b8.rags_uses_the_fear_gem_to_break_the_riders": {
+			"tier": 2,
+			"window": {
+				"earliest": 148,
+				"latest": 148,
+				"confidence": "guess"
+			},
+			"location": "lancrel",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": []
+				},
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"healer": {
+					"prefer": [
+						"quietstab"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"warlord": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"captain": {
+					"prefer": [
+						"beniar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rags"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_goblins_storm_lancrel"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"rags.used_the_fear_gem",
+					"humans.cavalry_broke_to_the_fear_gem",
+					"wiskeria.resisted_the_fear_spell",
+					"fear_gem.is_spent",
+					"flooded_waters.escaped_lancrel_with_the_redfangs"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.23G",
+				"confidence": "confirmed",
+				"note": "Day 148 (guess). The gem is the ruby Pyrite gave her (5.20 G). Wiskeria hears the name Skinner in the spell."
+			},
+			"summary": "From the walls, Rags and Pyrite see a Human army camped outside. Rags takes a red gem from her bag and leads the Redfang riders out. When Beniar's riders charge, the gem's fear spell spooks the horses and splits them. Wiskeria breaks the spell for herself. The gem goes dull."
+		},
+		"b8.rags_orders_the_burning_raids": {
+			"tier": 1,
+			"window": {
+				"earliest": 148,
+				"latest": 148,
+				"confidence": "guess"
+			},
+			"location": "north_izril",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": []
+				},
+				"warlord": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"nesor"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"diplomat": {
+					"prefer": [
+						"rie"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rags"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.rags_uses_the_fear_gem_to_break_the_riders"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"rags.orders_scorched_earth_raids",
+					"goblins.burn_the_villages_near_lancrel",
+					"laken.sees_the_wolf_riders_scatter",
+					"rags.burns_a_farm_alone",
+					"redscar.leads_burning_raids",
+					"laken.loses_the_goblin_riders_in_the_spread"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.23G",
+				"confidence": "confirmed",
+				"note": "Night of day 148 (guess). The raids hit many places, so the total harm is not given."
+			},
+			"summary": "Rags scolds Redscar for chasing Humans against orders. She tells the Redfangs to ride out in every direction, using a map from Lancrel, to burn villages, mills and fields and spare no Humans. Laken sees the wolves split across the land. Rags burns a farm alone and hears her own screaming.",
+			"news": "Goblin wolf riders scatter across the land and begin burning villages and fields."
+		},
+		"b8.bethal_tells_magnolia_she_is_done_killing_goblins": {
+			"tier": 1,
+			"window": {
+				"earliest": 148,
+				"latest": 148,
+				"confidence": "guess"
+			},
+			"location": "north_izril",
+			"roles": {
+				"lady": {
+					"prefer": [
+						"bethal"
+					],
+					"fallback_tags": []
+				},
+				"husband": {
+					"prefer": [
+						"thomast"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"magnolia": {
+					"prefer": [
+						"magnolia_reinhart"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"truvia_cartiil"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"bethal"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pyrite_lets_bethal_go_and_kerrig_stays_to_witness"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"bethal.done_killing_goblins_for_now",
+					"bethal.asks_magnolia_for_sixteen_knights",
+					"magnolia.says_tyrion_is_moving",
+					"magnolia.says_the_goblin_lord_nears_the_mountain"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.23G",
+				"confidence": "confirmed",
+				"note": "Night of day 148 (guess). Far fires glow on the horizon behind Bethal."
+			},
+			"summary": "Far north, Bethal talks to Magnolia by earring. She is done killing Goblins for now and wants sixteen Knights of the Petal. Magnolia says Tyrion moves and the Goblin Lord nears the mountain. Bethal cannot tell which side should win. Magnolia calls it war; Bethal disagrees."
+		}
+	},
+	"system": []
+}

@@ -1,0 +1,881 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.21E",
+	"order": 52,
+	"events": {
+		"b8.riverfarm_shows_its_trebuchets_to_the_nobles": {
+			"tier": 1,
+			"window": {
+				"earliest": 143,
+				"latest": 143,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"wife": {
+					"prefer": [
+						"durene"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"engineer": {
+					"prefer": [
+						"tessia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"smith": {
+					"prefer": [
+						"helm"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lord": {
+					"prefer": [
+						"tourant"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"young_lord": {
+					"prefer": [
+						"pattin_of_vaunt"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"nephew": {
+					"prefer": [
+						"rael_veniford"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lady": {
+					"prefer": [
+						"bevia_veniford"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"riverfarm.shows_trebuchets_to_the_nobles",
+					"laken.plans_an_engineering_market",
+					"tourant.wants_trebuchets",
+					"riverfarm.has_scatter_shot_rounds"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.21E",
+				"confidence": "confirmed",
+				"note": "Laken's journal Day 98 = day 143 (his Day + 45, ADR 0028). The lords learn that a trebuchet needs no class or spell to fire."
+			},
+			"summary": "The morning after the fae banquet, Laken shows two working trebuchets. A heavy stone flies about seven hundred feet. Laken says Riverfarm can mass-produce them in a month and sell to chosen buyers. A second round of small stones scatters like shot, so the machine also works against troops.",
+			"news": "Emperor Laken of Riverfarm shows off stone-throwing trebuchets to the nobles of Izril."
+		},
+		"b8.bethal_asks_to_buy_the_first_six_trebuchets": {
+			"tier": 2,
+			"window": {
+				"earliest": 143,
+				"latest": 143,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"lady": {
+					"prefer": [
+						"bethal"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"husband": {
+					"prefer": [
+						"thomast"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"engineer": {
+					"prefer": [
+						"tessia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"guard": {
+					"prefer": [
+						"gamel"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.riverfarm_shows_its_trebuchets_to_the_nobles"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"bethal.bids_for_trebuchets",
+					"bethal.fired_a_toy_trebuchet",
+					"laken.guarded_by_gamel_among_nobles"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.21E",
+				"confidence": "confirmed",
+				"note": "Day 98 = day 143. Laken says he nearly died of poison the night before; the fae banquet is covered in 5.11 E."
+			},
+			"summary": "Lady Bethal asks to buy the first six trebuchets. Laken puts her off, since they are still in testing. He has small prototypes brought out, and Tessia helps Bethal aim one at a tree. Thomast stays near his wife. Laken keeps Gamel close after the poison at the banquet."
+		},
+		"b8.bevia_probes_laken_and_rie_shields_him": {
+			"tier": 2,
+			"window": {
+				"earliest": 143,
+				"latest": 143,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"lady": {
+					"prefer": [
+						"bevia_veniford"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"diplomat": {
+					"prefer": [
+						"rie"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.riverfarm_shows_its_trebuchets_to_the_nobles"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"bevia.presses_laken_about_his_past",
+					"rie.shields_laken_from_bevia",
+					"nobles.do_not_speak_of_the_fae_night"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.21E",
+				"confidence": "confirmed",
+				"note": "Day 98 = day 143. Laken fears the unspoken acceptance is itself fae magic."
+			},
+			"summary": "Lady Bevia asks where Laken's designs and strange court come from. She also asks about the fae night, which the nobles all seem to accept and not discuss. Laken feels a pull to answer, but Rie steps in and takes Bevia away."
+		},
+		"b8.laken_senses_the_goblin_host_and_calls_wiskeria_and_beniar": {
+			"tier": 2,
+			"window": {
+				"earliest": 143,
+				"latest": 143,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"captain": {
+					"prefer": [
+						"beniar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"steward": {
+					"prefer": [
+						"prost"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"guard": {
+					"prefer": [
+						"gamel"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.riverfarm_shows_its_trebuchets_to_the_nobles"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"laken.senses_the_goblin_host_north",
+					"laken.keeps_the_goblin_threat_secret",
+					"wiskeria.and_beniar_hold_the_goblin_plan"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.21E",
+				"confidence": "confirmed",
+				"note": "Day 98 = day 143. The 'days in advance' warning is Wiskeria's thought; the chapter shows no earlier scene."
+			},
+			"summary": "Laken senses a mass of presences far off and swears in German. He calmly sends Gamel for Wiskeria and Beniar only, and hides the news from the nobles and from Rie. In Wiskeria's cottage they refine a plan they had begun earlier. The text hints that Laken had days of warning."
+		},
+		"b8.wiskeria_will_not_forgive_sacra": {
+			"tier": 2,
+			"window": {
+				"earliest": 143,
+				"latest": 143,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": []
+				},
+				"maid": {
+					"prefer": [
+						"sacra"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"wiskeria"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.laken_senses_the_goblin_host_and_calls_wiskeria_and_beniar"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wiskeria.refuses_sacras_friendship",
+					"sacra.keeps_the_name_odveig_behind_her"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.21E",
+				"confidence": "confirmed",
+				"note": "Day 98 = day 143. Sacra and Odveig are one person (Book 5)."
+			},
+			"summary": "Wiskeria meets Sacra, who was her team leader Odveig, in the street. Sacra says she was a friend and a spy, and asks to be called Sacra. Wiskeria calls her a traitor and refuses her. Sacra mentions three people watch her; Wiskeria knows of two. Sacra then goes to see Laken."
+		},
+		"b8.sacra_brings_magnolias_offer_of_peace": {
+			"tier": 1,
+			"window": {
+				"earliest": 143,
+				"latest": 143,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"maid": {
+					"prefer": [
+						"sacra"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"wife": {
+					"prefer": [
+						"durene"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"steward": {
+					"prefer": [
+						"prost"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"guard": {
+					"prefer": [
+						"gamel"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lady": {
+					"prefer": [
+						"magnolia_reinhart"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.wiskeria_will_not_forgive_sacra"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"magnolia.offers_laken_peace_for_no_weapon_sales",
+					"laken.must_answer_magnolia_before_the_nobles_leave",
+					"sacra.watched_by_two_of_lakens_people",
+					"magnolia.is_pleased_by_lakens_handling_of_the_nobles"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.21E",
+				"confidence": "confirmed",
+				"note": "Day 98 = day 143. Durene tries to check the letter for poison by tasting it. The reason for the four months is not given."
+			},
+			"summary": "Sacra brings Magnolia Reinhart's reply. It offers peace, recognition and trade help. In return Laken must sell no trebuchets or war machines in Izril for four months, under a magic contract checked by Wistram. The letter bluntly asks him to hide them. He must answer before the nobles leave.",
+			"news": "Magnolia Reinhart offers Emperor Laken peace if he sells no war engines for four months."
+		},
+		"b8.laken_studies_the_map_of_allies_and_boycotts": {
+			"tier": 2,
+			"window": {
+				"earliest": 144,
+				"latest": 144,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"diplomat": {
+					"prefer": [
+						"rie"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"steward": {
+					"prefer": [
+						"prost"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"wife": {
+					"prefer": [
+						"durene"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.sacra_brings_magnolias_offer_of_peace"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"laken.has_a_map_of_allies_and_boycotting_towns",
+					"tourant.helps_boycott_riverfarm",
+					"riverfarm.can_message_the_larger_allied_cities"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.21E",
+				"confidence": "confirmed",
+				"note": "Day 99 = day 144 (Laken's Day + 45). Rie's claim about Tourant is stated as a likely cause."
+			},
+			"summary": "Laken's council argues over why Magnolia wants the trebuchets withheld. Rie shows a map at Prost's house. Flags mark allied settlements and stones mark towns that boycott him. She thinks Lord Tourant, a friend of Elkhan's mayor, helps the boycott. Larger allies can be reached by Message."
+		},
+		"b8.laken_baits_the_nobles_with_vague_promises": {
+			"tier": 2,
+			"window": {
+				"earliest": 144,
+				"latest": 144,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"diplomat": {
+					"prefer": [
+						"rie"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lord": {
+					"prefer": [
+						"tourant"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lady": {
+					"prefer": [
+						"bethal"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.bethal_asks_to_buy_the_first_six_trebuchets"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"laken.promises_nobles_wealth_he_does_not_have",
+					"riverfarm.nobles_think_laken_is_rich",
+					"laken.says_magnolia_wants_the_trebuchets"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.21E",
+				"confidence": "confirmed",
+				"note": "Day 99 = day 144. The numbers in the bids are Bethal's offers, not payments."
+			},
+			"summary": "Laken receives the nobles one by one on his throne. He answers each hope with a bigger, vaguer promise of bulk buying, trebuchet gifts and patronage. He has little gold, yet the lords leave sure he is rich. He tells Bethal, who bids huge sums, that Magnolia has an interest, which ends the bidding."
+		},
+		"b8.bethal_and_thomast_leave_riverfarm_early_heading_west": {
+			"tier": 1,
+			"window": {
+				"earliest": 144,
+				"latest": 144,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"lady": {
+					"prefer": [
+						"bethal"
+					],
+					"fallback_tags": []
+				},
+				"husband": {
+					"prefer": [
+						"thomast"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"bethal"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.laken_baits_the_nobles_with_vague_promises"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"bethal.leaves_riverfarm_early_westward",
+					"bethal.declined_lakens_escort",
+					"bethal.travels_with_two_knights_of_the_petal"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.21E",
+				"confidence": "confirmed",
+				"note": "Day 99 = day 144. 5.22 G shows her party meeting the Goblins on a road to the north, so the west answer was false (Laken: someone lied to him)."
+			},
+			"summary": "Bethal says she and Thomast leave within the hour, before the others. She refuses an escort. Asked her route, she names the west road by way of Yaist, which later proves untrue. Laken wishes them well. She asks to buy a prototype and he refuses.",
+			"news": "Lady Bethal Walchais leaves Riverfarm early with her husband and two Knights of the Petal."
+		},
+		"b8.bevia_lends_a_mage_for_a_cinnamon_roll": {
+			"tier": 2,
+			"window": {
+				"earliest": 144,
+				"latest": 144,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"lady": {
+					"prefer": [
+						"bevia_veniford"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"diplomat": {
+					"prefer": [
+						"rie"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"guard": {
+					"prefer": [
+						"gamel"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.laken_baits_the_nobles_with_vague_promises"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"bevia.lent_a_mage_to_laken",
+					"laken.resisted_bevias_charm",
+					"laken.bakes_german_sweets_for_nobles"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.21E",
+				"confidence": "confirmed",
+				"note": "Day 99 = day 144."
+			},
+			"summary": "Laken asks Bevia to lend her Message-casting Mage for up to two days without saying why. She agrees if he gives her something in return. She tries to charm facts about the trebuchets from him, but Laken pushes the effect off. He pays with a German sweet roll, and she has a sweet tooth."
+		},
+		"b8.wiskeria_and_beniar_ride_out_with_the_mage": {
+			"tier": 2,
+			"window": {
+				"earliest": 144,
+				"latest": 144,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": []
+				},
+				"captain": {
+					"prefer": [
+						"beniar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"wiskeria"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.laken_senses_the_goblin_host_and_calls_wiskeria_and_beniar"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wiskeria.rides_out_with_hellebore_and_brewers",
+					"beniar.rides_out_with_the_darksky_riders",
+					"laken.waits_for_wiskerias_word"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.21E",
+				"confidence": "confirmed",
+				"note": "Day 99 = day 144. That they ride for the Goblin host is shown in 5.22 G."
+			},
+			"summary": "Laken spends hours finding the exact herbs Wiskeria needs. By sunset her party has loaded pack horses with hellebore and other ingredients. Wiskeria, Beniar and a few riders leave the village with Bevia's Mage. Laken can only wait and send word. The target is not named in this chapter."
+		},
+		"b8.laken_plans_to_teach_engineering_to_everyone": {
+			"tier": 1,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"wife": {
+					"prefer": [
+						"durene"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"engineer": {
+					"prefer": [
+						"tessia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"laken.plans_to_teach_engineering_to_all",
+					"riverfarm.aims_to_export_engineers",
+					"laken.thinks_skills_hold_the_world_back"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.21E",
+				"confidence": "confirmed",
+				"note": "Day 100 = day 145. Laken links the idea to something Ryoka once told him."
+			},
+			"summary": "At a shaded lunch, Laken tells Durene his big idea. The class system lets people act by instinct, so knowledge dies with them. He will teach reading, math and blueprints, so anyone can earn the class. Riverfarm will export engineers.",
+			"news": "Emperor Laken says Riverfarm will teach engineering to ordinary people."
+		},
+		"b8.nobles_agree_to_send_laken_their_spare_people": {
+			"tier": 2,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"lord": {
+					"prefer": [
+						"tourant"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"guard": {
+					"prefer": [
+						"gamel"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"wife": {
+					"prefer": [
+						"durene"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.laken_plans_to_teach_engineering_to_everyone"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"riverfarm.will_receive_migrants_from_noble_lands",
+					"nobles.outsource_their_unwanted_poor_to_laken"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.21E",
+				"confidence": "confirmed",
+				"note": "Day 100 = day 145. The nobles frame this as dumping people; Laken sees raw talent."
+			},
+			"summary": "Laken tells the lords that Riverfarm can take their extra hands, and several offer young people and families. Laken thinks of a nation as needing people and talent. He hands Gamel half a cookie. Wiskeria is ready and Beniar is in place, and the evening raid is about to begin."
+		}
+	},
+	"system": []
+}
