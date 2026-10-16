@@ -1,0 +1,749 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.32G",
+	"order": 63,
+	"events": {
+		"b8.gold_rank_teams_slip_into_dwarfhalls_rest": {
+			"tier": 1,
+			"window": {
+				"earliest": 150,
+				"latest": 150,
+				"confidence": "confirmed"
+			},
+			"location": "dwarfhalls_rest",
+			"roles": {
+				"rogue": {
+					"prefer": [
+						"minerva"
+					],
+					"fallback_tags": []
+				},
+				"ranger": {
+					"prefer": [
+						"jackal"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"minerva"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.exploding_undead_break_the_tunnel_defence"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dwarfhalls_rest.gold_rank_teams_inside",
+					"jackal.searches_for_keening_hunt",
+					"humans.teleport_circle_in_the_mountain"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.32G",
+				"confidence": "confirmed",
+				"note": "Dawn of the siege's second day. Keening Hunt vanished there a week earlier; its fate is not shown."
+			},
+			"summary": "At dawn Minerva and Jackal's scouts kill the guards on a quiet back tunnel. A rune circle brings in Gold-rank mages and warriors. An old witch blasts a patrol with fire while Jackal takes five to look for the lost team Keening Hunt.",
+			"news": "Gold-rank adventurers break into the back of the Goblin mountain at dawn."
+		},
+		"b8.a_human_army_rides_on_the_mountain": {
+			"tier": 2,
+			"window": {
+				"earliest": 150,
+				"latest": 150,
+				"confidence": "confirmed"
+			},
+			"location": "dwarfhalls_rest",
+			"roles": {
+				"great_chieftain": {
+					"prefer": [
+						"tremborag"
+					],
+					"fallback_tags": []
+				},
+				"chieftain": {
+					"prefer": [
+						"garen"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"shaman": {
+					"prefer": [
+						"ulvama"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lord": {
+					"prefer": [
+						"goblin_lord"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"tremborag"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.gold_rank_teams_slip_into_dwarfhalls_rest"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dwarfhalls_rest.human_army_sighted",
+					"tremborag.hunts_reiss_in_his_halls"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.32G",
+				"confidence": "confirmed",
+				"note": "Day 150. The army is Tyrion's (5.30 G, 5.32 G); it rides with Skills to arrive by nightfall."
+			},
+			"summary": "Both Goblin sides hear that a great Human army rides south fast. Tremborag laughs: Reiss is in the open and he has the mountain. Garen feels a hidden danger. Reiss pushes in rather than flee, and the adventurers dig in and wait."
+		},
+		"b8.laken_sees_the_goblins_followed_kerrig": {
+			"tier": 1,
+			"window": {
+				"earliest": 150,
+				"latest": 150,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"knight": {
+					"prefer": [
+						"kerrig_louis"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"steward": {
+					"prefer": [
+						"prost"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lady": {
+					"prefer": [
+						"rie"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"guard": {
+					"prefer": [
+						"gamel"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"noble": {
+					"prefer": [
+						"bevia_veniford"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.a_forged_order_sends_the_army_at_lancrel"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"laken.knows_a_traitor_forged_his_order",
+					"laken.sees_goblins_cut_a_path_to_riverfarm",
+					"riverfarm.raises_palisades",
+					"kerrig.reached_riverfarm"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.32G",
+				"confidence": "confirmed",
+				"note": "Day 105. Laken recalls a friend's warning about spies."
+			},
+			"summary": "Laken blames himself for no passwords. Kerrig arrives and Laken says he is too late; the battle has begun. Kerrig swears he did not plot with the Goblins. Laken sees falling totems make a path: Goblins followed Kerrig. He orders defences.",
+			"news": "Emperor Laken calls Riverfarm to arms: the Goblins are coming."
+		},
+		"b8.pyrite_routs_lakens_army_at_lancrel": {
+			"tier": 1,
+			"window": {
+				"earliest": 150,
+				"latest": 150,
+				"confidence": "confirmed"
+			},
+			"location": "lancrel",
+			"roles": {
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": []
+				},
+				"paladin": {
+					"prefer": [
+						"durene"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"captain": {
+					"prefer": [
+						"beniar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"noears"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"archer": {
+					"prefer": [
+						"quietstab"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"rogue": {
+					"prefer": [
+						"poisonbite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pyrite"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.a_forged_order_sends_the_army_at_lancrel"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"flooded_waters.won_the_field_at_lancrel",
+					"durene.badly_wounded_by_pyrite",
+					"beniar.ribs_broken_by_pyrite",
+					"pyrite.burned_by_wiskerias_fox_fire",
+					"riverfarm.army_in_retreat"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.32G",
+				"confidence": "confirmed",
+				"note": "Day 105. Durene and Beniar are hurt and pulled back alive. Twofeather (a Hob, no record) covers Pyrite."
+			},
+			"summary": "Pyrite forms the tribe with its back to the walls and leads a pike charge. Hidden Redfangs trap Beniar's riders. Pyrite throws Durene down and cuts her, smashes Beniar, and is burned by Wiskeria's fire. Laken's army breaks.",
+			"news": "Emperor Laken's army is beaten outside Lancrel and falls back; the half-Troll Durene is badly hurt."
+		},
+		"b8.rags_holds_laken_at_crossbow_point": {
+			"tier": 1,
+			"window": {
+				"earliest": 150,
+				"latest": 150,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": []
+				},
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"raider": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"kerrig_louis"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"guard": {
+					"prefer": [
+						"gamel"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lady": {
+					"prefer": [
+						"rie"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"steward": {
+					"prefer": [
+						"prost"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"noble": {
+					"prefer": [
+						"bevia_veniford"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lord": {
+					"prefer": [
+						"tourant"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rags",
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.laken_sees_the_goblins_followed_kerrig"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"rags.met_laken_face_to_face",
+					"rags.found_the_unseen_emperor",
+					"laken.refused_rags_peace",
+					"laken.orders_the_goblins_killed",
+					"kerrig.says_rags_lied"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.32G",
+				"confidence": "confirmed",
+				"note": "Day 105. Rags brings about sixty wolf riders."
+			},
+			"summary": "Rags rides to Riverfarm with sixty Redfangs, admits she lied to Kerrig, and finds Laken by his closed eyes. Her terms: his army leaves, hers goes. Laken says his army has already lost to her tribe, refuses, and orders the Goblins killed."
+		},
+		"b8.rags_misses_laken_and_the_village_fights": {
+			"tier": 1,
+			"window": {
+				"earliest": 150,
+				"latest": 150,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": []
+				},
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"raider": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"guard": {
+					"prefer": [
+						"gamel"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"steward": {
+					"prefer": [
+						"prost"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"noble": {
+					"prefer": [
+						"bevia_veniford"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rags"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.rags_holds_laken_at_crossbow_point"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"laken.grazed_by_rags_bolt",
+					"bevia.mage_shot_dead",
+					"gamel.cut_by_redscar",
+					"bismarck.charges_the_wolf_riders"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.32G",
+				"confidence": "confirmed",
+				"note": "Day 105. Bevia's mage is unnamed (no record). Gamel falls bleeding, not dead; Prost is knocked down."
+			},
+			"summary": "Gamel knocks Laken down and the bolt grazes his cheek. Rags's second bolt kills Lady Bevia's mage, who had been whispering to her. Bismarck charges the wolves. Redscar cuts through the crowd, past Gamel and Prost, after Laken."
+		},
+		"b8.tyrion_lances_redscar_and_saves_laken": {
+			"tier": 1,
+			"window": {
+				"earliest": 150,
+				"latest": 150,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"lord": {
+					"prefer": [
+						"tyrion_veltras"
+					],
+					"fallback_tags": []
+				},
+				"raider": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"tyrion_veltras"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.rags_misses_laken_and_the_village_fights",
+				"b8.tyrion_strikes_camp_and_rides_south"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"tyrion.arrived_at_riverfarm",
+					"redscar.lanced_through_the_shoulder",
+					"rags.flees_riverfarm_with_redscar",
+					"tyrion.marks_rags_and_redscar_as_targets"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.32G",
+				"confidence": "confirmed",
+				"note": "Day 105. Lord Matthews leads the chase (no record). Redscar lives."
+			},
+			"summary": "Laken's word briefly stops Redscar, then a rider faster than an arrow lances Redscar's shoulder. It is Tyrion Veltras, with a hundred knights behind him. Rags drags Redscar away. Tyrion sends knights to hunt the two Goblins.",
+			"news": "Lord Tyrion Veltras rides into Riverfarm and drives off a Goblin raid on Emperor Laken."
+		},
+		"b8.tyrions_riders_drive_the_goblins_into_lancrel": {
+			"tier": 1,
+			"window": {
+				"earliest": 150,
+				"latest": 150,
+				"confidence": "confirmed"
+			},
+			"location": "lancrel",
+			"roles": {
+				"knight": {
+					"prefer": [
+						"welca_caveis"
+					],
+					"fallback_tags": []
+				},
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"welca_caveis"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pyrite_routs_lakens_army_at_lancrel",
+				"b8.tyrion_strikes_camp_and_rides_south"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"welca.rides_with_tyrions_cavalry",
+					"flooded_waters.driven_back_into_lancrel",
+					"riverfarm.army_saved_by_veltras_riders"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.32G",
+				"confidence": "confirmed",
+				"note": "Day 105. Lord Pellmia leads (no record). Welca looks for Kerrig; he is at Riverfarm."
+			},
+			"summary": "Tyrion's main cavalry, with Lord Pellmia and Welca Caveis, tops a hill above the battle. They charge the Goblins chasing Laken's army. Pyrite's tribe runs back into Lancrel, wondering where these riders came from and where Rags is."
+		},
+		"b8.elia_arcsinger_breaks_the_mountain_siege": {
+			"tier": 1,
+			"window": {
+				"earliest": 150,
+				"latest": 150,
+				"confidence": "confirmed"
+			},
+			"location": "dwarfhalls_rest",
+			"roles": {
+				"archer": {
+					"prefer": [
+						"elia_arcsinger"
+					],
+					"fallback_tags": []
+				},
+				"great_chieftain": {
+					"prefer": [
+						"tremborag"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"chieftain": {
+					"prefer": [
+						"garen"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lord": {
+					"prefer": [
+						"goblin_lord"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lieutenant": {
+					"prefer": [
+						"snapjaw"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"champion": {
+					"prefer": [
+						"eater_of_spears"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"elia_arcsinger"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.a_human_army_rides_on_the_mountain",
+				"b8.tyrion_lances_redscar_and_saves_laken"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dwarfhalls_rest.lost_by_tremborag",
+					"dwarfhalls_rest.siege_broken",
+					"goblins.flee_the_kingslayer",
+					"tremborag.fled_his_mountain",
+					"goblin_lord.fled_the_mountain",
+					"garen.fled_the_mountain",
+					"tyrion.plan_carried_out_at_the_mountain"
+				],
+				"clear_flags": [
+					"dwarfhalls_rest.besieged_by_the_goblin_lord"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.32G",
+				"confidence": "confirmed",
+				"note": "Day 105, on Tyrion's mark through his aide Telmia. Tremborag names her the slayer of Velan the Kind."
+			},
+			"summary": "As Reiss and Garen clash, mages burn the rope bridges. Then Elia Arcsinger teleports above them. Tremborag knows her as the Kingslayer and flees. Both Goblin armies break in terror. Garen runs too. Tremborag's mountain is lost.",
+			"news": "Elia Arcsinger, the Kingslayer, appears in the Goblin mountain; both Goblin armies flee and the siege breaks."
+		},
+		"b8.tyrion_offers_laken_his_hand": {
+			"tier": 1,
+			"window": {
+				"earliest": 150,
+				"latest": 150,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"lord": {
+					"prefer": [
+						"tyrion_veltras"
+					],
+					"fallback_tags": []
+				},
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"tyrion_veltras",
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.elia_arcsinger_breaks_the_mountain_siege"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"laken.allied_with_tyrion",
+					"tyrion.allied_with_laken",
+					"laken.warned_of_tyrion_by_a_maid"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.32G",
+				"confidence": "confirmed",
+				"note": "Day 105. The talks themselves come later. Bevia appears to be one of Tyrion's informants (her curtsy), not said outright."
+			},
+			"summary": "Tyrion hears the mountain plan worked. He offers Laken his hand. Laken says a maid warned him off Tyrion. Tyrion says Goblins do not matter, only people and duty, and asks for his help. Laken takes the hand and agrees to talk.",
+			"news": "Lord Tyrion Veltras and Emperor Laken Godart shake hands at Riverfarm and agree to work together."
+		}
+	},
+	"system": []
+}

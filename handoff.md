@@ -1,5 +1,10 @@
 # Handoff
 
+## Just done (2026-10-16, local): M28.5 canon 5.30 G - 5.32 G (branch `feat/m28.5-canon-5-30`)
+- 32 events, test `sim_book8_north_two`. ADR 0043 has flags and doubts.
+- Next: user merges the PR. Then M28.6 (5.33 B, Interlude - Blackmage, 5.34, 5.35 H, days 157 - 160). 5.34 is a FIGHT STAGE (raid on Liscor and the inn, day 159) with an `xp_window`: ask the xp tier and stage details first. Enemies `raskghar_armoured` / `awakened_raskghar` exist.
+- Gotchas: the director runs by earliest day first, chapter order only breaks ties. Fleetfur and Beetlestare have no records, so the kill sim skips them. Tyrion's guest is probably Welca (unnamed in text).
+
 ## Just done (2026-10-16, local): M28.4 canon 5.27 - 5.29 (branch `feat/m28.4-canon-5-27`)
 - 27 events, test `sim_book8_liscor_two`, boycott flag and rule entry (factor 0.15 guess). ADR 0043 has doubts.
 - Next: user merges the PR. Then M28.5 (5.30 G - 5.32 G, days 149 - 150, off-map). Ask stage and hook choices first.

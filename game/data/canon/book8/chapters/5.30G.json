@@ -1,0 +1,801 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.30G",
+	"order": 61,
+	"events": {
+		"b8.drake_cities_fret_over_the_antinium_tunnel": {
+			"tier": 2,
+			"window": {
+				"earliest": 157,
+				"latest": 157,
+				"confidence": "guess"
+			},
+			"location": "liscor",
+			"roles": {
+				"lord": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": []
+				},
+				"strategist": {
+					"prefer": [
+						"olesm"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"captain": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"commander": {
+					"prefer": [
+						"embria_grasstongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ilvriss"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pisces_sells_the_antinium_secret_to_ilvriss"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"drakes.alarmed_by_the_antinium_dungeon_tunnel",
+					"drakes.will_not_send_an_army_north",
+					"wistram.hears_of_the_drake_talks"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.30G",
+				"confidence": "confirmed",
+				"note": "The day is a guess: the scene follows Pisces's leak (5.29, day 156), so it cannot be day 149 like the rest of the chapter."
+			},
+			"summary": "Ilvriss, Olesm, Zevara and Embria flood the Walled Cities with spell messages about the Antinium and the dungeon. Other powers notice the talks. The Drakes will not march past Liscor: the Goblin Lord is a Human problem now.",
+			"news": "Drake cities trade a storm of secret spell messages about the Antinium of Liscor."
+		},
+		"b8.tyrions_nobles_demand_that_he_move": {
+			"tier": 2,
+			"window": {
+				"earliest": 149,
+				"latest": 149,
+				"confidence": "confirmed"
+			},
+			"location": "tyrion_war_camp",
+			"roles": {
+				"lord": {
+					"prefer": [
+						"yitton_byres"
+					],
+					"fallback_tags": []
+				},
+				"commander": {
+					"prefer": [
+						"tyrion_veltras"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"yitton_byres"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b7.tyrion_stalls_at_the_war_camp"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"tyrion_camp.nobles_lose_patience",
+					"bevia.begs_tyrion_for_aid"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.30G",
+				"confidence": "confirmed",
+				"note": "Day 104 of Laken's count; the nobles fear the Goblin Lord reaches the mountain that day. Gralton, Ieka and Erill have no records."
+			},
+			"summary": "In Tyrion's wet war camp the nobles rage at the long wait. Lord Gralton wants to drag Tyrion out. Yitton Byres calms him and joins a group of four to confront Tyrion. Lady Ieka says Lady Bevia has written for help."
+		},
+		"b8.a_worn_messenger_reaches_tyrion": {
+			"tier": 2,
+			"window": {
+				"earliest": 149,
+				"latest": 149,
+				"confidence": "guess"
+			},
+			"location": "tyrion_war_camp",
+			"roles": {
+				"lord": {
+					"prefer": [
+						"tyrion_veltras"
+					],
+					"fallback_tags": []
+				},
+				"messenger": {
+					"prefer": [
+						"welca_caveis"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"tyrion_veltras"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.tyrions_nobles_demand_that_he_move"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"tyrion.told_of_the_flooded_waters_tribe"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.30G",
+				"confidence": "likely",
+				"note": "The guest is not named here. 5.32 G shows Welca with his riders and Tyrion speaks of an extraordinary messenger, so she is the likely guest."
+			},
+			"summary": "A wet, worn guest stumbles into Tyrion's tent with news. He has her fed and clothed and her family told. With a covert spell message about reinforcements coming south, his plan falls into place."
+		},
+		"b8.tyrion_strikes_camp_and_rides_south": {
+			"tier": 1,
+			"window": {
+				"earliest": 149,
+				"latest": 149,
+				"confidence": "confirmed"
+			},
+			"location": "tyrion_war_camp",
+			"roles": {
+				"lord": {
+					"prefer": [
+						"tyrion_veltras"
+					],
+					"fallback_tags": []
+				},
+				"ally": {
+					"prefer": [
+						"yitton_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"tyrion_veltras"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.a_worn_messenger_reaches_tyrion"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"tyrion.army_marches_south",
+					"tyrion.awaits_special_reinforcements"
+				],
+				"clear_flags": [
+					"izril.tyrion_waits_for_the_rain_to_stop"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.30G",
+				"confidence": "confirmed",
+				"note": "Day 104. The reinforcements are not named in this chapter."
+			},
+			"summary": "Tyrion shows the four nobles a note about a special group of reinforcements and orders the camp struck within the hour. He means to ride fifty miles the first day with a fast mounted force, Gralton's hounds and Byres horse.",
+			"news": "Lord Tyrion Veltras strikes his war camp and his army rides south at speed."
+		},
+		"b8.the_goblin_lord_names_himself_reiss_at_the_parley": {
+			"tier": 1,
+			"window": {
+				"earliest": 149,
+				"latest": 149,
+				"confidence": "confirmed"
+			},
+			"location": "dwarfhalls_rest",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"garen"
+					],
+					"fallback_tags": []
+				},
+				"great_chieftain": {
+					"prefer": [
+						"tremborag"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lord": {
+					"prefer": [
+						"goblin_lord"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lieutenant": {
+					"prefer": [
+						"snapjaw"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"champion": {
+					"prefer": [
+						"eater_of_spears"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"garen",
+					"tremborag"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b7.garen_and_tremborag_agree_to_hold_the_mountain"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"goblin_lord.named_reiss",
+					"goblin_lord.reached_the_mountain",
+					"goblin_lord.demands_the_mountain_tribe",
+					"garen.breaks_with_reiss"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.30G",
+				"confidence": "confirmed",
+				"note": "Same day as the siege's first day, which 5.31 G ties to Laken's Day 104. The name Reiss goes on the goblin_lord record (no new NPC)."
+			},
+			"summary": "Garen and Tremborag ride out with small escorts to meet the Goblin Lord in the woods. He names himself Reiss and orders their tribes to join him. Both refuse. Tremborag calls him a slave. Reiss reminds Garen of an old promise."
+		},
+		"b8.garen_strikes_and_the_parley_becomes_a_fight": {
+			"tier": 1,
+			"window": {
+				"earliest": 149,
+				"latest": 149,
+				"confidence": "confirmed"
+			},
+			"location": "dwarfhalls_rest",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"garen"
+					],
+					"fallback_tags": []
+				},
+				"great_chieftain": {
+					"prefer": [
+						"tremborag"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lord": {
+					"prefer": [
+						"goblin_lord"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lieutenant": {
+					"prefer": [
+						"snapjaw"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"champion": {
+					"prefer": [
+						"eater_of_spears"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"garen"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_goblin_lord_names_himself_reiss_at_the_parley"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"garen.struck_at_reiss_in_parley",
+					"tremborag.hit_by_three_deathbolts",
+					"snapjaw.teeth_broken_by_garen",
+					"goblin_lord.draug_rise_from_the_ground",
+					"tremborag.shows_his_great_combat_form"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.30G",
+				"confidence": "confirmed",
+				"note": "Two Redfang riders and two wolves die (unnamed). Tremborag recovers on the run."
+			},
+			"summary": "Garen cuts the head off Reiss's undead spider mount. Tremborag swells into a huge fighting form. Draug burst from the soil and Reiss hits Tremborag with three death bolts. The Chieftains flee to the mountain, Garen bleeding."
+		},
+		"b8.the_goblin_lord_lays_siege_to_dwarfhalls_rest": {
+			"tier": 1,
+			"window": {
+				"earliest": 149,
+				"latest": 149,
+				"confidence": "confirmed"
+			},
+			"location": "dwarfhalls_rest",
+			"roles": {
+				"lord": {
+					"prefer": [
+						"goblin_lord"
+					],
+					"fallback_tags": []
+				},
+				"great_chieftain": {
+					"prefer": [
+						"tremborag"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"goblin_lord"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.garen_strikes_and_the_parley_becomes_a_fight"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dwarfhalls_rest.besieged_by_the_goblin_lord"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.30G",
+				"confidence": "confirmed",
+				"note": "Day 104. The siege runs two days (5.31 G, 5.32 G)."
+			},
+			"summary": "Reiss's army chases the Chieftains back through the forest and falls on Tremborag's mountain. Tremborag roars a challenge as his tribe runs to its traps and defences.",
+			"news": "The Goblin Lord's army lays siege to Tremborag's mountain fortress, Dwarfhalls Rest."
+		},
+		"b8.redfang_raiders_burn_and_die_hard": {
+			"tier": 2,
+			"window": {
+				"earliest": 148,
+				"latest": 149,
+				"confidence": "guess"
+			},
+			"location": "north_izril",
+			"roles": {
+				"raider": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": []
+				},
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"redscar"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.rags_orders_the_burning_raids"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"redfang.raiders_hunted_and_dying",
+					"muerfurt.walls_stormed_by_redfangs",
+					"redfang.fleetfur_fell_charging_alone",
+					"redfang.beetlestare_slain_by_silver_adventurers"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.30G",
+				"confidence": "confirmed",
+				"note": "Fleetfur and Beetlestare are named once and have no records (no kill). Muerfurt is a town with no place record."
+			},
+			"summary": "Redfang raiders burn farms and villages while Human riders and trackers ambush them. Fleetfur charges fifteen riders alone. A few Redfangs storm the walls of Muerfurt. Beetlestare falls to Silver-rank adventurers in a street.",
+			"news": "Redfang wolf riders burn the countryside and die hard as Human hunters run them down."
+		},
+		"b8.rags_ambushes_the_hunters_and_calls_the_raiders_home": {
+			"tier": 1,
+			"window": {
+				"earliest": 149,
+				"latest": 149,
+				"confidence": "guess"
+			},
+			"location": "north_izril",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": []
+				},
+				"raider": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rags"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.redfang_raiders_burn_and_die_hard"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"rags.ends_the_raids_early",
+					"rags.sees_her_hunters_are_not_the_watcher",
+					"flooded_waters.redfangs_called_back"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.30G",
+				"confidence": "confirmed",
+				"note": "Night of day 148 into day 149 (guess): Rags has raided two days. She suspects Wiskeria or Beniar leads the hunters."
+			},
+			"summary": "Rags leads about forty Redfangs and turns an ambush back on the Humans. She sees the riders' leaders are not the all-seeing foe. She calls the raids off to save her riders, breaks out of a cave with the Fear gem and trip ropes."
+		},
+		"b8.pyrite_learns_the_totems_are_the_emperors_eyes": {
+			"tier": 1,
+			"window": {
+				"earliest": 149,
+				"latest": 149,
+				"confidence": "guess"
+			},
+			"location": "lancrel",
+			"roles": {
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"noears"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"kerrig_louis"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"raider": {
+					"prefer": [
+						"poisonbite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pyrite"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_goblins_storm_lancrel"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pyrite.knows_the_totems_are_the_emperors_eyes",
+					"goblins.cut_down_lakens_totems",
+					"kerrig.named_laken_to_pyrite",
+					"pyrite.marks_riverfarm_on_the_map"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.30G",
+				"confidence": "confirmed",
+				"note": "Day 149 (guess, before Rags returns). Kerrig gives the name but not the place."
+			},
+			"summary": "In captured Lancrel, Pyrite reasons the Humans' sight must be a Skill. Kerrig gives him only the name Laken Godart. Redfangs who burned carved poles with eyes vanished from the hunters' sight. Pyrite sends pairs out to cut the totems down."
+		},
+		"b8.rags_returns_to_lancrel_with_too_few_riders": {
+			"tier": 1,
+			"window": {
+				"earliest": 149,
+				"latest": 149,
+				"confidence": "guess"
+			},
+			"location": "lancrel",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": []
+				},
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"raider": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"noears"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rags"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.rags_ambushes_the_hunters_and_calls_the_raiders_home",
+				"b8.pyrite_learns_the_totems_are_the_emperors_eyes"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"flooded_waters.lost_many_redfang_riders",
+					"rags.back_in_lancrel",
+					"rags.knows_the_totem_secret"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.30G",
+				"confidence": "confirmed",
+				"note": "Day 149 (guess). Fewer than 240 of about 400 Redfang riders come back (rough counts, not used in data)."
+			},
+			"summary": "Rags and Redscar race into Lancrel with the last riders, covered by crossbows and Noears's lightning. Pyrite counts heavy losses among the Redfangs. He tells Rags the secret of the totems and her spirit lifts."
+		},
+		"b8.laken_goes_blind_where_the_totems_fall": {
+			"tier": 1,
+			"window": {
+				"earliest": 149,
+				"latest": 149,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"lady": {
+					"prefer": [
+						"rie"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"nesor"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.laken_reads_the_goblin_march_and_names_lancrel"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"laken.totems_being_cut_down",
+					"riverfarm.refugees_flood_in",
+					"laken.orders_lancrel_surrounded_and_bombarded",
+					"laken.asks_that_durene_be_kept_safe"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.30G",
+				"confidence": "confirmed",
+				"note": "Laken's Day 104 (firm). Jelov is told to carve new markers."
+			},
+			"summary": "Laken watches the land burn and feels his sight die as Goblins chop down his totems. Rie says refugees flock to Riverfarm. Wiskeria begs for a delay, but Laken orders Lancrel ringed and pounded to rubble, and Durene kept safe.",
+			"news": "Refugees from the Goblin raids stream into Riverfarm, the one safe place, people say."
+		},
+		"b8.the_trebuchets_open_fire_on_lancrel": {
+			"tier": 1,
+			"window": {
+				"earliest": 149,
+				"latest": 149,
+				"confidence": "confirmed"
+			},
+			"location": "lancrel",
+			"roles": {
+				"paladin": {
+					"prefer": [
+						"durene"
+					],
+					"fallback_tags": []
+				},
+				"engineer": {
+					"prefer": [
+						"tessia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"durene"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.laken_goes_blind_where_the_totems_fall"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"riverfarm.trebuchets_bombard_lancrel",
+					"lancrel.walls_broken_by_stones",
+					"rags.has_a_plan_for_the_trebuchets"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.30G",
+				"confidence": "confirmed",
+				"note": "Day 104 (firm). Two trebuchets were dragged on wheels with Durene's group."
+			},
+			"summary": "Durene helps load the first boulder and Tessia aims. Stones smash Lancrel's walls and streets. On the wall, Rags stares at the strange engines, watches the Humans reload, and decides she has a plan.",
+			"news": "Emperor Laken's army pounds Goblin-held Lancrel with boulders from two trebuchets."
+		}
+	},
+	"system": []
+}
