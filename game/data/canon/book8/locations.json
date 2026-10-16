@@ -72,6 +72,25 @@
 				"note": "A Human city outside Laken's empire that refused his levy. Rags takes it in under an hour with ram-carrying Hobs (5.23 G)."
 			},
 			"summary": "A northern Izril city that falls to Rags's army."
+		},
+		"goblin_camp_north_of_riverfarm": {
+			"name": "Goblin camp north of Riverfarm",
+			"kind": "wild",
+			"parent": "north_izril",
+			"tags": [
+				"camp",
+				"goblin",
+				"forest",
+				"off_map"
+			],
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.22G",
+				"confidence": "confirmed",
+				"note": "A forest camp of the Flooded Waters tribe about forty-two miles north of Riverfarm (Laken's count, 5.22 G). Burned and poisoned in the night raid."
+			},
+			"summary": "The forest camp where Laken's riders strike the Goblin tribe."
 		}
 	}
 }

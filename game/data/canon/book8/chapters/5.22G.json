@@ -1,0 +1,759 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.22G",
+	"order": 53,
+	"events": {
+		"b8.laken_waits_in_the_dark_with_nesor": {
+			"tier": 2,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"nesor"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.nobles_agree_to_send_laken_their_spare_people"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"laken.feels_hate_for_the_first_time",
+					"nesor.relays_lakens_orders_by_message",
+					"laken.is_angry_that_someone_lied_to_him"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.22G",
+				"confidence": "confirmed",
+				"note": "Evening of Day 100 = day 145. The person who lied is not named here; Bethal's false route in 5.21 E is the likely cause (guess)."
+			},
+			"summary": "On the evening of the strike, Laken sits in the dark in Wiskeria's house with the young Mage Nesor. He says someone lied to him but the plan will not change. He feels cold hate for the first time. Nesor is nervous, but he will pass Laken's orders by Message."
+		},
+		"b8.poisonbite_asks_why_rags_is_grim": {
+			"tier": 2,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "confirmed"
+			},
+			"location": "goblin_camp_north_of_riverfarm",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": []
+				},
+				"raider": {
+					"prefer": [
+						"poisonbite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rags"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"rags.dreams_of_dead_humans",
+					"rags.says_goblins_can_be_better_than_humans",
+					"flooded_waters.wears_new_scrap_armor"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.22G",
+				"confidence": "confirmed",
+				"note": "Evening of Day 100 = day 145. The tribe's [Scavenger Armor] event is b7.rags_reaches_chieftain_level_20."
+			},
+			"summary": "At dusk, Poisonbite sees the tribe's new scrap armour and asks Rags why she is gloomy. Rags says she dreamed of dead Humans and that she killed many. She tells Poisonbite that Goblins are not Humans and can be better. Poisonbite does not see how."
+		},
+		"b8.a_redfang_scout_reports_bethals_party_on_the_road": {
+			"tier": 2,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "confirmed"
+			},
+			"location": "goblin_camp_north_of_riverfarm",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": []
+				},
+				"raider": {
+					"prefer": [
+						"poisonbite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lieutenant": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"warlord": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"kerrig_louis"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rags"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.bethal_and_thomast_leave_riverfarm_early_heading_west"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"flooded_waters.sights_bethal_on_the_road",
+					"rags.orders_an_encirclement_without_attack"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.22G",
+				"confidence": "confirmed",
+				"note": "Evening of Day 100 = day 145. The scout is unnamed; Redscar is only a presence in the camp."
+			},
+			"summary": "A Redfang scout rides in to say four Humans are coming north on the road, including the lady and the rapier-wielder from the earlier battle. The camp readies. Rags calls out pikes, crossbows, Hobs and all Redfangs, rides out and orders no attack until she says so."
+		},
+		"b8.rags_surrounds_bethal_and_lowers_her_crossbow": {
+			"tier": 1,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "confirmed"
+			},
+			"location": "goblin_camp_north_of_riverfarm",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": []
+				},
+				"lady": {
+					"prefer": [
+						"bethal"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"husband": {
+					"prefer": [
+						"thomast"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"warlord": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rags"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.a_redfang_scout_reports_bethals_party_on_the_road"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"rags.spares_bethal_for_now",
+					"bethal.offered_ransom_and_peace",
+					"bethal.learns_kerrig_lives",
+					"rags.sees_erins_face_in_bethal"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.22G",
+				"confidence": "confirmed",
+				"note": "Evening of Day 100 = day 145. The 'two others' in Rags's words are Kerrig and Welca; Welca has fled (5.20 G)."
+			},
+			"summary": "Over two hundred Goblins ring Bethal, Thomast and two Knights. Rags aims at Bethal but sees the fear Erin once showed. She lowers the crossbow and calls them prisoners, as Kerrig is. Bethal offers ransom and peace and learns Kerrig lives. Distress horns sound from the camp.",
+			"news": "Rags holds Lady Bethal and her escort at crossbow point, then spares them for now."
+		},
+		"b8.laken_springs_the_night_ambush_on_the_goblin_camp": {
+			"tier": 1,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "confirmed"
+			},
+			"location": "goblin_camp_north_of_riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"nesor"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"captain": {
+					"prefer": [
+						"beniar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.rags_surrounds_bethal_and_lowers_her_crossbow",
+				"b8.laken_waits_in_the_dark_with_nesor",
+				"b8.wiskeria_and_beniar_ride_out_with_the_mage"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"laken.goblin_war_begun",
+					"riverfarm.struck_the_goblin_camp_at_night",
+					"flooded_waters.poisoned_in_the_night_raid",
+					"flooded_waters.scattered_by_the_darksky_riders"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.22G",
+				"confidence": "confirmed",
+				"note": "Evening of Day 100 = day 145. Laken later claims over a thousand Goblin dead and under a hundred of his own; both are his own figures."
+			},
+			"summary": "Through Nesor, Laken tells Wiskeria to strike while Bethal's capture draws many Goblins away. About six hundred riders and archers hit the camp at night. They douse the fires and drive poison smoke from three cauldrons into it. Horsemen and arrows cut down blinded Goblins. The unit lines break.",
+			"news": "Riders of the Unseen Empire strike a Goblin army's camp at night with poison smoke and arrows."
+		},
+		"b8.rags_is_cut_down_in_the_burning_camp": {
+			"tier": 1,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "confirmed"
+			},
+			"location": "goblin_camp_north_of_riverfarm",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": []
+				},
+				"captain": {
+					"prefer": [
+						"beniar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rags"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.laken_springs_the_night_ambush_on_the_goblin_camp"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"rags.badly_wounded_at_the_camp",
+					"rags.unconscious_after_the_raid",
+					"rags.dropped_her_sword_in_the_fight"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.22G",
+				"confidence": "confirmed",
+				"note": "Evening of Day 100 = day 145. The armored rider is not named; later Pyrite sees Beniar as the armored leader (guess that it was Beniar)."
+			},
+			"summary": "Rags runs back into the camp and finds it in darkness and chaos. A Hob dies in front of her. She shoots riders with her crossbow and sets one aflame. An armored rider whispers 'so small' and cuts her across the chest. She falls with no anger left to reach for her potion and loses consciousness.",
+			"news": "The Goblin Chieftain Rags is cut down in the night raid and does not rise."
+		},
+		"b8.pyrite_overturns_the_poison_cauldrons": {
+			"tier": 2,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "confirmed"
+			},
+			"location": "goblin_camp_north_of_riverfarm",
+			"roles": {
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": []
+				},
+				"captain": {
+					"prefer": [
+						"beniar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"noears"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pyrite"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.laken_springs_the_night_ambush_on_the_goblin_camp"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pyrite.overturned_the_poison_cauldrons",
+					"pyrite.wounded_by_arrows_in_the_raid",
+					"humans.raiders_pulled_back_by_wiskeria",
+					"noears.lit_the_camp_with_a_light_spell"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.22G",
+				"confidence": "confirmed",
+				"note": "Evening of Day 100 = day 145. Noears's light spell is cast late."
+			},
+			"summary": "Pyrite cannot find Rags in the dark. He charges the archers by the cauldrons, takes arrows in his body fat, kills an Archer and kicks over the vats. He sets a tree alight for light, leads a pike wall against the riders and stops a chase into a second ambush. Wiskeria orders her people to retreat."
+		},
+		"b8.pyrite_stops_redscar_and_finds_rags_alive": {
+			"tier": 1,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "confirmed"
+			},
+			"location": "goblin_camp_north_of_riverfarm",
+			"roles": {
+				"hob": {
+					"prefer": [
+						"pyrite"
+					],
+					"fallback_tags": []
+				},
+				"chieftain": {
+					"prefer": [
+						"rags"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"warlord": {
+					"prefer": [
+						"redscar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"healer": {
+					"prefer": [
+						"quietstab"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"raider": {
+					"prefer": [
+						"poisonbite"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"noears"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pyrite"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pyrite_overturns_the_poison_cauldrons",
+				"b8.rags_is_cut_down_in_the_burning_camp"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pyrite.takes_command_while_rags_is_down",
+					"redscar.obeys_pyrite_for_now",
+					"rags.found_barely_alive",
+					"flooded_waters.expects_the_humans_to_return"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.22G",
+				"confidence": "confirmed",
+				"note": "Evening of Day 100 = day 145. Rags is alive but does not wake in this chapter."
+			},
+			"summary": "Redscar finds Rags with Pyrite and Quietstab. Pyrite pours potion into her and finds a faint heartbeat. Redscar wants to chase the Humans, but Pyrite grips his arm and calls himself second in command. Redscar backs down. Pyrite orders the wounded counted and a defense readied against a return.",
+			"news": "The Goblin second, a Hob named Pyrite, takes command after the Chieftain falls."
+		},
+		"b8.laken_calls_the_raid_a_success_and_rests_nesor": {
+			"tier": 2,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"nesor"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"steward": {
+					"prefer": [
+						"prost"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.laken_springs_the_night_ambush_on_the_goblin_camp"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"laken.calls_the_night_raid_a_success",
+					"nesor.rests_in_wiskerias_house"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.22G",
+				"confidence": "confirmed",
+				"note": "Evening of Day 100 = day 145."
+			},
+			"summary": "Nesor reports that Wiskeria pulls back for the night. Laken tells her to treat her wounded and expect new orders within the hour. He sends Nesor to sleep with a mana potion nearby and strides to Prost, who has gathered the nobles. Laken can feel his heart pound."
+		},
+		"b8.laken_tells_the_nobles_the_goblin_host_is_near": {
+			"tier": 1,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"herald": {
+					"prefer": [
+						"gamel"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"steward": {
+					"prefer": [
+						"prost"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"diplomat": {
+					"prefer": [
+						"rie"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lord": {
+					"prefer": [
+						"tourant"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lady": {
+					"prefer": [
+						"bevia_veniford"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"wife": {
+					"prefer": [
+						"durene"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.laken_calls_the_raid_a_success_and_rests_nesor"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"nobles.learn_the_goblin_host_is_near",
+					"laken.levies_the_cities_of_the_north",
+					"nobles.held_at_riverfarm_by_the_goblin_war",
+					"laken.sent_messages_to_every_city"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.22G",
+				"confidence": "confirmed",
+				"note": "Night of Day 100 = day 145. The kill and loss figures are Laken's claims."
+			},
+			"summary": "At night Gamel announces Laken to the roused nobles. Laken says about eight thousand Goblins camp forty-two miles north and beat Filk's army two days ago. He says his riders have just hit them, killing a thousand for under a hundred lost. He will levy the nearby cities, and Riverfarm is safest.",
+			"news": "Emperor Laken tells the nobles that eight thousand Goblins camp forty-two miles north and that he has struck them."
+		},
+		"b8.laken_sends_the_army_north_and_swears_to_crush_the_goblins": {
+			"tier": 2,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "confirmed"
+			},
+			"location": "riverfarm",
+			"roles": {
+				"emperor": {
+					"prefer": [
+						"laken_godart"
+					],
+					"fallback_tags": []
+				},
+				"wife": {
+					"prefer": [
+						"durene"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"general": {
+					"prefer": [
+						"wiskeria"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"captain": {
+					"prefer": [
+						"beniar"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"laken_godart"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.laken_tells_the_nobles_the_goblin_host_is_near"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"durene.marches_with_the_army_north",
+					"laken.swears_to_crush_the_goblins",
+					"laken.stays_at_riverfarm_for_the_war",
+					"laken.hid_the_plan_from_durene"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.22G",
+				"confidence": "confirmed",
+				"note": "Night of Day 100 = day 145. The march starts at dawn on day 146; its battles are in the next chapter."
+			},
+			"summary": "Outside the hall Laken tells Durene the truth. He says she was a poor actor and he feared leaks. The main army will march at dawn and meet Wiskeria's raiders. Durene insists on going as a Paladin. Laken says to avoid easy fights and swears to destroy the Goblins with traps and poison."
+		}
+	},
+	"system": []
+}
