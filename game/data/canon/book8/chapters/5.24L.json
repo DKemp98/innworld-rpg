@@ -1,0 +1,875 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.24L",
+	"order": 55,
+	"events": {
+		"b8.the_inn_is_mended_after_the_moth_attack": {
+			"tier": 1,
+			"window": {
+				"earliest": 144,
+				"latest": 144,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [
+						"innkeeper"
+					]
+				},
+				"bird": {
+					"prefer": [
+						"bird"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"jelaqua": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wandering_inn.repaired_after_the_moths",
+					"wandering_inn.some_windows_still_boarded",
+					"bird.back_in_his_watchtower",
+					"jelaqua.new_drake_body"
+				],
+				"clear_flags": [
+					"wandering_inn.windows_broken",
+					"wandering_inn.watchtower_smashed",
+					"jelaqua.body_broken"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.24L",
+				"confidence": "confirmed",
+				"note": "Day 144 (guess; the rain has lasted 'barely a week'). Repair event for the Book 7 damage (ADR 0043, plan conflicts 2 and 3). The text shows two new glass windows and half still boarded; Bird sits in his tower again on the next day."
+			},
+			"summary": "The inn works again after the moth night. Antinium Workers have put glass in two windows; the rest are still boarded. Bird keeps watch from his tower once more. Jelaqua now walks in a Drake body and has picked up Drake habits.",
+			"news": "The Wandering Inn is open again: new glass in some windows, and Bird back in his tower."
+		},
+		"b8.the_teams_argue_over_the_redfang_artifacts": {
+			"tier": 2,
+			"window": {
+				"earliest": 144,
+				"latest": 144,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"jelaqua": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": []
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"numbtongue": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ylawes": {
+					"prefer": [
+						"ylawes_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"revi": {
+					"prefer": [
+						"revi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"typhenous": {
+					"prefer": [
+						"typhenous"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"halrac": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"falene": {
+					"prefer": [
+						"falene_skystrall"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"pisces": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ceria": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"moore": {
+					"prefer": [
+						"moore"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"hawk": {
+					"prefer": [
+						"hawk"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"jelaqua"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"hawk.refuses_to_run_near_the_goblin_lord",
+					"redfangs.decline_an_artifact_appraisal",
+					"falene.to_look_over_the_goblin_artifacts",
+					"pisces.to_look_over_the_goblin_artifacts"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.24L",
+				"confidence": "confirmed",
+				"note": "Day 144 (guess). Hawk is only reported, not on the scene. The cost figures are Revi's estimate."
+			},
+			"summary": "At breakfast the Gold-rank teams debate how to get the Goblins' dungeon finds identified. Hawk will not run near the Goblin Lord, City Runners seem unsafe, and a Pallass appraiser costs a fortune. Numbtongue says they need none. Falene and Pisces offer to look instead."
+		},
+		"b8.the_halfseekers_test_the_heartflame_breastplate": {
+			"tier": 2,
+			"window": {
+				"earliest": 144,
+				"latest": 144,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"jelaqua": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": []
+				},
+				"selys": {
+					"prefer": [
+						"selys"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"moore": {
+					"prefer": [
+						"moore"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"seborn": {
+					"prefer": [
+						"seborn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"typhenous": {
+					"prefer": [
+						"typhenous"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"halrac": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ylawes": {
+					"prefer": [
+						"ylawes_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"jelaqua"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"heartflame.leased_to_halfseekers",
+					"halfseekers.testing_the_heartflame_breastplate",
+					"jelaqua.bought_the_inn_drinks_for_the_lease"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.24L",
+				"confidence": "confirmed",
+				"note": "Day 144 (guess). The lease itself is Book 7 (5.18 S, flag heartflame.leased_to_halfseekers); this keeps it set."
+			},
+			"summary": "Selys has leased the Heartflame Breastplate to the Halfseekers, the talk of the year among the teams. Jelaqua celebrated with rounds for the house. The Halfseekers leave to test it, and Griffon Hunt and the Silver Swords go along to watch.",
+			"news": "The Halfseekers test the Heartflame Breastplate that Selys leased to them."
+		},
+		"b8.ksmvr_trains_to_face_the_water": {
+			"tier": 2,
+			"window": {
+				"earliest": 144,
+				"latest": 144,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"ksmvr": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": []
+				},
+				"yvlon": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"pisces": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ceria": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mrsha": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ksmvr"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"ksmvr.trains_to_face_the_water",
+					"mrsha.confined_to_the_inn_by_the_flood"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.24L",
+				"confidence": "confirmed",
+				"note": "Day 144 (guess). He feels he failed the team by not fighting underwater in Book 7."
+			},
+			"summary": "Ksmvr has his team dunk his head in the floodwater to beat his fear, Ring of Water Breathing or not. He panics each time. Mrsha sneaks out to splash him until Lyonette calls her back; the flood keeps the cub shut indoors."
+		},
+		"b8.lyonette_takes_charge_of_hiring_and_a_bridge_is_ordered": {
+			"tier": 1,
+			"window": {
+				"earliest": 144,
+				"latest": 144,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": []
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"drassi": {
+					"prefer": [
+						"drassi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ishkr": {
+					"prefer": [
+						"ishkr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ilvriss": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"octavia": {
+					"prefer": [
+						"octavia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"lyonette"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"lyonette.takes_charge_of_hiring",
+					"wandering_inn.short_of_staff",
+					"wandering_inn.bridge_to_liscor_ordered",
+					"wandering_inn.door_swaps_strain_the_staff",
+					"players_of_celum.stage_the_triumph_of_liscor"
+				],
+				"relationship": [
+					{
+						"from": "lyonette",
+						"to": "erin_solstice",
+						"delta": 1
+					},
+					{
+						"from": "drassi",
+						"to": "lyonette",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.24L",
+				"confidence": "confirmed",
+				"note": "Day 144 (guess). The builder Drassi finds is named only in passing; no record. The text calls it a bridge; 'rope bridge' is the plan's word for it."
+			},
+			"summary": "With plays on all day, Drassi and Ishkr are worn out. Lyonette offers to find more staff and has them call friends at high pay. Swapping the door between cities is a constant chore, so Drassi suggests a bridge over the flood. Erin pays, and a crew is hired.",
+			"news": "The Wandering Inn hires a crew to build a bridge across the flood to Liscor."
+		},
+		"b8.pawn_asks_erin_for_pastimes_for_his_unit": {
+			"tier": 2,
+			"window": {
+				"earliest": 144,
+				"latest": 144,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"pawn": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": []
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pawn"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pawn.unit_grew_with_workers",
+					"pawn.seeks_rainy_day_pastimes_for_the_hive",
+					"lyonette.jealous_of_pawns_trust_in_erin"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.24L",
+				"confidence": "confirmed",
+				"note": "Day 144 (guess). Pawn says he has not visited for over a week since the moth attack."
+			},
+			"summary": "Pawn comes for the first time in over a week. His unit now holds many more Workers and Soldiers, and with no patrols in the rain he wants things for them to do. He asks Erin, who promises ideas. Lyonette feels a little left out."
+		},
+		"b8.lyonette_practises_the_sword_at_night": {
+			"tier": 2,
+			"window": {
+				"earliest": 144,
+				"latest": 145,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": []
+				}
+			},
+			"requires": {
+				"alive": [
+					"lyonette"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"lyonette.practises_the_sword_at_night"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.24L",
+				"confidence": "confirmed",
+				"note": "Nights of days 144 and 145 (guess). Brunkr taught her the strikes in Book 5."
+			},
+			"summary": "After closing time Lyonette takes out her hidden sword and drills the few cuts and parries Brunkr once showed her, alone in the empty common room, until her arms ache."
+		},
+		"b8.lyonette_takes_mrsha_to_the_sunny_fields_of_celum": {
+			"tier": 2,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "guess"
+			},
+			"location": "celum",
+			"roles": {
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": []
+				},
+				"mrsha": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"octavia": {
+					"prefer": [
+						"octavia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"lyonette"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.lyonette_takes_charge_of_hiring_and_a_bridge_is_ordered"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"lyonette.picnic_with_mrsha_in_celum",
+					"apista.can_set_herself_aflame",
+					"mrsha.ran_free_outside_celum"
+				],
+				"relationship": [
+					{
+						"from": "mrsha",
+						"to": "lyonette",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.24L",
+				"confidence": "confirmed",
+				"note": "Day 145 (guess). Celum is dry; the rain stays south. The level-ups come as she dozes in the field."
+			},
+			"summary": "Lyonette takes her day off with Mrsha in dry, sunny Celum. Mrsha runs free in a field by the walls. When a flock of birds mob Apista, the bee bursts into harmless flame and drives them off. Lyonette dozes off and wakes to new levels."
+		},
+		"b8.lyonette_sorts_out_the_new_staff_and_the_bridge_crew": {
+			"tier": 1,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": []
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"drassi": {
+					"prefer": [
+						"drassi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ishkr": {
+					"prefer": [
+						"ishkr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"bird": {
+					"prefer": [
+						"bird"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"numbtongue": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ceria": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"lyonette"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.lyonette_takes_mrsha_to_the_sunny_fields_of_celum"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wandering_inn.new_staff_hired",
+					"wandering_inn.bridge_to_liscor_being_built",
+					"redfangs.guard_the_bridge_builders",
+					"bird.watches_over_the_bridge_builders",
+					"lyonette.sees_she_and_erin_are_a_team"
+				],
+				"relationship": [
+					{
+						"from": "erin_solstice",
+						"to": "lyonette",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.24L",
+				"confidence": "confirmed",
+				"note": "Evening of day 145 (guess). The bridge is not shown finished in 5.24 - 5.26."
+			},
+			"summary": "Back from Celum, Lyonette finds chaos: new hires idle and the bridge crew refusing Goblin guards. She makes everyone queue, sets the new staff to work, and settles it: the Redfangs stand outside, the Horns wait inside, and Bird watches from his tower. She keeps the two best hires."
+		},
+		"b8.lyonette_loses_her_princess_class": {
+			"tier": 1,
+			"window": {
+				"earliest": 145,
+				"latest": 145,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": []
+				}
+			},
+			"requires": {
+				"alive": [
+					"lyonette"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.lyonette_sorts_out_the_new_staff_and_the_bridge_crew"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"lyonette.lost_her_princess_class"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.24L",
+				"confidence": "confirmed",
+				"note": "Night of day 145 (guess). The class levels and the loss are in the system records."
+			},
+			"summary": "That night Lyonette gains levels as a [Barmaid] and [Warrior]. Then she hears that her [Princess] class has failed its conditions and is gone, with its Skills. She feels only surprise, and falls asleep."
+		},
+		"b8.lyonette_breaks_down_in_tears": {
+			"tier": 2,
+			"window": {
+				"earliest": 146,
+				"latest": 146,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": []
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mrsha": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"lyonette"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.lyonette_loses_her_princess_class"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"lyonette.wept_for_her_lost_class",
+					"erin.knows_lyonette_lost_something"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.24L",
+				"confidence": "confirmed",
+				"note": "Morning of day 146 (guess). She tells Erin about the levels but not about the lost class."
+			},
+			"summary": "Lyonette is up early, cheerful, and shows Erin her new Skill. Then tears start running without her noticing. She insists nothing happened, and breaks down sobbing in Erin's arms as Mrsha cries with her."
+		}
+	},
+	"system": [
+		{
+			"who": "lyonette",
+			"kind": "level",
+			"name": "[Carer]",
+			"level": 8,
+			"confidence": "confirmed",
+			"note": "Gained while she dozes in the field outside Celum."
+		},
+		{
+			"who": "lyonette",
+			"kind": "level",
+			"name": "[Beast Tamer]",
+			"level": 5,
+			"confidence": "confirmed",
+			"note": "Same moment as [Carer] 8."
+		},
+		{
+			"who": "lyonette",
+			"kind": "skill",
+			"name": "[Apista: Basic Training]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "With [Beast Tamer] 5. Apista does not obey yet."
+		},
+		{
+			"who": "lyonette",
+			"kind": "level",
+			"name": "[Barmaid]",
+			"level": 15,
+			"confidence": "confirmed",
+			"note": "Night of day 145 (guess)."
+		},
+		{
+			"who": "lyonette",
+			"kind": "skill",
+			"name": "[Balanced Posture]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "With [Barmaid] 15. She cannot be knocked over."
+		},
+		{
+			"who": "lyonette",
+			"kind": "level",
+			"name": "[Warrior]",
+			"level": 4,
+			"confidence": "confirmed",
+			"note": "Same night. She says she was Level 3 before."
+		},
+		{
+			"who": "lyonette",
+			"kind": "other",
+			"name": "[Princess] lost",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "The class conditions failed; [Detect Poison] and [Royal Tax] were lost with it. She later says it was Level 6."
+		}
+	]
+}

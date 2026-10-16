@@ -1,0 +1,557 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.25L",
+	"order": 56,
+	"events": {
+		"b8.pawn_gives_wafers_after_his_sermon": {
+			"tier": 2,
+			"window": {
+				"earliest": 146,
+				"latest": 146,
+				"confidence": "guess"
+			},
+			"location": "liscor_hive",
+			"roles": {
+				"pawn": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": []
+				},
+				"yellow_splatters": {
+					"prefer": [
+						"yellow_splatters"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"purple_smile": {
+					"prefer": [
+						"purple_smile"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"klbkch": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pawn"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pawn.gives_wafers_after_his_sermon",
+					"pawn.leads_painted_soldiers_and_individual_workers",
+					"pawn.has_two_sergeants"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.25L",
+				"confidence": "confirmed",
+				"note": "Day 146 (guess). About two thirds of the unit attend; the others do not pray, and Pawn accepts that."
+			},
+			"summary": "In the converted barracks Pawn leads his weekly prayer and hands out small wafers, which Klbkch agreed to fund. Not all of his Soldiers and Workers pray. The new Individual Workers have a spark but no names, and mix badly with the Soldiers."
+		},
+		"b8.pawn_finds_lyonette_grieving_her_class": {
+			"tier": 1,
+			"window": {
+				"earliest": 146,
+				"latest": 146,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"pawn": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": []
+				},
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ksmvr": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"drassi": {
+					"prefer": [
+						"drassi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mrsha": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pawn",
+					"lyonette"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.lyonette_breaks_down_in_tears"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pawn.knows_lyonette_lost_her_class",
+					"pawn.prays_for_lyonettes_class",
+					"ksmvr.will_cross_the_bridge_to_beat_his_fear",
+					"lyonette.told_pawn_of_balls_and_dancing"
+				],
+				"relationship": [
+					{
+						"from": "pawn",
+						"to": "lyonette",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.25L",
+				"confidence": "confirmed",
+				"note": "Day 146 (guess). Ksmvr tells Pawn the bridge is being built; Pawn vows never to use it."
+			},
+			"summary": "Ksmvr tells Pawn that Lyonette will not stop crying. Pawn goes up to her room. She admits she lost her [Princess] class, talks of the balls and dancing she once loved, and asks to be left alone. Pawn goes home and prays for her class."
+		},
+		"b8.a_soldier_wins_at_chess_unseen": {
+			"tier": 2,
+			"window": {
+				"earliest": 146,
+				"latest": 146,
+				"confidence": "guess"
+			},
+			"location": "liscor_hive",
+			"roles": {
+				"yellow_splatters": {
+					"prefer": [
+						"yellow_splatters"
+					],
+					"fallback_tags": []
+				},
+				"purple_smile": {
+					"prefer": [
+						"purple_smile"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"pawn": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"yellow_splatters"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pawn_finds_lyonette_grieving_her_class"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"antinium.a_soldier_won_at_chess",
+					"pawn.missed_the_soldier_chess_win"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.25L",
+				"confidence": "confirmed",
+				"note": "Day 146 (guess). The winner is a new Painted Soldier, Rabbitears; no record (named once). He wins four games in all."
+			},
+			"summary": "On the big chessboard the Soldiers have lost over four hundred games to the Workers. Now a Painted Soldier wins one. The Sergeants wait for Pawn to praise it, but he paces and mutters about Lyonette and never notices."
+		},
+		"b8.lyonette_gives_pawn_ideas_for_the_hive": {
+			"tier": 2,
+			"window": {
+				"earliest": 147,
+				"latest": 148,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"pawn": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": []
+				},
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pawn",
+					"lyonette"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pawn_finds_lyonette_grieving_her_class"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"lyonette.says_she_is_glad_to_be_a_barmaid",
+					"pawn.brings_crafts_and_games_to_the_hive",
+					"hive.barracks_widened_for_living_space"
+				],
+				"relationship": [
+					{
+						"from": "lyonette",
+						"to": "pawn",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.25L",
+				"confidence": "confirmed",
+				"note": "Days 147 - 148 (guess). Pawn comes at dawn two days in a row."
+			},
+			"summary": "Next morning Lyonette claims she is fine and glad to be just a [Barmaid]. Over breakfast she suggests games, crafts and a shared living space for his unit. Pawn takes it all and comes back the next day to report, still asking if she is well."
+		},
+		"b8.pawns_unit_falls_listless_while_he_prays": {
+			"tier": 2,
+			"window": {
+				"earliest": 148,
+				"latest": 151,
+				"confidence": "guess"
+			},
+			"location": "liscor_hive",
+			"roles": {
+				"yellow_splatters": {
+					"prefer": [
+						"yellow_splatters"
+					],
+					"fallback_tags": []
+				},
+				"purple_smile": {
+					"prefer": [
+						"purple_smile"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"pawn": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"yellow_splatters"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.lyonette_gives_pawn_ideas_for_the_hive"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pawn.neglects_his_unit",
+					"painted_soldiers.listless_without_pawn",
+					"pawn.spends_his_budget_on_pastimes"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.25L",
+				"confidence": "confirmed",
+				"note": "Days 148 - 151 (guess)."
+			},
+			"summary": "Pawn buys knitting needles, yarn, balls and clay for the Hive and tells his unit to try them, but he never shows them how. He prays day and night, and not for them. The Soldiers stop playing and wait. Yellow Splatters knows something is wrong."
+		},
+		"b8.pawn_visits_lyonette_every_day_for_a_week": {
+			"tier": 2,
+			"window": {
+				"earliest": 148,
+				"latest": 151,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"pawn": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": []
+				},
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pawn",
+					"lyonette"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.lyonette_gives_pawn_ideas_for_the_hive"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pawn.visits_lyonette_every_day",
+					"erin.amused_by_pawns_excuses"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.25L",
+				"confidence": "confirmed",
+				"note": "Days 148 - 151 (guess; 'over the next week' in the text). The plan's day map gives 147 - 154 for 5.25 - 5.26."
+			},
+			"summary": "For about a week Pawn turns up early each day with a new excuse to see Lyonette. They swap news of the Hive and the inn, and Erin grins at his excuses. Each time she leaves, he asks if all is well. She always says yes."
+		},
+		"b8.lyonette_shouts_at_pawn_for_praying": {
+			"tier": 1,
+			"window": {
+				"earliest": 151,
+				"latest": 151,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": []
+				},
+				"pawn": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"lyonette",
+					"pawn"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pawn_visits_lyonette_every_day_for_a_week"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"lyonette.shouted_at_pawn",
+					"pawn.admitted_praying_for_lyonettes_class"
+				],
+				"clear_flags": [
+					"pawn.visits_lyonette_every_day"
+				],
+				"relationship": [
+					{
+						"from": "lyonette",
+						"to": "pawn",
+						"delta": -1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.25L",
+				"confidence": "confirmed",
+				"note": "Day 151 (guess). In front of the lunch guests."
+			},
+			"summary": "One lunchtime Lyonette has had enough of his daily question. Pawn admits he prays every day for her class to return. She shouts at him in front of the guests to stop trying to change her, then runs upstairs. Pawn asks Erin to say sorry for him.",
+			"news": "The inn's [Barmaid] shouts at an Antinium Worker over lunch; he leaves in the rain."
+		},
+		"b8.pawn_curls_up_and_klbkch_calls_him_a_disgrace": {
+			"tier": 1,
+			"window": {
+				"earliest": 151,
+				"latest": 152,
+				"confidence": "guess"
+			},
+			"location": "liscor_hive",
+			"roles": {
+				"pawn": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": []
+				},
+				"klbkch": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"anand": {
+					"prefer": [
+						"anand"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"yellow_splatters": {
+					"prefer": [
+						"yellow_splatters"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"purple_smile": {
+					"prefer": [
+						"purple_smile"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pawn"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.lyonette_shouts_at_pawn_for_praying"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pawn.curled_up_in_despair",
+					"klbkch.called_pawn_a_disgrace",
+					"klbkch.cut_pawns_budget",
+					"painted_soldiers.hunger_strike_for_pawn",
+					"erin.called_to_the_hive_for_pawn"
+				],
+				"relationship": [
+					{
+						"from": "klbkch",
+						"to": "pawn",
+						"delta": -1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.25L",
+				"confidence": "confirmed",
+				"note": "Days 151 - 152 (guess). The budget cut is stated in 5.26 L. The hunger strike is Erin's account in 5.26 L."
+			},
+			"summary": "Back in the barracks Pawn curls into a ball and will not move or eat. Anand cannot reach him. Klbkch kicks him, sets a blade to his neck, then sheathes it and calls him a disgrace. His Soldiers and Workers stop eating. Erin is sent for."
+		}
+	},
+	"system": []
+}

@@ -1,5 +1,10 @@
 # Handoff
 
+## Just done (2026-10-16, local): M28.3 canon 5.24 L - 5.26 L (branch `feat/m28.3-canon-5-24`)
+- 27 events in `canon/book8/chapters/5.24L|5.25L|5.26L.json`, test `sim_book8_liscor_one`. A delegated agent wrote it; I ran validator and the new test. ADR 0043 has flags and doubts.
+- Next: user merges the PR. Then M28.4 (5.27 - 5.29, days 155 - 157): Goblin team, play brawl, Drake boycott (set `wandering_inn.drake_boycott`, add the `rules.inn.race_boycott` entry), dive, spider nest. Ask stage and hook choices first.
+- Gotchas: the text never says "rope" for the bridge. The Lyonette class merge also removes [Tactician]. Visits of the "week" sit on days 148 - 151.
+
 ## Just done (2026-10-16, local): M28.2 canon 5.21 E - 5.23 G (branch `feat/m28.2-canon-5-21`)
 - 38 events in `canon/book8/chapters/5.21E|5.22G|5.23G.json`, test `sim_book8_north_one`. A delegated agent wrote it; I checked validator and tests. ADR 0043 has the flags and doubts.
 - Next: user merges the PR. Then M28.3 (5.24 L - 5.26 L, days 144 - 154): ask stage and hook choices at its start (the plan has none; ask if the ball or Pawn scenes want a hook). Put the repair events there (clear `wandering_inn.windows_broken`, Jelaqua's body, Lyonette [Princess] lost then back as [Worldly Princess] 11 as `system` records).
