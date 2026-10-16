@@ -1,0 +1,680 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.27",
+	"order": 58,
+	"events": {
+		"b8.erin_advises_ylawes_over_fish_flakes": {
+			"tier": 2,
+			"window": {
+				"earliest": 155,
+				"latest": 155,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"ylawes": {
+					"prefer": [
+						"ylawes_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"selys": {
+					"prefer": [
+						"selys"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mrsha": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wandering_inn.serves_fish_flakes",
+					"ylawes.advised_to_let_yvlon_be",
+					"ylawes.knows_the_horns_dread_the_dungeon",
+					"lyonette.has_flawless_attempt"
+				],
+				"relationship": [
+					{
+						"from": "ylawes_byres",
+						"to": "erin_solstice",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.27",
+				"confidence": "confirmed",
+				"note": "Day 155 (guess; plan day map). Lyonette's [Flawless Attempt] is talked about; her record is in 5.26 L."
+			},
+			"summary": "Erin fries Quillfish flakes for an early Selys and Ylawes. For five copper she tells the Knight to stop pressing his sister, and quietly explains the Horns wait because Ceria and Yvlon still wake screaming about the crypt."
+		},
+		"b8.selys_tells_the_redfangs_they_are_bronze_rank": {
+			"tier": 1,
+			"window": {
+				"earliest": 155,
+				"latest": 155,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"selys": {
+					"prefer": [
+						"selys"
+					],
+					"fallback_tags": []
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"numbtongue": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"headscratcher": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"selys"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.erin_advises_ylawes_over_fish_flakes"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"redfang.bronze_team_registered",
+					"redfang.accept_bronze_rank",
+					"redfang.may_claim_bounties",
+					"erin.paid_the_redfang_guild_fees"
+				],
+				"relationship": [
+					{
+						"from": "headscratcher",
+						"to": "erin_solstice",
+						"delta": 1
+					},
+					{
+						"from": "numbtongue",
+						"to": "erin_solstice",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.27",
+				"confidence": "confirmed",
+				"note": "Day 155 (guess). Book 7 5.18 S already registers the team (day 143); here the Goblins are told and say yes."
+			},
+			"summary": "Nervous before five Hobs, Selys explains the guild rules: defence duty, a tax on finds, bounties paid by proxy. Erin has paid the fees. The Redfang Goblins stand and accept, almost in awe, to be adventurers.",
+			"news": "Liscor's Adventurers' Guild now counts a Hobgoblin team as Bronze rank."
+		},
+		"b8.the_mages_judge_the_goblin_necklace_cursed": {
+			"tier": 2,
+			"window": {
+				"earliest": 155,
+				"latest": 155,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"pisces": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": []
+				},
+				"typhenous": {
+					"prefer": [
+						"typhenous"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"falene": {
+					"prefer": [
+						"falene_skystrall"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pisces"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.selys_tells_the_redfangs_they_are_bronze_rank"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"redfang.necklace_judged_cursed",
+					"redfang.cloth_and_bell_still_unknown"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.27",
+				"confidence": "confirmed",
+				"note": "Day 155 (guess). The artifacts are from Book 7."
+			},
+			"summary": "Pisces, Falene and Typhenous study the three Redfang finds without touching them. Pisces declares the necklace cursed, Falene says she saw it first, and nobody will test the cloth or the two-metal bell."
+		},
+		"b8.two_silver_teams_arrive_for_the_dungeon": {
+			"tier": 1,
+			"window": {
+				"earliest": 155,
+				"latest": 155,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"nailren": {
+					"prefer": [
+						"nailren"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"earlia": {
+					"prefer": [
+						"earlia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mrsha": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_mages_judge_the_goblin_necklace_cursed"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pride_of_kelia.at_the_inn",
+					"gemhammer.at_the_inn",
+					"dungeon.silver_teams_arrive",
+					"pallass.sells_recordings_of_the_moth_battle",
+					"wandering_inn.famed_in_the_north"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.27",
+				"confidence": "confirmed",
+				"note": "Day 155 (guess). They paid in Pallass to watch recordings of the moth battle."
+			},
+			"summary": "The Pride of Kelia, nine Gnolls under Nailren, come through the Pallass door; one shouts at Mrsha's white fur. Gemhammer, Earlia's Humans, come from Celum and nearly fight the Hobs. Both are Silver rank and want the dungeon.",
+			"news": "Silver-rank teams from north and south arrive in Liscor for the dungeon."
+		},
+		"b8.erin_stops_the_standoff_and_backs_the_divers": {
+			"tier": 1,
+			"window": {
+				"earliest": 155,
+				"latest": 155,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"halrac": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"jelaqua": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ylawes_byres": {
+					"prefer": [
+						"ylawes_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"revi": {
+					"prefer": [
+						"revi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"earlia": {
+					"prefer": [
+						"earlia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"nailren": {
+					"prefer": [
+						"nailren"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.two_silver_teams_arrive_for_the_dungeon"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"erin.backs_silver_rank_dives",
+					"wandering_inn.adventurer_hub",
+					"wandering_inn.sells_magic_food_to_divers",
+					"erin.stopped_a_standoff_with_her_aura"
+				],
+				"relationship": [
+					{
+						"from": "earlia",
+						"to": "erin_solstice",
+						"delta": 1
+					},
+					{
+						"from": "nailren",
+						"to": "erin_solstice",
+						"delta": 1
+					},
+					{
+						"from": "jelaqua",
+						"to": "erin_solstice",
+						"delta": -1
+					},
+					{
+						"from": "revi",
+						"to": "erin_solstice",
+						"delta": -1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.27",
+				"confidence": "confirmed",
+				"note": "Day 155 (guess). Ceria freezes with crypt memories when Earlia invites the Horns."
+			},
+			"summary": "The Gold ranks try to bar the newcomers and weapons come out. Erin's shout freezes the room. She warns of the Raskghar and offers magic food, boats and maps the next day. Halrac sides with her; Jelaqua and Revi are furious."
+		},
+		"b8.erin_posts_a_reward_for_calruz": {
+			"tier": 2,
+			"window": {
+				"earliest": 155,
+				"latest": 155,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.erin_stops_the_standoff_and_backs_the_divers"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wandering_inn.calruz_reward_posted"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.27",
+				"confidence": "confirmed",
+				"note": "Day 155 (guess)."
+			},
+			"summary": "Lyonette uses [Flawless Attempt] to letter a large notice by the door: a reward of fifty gold for sightings of the one-armed Minotaur, checked under a truth spell. Erin wants every diver to pass through her inn first."
+		},
+		"b8.the_bridge_to_liscor_is_finished": {
+			"tier": 1,
+			"window": {
+				"earliest": 155,
+				"latest": 155,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"lyonette": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.erin_posts_a_reward_for_calruz"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wandering_inn.bridge_to_liscor_finished",
+					"wandering_inn.crowds_cross_the_bridge"
+				],
+				"clear_flags": [
+					"wandering_inn.bridge_to_liscor_being_built"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.27",
+				"confidence": "confirmed",
+				"note": "Day 155 (guess). The text calls it a plank and rope bridge here (answers the M28.3 doubt)."
+			},
+			"summary": "Erin tests the new bridge: planks on rope, sitting just under the water, zigzagging from hilltop to hilltop up to Liscor's wall. Her slippers flood. Lyonette will keep Mrsha off it. Crowds from the city are already crossing.",
+			"news": "A floating bridge now links Liscor's walls to the Wandering Inn."
+		},
+		"b8.the_horns_resolve_to_enter_the_dungeon": {
+			"tier": 1,
+			"window": {
+				"earliest": 155,
+				"latest": 155,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"ceria": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": []
+				},
+				"yvlon": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"pisces": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"ksmvr": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_bridge_to_liscor_is_finished"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"ceria.admits_her_fear_of_the_dungeon",
+					"horns_of_hammerad.will_enter_the_dungeon"
+				],
+				"relationship": [
+					{
+						"from": "ceria_springwalker",
+						"to": "pisces",
+						"delta": 1
+					},
+					{
+						"from": "ceria_springwalker",
+						"to": "ksmvr",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.27",
+				"confidence": "confirmed",
+				"note": "Day 155 (guess)."
+			},
+			"summary": "During the play Ceria, hands shaking, calls herself a coward. Yvlon admits her own fear. Ksmvr offers to go alone; Pisces asks if they are adventurers or cowards. When the brawl starts, Ceria decides: they go in for Calruz."
+		},
+		"b8.juliet_and_romeo_sets_off_a_brawl": {
+			"tier": 1,
+			"window": {
+				"earliest": 155,
+				"latest": 155,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"ilvriss": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": []
+				},
+				"erin": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"wesle": {
+					"prefer": [
+						"wesle"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"jasi": {
+					"prefer": [
+						"jasi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"headscratcher": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"moore": {
+					"prefer": [
+						"moore"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ilvriss"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_horns_resolve_to_enter_the_dungeon"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"players_of_celum.staged_juliet_and_romeo",
+					"wandering_inn.play_brawl",
+					"ilvriss.started_the_play_brawl"
+				],
+				"relationship": [
+					{
+						"from": "ilvriss",
+						"to": "erin_solstice",
+						"delta": -2
+					},
+					{
+						"from": "erin_solstice",
+						"to": "ilvriss",
+						"delta": -1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.27",
+				"confidence": "confirmed",
+				"note": "Night of day 155 (guess). Moore later throws Ilvriss into a wall to protect Mrsha (told in 5.28)."
+			},
+			"summary": "The Players stage Juliet and Romeo with a Drake Juliet and a Human Romeo. Ilvriss leaps up in outrage at the match, Drakes and Humans start throwing things, and a huge brawl fills the theatre. Ilvriss floors Hobs and adventurers barehanded.",
+			"news": "A brawl breaks out over a play at the Wandering Inn; a Wall Lord led the Drakes."
+		}
+	},
+	"system": []
+}

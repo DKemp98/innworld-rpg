@@ -253,6 +253,7 @@
 		"guest_curve": [[0, 0, 2], [20, 1, 3], [40, 2, 4], [60, 2, 5], [80, 3, 6]],
 		"flag_bonus": {"wandering_inn.full_house": 1, "wandering_inn.adventurers_meet_here": 1},
 		"patron_races": {"drake": 5, "gnoll": 4, "human": 1},
+		"race_boycott": [{"flag": "wandering_inn.drake_boycott", "race": "drake", "factor": 0.15}],
 		"dishes": ["simple_meal", "stew", "pasta_dish", "bread", "roast_meat", "blue_pastry"],
 		"patience_minutes": [45, 90],
 		"pay_factor": 2.0,

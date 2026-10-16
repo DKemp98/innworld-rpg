@@ -42,7 +42,8 @@ cascades are easy to get wrong; low for mechanical steps.
 - [x] M28.1 World and records: 2 enemies, `raskghar_camp`, 20 NPC + 4 location records, Calruz alive (repair events move to M28.3) **[Sonnet · medium]**
 - [x] M28.2 Canon 5.21 E – 5.23 G (days 143 – 148, 38 events, off-map) **[Opus · high]**
 - [x] M28.3 Canon 5.24 L – 5.26 L (days 144 – 154, 27 events) **[Opus · high]**
-- [ ] M28.4 – M28.9 Canon batches (5.27 – 5.44, days 149 – 164) **[Opus · high]**
+- [x] M28.4 Canon 5.27 – 5.29 (days 155 – 156, 27 events, Drake boycott) **[Opus · high]**
+- [ ] M28.5 – M28.9 Canon batches (5.30 G – 5.44, days 149 – 164) **[Opus · high]**
 **Done when:** the touched tests, `sim_canon_book8` and the validator pass; the user has played it.
 
 ---
