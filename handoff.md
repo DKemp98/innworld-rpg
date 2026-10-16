@@ -1,5 +1,11 @@
 # Handoff
 
+## Just done (2026-10-16, local): M28.P Book 8 plan (branch `docs/m28-book8-plan`)
+- Extracted Book 8 to `canon/raw/book8/` (26 chapters, local, gitignored). Seven agents read it; summaries only. Wrote `docs/plans/m28.md` + ADR 0043. Docs only, no tests run.
+- User picks: 3 fight stages (5.34 raid, 5.38 raid, 5.44 battle), moon by flags, dungeon dive events only, north thread events only.
+- Next: user merges the PR. Then M28.0 (boycott rule; ask before a schema change) and M28.1 (enemies, `raskghar_camp`, records). Canon batches M28.2 – M28.9 after.
+- Gotchas: Calruz was "missing" in our data; Book 8 makes him alive (fix in M28.1). Liscor-chapter day numbers are guesses; only Laken's Day N + 45 is firm. Book 8 `order` starts at 52. The ROADMAP row for M28 is not added yet (older uncommitted ROADMAP edits sit in `git stash` "m28-plan-wip" on `feat/website`; do not lose them).
+
 ## Just done (2026-10-15, local): release v0.1.5-alpha (branch `release/v0.1.5`)
 - Bumped `game/project.godot` and both Android presets (code 4). `tools/release.ps1` ran OK from the PowerShell tool with `C:\Windows\System32` first in PATH (Git Bash tar fails on `D:` paths).
 - Next: user merges the PR; then tag `v0.1.5-alpha` on main and `gh release create` with 3 zips + apk. Web Pages publishes from the release.

@@ -36,7 +36,12 @@ cascades are easy to get wrong; low for mechanical steps.
 - [ ] (user) Play: do level 5 and level 10 come at a fair pace? Does trading feel right? (`godot --path game`)
 **Done when:** the touched tests pass; the user has played it.
 
-After M27: the Book 8 plan, see Later.
+## M28 — Book 8 (Blood of Liscor) (plan `docs/plans/m28.md`, ADR 0043)
+- [x] M28.P Plan: 3 fight stages, moon by flags, dungeon dive and north thread as events **[Opus · high]**
+- [ ] M28.0 Engine: the Drake boycott of the inn (ask before a schema change) **[Opus · medium]**
+- [ ] M28.1 World and records: enemies, `raskghar_camp`, NPC records, Calruz alive, repair events **[Sonnet · medium]**
+- [ ] M28.2 – M28.9 Canon batches (5.21 E – 5.44, days 143 – 164) **[Opus · high]**
+**Done when:** the touched tests, `sim_canon_book8` and the validator pass; the user has played it.
 
 ---
 
