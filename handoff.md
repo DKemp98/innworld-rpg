@@ -1,5 +1,10 @@
 # Handoff
 
+## Just done (2026-10-16, local): M28.0 boycott rule (branch `feat/m28.0-boycott`)
+- `rules.inn.race_boycott` (optional) + `Guests.race_weights`. No data uses it yet: M28.4 adds the Drake entry and the event that sets `wandering_inn.drake_boycott`.
+- Tests: `unit_guests` 23, `unit_standing`, `sim_inn_service` pass. Full suite not run.
+- Next: user merges the PR. Then M28.1 (enemies, `raskghar_camp`, NPC records, Calruz alive, repair events).
+
 ## Just done (2026-10-16, local): M28.P Book 8 plan (branch `docs/m28-book8-plan`)
 - Extracted Book 8 to `canon/raw/book8/` (26 chapters, local, gitignored). Seven agents read it; summaries only. Wrote `docs/plans/m28.md` + ADR 0043. Docs only, no tests run.
 - User picks: 3 fight stages (5.34 raid, 5.38 raid, 5.44 battle), moon by flags, dungeon dive events only, north thread events only.
