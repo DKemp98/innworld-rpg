@@ -116,6 +116,89 @@ func test_patrons_come_at_meal_time() -> void:
 	assert_eq(gs.inn.guests.size(), before.size())
 
 
+## A copy of rules.inn with a boycott list; the caller puts the real rules back.
+func _with_boycott(list: Array) -> Dictionary:
+	var good: Dictionary = _db.rules["inn"]
+	var rules := good.duplicate(true)
+	rules["race_boycott"] = list
+	_db.rules["inn"] = rules
+	return good
+
+
+func _races(gs: GameState) -> Dictionary:
+	var out := {}
+	for g in gs.inn.guests:
+		out[g["race"]] = int(out.get(g["race"], 0)) + 1
+	return out
+
+
+func test_a_boycott_keeps_one_race_away_while_its_flag_is_set() -> void:
+	var good := _with_boycott([{"flag": "wandering_inn.test_boycott", "race": "drake", "factor": 0.0}])
+	var shut := _game()
+	shut.flags.erase("wandering_inn.test_boycott")
+	var open_races := _races(shut)
+	var seen := 0
+	for s in [1, 2, 3, 4, 5, 6]:
+		var gs := GameState.new_game(SEED + s, _db)
+		gs.flags["wandering_inn.open"] = true
+		gs.flags["wandering_inn.test_boycott"] = true
+		gs.inn.reputation = 80
+		gs.player.place(INN, Vector2i(12, 11))
+		_to_hour(gs, 7)
+		seen += gs.inn.guests.size()
+		assert_false(_races(gs).has("drake"), "no Drake patrons while boycotted (seed %d)" % s)
+	_db.rules["inn"] = good
+	assert_gt(seen, 0, "other races still come")
+	assert_true(open_races.size() > 0)
+
+
+func test_a_boycott_factor_thins_a_race_but_does_not_end_it() -> void:
+	var good: Dictionary = _db.rules["inn"]
+	var rules := good.duplicate(true)
+	rules["patron_races"] = {"drake": 10, "gnoll": 10}
+	rules["race_boycott"] = [{"flag": "wandering_inn.test_boycott", "race": "drake", "factor": 0.1}]
+	_db.rules["inn"] = rules
+	var drakes := 0
+	var gnolls := 0
+	for s in range(1, 13):
+		var gs := GameState.new_game(SEED + s, _db)
+		gs.flags["wandering_inn.open"] = true
+		gs.flags["wandering_inn.test_boycott"] = true
+		gs.inn.reputation = 80
+		gs.player.place(INN, Vector2i(12, 11))
+		_to_hour(gs, 7)
+		var r := _races(gs)
+		drakes += int(r.get("drake", 0))
+		gnolls += int(r.get("gnoll", 0))
+	_db.rules["inn"] = good
+	assert_gt(gnolls, drakes * 3, "Drakes are rare, not gone")
+
+
+func test_with_every_race_boycotted_nobody_comes() -> void:
+	var good: Dictionary = _db.rules["inn"]
+	var rules := good.duplicate(true)
+	rules["patron_races"] = {"drake": 1}
+	rules["race_boycott"] = [{"flag": "wandering_inn.test_boycott", "race": "drake", "factor": 0.0}]
+	_db.rules["inn"] = rules
+	var gs := GameState.new_game(SEED, _db)
+	gs.flags["wandering_inn.open"] = true
+	gs.flags["wandering_inn.test_boycott"] = true
+	gs.inn.reputation = 80
+	gs.player.place(INN, Vector2i(12, 11))
+	_to_hour(gs, 7)
+	_db.rules["inn"] = good
+	assert_eq(gs.inn.guests.size(), 0)
+
+
+func test_a_bad_boycott_is_an_error_and_none_is_fine() -> void:
+	assert_eq(Guests.validate(_db), [] as Array[String], "the real rules have no boycott list")
+	var good: Dictionary = _with_boycott([{"flag": "x", "race": "elf", "factor": 0.5},
+			{"flag": "", "race": "drake", "factor": 0.5}, {"flag": "x", "race": "drake", "factor": 1.5}])
+	var errs := Guests.validate(_db)
+	_db.rules["inn"] = good
+	assert_eq(errs.size(), 3, str(errs))
+
+
 func test_the_same_seed_brings_the_same_patrons() -> void:
 	assert_eq(_game().inn.to_dict(), _game().inn.to_dict())
 

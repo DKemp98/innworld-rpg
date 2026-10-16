@@ -9,6 +9,8 @@
 ##   order (a dish) and patience. A patron nobody serves leaves when its
 ##   patience runs out; with the player in the area, reputation drops.
 ##   A fight in the room (Combat.in_danger) sends them all away.
+##   Boycott (M28.0): optional rules.inn.race_boycott [{flag, race, factor}]. While the
+##   flag is set, that race's patron weight is multiplied by factor (0..1).
 ##   Canon guests: an NPC in the area whose goal is in guest_goals (eating,
 ##   visiting the inn) is a guest too, once per meal slot.
 ##   Serve: a dish from the bag to a guest next to the player. It is the
@@ -234,6 +236,21 @@ static func serve(gs: GameState, db: DataDb, target: String, good: String) -> Di
 	return {"record": rec, "error": ""}
 
 
+## Patron race weights in the order of rules.inn.patron_races. Every race_boycott entry
+## whose flag is set multiplies its race's weight by its factor (M28.0, ADR 0043).
+static func race_weights(gs: GameState, db: DataDb) -> Array:
+	var r := rules(db)
+	var races: Dictionary = r["patron_races"]
+	var out: Array = []
+	for race: String in races:
+		var w := float(races[race])
+		for b: Dictionary in r.get("race_boycott", []):
+			if b["race"] == race and gs.flags.has(b["flag"]):
+				w *= float(b["factor"])
+		out.append(w)
+	return out
+
+
 ## Night step (Night.run): the day's takings for the morning, then everyone leaves.
 static func night(gs: GameState, db: DataDb) -> Array[String]:
 	var lines: Array[String] = []
@@ -278,6 +295,16 @@ static func validate(db: DataDb) -> Array[String]:
 	for race: String in r["patron_races"]:
 		if float(r["patron_races"][race]) <= 0.0:
 			errs.append("rules.inn.patron_races: weight of '%s' must be > 0." % race)
+	var boycotts: Variant = r.get("race_boycott", [])
+	if not boycotts is Array:
+		errs.append("rules.inn.race_boycott: must be a list.")
+	else:
+		for b: Variant in boycotts:
+			if not b is Dictionary or not (b as Dictionary).get("flag", "") is String or String((b as Dictionary).get("flag", "")) == "" \
+					or not r["patron_races"].has((b as Dictionary).get("race", "")) \
+					or not ((b as Dictionary).get("factor", -1) is float or (b as Dictionary).get("factor", -1) is int) \
+					or float((b as Dictionary).get("factor", -1)) < 0.0 or float((b as Dictionary).get("factor", -1)) > 1.0:
+				errs.append("rules.inn.race_boycott: each entry needs a flag, a race from patron_races and a factor in 0..1.")
 	for good: Variant in r["dishes"]:
 		if not db.economy.goods.has(good) or int(db.economy.goods[good].get("sell", 0)) < 1:
 			errs.append("rules.inn.dishes: '%s' must be a good with a sell price >= 1." % good)
@@ -309,7 +336,9 @@ static func _arrive(gs: GameState, db: DataDb, i: int) -> void:
 	@warning_ignore("integer_division")
 	var spread := maxi((end - now) / 2, 0)
 	var races: Array = (r["patron_races"] as Dictionary).keys()
-	var weights: Array = (r["patron_races"] as Dictionary).values()
+	var weights: Array = race_weights(gs, db)
+	if weights.all(func(w: float) -> bool: return w <= 0.0):
+		n = 0
 	var patience: Array = r["patience_minutes"]
 	for k in n:
 		var seat: Vector2i = free.pop_at(rng.randi_range(0, free.size() - 1))
