@@ -1,0 +1,447 @@
+{
+	"schema_version": 1,
+	"npcs": {
+		"nokha": {
+			"name": "Nokha",
+			"race": "Raskghar",
+			"tags": [
+				"raskghar",
+				"awakened",
+				"warrior",
+				"female"
+			],
+			"faction": "raskghar",
+			"home": "raskghar_camp",
+			"classes": [],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.43",
+				"confidence": "confirmed",
+				"note": "Fast, lucid female Raskghar who kills a Gold-rank adventurer in the failed raid (5.43). Leads the awakened. Her fate after 5.44 is open."
+			},
+			"summary": "The first Raskghar to think and speak. She is quick and cruel, mocks Calruz and fights Lyonette and Moore in the final battle."
+		},
+		"pebblesnatch": {
+			"name": "Pebblesnatch",
+			"race": "Goblin",
+			"tags": [
+				"goblin",
+				"cave_goblin",
+				"child"
+			],
+			"faction": "cave_goblins",
+			"home": "goblin_cave",
+			"classes": [],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.36",
+				"confidence": "confirmed",
+				"note": "A small Cave Goblin that Erin spares by teaching the Redfangs about 'sides' (5.36). He opens the doors in the final battle (5.44)."
+			},
+			"summary": "A young Cave Goblin who becomes Erin's first friend among his kind and her guide to the Cave Goblins."
+		},
+		"elirr": {
+			"name": "Elirr",
+			"race": "Gnoll",
+			"tags": [
+				"gnoll",
+				"elder",
+				"captive"
+			],
+			"faction": "liscor_gnolls",
+			"home": null,
+			"classes": [],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.42",
+				"confidence": "confirmed",
+				"note": "Old Gnoll leader among Calruz's captives. Leads them, frees Mrsha and breaks out in 5.43."
+			},
+			"summary": "An old Gnoll who keeps the captives together and shields Mrsha from the others."
+		},
+		"vakk": {
+			"name": "Vakk",
+			"race": "Gnoll",
+			"tags": [
+				"gnoll",
+				"captive"
+			],
+			"faction": "liscor_gnolls",
+			"home": null,
+			"classes": [],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.42",
+				"confidence": "confirmed",
+				"note": "A captive Gnoll who blames Mrsha's white fur (5.42). Sacrificed on Calruz's altar (5.43)."
+			},
+			"summary": "A fearful Gnoll captive who does not trust the white pup."
+		},
+		"bevussa_slenderscale": {
+			"name": "Bevussa Slenderscale",
+			"race": "Unknown",
+			"tags": [
+				"adventurer",
+				"pallass",
+				"flier"
+			],
+			"faction": "wings_of_pallass",
+			"home": "pallass",
+			"classes": [],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.36",
+				"confidence": "guess",
+				"note": "Pallass adventurer who arrives through the door (5.36). Race is not confirmed: one reading says Garuda, the name looks Drake."
+			},
+			"summary": "A Pallass flier and adventurer who joins the raid on the Raskghar."
+		},
+		"keldrass": {
+			"name": "Keldrass",
+			"race": "Drake",
+			"tags": [
+				"drake",
+				"adventurer",
+				"captain",
+				"fire",
+				"pallass"
+			],
+			"faction": "flamewardens",
+			"home": "pallass",
+			"classes": [],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.36",
+				"confidence": "confirmed",
+				"note": "Captain of the Flamewardens, a Gold-rank team that breathes fire (5.36, 5.40). Runs the team-leader meetings in 5.38."
+			},
+			"summary": "A Pallass team captain who burns the animated armours and organises the Gold-ranks."
+		},
+		"earlia": {
+			"name": "Earlia",
+			"race": "Unknown",
+			"tags": [
+				"adventurer",
+				"captain",
+				"hammer",
+				"miner"
+			],
+			"faction": "gemhammer",
+			"home": null,
+			"classes": [],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.27",
+				"confidence": "confirmed",
+				"note": "Captain of the Silver team Gemhammer, ex-miners with a sledgehammer (5.27, 5.29). Race is not stated."
+			},
+			"summary": "A blunt dungeon-diver who insists on going in despite the guild's warnings."
+		},
+		"nailren": {
+			"name": "Nailren",
+			"race": "Gnoll",
+			"tags": [
+				"gnoll",
+				"adventurer",
+				"leader",
+				"fletchsing"
+			],
+			"faction": "pride_of_kelia",
+			"home": null,
+			"classes": [],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.27",
+				"confidence": "confirmed",
+				"note": "Leader of the Gnoll team Pride of Kelia, of the Fletchsing Tribe (5.27, 5.29)."
+			},
+			"summary": "A Gnoll team leader who flinches at Mrsha's white fur and still joins the hunt."
+		},
+		"joiah_kellisman": {
+			"name": "Joiah Kellisman",
+			"race": "Unknown",
+			"tags": [
+				"blacksmith",
+				"celum",
+				"craftsman"
+			],
+			"faction": null,
+			"home": "celum",
+			"classes": [],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.41",
+				"confidence": "confirmed",
+				"note": "Celum blacksmith who sells Erin five steel swords and a recurve bow after Drassi talks him round (5.41). Race is not stated."
+			},
+			"summary": "A Celum smith who first doubts Erin because of a rumour, then sells to her."
+		},
+		"xess": {
+			"name": "Xess",
+			"race": "Unknown",
+			"tags": [
+				"adventurer",
+				"captain",
+				"pallass"
+			],
+			"faction": "reldiev_scalers",
+			"home": "pallass",
+			"classes": [],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.43",
+				"confidence": "confirmed",
+				"note": "Captain of the Gold team Reldiev Scalers, spotted early in the failed raid (5.43). Race is not stated."
+			},
+			"summary": "A Gold-rank captain whose team loses a member in the attack on the camp."
+		},
+		"cassa": {
+			"name": "Cassa",
+			"race": "Drake",
+			"tags": [
+				"drake",
+				"adventurer",
+				"pallass"
+			],
+			"faction": "reldiev_scalers",
+			"home": "pallass",
+			"classes": [],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.43",
+				"confidence": "confirmed",
+				"note": "Drake of the Reldiev Scalers; Nokha kills her in the failed raid (5.43)."
+			},
+			"summary": "A Gold-rank Drake who dies in the first attack on the Raskghar camp."
+		},
+		"fess": {
+			"name": "Fess",
+			"race": "Drake",
+			"tags": [
+				"drake",
+				"adventurer",
+				"silver"
+			],
+			"faction": "tail_of_xil",
+			"home": null,
+			"classes": [],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.38",
+				"confidence": "confirmed",
+				"note": "Silver-rank Drake of the Tail of Xil; a trap with a scraped-off warning mark kills him (5.38)."
+			},
+			"summary": "A Silver-rank dungeon-diver killed by a hidden trap."
+		},
+		"rebat": {
+			"name": "Rebat",
+			"race": "Unknown",
+			"tags": [
+				"adventurer",
+				"gold_rank"
+			],
+			"faction": null,
+			"home": null,
+			"classes": [],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.39",
+				"confidence": "likely",
+				"note": "A Gold-rank adventurer who died in the fighting (named as dead in 5.39). Race is not stated."
+			},
+			"summary": "A Gold-rank adventurer lost to the Raskghar."
+		},
+		"greydath": {
+			"name": "Greydath",
+			"race": "Goblin",
+			"tags": [
+				"goblin",
+				"elder",
+				"warrior"
+			],
+			"faction": null,
+			"home": null,
+			"classes": [],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.37G",
+				"confidence": "confirmed",
+				"note": "An old Goblin thought dead; he kills three Gold adventurers, duels Garen and throws a sword at Elia Arcsinger (5.37 G)."
+			},
+			"summary": "A grim old Goblin who turns up at Dwarfhalls Rest and kills Gold-rank hunters."
+		},
+		"minerva": {
+			"name": "Minerva",
+			"race": "Unknown",
+			"tags": [
+				"adventurer",
+				"rogue",
+				"gold_rank"
+			],
+			"faction": null,
+			"home": null,
+			"classes": [
+				{
+					"name": "[Rogue]",
+					"level": null
+				}
+			],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.32G",
+				"confidence": "confirmed",
+				"note": "Gold-rank [Rogue] with a pet mouse; leads the strike force's rear tunnel entry at Dwarfhalls Rest (5.32 G). Badly wounded in 5.37 G."
+			},
+			"summary": "A Gold-rank Rogue in Tyrion's strike force who is wounded fighting the Goblins."
+		},
+		"jackal": {
+			"name": "Jackal",
+			"race": "Unknown",
+			"tags": [
+				"adventurer",
+				"ranger",
+				"gold_rank"
+			],
+			"faction": null,
+			"home": null,
+			"classes": [
+				{
+					"name": "[Ranger]",
+					"level": null
+				}
+			],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.32G",
+				"confidence": "confirmed",
+				"note": "Gold-rank [Ranger] in the strike force that enters the mountain by portal circle (5.32 G)."
+			},
+			"summary": "A Gold-rank Ranger who hunts the Keening Hunt team."
+		},
+		"elia_arcsinger": {
+			"name": "Elia Arcsinger",
+			"race": "Unknown",
+			"tags": [
+				"adventurer",
+				"gold_rank",
+				"kingslayer"
+			],
+			"faction": null,
+			"home": null,
+			"classes": [],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.32G",
+				"confidence": "confirmed",
+				"note": "Tyrion's Gold-rank ally; Tremborag shouts 'Kingslayer' and flees when she appears (5.32 G, 5.37 G)."
+			},
+			"summary": "A Gold-rank adventurer whose Skill and name break the Goblin army's nerve."
+		},
+		"aaron_vanwell": {
+			"name": "Aaron Vanwell",
+			"race": "Human",
+			"tags": [
+				"human",
+				"mage",
+				"earther",
+				"wistram"
+			],
+			"faction": "wistram_revivalists",
+			"home": "wistram_academy",
+			"classes": [
+				{
+					"name": "[Mage]",
+					"level": 18
+				},
+				{
+					"name": "[Engineer]",
+					"level": null
+				}
+			],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "interlude_blackmage",
+				"confidence": "confirmed",
+				"note": "Called 'Blackmage'. An Earther protected by Wistram's Revivalists after Naili blocks Feor (Interlude - Blackmage)."
+			},
+			"summary": "An Earth-born Mage at Wistram who is watched, then taken into the Revivalists, and reunited with new Earth arrivals."
+		},
+		"baiss": {
+			"name": "Baiss",
+			"race": "Unknown",
+			"tags": [
+				"courier",
+				"oteslia"
+			],
+			"faction": "runners_guild",
+			"home": "oteslia",
+			"classes": [],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.33B",
+				"confidence": "confirmed",
+				"note": "Oteslia Courier who brings Klbkch a bag with a dead Antinium drone shaped like a Queen (5.33 B). Race is not stated."
+			},
+			"summary": "A Courier from Oteslia who carries a message from the other Hives."
+		},
+		"teura": {
+			"name": "Teura",
+			"race": "Half-Elf",
+			"tags": [
+				"half_elf",
+				"mage",
+				"wistram"
+			],
+			"faction": "wistram_centrists",
+			"home": "wistram_academy",
+			"classes": [],
+			"alive_at_start": true,
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "interlude_blackmage",
+				"confidence": "confirmed",
+				"note": "Mage who guards Blackmage and welcomes the new arrivals (Interlude - Blackmage). Students ambush her."
+			},
+			"summary": "A Wistram mage who watches Blackmage like a jailer."
+		}
+	}
+}

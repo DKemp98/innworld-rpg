@@ -1,0 +1,69 @@
+{
+	"schema_version": 1,
+	"id": "raskghar_camp",
+	"name": "The Raskghar camp",
+	"location": "raskghar_camp",
+	"confidence": "guess",
+	"note": "Design map (M28.1, ADR 0043). A large dungeon hall where Calruz's Raskghar hold their prisoners (5.39 - 5.44). The text gives no plan: the size, the rocks and the three doorways are guesses. Erin's door is set in the three entrances for the final battle (5.44). No exits: the player reaches it only through the M28.9 stage.",
+	"zones": {},
+	"exits": [],
+	"objects": [
+		{
+			"id": "raskghar_door_north",
+			"kind": "door",
+			"at": [
+				15,
+				0
+			],
+			"name": "North entrance",
+			"actions": []
+		},
+		{
+			"id": "raskghar_door_west",
+			"kind": "door",
+			"at": [
+				0,
+				10
+			],
+			"name": "West entrance",
+			"actions": []
+		},
+		{
+			"id": "raskghar_door_east",
+			"kind": "door",
+			"at": [
+				31,
+				10
+			],
+			"name": "East entrance",
+			"actions": []
+		}
+	],
+	"legend": {
+		".": "cave_floor",
+		"^": "stone_cliff",
+		"R": "rock"
+	},
+	"rows": [
+		"^^^^^^^^^^^^^^^.^^^^^^^^^^^^^^^^",
+		"^..............................^",
+		"^..............................^",
+		"^..............................^",
+		"^.....RR.................R.....^",
+		"^..............................^",
+		"^..............................^",
+		"^..............................^",
+		"^.............R.......R........^",
+		"^..............................^",
+		"................................",
+		"^..............................^",
+		"^................R.............^",
+		"^..............................^",
+		"^...R......................R...^",
+		"^.........R..........R.........^",
+		"^..............................^",
+		"^..............................^",
+		"^..............................^",
+		"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+	]
+}

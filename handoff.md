@@ -1,5 +1,10 @@
 # Handoff
 
+## Just done (2026-10-16, local): M28.1 world and records (branch `feat/m28.1-world-records`)
+- Data only: 2 enemies, map `raskghar_camp`, `canon/book8/{npcs,locations}.json`, Calruz note. ADR 0043 has the list. Plain Raskghar id is `not_gnoll`.
+- Next: user merges the PR. Then M28.2 (canon 5.21 E - 5.23 G, off-map, days 143 - 148): ask the stage and hook choices first (none planned). Repair events (clear `wandering_inn.windows_broken`, Jelaqua's body) go into M28.3 (5.24 L).
+- Gotchas: Book 8 raw text is in `canon/raw/book8/` (local). Chapter ids: 5.21E ... 5.44, `interlude_blackmage`, `interlude_niers`; `order` 52 - 77. Awakened and armoured Raskghar wear the Gnoll look until the user wants own art.
+
 ## Just done (2026-10-16, local): M28.0 boycott rule (branch `feat/m28.0-boycott`)
 - `rules.inn.race_boycott` (optional) + `Guests.race_weights`. No data uses it yet: M28.4 adds the Drake entry and the event that sets `wandering_inn.drake_boycott`.
 - Tests: `unit_guests` 23, `unit_standing`, `sim_inn_service` pass. Full suite not run.

@@ -1,0 +1,77 @@
+{
+	"schema_version": 1,
+	"locations": {
+		"raskghar_camp": {
+			"name": "Raskghar camp",
+			"kind": "wild",
+			"parent": "liscor_dungeon",
+			"tags": [
+				"dungeon",
+				"camp",
+				"raskghar"
+			],
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.42",
+				"confidence": "confirmed",
+				"note": "Calruz's camps deep in the dungeon: a large hall, then a long chamber with twin stairs after a move (5.42, 5.43). Map raskghar_camp (M28.1)."
+			},
+			"summary": "A dungeon hall where the Raskghar keep their captives."
+		},
+		"dungeon_city": {
+			"name": "The dungeon city",
+			"kind": "landmark",
+			"parent": "liscor_dungeon",
+			"tags": [
+				"dungeon",
+				"ruins",
+				"drake_city"
+			],
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.42",
+				"confidence": "confirmed",
+				"note": "A dead Drake city behind big doors, guarded by skinned Drakes and animated armour. A three-headed monolith (Skinner, Snatcher, Stalker) stands in a plaza; a half-mile pit is the dungeon's heart (5.42)."
+			},
+			"summary": "A ruined Drake city in the dungeon. Calruz leads 400 Raskghar there."
+		},
+		"cave_goblin_refuge": {
+			"name": "Cave Goblin refuge",
+			"kind": "wild",
+			"parent": "floodplains_of_liscor",
+			"tags": [
+				"cave",
+				"goblin",
+				"refuge"
+			],
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.41",
+				"confidence": "confirmed",
+				"note": "A cave a few miles east of Liscor beside the dungeon, with a bricked-over hole into it. The Redfangs bring the Cave Goblins here by boat (5.41)."
+			},
+			"summary": "A cave beside the dungeon where the Cave Goblins shelter."
+		},
+		"lancrel": {
+			"name": "Lancrel",
+			"kind": "settlement",
+			"parent": "north_izril",
+			"tags": [
+				"city",
+				"human",
+				"off_map"
+			],
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.23G",
+				"confidence": "confirmed",
+				"note": "A Human city outside Laken's empire that refused his levy. Rags takes it in under an hour with ram-carrying Hobs (5.23 G)."
+			},
+			"summary": "A northern Izril city that falls to Rags's army."
+		}
+	}
+}

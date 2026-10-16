@@ -328,13 +328,13 @@
 		"calruz": {
 			"name": "Calruz",
 			"race": "Minotaur",
-			"tags": ["minotaur", "adventurer", "captain", "axe", "honor"],
+			"tags": ["minotaur", "adventurer", "captain", "axe", "honor", "raskghar"],
 			"faction": "horns_of_hammerad",
 			"home": null,
 			"classes": [],
 			"alive_at_start": true,
 			"status": "reviewed",
-			"canon_ref": {"book": 1, "chapter": "1.26R", "confidence": "confirmed", "note": "Others call him a [Fighter] or [Warrior]; his real class is private. 'Of the Beriad, House of Minos' is on his horn caps (1.32R)."},
+			"canon_ref": {"book": 1, "chapter": "1.26R", "confidence": "confirmed", "note": "Others call him a [Fighter] or [Warrior]; his real class is private. 'Of the Beriad, House of Minos' is on his horn caps (1.32R). Book 8: alive, one-armed Great Chieftain of the Raskghar (5.38)."},
 			"summary": "Seven-foot Minotaur who leads a Silver-rank adventuring team, the Horns of Hammerad. Fights with a huge battleaxe in plate armour. Proud and honour-bound; he likes Ryoka for her spirit, even after she punches him down a flight of stairs."
 		},
 		"ceria_springwalker": {
