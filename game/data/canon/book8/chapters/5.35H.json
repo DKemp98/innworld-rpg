@@ -1,0 +1,930 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.35H",
+	"order": 67,
+	"events": {
+		"b8.the_horns_count_the_cost_of_the_raid": {
+			"tier": 1,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": []
+				},
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"antinium": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.raskghar_raid_the_wandering_inn"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"horns_of_hammerad.know_raskghar_are_stronger_than_told"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.35H",
+				"confidence": "confirmed"
+			},
+			"summary": "No one in the inn died, but six Raskghar nearly beat a team and three Hobs. The Horns doubt Gemhammer's tale of two dozen kills. Pisces guesses at least one moon is full, maybe both."
+		},
+		"b8.the_redfangs_guard_the_door_after_the_raid": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"hob": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": []
+				},
+				"cloak": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"bard": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"archer": {
+					"prefer": [
+						"bird"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"headscratcher"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.raskghar_raid_the_wandering_inn"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"redfang.guard_the_inn_after_the_raid"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.35H",
+				"confidence": "confirmed",
+				"note": "The talk hook is a guess: speaking with Headscratcher or Bird at the inn that day."
+			},
+			"summary": "Still dizzy, Headscratcher drags a table across the door with Rabbiteater and Numbtongue and stands guard. The Horns feel foolish and take the windows. Bird, Badarrow and Shorthilt keep watch on the roof.",
+			"hooks": [
+				{
+					"id": "player_stood_with_headscratcher_after_the_raid",
+					"did": [
+						{
+							"action": [
+								"talk_with_guest",
+								"comfort_someone"
+							],
+							"context": {
+								"location": [
+									"wandering_inn"
+								],
+								"npc": [
+									"headscratcher",
+									"bird"
+								]
+							}
+						}
+					],
+					"days": [
+						159,
+						159
+					],
+					"then": "change",
+					"effects": {
+						"set_flags": [
+							"wandering_inn.earther_stood_with_the_redfangs"
+						],
+						"relationship": [
+							{
+								"from": "headscratcher",
+								"to": "player",
+								"delta": 2
+							},
+							{
+								"from": "bird",
+								"to": "player",
+								"delta": 1
+							}
+						]
+					},
+					"news": "A Human at the Wandering Inn stood guard with Headscratcher and Bird after the Raskghar raid."
+				}
+			]
+		},
+		"b8.erin_calls_pallass_and_venim_comes": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"pallass_watch": {
+					"prefer": [
+						"venim"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"princess": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.raskghar_raid_the_wandering_inn"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"venim.came_to_liscor_after_the_raid"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.35H",
+				"confidence": "confirmed"
+			},
+			"summary": "Erin turns the door to Pallass and shouts for the Drakes who watch it. Watch Captain Venim comes with eight Pallass soldiers and goes on to Liscor. Lyonette brings a crate of Octavia's potions; Erin heats soup for the wounded."
+		},
+		"b8.pisces_sets_yvlons_broken_arm": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": []
+				},
+				"knight": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"yvlon_byres",
+					"pisces"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.raskghar_raid_the_wandering_inn"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"yvlon.arm_set_by_pisces"
+				],
+				"clear_flags": [
+					"yvlon.shield_arm_broken"
+				],
+				"relationship": [
+					{
+						"from": "yvlon_byres",
+						"to": "pisces",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.35H",
+				"confidence": "confirmed"
+			},
+			"summary": "Yvlon only sees her bent arm when she bends for Mrsha's ball: [Ignore Pain] hid it. The old metal is fused to the bone. Pisces sets it before the potion and says only a far higher-level [Necromancer] could truly fix her arms."
+		},
+		"b8.pisces_laces_yvlons_arms_with_bone": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": []
+				},
+				"knight": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": []
+				}
+			},
+			"requires": {
+				"alive": [
+					"yvlon_byres",
+					"pisces"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pisces_sets_yvlons_broken_arm"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"yvlon.arms_braced_with_bone",
+					"yvlon.and_pisces_keep_the_bone_secret",
+					"pisces.seeks_a_hardening_spell_for_yvlons_arms"
+				],
+				"relationship": [
+					{
+						"from": "yvlon_byres",
+						"to": "pisces",
+						"delta": 2
+					},
+					{
+						"from": "pisces",
+						"to": "yvlon_byres",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.35H",
+				"confidence": "confirmed"
+			},
+			"summary": "Yvlon asks Pisces to brace her arms from inside with the bones of his smashed undead bears. He refuses to test on a teammate, then agrees to fix her. He builds a web of bone and a splint in both arms. They keep it secret; he will look for a hardening spell."
+		},
+		"b8.pisces_may_raise_raskghar_bones": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": []
+				},
+				"knight": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"selphid": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pisces"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pisces_laces_yvlons_arms_with_bone"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pisces.may_use_raskghar_and_goblin_bones",
+					"pisces.redesigns_his_bone_horror",
+					"pisces.bear_bones_nearly_spent"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.35H",
+				"confidence": "confirmed",
+				"note": "He also used Bone Horrors to clear Liscor's sewers before this chapter."
+			},
+			"summary": "Only one bear's bones are left. Pisces says he is redesigning his whip-armed Bone Horror after Jelaqua's notes. Yvlon points out that Raskghar and Goblins are not on Selys's list of forbidden bones, and Pisces sets to work on the corpses."
+		},
+		"b8.liscor_comes_to_check_on_the_inn": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"strategist": {
+					"prefer": [
+						"olesm"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"shopkeeper": {
+					"prefer": [
+						"krshia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"captain": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"ylawes_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"guardsman": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"spear": {
+					"prefer": [
+						"relc"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"acolyte": {
+					"prefer": [
+						"pawn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"wall_lord": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.raskghar_raid_the_wandering_inn"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"liscor.raskghar_raid_over",
+					"liscor.gnolls_missing_after_the_raid"
+				],
+				"relationship": [
+					{
+						"from": "olesm",
+						"to": "erin_solstice",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.35H",
+				"confidence": "confirmed"
+			},
+			"summary": "Through the night friends come to see the inn is safe: Olesm, Krshia, the Gold teams, Klbkch and Relc, Pawn with Painted Soldiers, Selys and Drassi, and at last Ilvriss. In Liscor the fight is over, but no Gnoll taken has been found.",
+			"news": "After the Raskghar raid many Gnolls of Liscor are missing. Their bodies have not been found."
+		},
+		"b8.headscratcher_catches_a_living_cave_goblin": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"hob": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": []
+				},
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"wall_lord": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"strategist": {
+					"prefer": [
+						"olesm"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"headscratcher"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.raskghar_raid_the_wandering_inn"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wandering_inn.holds_a_captive_cave_goblin",
+					"ilvriss.calls_a_war_council_at_the_inn"
+				],
+				"relationship": [
+					{
+						"from": "ilvriss",
+						"to": "olesm",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.35H",
+				"confidence": "confirmed"
+			},
+			"summary": "A Cave Goblin thought dead wakes and bolts. Erin shouts to take it alive, and she and Ilvriss clash with their auras. Headscratcher walks back in holding it by the ankle. Olesm convinces Ilvriss that the Hobs can question her."
+		},
+		"b8.the_war_council_on_the_raskghar": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"wall_lord": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": []
+				},
+				"watch_captain": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"gnoll": {
+					"prefer": [
+						"krshia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"ylawes_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"guardsman": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"selphid": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"guildmistress": {
+					"prefer": [
+						"tekshia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ilvriss"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.headscratcher_catches_a_living_cave_goblin"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"liscor.war_council_on_the_raskghar",
+					"liscor.may_try_silver_on_raskghar"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.35H",
+				"confidence": "confirmed",
+				"note": "Whether silver hurts Raskghar is left open in the text."
+			},
+			"summary": "Liscor's leaders meet at the inn. Krshia tells the Raskghar legend; Erin offers werewolves and silver, and Ylawes shows his silver-laced Byres sword. Klbkch says Raskghar avoid the Hive. Jelaqua says a dungeon city under siege is normal."
+		},
+		"b8.ilvriss_pays_for_cooperation_bounties": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"wall_lord": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": []
+				},
+				"strategist": {
+					"prefer": [
+						"olesm"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"captain": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"ylawes_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ilvriss"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_war_council_on_the_raskghar"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"liscor.cooperation_bounties_on_the_dungeon",
+					"ilvriss.bounty_for_each_rescued_citizen",
+					"gold_teams.told_to_find_the_raskghar_nest"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.35H",
+				"confidence": "confirmed"
+			},
+			"summary": "Ilvriss asks for cooperation bounties on the dungeon and puts up forty thousand gold of Salazsar's money. He offers a thousand gold for each citizen brought back alive and orders the Gold teams down the rift. Halrac does not take orders.",
+			"news": "Wall Lord Ilvriss offered a thousand gold for each citizen of Liscor brought back alive from the dungeon."
+		},
+		"b8.the_cave_goblin_tells_of_the_raskghar_camp": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"bard": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": []
+				},
+				"wall_lord": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"hob": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"numbtongue"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.headscratcher_catches_a_living_cave_goblin"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dungeon.raskghar_rule_the_cave_goblins",
+					"dungeon.raskghar_main_camp_is_vast",
+					"numbtongue.translates_for_liscor"
+				],
+				"relationship": [
+					{
+						"from": "numbtongue",
+						"to": "ilvriss",
+						"delta": -1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.35H",
+				"confidence": "confirmed",
+				"note": "She had never seen a Hobgoblin and first denies that the Hobs are Goblins."
+			},
+			"summary": "Numbtongue translates once Ilvriss calls him by name. The Raskghar rule her tribe and want Gnolls. Their camp moves and hides from worse things: metal armies, red worms, a Headsnatcher, invisible foes. The main camp is six times the inn's hall."
+		},
+		"b8.pallass_sends_over_a_hundred_adventurers": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"pallass_watch": {
+					"prefer": [
+						"venim"
+					],
+					"fallback_tags": []
+				},
+				"watch_captain": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"selphid": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"antinium": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_war_council_on_the_raskghar"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pallass.sends_adventurers_to_liscor",
+					"liscor_dungeon.crowded_with_pallass_teams"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.35H",
+				"confidence": "confirmed",
+				"note": "The text says over a hundred adventurers (the plan said 100 teams). Ksmvr credits Pisces's leak plan (5.29). The Pallass teams have no records."
+			},
+			"summary": "Venim returns at dawn: Pallass and the Walled Cities send adventurers, some drafted under Drake law. Over a hundred come through the door, with the Gold teams Flamewardens and Wings of Pallass. Jelaqua groans at the competition.",
+			"news": "Pallass sent more than a hundred adventurers through the magic door to fight Liscor's dungeon."
+		}
+	},
+	"system": [
+		{
+			"who": "yvlon_byres",
+			"kind": "skill",
+			"name": "[Ignore Pain]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Why she did not notice her broken arm."
+		},
+		{
+			"who": "halrac",
+			"kind": "class",
+			"name": "[Veteran Scout]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Named at the war council."
+		}
+	]
+}

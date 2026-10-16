@@ -44,7 +44,8 @@ cascades are easy to get wrong; low for mechanical steps.
 - [x] M28.3 Canon 5.24 L – 5.26 L (days 144 – 154, 27 events) **[Opus · high]**
 - [x] M28.4 Canon 5.27 – 5.29 (days 155 – 156, 27 events, Drake boycott) **[Opus · high]**
 - [x] M28.5 Canon 5.30 G – 5.32 G (days 149 – 150, 32 events, off-map) **[Opus · high]**
-- [ ] M28.6 – M28.9 Canon batches (5.33 B – 5.44, days 157 – 164) **[Opus · high]**
+- [x] M28.6 Canon 5.33 B – 5.35 H (days 157 – 159, 37 events, raid stage x3, one hook) **[Opus · high]**
+- [ ] M28.7 – M28.9 Canon batches (5.36 – 5.44, days 160 – 164) **[Opus · high]**
 **Done when:** the touched tests, `sim_canon_book8` and the validator pass; the user has played it.
 
 ---

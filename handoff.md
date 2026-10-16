@@ -1,5 +1,11 @@
 # Handoff
 
+## Just done (2026-10-16, local): M28.6 canon 5.33 B - 5.35 H (branch `feat/m28.6-canon-5-33`)
+- 37 events in `canon/book8/chapters/5.33B|interlude_blackmage|5.34|5.35H.json` (orders 64 - 67), test `sim_book8_raid_one`. A delegated agent wrote it. Not committed. ADR 0043 M28.6 has stage, flags, doubts.
+- Stage `b8.raskghar_raid_the_wandering_inn` on `inn_hill` 21 - 24 h, xp x3; hook `player_stood_with_headscratcher_after_the_raid` (5.35 H). `sim_player_hooks` count now 129.
+- Next: commit, PR, user merges. Then M28.7 (5.36, 5.37 G): ask stage and hook choices first. The 5.38 raid (day 161) should use or clear `izril.moons_nearly_full` / `raskghar.awakened_by_the_moons`.
+- Gotchas: the stage uses `cave_goblin` too (canon). `wandering_inn.drake_boycott` is still set (the text does not end it). Montressa id is `montressa_du_valeross`. The stage test waits ~15 h from 6:00 to reach 21 h; it passes.
+
 ## Just done (2026-10-16, local): M28.5 canon 5.30 G - 5.32 G (branch `feat/m28.5-canon-5-30`)
 - 32 events, test `sim_book8_north_two`. ADR 0043 has flags and doubts.
 - Next: user merges the PR. Then M28.6 (5.33 B, Interlude - Blackmage, 5.34, 5.35 H, days 157 - 160). 5.34 is a FIGHT STAGE (raid on Liscor and the inn, day 159) with an `xp_window`: ask the xp tier and stage details first. Enemies `raskghar_armoured` / `awakened_raskghar` exist.

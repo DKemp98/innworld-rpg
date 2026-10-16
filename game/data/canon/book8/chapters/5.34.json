@@ -1,0 +1,921 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.34",
+	"order": 66,
+	"events": {
+		"b8.drakes_boo_the_play_on_boycott_day_five": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"guardsman": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"shopkeeper": {
+					"prefer": [
+						"krshia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"brawler": {
+					"prefer": [
+						"relc"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"wing_commander": {
+					"prefer": [
+						"embria_grasstongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [
+					"wandering_inn.drake_boycott"
+				],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wandering_inn.boycott_day_five"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.34",
+				"confidence": "confirmed",
+				"note": "Day 159 (plan: boycott day 5). New Gnoll staff Raelia and Fersh have no records."
+			},
+			"summary": "On the fifth day of the boycott Drakes still come every night to boo. Klbkch says protest is a Drake right. A drunk newcomer insults the Antinium until Relc offers him a fight; Embria drags her father off. The inn holds only fifty guests."
+		},
+		"b8.the_halfseekers_and_horns_plan_to_dive_together": {
+			"tier": 1,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"captain": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"dungeon_leader": {
+					"prefer": [
+						"earlia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"jelaqua"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"halfseekers.dive_with_the_horns",
+					"griffon_hunt.dives_with_the_silver_swords"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.34",
+				"confidence": "confirmed"
+			},
+			"summary": "Jelaqua agrees to dive with the Horns for a day or two while Griffon Hunt takes the Silver Swords. Earlia means to go back down for the armoured Raskghar's armour. The Halfseekers leave for a planning meeting in the city."
+		},
+		"b8.the_redfangs_test_the_cloak_and_the_bell": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"hob": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cloak": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"bell": {
+					"prefer": [
+						"badarrow"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"sword": {
+					"prefer": [
+						"shorthilt"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"singer": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"rabbiteater.wears_the_liquid_cloak",
+					"badarrow.keeps_the_dungeon_bell",
+					"erin.hugged_the_redfangs",
+					"izril.moons_nearly_full"
+				],
+				"relationship": [
+					{
+						"from": "headscratcher",
+						"to": "erin_solstice",
+						"delta": 2
+					},
+					{
+						"from": "rabbiteater",
+						"to": "erin_solstice",
+						"delta": 1
+					},
+					{
+						"from": "badarrow",
+						"to": "erin_solstice",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.34",
+				"confidence": "confirmed",
+				"note": "The moons are seen in a gap in the clouds. Moon flags are set by events (no moon clock, ADR 0043)."
+			},
+			"summary": "The Hobs test two dungeon artifacts on themselves. Rabbiteater's cloak turns to water, then blood: it takes on any liquid. Badarrow rings the bell once and bleeds from the eyes. Erin scolds them and hugs each one. Both moons are nearly full."
+		},
+		"b8.erin_recasts_the_play_with_drakes": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"director": {
+					"prefer": [
+						"emme"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"actor": {
+					"prefer": [
+						"jasi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"romeo": {
+					"prefer": [
+						"relc"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"juliet": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"players_of_celum.audition_liscor_actors",
+					"erin.saw_the_boycott_is_about_drake_women"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.34",
+				"confidence": "confirmed",
+				"note": "Krshia also wants Gnolls on stage (raised the next day). The boycott flag is not cleared here (doubt)."
+			},
+			"summary": "Erin makes one family all Drakes, but the hecklers still object. She swaps the parts: with Relc as a Drake Romeo and Lyonette as a Human Juliet, the male Drakes approve. Erin calls it sexist and throws them out. Auditions start tomorrow."
+		},
+		"b8.raskghar_climb_liscors_east_wall": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "liscor_walls",
+			"roles": {
+				"watch": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"liscor.raided_by_raskghar",
+					"raskghar.awakened_by_the_moons",
+					"raskghar.take_gnolls_alive"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.34",
+				"confidence": "confirmed",
+				"note": "The Watch sentries (Mersh and others) have no records."
+			},
+			"summary": "Late at night Raskghar climb Liscor's east wall in the rain, kill the sentries and wear their armour. In small groups they walk the streets, carry off every Gnoll they catch and kill every Drake.",
+			"news": "Raskghar raided Liscor in the night. They killed Drakes and carried off Gnolls."
+		},
+		"b8.embria_unmasks_the_false_patrol": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "liscor",
+			"roles": {
+				"wing_commander": {
+					"prefer": [
+						"embria_grasstongue"
+					],
+					"fallback_tags": []
+				}
+			},
+			"requires": {
+				"alive": [
+					"embria_grasstongue"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.raskghar_climb_liscors_east_wall"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"liscor.alarm_against_the_raskghar"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.34",
+				"confidence": "confirmed",
+				"note": "Captain Vash has no record."
+			},
+			"summary": "Embria's patrol meets a squad of Watch Gnolls who give no countersign. Her Gnoll captain smells Raskghar. The horns blow, Embria charges, and the Gnoll howl of alarm wakes the city."
+		},
+		"b8.a_raskghar_bests_krshia_and_speaks": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "liscor",
+			"roles": {
+				"gnoll": {
+					"prefer": [
+						"krshia"
+					],
+					"fallback_tags": []
+				},
+				"watch_captain": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"strategist": {
+					"prefer": [
+						"olesm"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"krshia"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.raskghar_climb_liscors_east_wall"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"raskghar.can_learn_speech_at_the_moon",
+					"krshia.warns_the_full_moons_are_near"
+				],
+				"relationship": [
+					{
+						"from": "krshia",
+						"to": "zevara",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.34",
+				"confidence": "confirmed"
+			},
+			"summary": "A young female Raskghar blocks Krshia's arrows and chokes her until Zevara and Olesm's squad arrive. It learns their speech, calls Gnolls its old prey and escapes over the roofs in the moonlight. Krshia says the true full moons come within six days."
+		},
+		"b8.raskghar_raid_the_wandering_inn": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"archer": {
+					"prefer": [
+						"bird"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"hob": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cloak": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"bard": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"bow": {
+					"prefer": [
+						"badarrow"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"sword": {
+					"prefer": [
+						"shorthilt"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"antinium": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"princess": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"wandering_inn.raided_by_raskghar",
+					"bird.shot_raskghar_from_the_tower",
+					"yvlon.shield_arm_broken",
+					"numbtongue.ribs_cracked_by_a_raskghar"
+				],
+				"relationship": [
+					{
+						"from": "erin_solstice",
+						"to": "bird",
+						"delta": 1
+					},
+					{
+						"from": "erin_solstice",
+						"to": "ceria_springwalker",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.34",
+				"confidence": "confirmed",
+				"note": "Fight stage (M28.6). About 13 foes stand in for six Raskghar, a dozen Cave Goblins and those Bird shot. Hours are guesses (late night)."
+			},
+			"summary": "Bird sees heads in the flood: Raskghar and Cave Goblins swimming for the inn. He shouts the alarm and shoots from the tower. Six Raskghar break in. The Horns and the Hobs fight them to a standstill in the common room; Yvlon's shield arm bends.",
+			"news": "Raskghar and Cave Goblins attacked the Wandering Inn in the night. The guests drove them off.",
+			"xp_window": {
+				"boost": 3,
+				"hours": [
+					21,
+					24
+				]
+			},
+			"stage": {
+				"area": "inn_hill",
+				"hours": [
+					21,
+					24
+				],
+				"kind": "fight",
+				"foes": [
+					{
+						"enemy": "awakened_raskghar",
+						"pos": [
+							20,
+							15
+						]
+					},
+					{
+						"enemy": "not_gnoll",
+						"pos": [
+							22,
+							14
+						]
+					},
+					{
+						"enemy": "cave_goblin",
+						"pos": [
+							18,
+							15
+						]
+					},
+					{
+						"enemy": "cave_goblin",
+						"pos": [
+							13,
+							15
+						]
+					}
+				],
+				"line": "Dark heads rise out of the flood below the hill. Raskghar and Cave Goblins wade ashore with axes.",
+				"waves": [
+					{
+						"after_seconds": 20,
+						"from": [
+							16,
+							12
+						],
+						"allies": [
+							"bird",
+							"badarrow",
+							"shorthilt"
+						],
+						"line": "Bird shouts the alarm from his tower. Badarrow and Shorthilt climb out onto the roof with bows."
+					},
+					{
+						"after_seconds": 40,
+						"left_at_most": 4,
+						"from": [
+							27,
+							14
+						],
+						"foes": [
+							"raskghar_armoured",
+							"awakened_raskghar",
+							"cave_goblin",
+							"cave_goblin"
+						],
+						"line": "More shapes climb out of the water by the archery target. One wears stolen Watch armour."
+					},
+					{
+						"after_seconds": 70,
+						"left_at_most": 5,
+						"from": [
+							16,
+							12
+						],
+						"allies": [
+							"erin_solstice",
+							"headscratcher",
+							"rabbiteater",
+							"numbtongue"
+						],
+						"line": "Erin comes out with a frying pan. Headscratcher, Rabbiteater in his water cloak and Numbtongue follow."
+					},
+					{
+						"after_seconds": 100,
+						"from": [
+							16,
+							12
+						],
+						"allies": [
+							"ceria_springwalker",
+							"pisces",
+							"yvlon_byres",
+							"ksmvr"
+						],
+						"line": "The Horns of Hammerad run down the stairs half dressed. Ice walls rise and bone bears lumber out."
+					},
+					{
+						"after_seconds": 130,
+						"left_at_most": 3,
+						"from": [
+							5,
+							14
+						],
+						"foes": [
+							"awakened_raskghar",
+							"not_gnoll",
+							"cave_goblin",
+							"cave_goblin"
+						],
+						"line": "A last pack circles in from the west shore, eyes bright under the nearly full moons."
+					}
+				],
+				"note": "M28.6: a fight on the hill. The text sets most of it inside the inn; the hill stands in. About 12 foes. Hours are guesses (late night). The awakened Raskghar stand for their moon strength."
+			}
+		},
+		"b8.raskghar_sniff_out_ceria_and_mrsha": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": []
+				},
+				"princess": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"antinium": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.raskghar_raid_the_wandering_inn"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"raskghar.marked_ceria_and_mrsha"
+				],
+				"relationship": [
+					{
+						"from": "mrsha",
+						"to": "lyonette",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.34",
+				"confidence": "confirmed",
+				"note": "Why it sniffs them is not said here. Apista has no record."
+			},
+			"summary": "Upstairs a Raskghar pins Ceria, sniffs her and stops. Then it sniffs Mrsha's white fur and grabs for her. Lyonette parries its claws, Apista stings, and Ceria's ice wall and spike drive it off."
+		},
+		"b8.headscratcher_becomes_a_berserker": {
+			"tier": 2,
+			"window": {
+				"earliest": 159,
+				"latest": 159,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"hob": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": []
+				},
+				"bard": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cloak": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"headscratcher"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.raskghar_raid_the_wandering_inn"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"headscratcher.is_a_berserker",
+					"numbtongue.is_a_bard",
+					"numbtongue.plays_a_broken_guitar",
+					"wandering_inn.raskghar_driven_off"
+				],
+				"relationship": [
+					{
+						"from": "headscratcher",
+						"to": "numbtongue",
+						"delta": 2
+					},
+					{
+						"from": "rabbiteater",
+						"to": "headscratcher",
+						"delta": 2
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.34",
+				"confidence": "confirmed",
+				"note": "Four Raskghar die in the inn, two flee into the water; all the Cave Goblins seem dead."
+			},
+			"summary": "Headscratcher takes a club meant for Rabbiteater and falls. Numbtongue smashes his guitar on a Raskghar and chants Redfang. Headscratcher rises a [Berserker], throws a Raskghar across the room and cuts down two; Rabbiteater drowns one in his cloak."
+		}
+	},
+	"system": [
+		{
+			"who": "krshia",
+			"kind": "skill",
+			"name": "[Rapid Shot]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Used against a Raskghar in the street."
+		},
+		{
+			"who": "bird",
+			"kind": "skill",
+			"name": "[Homing Shot]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Used from the tower."
+		},
+		{
+			"who": "headscratcher",
+			"kind": "level",
+			"name": "[Warrior]",
+			"level": 20,
+			"confidence": "confirmed",
+			"note": "Reached while he lies stunned in the fight."
+		},
+		{
+			"who": "headscratcher",
+			"kind": "class",
+			"name": "[Berserker]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Conditions met: [Warrior] becomes [Berserker]."
+		},
+		{
+			"who": "headscratcher",
+			"kind": "skill",
+			"name": "[Fury Strength]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Gained with [Berserker]."
+		},
+		{
+			"who": "headscratcher",
+			"kind": "skill",
+			"name": "[Overpowering Blow]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Gained with [Berserker]."
+		},
+		{
+			"who": "numbtongue",
+			"kind": "class",
+			"name": "[Bard]",
+			"level": null,
+			"confidence": "likely",
+			"note": "Named at the chapter's end; no level shown."
+		}
+	]
+}
