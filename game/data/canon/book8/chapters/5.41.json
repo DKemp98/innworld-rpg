@@ -1,0 +1,808 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.41",
+	"order": 73,
+	"events": {
+		"b8.erin_buys_swords_from_joiah_in_celum": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "celum",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"barmaid": {
+					"prefer": [
+						"drassi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"smith": {
+					"prefer": [
+						"joiah_kellisman"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"rival": {
+					"prefer": [
+						"timbor_parithad"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"erin.bought_steel_swords_and_a_bow",
+					"joiah.will_forge_flails_for_jelaqua",
+					"drassi.clears_erins_name_in_celum",
+					"timbor.spreads_lies_about_erins_inn"
+				],
+				"relationship": [
+					{
+						"from": "joiah_kellisman",
+						"to": "erin_solstice",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.41",
+				"confidence": "confirmed",
+				"note": "The Celum scene of this batch (it is in 5.41, not 5.42). Timbor does not appear; a customer repeats his talk."
+			},
+			"summary": "Before dawn Erin bangs on the door of Celum's best smith and buys his five finest swords, promising Jelaqua will order flails from him. Drassi chats him round over tea and traces the bad rumours about the inn to Timbor. Then they buy a bow."
+		},
+		"b8.the_redfangs_make_camp_in_the_refuge_cave": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "cave_goblin_refuge",
+			"roles": {
+				"hob": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": []
+				},
+				"sword": {
+					"prefer": [
+						"shorthilt"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"bow": {
+					"prefer": [
+						"badarrow"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cave_goblin": {
+					"prefer": [
+						"pebblesnatch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"headscratcher"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"cave_goblins.hidden_in_the_refuge_cave",
+					"redfang.camp_fortified_in_the_refuge_cave"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.41",
+				"confidence": "confirmed",
+				"note": "Rags's tribe found and walled up this cave long ago; Goblin gossip passed it to the Redfangs."
+			},
+			"summary": "This is Plan G: the Redfangs have rowed the captured Cave Goblins to a bat cave a few miles away that once opened into the dungeon. They clear the bats, rig a rockslide over the mouth and set the little Goblins to work, and soon miss Erin's beds and food."
+		},
+		"b8.numbtongue_and_rabbiteater_bring_the_news_and_a_door": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "cave_goblin_refuge",
+			"roles": {
+				"bard": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": []
+				},
+				"cloak": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"hob": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"numbtongue"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_redfangs_make_camp_in_the_refuge_cave"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"redfang.magic_door_to_the_refuge_cave",
+					"numbtongue.plays_lightning_chords",
+					"headscratcher.broke_stone_with_his_fists"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.41",
+				"confidence": "confirmed"
+			},
+			"summary": "Numbtongue and Rabbiteater race back with supplies and the news; Headscratcher smashes the cave wall in rage. Rabbiteater props up a plank with a doorknob and a red mana stone, a new end for Erin's door. While they wait Numbtongue's guitar crackles with lightning."
+		},
+		"b8.erin_arms_the_redfangs_for_the_dungeon": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "cave_goblin_refuge",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"hob": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"sword": {
+					"prefer": [
+						"shorthilt"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"bow": {
+					"prefer": [
+						"badarrow"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"bard": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cloak": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"barmaid": {
+					"prefer": [
+						"drassi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.numbtongue_and_rabbiteater_bring_the_news_and_a_door",
+				"b8.erin_buys_swords_from_joiah_in_celum"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"redfang.carry_erins_steel_swords",
+					"badarrow.has_a_new_recurve_bow",
+					"redfang.enter_the_dungeon_for_erin",
+					"erin.asks_the_redfangs_to_spare_calruz",
+					"drassi.knows_of_the_cave_goblins"
+				],
+				"relationship": [
+					{
+						"from": "shorthilt",
+						"to": "erin_solstice",
+						"delta": 2
+					},
+					{
+						"from": "badarrow",
+						"to": "erin_solstice",
+						"delta": 2
+					},
+					{
+						"from": "headscratcher",
+						"to": "erin_solstice",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.41",
+				"confidence": "confirmed",
+				"note": "They also carry the cursed bell (Badarrow)."
+			},
+			"summary": "Erin steps through the door with swords, a bow and potions as her fee and asks the five to find Mrsha and Ceria, and to spare Calruz if they can. Shorthilt hugs her. They take three Cave Goblin guides, break the old wall and go down."
+		},
+		"b8.cave_goblin_guides_lead_the_redfangs_past_the_spider_nest": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"hob": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": []
+				},
+				"bard": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cloak": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"headscratcher"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.erin_arms_the_redfangs_for_the_dungeon"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dungeon.secret_stair_past_the_spider_nest",
+					"dungeon.shield_spider_nest_stirred_again",
+					"redfang.unseen_by_many_dungeon_monsters",
+					"cave_goblins.blind_to_many_dungeon_monsters"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.41",
+				"confidence": "confirmed",
+				"note": "Why some monsters cannot see others is not explained here (5.42 suggests the dungeon's water)."
+			},
+			"summary": "The guides lead them round the walls of a pit room on hidden handholds; below is the vast Shield Spider nest, which the Cave Goblins cannot see at all. Many monsters and Goblins pass each other unseen, so the Redfangs slip through halls the adventurers must fight for."
+		},
+		"b8.the_redfangs_wipe_out_a_raskghar_outpost": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"cloak": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": []
+				},
+				"hob": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"sword": {
+					"prefer": [
+						"shorthilt"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"bow": {
+					"prefer": [
+						"badarrow"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"bard": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rabbiteater"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.cave_goblin_guides_lead_the_redfangs_past_the_spider_nest"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"redfang.destroyed_a_raskghar_outpost",
+					"badarrow.rang_the_bell_of_pain",
+					"raskghar.torment_and_eat_cave_goblins",
+					"cave_goblins.flock_to_the_redfangs"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.41",
+				"confidence": "confirmed",
+				"note": "Calruz learns in 5.42 that an outpost of about thirty was lost to an unknown foe."
+			},
+			"summary": "They ambush a Raskghar hunting party, then find a small camp where Raskghar stone and eat their Cave Goblin slaves. Badarrow shoots the cursed bell in, Numbtongue plays a war song and the five cut down every Raskghar. The freed Cave Goblins see heroes."
+		},
+		"b8.erin_wins_over_the_cave_goblins_with_fried_potatoes": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "cave_goblin_refuge",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"cave_goblin": {
+					"prefer": [
+						"pebblesnatch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.erin_arms_the_redfangs_for_the_dungeon"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"erin.feeds_the_cave_goblins",
+					"cave_goblins.begin_to_trust_erin",
+					"pebblesnatch.offered_erin_a_potato"
+				],
+				"relationship": [
+					{
+						"from": "pebblesnatch",
+						"to": "erin_solstice",
+						"delta": 2
+					},
+					{
+						"from": "erin_solstice",
+						"to": "pebblesnatch",
+						"delta": 2
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.41",
+				"confidence": "confirmed"
+			},
+			"summary": "Left alone with the Cave Goblins, an angry Erin punches one who comes at her with a knife. Then Pebblesnatch shyly offers her a raw potato. Erin sees herself and stops. She fries potatoes, teaches them to cook and promises food for all who keep the peace."
+		},
+		"b8.drassi_talks_down_lisms_crowd": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "liscor_market",
+			"roles": {
+				"barmaid": {
+					"prefer": [
+						"drassi"
+					],
+					"fallback_tags": []
+				},
+				"shopkeeper": {
+					"prefer": [
+						"lism"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"princess": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"shopkeeper_two": {
+					"prefer": [
+						"krshia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"drassi"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"lism.stirs_a_crowd_against_erin",
+					"drassi.turned_the_crowd_with_gossip",
+					"liscor.grief_over_the_taken_gnolls"
+				],
+				"relationship": [
+					{
+						"from": "lyonette",
+						"to": "drassi",
+						"delta": 2
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.41",
+				"confidence": "confirmed",
+				"note": "Drassi uses [Social Network] to spread it. The text says nearly eighty Gnolls were taken (counts differ)."
+			},
+			"summary": "On Market Street Lism blames the Watch, the Humans and Erin's Goblins for the raids, and even Krshia is quiet. Lyonette shouts back. Then Drassi climbs a stall, greets half the crowd by name and tells the true story; everyone knows she never lies."
+		},
+		"b8.cave_goblins_who_know_the_camp_reach_erin": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "cave_goblin_refuge",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"bard": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_redfangs_wipe_out_a_raskghar_outpost",
+				"b8.erin_wins_over_the_cave_goblins_with_fried_potatoes"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"cave_goblins.hundreds_in_the_refuge",
+					"cave_goblins.know_tonights_raskghar_camp",
+					"adventurers.learn_where_the_raskghar_camp_is",
+					"redfang.followed_out_by_cave_goblins"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.41",
+				"confidence": "confirmed"
+			},
+			"summary": "Word spreads and Cave Goblins stream to the cave until hundreds crowd the fires. The Redfangs return hurt and empty-handed, but some of the newcomers know where the camp with Mrsha and Ceria is tonight. Erin calls the adventurers and coaxes the frightened Goblins back.",
+			"news": "Erin Solstice is feeding hundreds of Cave Goblins in a cave outside Liscor."
+		},
+		"b8.shorthilt_and_badarrow_level_in_their_sleep": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "cave_goblin_refuge",
+			"roles": {
+				"sword": {
+					"prefer": [
+						"shorthilt"
+					],
+					"fallback_tags": []
+				},
+				"bow": {
+					"prefer": [
+						"badarrow"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cloak": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"shorthilt",
+					"badarrow"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_redfangs_wipe_out_a_raskghar_outpost"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"shorthilt.is_a_weapon_expert",
+					"badarrow.is_a_sniper"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.41",
+				"confidence": "confirmed"
+			},
+			"summary": "That night the Hobs sleep among the Cave Goblins to keep them from bolting. Shorthilt and Badarrow wake shouting: new classes. Rabbiteater gains only a level and sulks under his pillow."
+		}
+	},
+	"system": [
+		{
+			"who": "drassi",
+			"kind": "level",
+			"name": "[Gossip]",
+			"level": 17,
+			"confidence": "confirmed",
+			"note": "Level stated in 5.41."
+		},
+		{
+			"who": "drassi",
+			"kind": "skill",
+			"name": "[Time to Chat]",
+			"level": null,
+			"confidence": "confirmed"
+		},
+		{
+			"who": "drassi",
+			"kind": "skill",
+			"name": "[Trusted Voice]",
+			"level": null,
+			"confidence": "confirmed"
+		},
+		{
+			"who": "drassi",
+			"kind": "skill",
+			"name": "[Social Network]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Spreads her story through her friends in the market."
+		},
+		{
+			"who": "numbtongue",
+			"kind": "skill",
+			"name": "[Electric Chords]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Lightning plays on his guitar strings."
+		},
+		{
+			"who": "shorthilt",
+			"kind": "level",
+			"name": "[Warrior]",
+			"level": 24,
+			"confidence": "confirmed"
+		},
+		{
+			"who": "shorthilt",
+			"kind": "class",
+			"name": "[Weapon Expert]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "[Warrior] changes to [Weapon Expert]."
+		},
+		{
+			"who": "shorthilt",
+			"kind": "skill",
+			"name": "[Sharper Edge]",
+			"level": null,
+			"confidence": "confirmed"
+		},
+		{
+			"who": "shorthilt",
+			"kind": "skill",
+			"name": "[Bleed Cuts]",
+			"level": null,
+			"confidence": "confirmed"
+		},
+		{
+			"who": "badarrow",
+			"kind": "level",
+			"name": "[Archer]",
+			"level": 25,
+			"confidence": "confirmed"
+		},
+		{
+			"who": "badarrow",
+			"kind": "class",
+			"name": "[Sniper]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "[Archer] changes to [Sniper]."
+		},
+		{
+			"who": "badarrow",
+			"kind": "skill",
+			"name": "[Doubled Range]",
+			"level": null,
+			"confidence": "confirmed"
+		},
+		{
+			"who": "badarrow",
+			"kind": "skill",
+			"name": "[Eagle Eyes]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Replaces [Keen Eyes]."
+		},
+		{
+			"who": "rabbiteater",
+			"kind": "level",
+			"name": "[Warrior]",
+			"level": 19,
+			"confidence": "confirmed"
+		}
+	]
+}
