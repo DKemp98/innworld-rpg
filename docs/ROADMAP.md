@@ -9,20 +9,25 @@ When every box of a milestone is ticked, move it to the top of Done. A new miles
 
 | Milestone | State | Open items |
 |---|---|---|
-| M25 NPC life | done | – |
-| M26 Code health | done | – |
-| M27 Balance from player feedback | PR open | user merges, then plays (level pace, trading) |
+| M27 Balance from player feedback | merged | user plays (level pace, trading) |
+| M28 Book 8 (Blood of Liscor) | merged (PR #200) | `sim_canon_book8`; user plays Book 8 |
+| M29 Lore polish | planned | `docs/plans/m29.md` |
+| M30 Voices and the Earther | planned | `docs/plans/m30.md` |
+| M31 Signposts and scene beats | planned | `docs/plans/m31.md` |
+| M32 Climaxes of Books 6 – 8 | planned | `docs/plans/m32.md` |
+| M33 Depth: spells, dishes, quests, friends | planned | `docs/plans/m33.md` |
 | M20 Touch controls | waits on the user | play on a PC with a touch screen |
 | Google Play | waits on the user | pirateaba's yes, Play account, tests (`docs/PLAY_STORE.md`) |
-| Later | idea | Book 8 plan (after M25), LLM flavour layer, small asks |
+| Later | idea | LLM flavour layer, small asks |
 
-Last release: v0.1.4-alpha (2026-10-10). Next step: user merges the M27 PR, then the Book 8 plan.
+Last release: v0.1.5-alpha (2026-10-15). Next step: user merges the audit plan PR, then M29.0.
 
 ---
 
 # Next up
 
-From the project audit of 2026-10-08 (`progress.md` "Audit"). Order: Book 8 next (M25 done 2026-10-12, M26 done 2026-10-13).
+M29 – M33 come from the player audit of 2026-10-17 (`docs/AUDIT_PLAYER_2026-10-17.md`, ADR 0044); the user said
+"we will do all". Order: M29 → M33. Older audit work (2026-10-08) is in Done.
 One branch + PR per sub-step. Steps marked (user) need the user to do or decide something.
 Model tag `[Model · effort]` at the end of each step: the model and effort to pick for that session. Default is
 Sonnet · medium. Opus for engine, save and design work and for canon logic; high effort where lore, balance or
@@ -48,7 +53,55 @@ cascades are easy to get wrong; low for mechanical steps.
 - [x] M28.7 Canon 5.36, 5.37 G, 5.38 (days 151 – 161, 41 events, daylight raid stage x3) **[Opus · high]**
 - [x] M28.8 Canon 5.39 – 5.42 (days 161 – 162, 41 events) **[Opus · high]**
 - [x] M28.9 Canon 5.43, Interlude – Niers, 5.44 (days 162 – 163, 26 events, three-door battle stage x3, door from the inn) **[Opus · high]**
+- [ ] `sim_canon_book8`: Book 8 runs to its last day with drift 0 (named in "Done when", not written yet; found in the 2026-10-17 audit) **[Sonnet · medium]**
+- [ ] (user) Play Book 8: the raid stages, the camp door on day 163, the boycott (`godot --path game`)
 **Done when:** the touched tests, `sim_canon_book8` and the validator pass; the user has played it.
+
+## M29 — Lore polish (plan `docs/plans/m29.md`, ADR 0044)
+- [ ] M29.0 The System speaks like the books ("[Innkeeper Level 2!]", "[Skill – X obtained!]", "[X Class Obtained!]"); "Talk" instead of "Talk with a guest" **[Opus · medium]**
+- [ ] M29.1 The inn's name and signs by flag (1.18); no generic patrons before the inn has regulars; schema asks **[Opus · medium]**
+- [ ] M29.2 Liscor is wary of Humans: start regard and prices by NPC race in a town (schema ask) **[Opus · medium]**
+- [ ] M29.3 Looks: Magnolia in pink, Erin's shirt colour, Moore's size; Antinium art (user: now or later) **[Sonnet · medium]**
+- [ ] M29.4 A page at the end of the written story **[Sonnet · medium]**
+- [ ] M29.5 The fight stays in view (not under the message box) **[Sonnet · medium]**
+- [ ] (user) Look at it: the first night's System page, the inn on day 1 and day 14, Lism's prices, a fight at a map's edge
+**Done when:** each step's tests pass; the validator has 0 errors; the user has looked at it.
+
+## M30 — Voices and the Earther (plan `docs/plans/m30.md`, ADR 0044)
+- [ ] M30.0 Design: `data/voices.json` schema, bark rule (view only, no `gs.rng`), first cast and tone (user picks) **[Opus · high]**
+- [ ] M30.1 Engine: `core/voice.gd`, NPC talk options, speech bubbles, validator **[Opus · medium]**
+- [ ] M30.2 Voices for the Book 1 cast (15 NPCs; own words; a reading agent checks traits) **[Sonnet · high]**
+- [ ] M30.3 Voices for the Books 2 – 8 cast, lines keyed to each book's big flags **[Sonnet · high]**
+- [ ] M30.4 The Earther meeting with Erin (one time), and the other Earthers react **[Opus · medium]**
+- [ ] M30.5 Who you are: name, look, Earth background; save v22 + migration **[Opus · high]**
+- [ ] (user) Play: talk to the Book 1 cast, tell Erin you are from Earth, start a new game
+**Done when:** the Book 1 cast has own greetings, lines and options; barks show; old saves load; the touched tests pass; the user has played it.
+
+## M31 — Signposts and scene beats (plan `docs/plans/m31.md`, ADR 0044)
+- [ ] M31.0 Engine: event `foreshadow` (talk in town, journal "Coming up") and stage `beats` (timed lines with a speaker); schema ask **[Opus · medium]**
+- [ ] M31.1 A signpost for each of the 25 fight stages and the key scenes **[Sonnet · medium]**
+- [ ] M31.2 Beats for the Books 1 – 4 scenes **[Sonnet · high]**
+- [ ] M31.3 Beats for the Books 5 – 8 scenes, and ally shouts in fight stages **[Sonnet · high]**
+- [ ] (user) Play a signposted day (the Skinner night) and a scene (the play in Celum)
+**Done when:** every fight stage has a signpost; every scene has beats; `sim_canon_book1` – `8` keep drift 0; the user has played it.
+
+## M32 — Climaxes of Books 6 – 8 (plan `docs/plans/m32.md`, ADR 0044)
+- [ ] M32.0 Choices and reading: can Zel be saved, where his stage is, Tremborag's hall, Klbkch (user picks) **[Opus · high]**
+- [ ] M32.1 The three-door battle in full: Calruz as the last foe (he yields), the Horns as allies; hooks on all three Book 8 stages **[Opus · high]**
+- [ ] M32.2 Zel's last stand as a fight stage (day 130, north) with a signpost and hooks **[Opus · high]**
+- [ ] M32.3 Boss feel: Skinner's fear, the Crypt Lord's bile, Regrika, the Goblin Lord **[Opus · medium]**
+- [ ] M32.4 Optional per M32.0: Tremborag's hall stage or the Klbkch bend **[Opus · high]**
+- [ ] (user) Play the three doors and Zel's last stand
+**Done when:** Calruz, the Horns and the Chosen fight on the map; every Book 8 stage has a hook; the kill sims and `sim_canon_book6` – `8` stay green; the user has played it.
+
+## M33 — Depth: spells, dishes, quests, friends (plan `docs/plans/m33.md`, ADR 0044)
+- [ ] M33.0 Canon spells (10 – 15) with teachers and spellbooks; new effect kinds only where the user agrees **[Opus · medium]**
+- [ ] M33.1 Erin's food and drink from the books (names from the text, numbers guessed) **[Sonnet · medium]**
+- [ ] M33.2 Quest engine: `data/quests.json`, journal "Tasks", save v23 + migration (schema ask) **[Opus · high]**
+- [ ] M33.3 Three personal quest lines (user picks: Erin's inn, Pawn, magic from Pisces or Ceria) **[Sonnet · high]**
+- [ ] M33.4 Friendship that does something: one perk per main NPC at friend and close-friend level **[Sonnet · medium]**
+- [ ] (user) Play a quest line and learn a spell from a friend
+**Done when:** the spells, dishes, quest lines and perks work; old saves load; the touched tests pass; the user has played it.
 
 ---
 
@@ -90,7 +143,6 @@ the keys work as before; the GUT tests that touch it pass; the user has played i
 ---
 
 # Later
-- Book 8 plan (after M25)
 - Optional LLM flavour layer
 - Console `skip <days>` command (offered 2026-10-11, no answer yet)
 - Outside PR #164 (DKemp98, more Skills and classes): changes asked 2026-10-12; wait for rebased, split PRs
@@ -110,6 +162,7 @@ uploads the signed Android apk too.
 - [x] v0.1.3-alpha (2026-10-08): signed Android apk added to `tools/release.ps1` (M20.2)
 - [x] v0.1.4-alpha (2026-10-10): up to M23.3, four files (win, linux, web zips + signed apk). Web build on itch.io and
   Pages not re-uploaded
+- [x] v0.1.5-alpha (2026-10-15): balance fixes and trading (M27), four files
 
 ---
 

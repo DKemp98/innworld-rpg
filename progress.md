@@ -45,7 +45,8 @@ M0–M16 detail (roadmap bullets, decisions, ADR 0001–0026) lives in
   - [x] M28.7 canon 5.36, 5.37 G, 5.38 (2026-10-16, branch `feat/m28.7-canon-5-36`): 41 events, days 151 – 161. Stage `b8.raskghar_raid_the_inn_by_daylight` (`inn_hill`, day 161, 15 – 18 h, xp x3). No hook. Fess dies. Records: Rags [Chieftain] 24, Redscar, Garen, Halrac; Pebblesnatch record fixed to female. Tests: `sim_book8_raid_two` (new, 8), raid_one, north_two, `sim_canon_book7`, `unit_canon_db`, `unit_xp_window`, `sim_winter`, `sim_player_hooks` pass; validator 0 errors. Full suite not run.
   - [x] M28.8 canon 5.39 – 5.42 (2026-10-17, branch `feat/m28.8-canon-5-39`): 41 events, days 161 – 162, events only (no stage, no hook). One kill (Rebat). System records: Shorthilt, Badarrow, Rabbiteater, Drassi, Ksmvr, Calruz. Tests: `sim_book8_dive_one` (new, 6), raid_two, north_two, `sim_canon_book7`, `unit_canon_db` pass; validator 0 errors; Python 116 OK. Full suite not run.
   - [x] M28.9 canon 5.43, Interlude – Niers, 5.44 (2026-10-17, branch `feat/m28.9-canon-5-43`): 26 events, days 162 – 163. Stage `b8.three_doors_open_on_the_raskghar_camp` (`raskghar_camp`, day 163, 18 – 23 h, xp x3). No hook. Way in: Erin's magic door in `inn_interior` links to the camp on day 163 only (user pick: flag-gated exit); knock-out wakes at the inn. Kills: Cassa, Vakk. Calruz in the Watch prison; captives freed; Erin [Magical Innkeeper] 36. Tests: `sim_book8_battle_one` (new, 9), `sim_kill_book8` (new, 6), `sim_book8_world` (changed), `unit_map_db`, `unit_other_maps`, `unit_ground_art`, `sim_liscor_depths`, `unit_data_db` pass; validator books 1 – 8: 0 errors. Full suite not run.
-  - [x] M28 all canon batches done. Waits: user merges the PR.
+  - [x] M28 all canon batches done. Merged (PR #200, 2026-10-17).
+  - [ ] `sim_canon_book8` (named in the M28 "Done when"; not written yet).
   - [ ] The user plays Book 8 (`godot --path game`): the raid stages, the camp door on day 163, the boycott.
 - [x] Class tree from the wiki, steps 1 – 3 (2026-10-07/08): advancement classes, riding / animals / gardening / faith tags, hunter, archer, alchemist, blacksmith, teacher, knight, assassin. Test lists in the archive.
 - [x] Class tree step 4 (2026-10-13, branch `feat/class-tree-step4`): 15 classes (4 base: tailor, glassblower, tinkerer, bard; 7 advancements: pyromancer, necromancer, illusionist, armorer, weaponsmith, trader, diplomat; 4 consolidations: battlemage, paladin, spymaster, apothecary) + 15 passive Skills. Data only, existing tags. All `confidence: guess`. Tests: `unit_class_tree_step4` (new, 5), step2, step3, `unit_class_system`, `unit_class_actions` pass. Full suite not run.
@@ -100,6 +101,19 @@ M0–M16 detail (roadmap bullets, decisions, ADR 0001–0026) lives in
 - [x] Phone UI bigger and see-through (2026-10-08, user request, branch `feat/mobile-ui-bigger`): on a phone OS (Android, iOS, or a browser on them) Auto menu size is 250 % (`UiScale.MOBILE`) whatever the dpi says; panel, button and list boxes are 78 % opaque (`UiScale.MOBILE_ALPHA`, theme edited at run time). Desktop unchanged. Tests run: `unit_ui_scale` (9), `unit_ui_theme`, `unit_touch_controls`, `unit_audio_settings`. All pass. Full suite not run. The user still has to look at it on a phone.
 
 - [x] Long road confirm + walk scene (2026-10-08, user request, branch `feat/long-road-confirm`): an exit of 300 min or more (Celum <-> camp <-> Liscor, 10 h) asks "Travel to X?" first, then plays a 1.8 s walker-on-a-track scene; the move happens at its end. Stay or Esc cancels. `ui/travel_prompt.gd` (new), `world/main.gd`. Off headless-only (`confirm_travel`). Wagon rides and the 180 min Esthelm roads do not ask. Tests run: `unit_travel_prompt` (new, 6), `unit_travel`, `unit_input_actions`, `unit_touch_controls`, `sim_celum_trip`, `unit_hud_log`. All pass. Full suite not run. The user still has to look at it (`godot --path game`, walk onto the Celum south exit).
+
+## Player audit (2026-10-17, local, read-only; no code changed)
+- [x] Audit from a player's and a book reader's view: `docs/AUDIT_PLAYER_2026-10-17.md` (not committed). Played the
+  v0.1.5 web build (title, gate, inn, Erin, a night, the day-9 Chieftain fight) and two headless runs (do nothing to
+  day 166; inn worker two weeks). No tests run (no code or data changed).
+- Top findings: NPCs have no voice (Erin says nothing; one generic talk menu); big moments reach the player as next-day
+  news, scenes are one line, no signposts before fight stages; nobody reacts to an Earther; Book 6 – 8 climaxes off
+  screen (Zel) or without hooks (Book 8: 1 hook in 269 events, Calruz not in the three-door fight); System lines not
+  in book style; lore slips (inn stays "abandoned", signs before day 14, Magnolia not pink, no Human distrust in Liscor).
+- [x] The user said "we will do all" (2026-10-17). Plan: ADR 0044 + `docs/plans/m29.md` – `m33.md`; ROADMAP has
+  M29 Lore polish, M30 Voices and the Earther, M31 Signposts and scene beats, M32 Climaxes of Books 6 – 8,
+  M33 Depth (branch `docs/player-audit-plan`). Docs only, no tests run. Waits: user merges the PR, then M29.0.
+- [ ] M28 leftover found: `sim_canon_book8` (in M28 "Done when") does not exist. Roadmap item added under M28.
 
 ## Audit (2026-10-08, local, read-only; no code changed)
 - [x] Findings split into modules M21 – M26 in `docs/ROADMAP.md` "Audit work" (2026-10-09). Work them from there; the list below is the source.
