@@ -4,7 +4,7 @@
 	"name": "The Raskghar camp",
 	"location": "raskghar_camp",
 	"confidence": "guess",
-	"note": "Design map (M28.1, ADR 0043). A large dungeon hall where Calruz's Raskghar hold their prisoners (5.39 - 5.44). The text gives no plan: the size, the rocks and the three doorways are guesses. Erin's door is set in the three entrances for the final battle (5.44). No exits: the player reaches it only through the M28.9 stage.",
+	"note": "Design map (M28.1, ADR 0043). A large dungeon hall where Calruz's Raskghar hold their prisoners (5.39 - 5.44). The text gives no plan: the size, the rocks and the three doorways are guesses. Erin's door is set in the three entrances for the final battle (5.44). No exits: the player comes in through Erin's magic door (inn_interior albez_door, link raskghar_camp, open from day 163 until raskghar.broken) and goes home by the north door's portal (M28.9).",
 	"zones": {},
 	"exits": [],
 	"objects": [
@@ -15,8 +15,16 @@
 				15,
 				0
 			],
-			"name": "North entrance",
-			"actions": []
+			"name": "North entrance (Erin's door home)",
+			"actions": [],
+			"portal": {
+				"to": "inn_interior",
+				"pos": [
+					3,
+					12
+				],
+				"power_flags": []
+			}
 		},
 		{
 			"id": "raskghar_door_west",

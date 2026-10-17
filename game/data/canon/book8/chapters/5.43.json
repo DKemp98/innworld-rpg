@@ -1,0 +1,717 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.43",
+	"order": 75,
+	"events": {
+		"b8.cave_goblins_slip_away_from_the_raskghar": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"cave_goblin": {
+					"prefer": [
+						"pebblesnatch"
+					],
+					"fallback_tags": [
+						"cave_goblin"
+					]
+				},
+				"hob": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"cave_goblins.desert_the_raskghar",
+					"cave_goblins.hear_of_hobgoblin_masters"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.43",
+				"confidence": "confirmed",
+				"note": "Night of day 162 (guess): 5.42 ends as this raid begins (ADR 0043 M28.8 doubt 3)."
+			},
+			"summary": "As the adventurers strike, most Cave Goblins run instead of shielding their masters. Word has spread below of a cave with food and no beatings, and of Hobgoblins, masters better than the Raskghar."
+		},
+		"b8.the_gold_rank_raid_on_the_raskghar_camp_fails": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "raskghar_camp",
+			"roles": {
+				"raid_leader": {
+					"prefer": [
+						"keldrass",
+						"halrac"
+					],
+					"fallback_tags": [
+						"adventurer"
+					]
+				},
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"stitch": {
+					"prefer": [
+						"revi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"selphid": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"awakened": {
+					"prefer": [
+						"nokha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"victim": {
+					"prefer": [
+						"cassa"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"raskghar.camp_raid_failed",
+					"adventurers.failed_to_trap_the_raskghar",
+					"pisces.emergency_door_destroyed",
+					"nokha.killed_a_gold_rank",
+					"reldiev_scalers.lost_cassa"
+				],
+				"kill": [
+					"cassa"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.43",
+				"confidence": "confirmed",
+				"note": "Night of day 162 (guess). Cassa is the named dead (plan). Hundreds of Raskghar is a character's guess; no counts."
+			},
+			"summary": "A team is seen before the trap closes. Raskghar with looted artifacts hold the narrow door, and Nokha kills Cassa with a glowing blade. Then the tribe flees out the back with the Gnolls. Halrac calls the retreat; Pisces's Bone Horror smashes the escape door behind them.",
+			"news": "A night raid by Gold-rank teams on the Raskghar camp failed; a Drake adventurer of Pallass was killed."
+		},
+		"b8.xess_mourns_cassa_and_the_teams_quarrel": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"captain": {
+					"prefer": [
+						"xess"
+					],
+					"fallback_tags": [
+						"adventurer"
+					]
+				},
+				"selphid": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"flyer": {
+					"prefer": [
+						"bevussa_slenderscale"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"dwarf": {
+					"prefer": [
+						"dawil"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"xess.blames_his_team_for_the_failed_raid",
+					"jelaqua.comforts_xess",
+					"pisces.hears_twenty_more_will_die",
+					"adventurers.have_no_new_plan",
+					"wandering_inn.adventurers_drink_after_the_failed_raid"
+				],
+				"relationship": [
+					{
+						"from": "xess",
+						"to": "jelaqua",
+						"delta": 2
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.43",
+				"confidence": "confirmed",
+				"note": "Day 162, late night (guess). The Wings of Pallass member Zassil has no record."
+			},
+			"summary": "Xess says his team was the one spotted and blames himself; Jelaqua takes him to find his team. Pisces reads a new message: Calruz suspects treachery and orders twenty more Gnolls sacrificed. The teams turn on each other until Erin stops them. No one has a plan."
+		},
+		"b8.vakk_and_twenty_gnolls_are_sacrificed": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "raskghar_camp",
+			"roles": {
+				"awakened": {
+					"prefer": [
+						"nokha"
+					],
+					"fallback_tags": [
+						"raskghar"
+					]
+				},
+				"captive": {
+					"prefer": [
+						"vakk"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"chieftain": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"elder": {
+					"prefer": [
+						"elirr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"raskghar.twenty_one_awakened",
+					"nokha.first_of_the_awakened",
+					"raskghar.awakened_eye_the_gnolls",
+					"calruz.beat_ceria_for_the_raid",
+					"ceria.hid_an_ice_dagger",
+					"mrsha.saw_vakk_die"
+				],
+				"clear_flags": [
+					"calruz.halts_the_sacrifices",
+					"calruz.plans_to_free_two_gnolls_with_demands"
+				],
+				"kill": [
+					"vakk"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.43",
+				"confidence": "confirmed",
+				"note": "Put after midnight on day 163 (guess; the text runs on from the raid night). The other nineteen dead have no names."
+			},
+			"summary": "In the old camp the Raskghar kill twenty captives on the altar and eat their hearts. Vakk is last and fights to the end. Calruz names twenty-one awakened under Nokha and beats Ceria for treachery. That night she shapes a dagger of ice.",
+			"news": "Word came from the dungeon that the Raskghar sacrificed more Gnoll captives after the failed raid."
+		},
+		"b8.the_redfangs_go_to_find_the_camp_again": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "cave_goblin_refuge",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"hob": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"berserker": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cloak": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"princess": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cave_goblin": {
+					"prefer": [
+						"pebblesnatch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"redfang.search_for_the_new_raskghar_camp",
+					"cave_goblins.fish_the_flood_for_food",
+					"erin.plays_both_sides_on_the_magic_chessboard",
+					"lyonette.numb_with_grief"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.43",
+				"confidence": "confirmed",
+				"note": "Day 163 morning (guess)."
+			},
+			"summary": "At dawn Lyonette sits numb in the wrecked common room. In the Goblin cave, Cave Goblins fry fish they caught at the flood's edge. The Hobs vow to find the new camp before night. Erin sits down at her magic chessboard and plays both sides to think."
+		},
+		"b8.a_raskghar_dashes_mrsha_to_the_ground": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "raskghar_camp",
+			"roles": {
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": []
+				},
+				"elder": {
+					"prefer": [
+						"elirr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"awakened": {
+					"prefer": [
+						"nokha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"mrsha"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"mrsha.badly_hurt_by_a_raskghar",
+					"raskghar.awakened_speak_and_mock_the_gnolls"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.43",
+				"confidence": "confirmed",
+				"note": "Day 163 (guess). The text implies cracked ribs; healed or not is left open."
+			},
+			"summary": "An awakened Raskghar taunts the caged Gnolls in halting words. Mrsha pelts him with her own dung and the camp laughs at him. In a rage he pulls her out and smashes her against the floor; Nokha drags him off. Mrsha is badly hurt."
+		},
+		"b8.ceria_tries_to_kill_calruz_and_makes_a_pact": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": []
+				},
+				"chieftain": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"awakened": {
+					"prefer": [
+						"nokha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dungeon.children_nest_destroyed",
+					"ceria.struck_at_calruz_with_ice",
+					"calruz.fears_the_awakened_will_rebel",
+					"calruz.agrees_to_spare_the_gnolls",
+					"ceria.sides_with_calruz_against_the_awakened",
+					"pisces.knows_the_raskghar_may_rebel"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.43",
+				"confidence": "confirmed",
+				"note": "Day 163 (guess). Calruz says he has [Thick Skin] (system record). Ceria warns Pisces by a firefly message."
+			},
+			"summary": "The awakened wipe out a nest of Children. Ceria lunges at Calruz with her ice dagger; he was warned by the Raskghar's noses. She tells him the ritual may keep them clever when the moons wane. He agrees to stop the sacrifices while she helps him against them."
+		},
+		"b8.erin_finds_a_plan_in_the_goblin_cave": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "cave_goblin_refuge",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cave_goblin": {
+					"prefer": [
+						"pebblesnatch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"erin.has_a_plan_to_save_the_captives",
+					"pisces.flood_plan_rejected",
+					"cave_goblins.watch_erin_play_chess"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.43",
+				"confidence": "confirmed",
+				"note": "Day 163 (guess). The plan is not told here; 5.44 shows it."
+			},
+			"summary": "Pisces finds Erin playing chess before a crowd of Cave Goblins. He proposes flooding the camp through a door; she turns it down as too complex. When Pebblesnatch brings her water, Erin sees a plan with one moving part: trust. Pisces agrees and fetches the Gold-ranks."
+		},
+		"b8.mrsha_breaks_the_gnolls_shackles_with_grass": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "raskghar_camp",
+			"roles": {
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": []
+				},
+				"elder": {
+					"prefer": [
+						"elirr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"mrsha"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"mrsha.cast_spells_with_cerias_wand",
+					"liscor_gnolls.most_shackles_broken",
+					"elirr.thanks_mrsha"
+				],
+				"relationship": [
+					{
+						"from": "elirr",
+						"to": "mrsha",
+						"delta": 2
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.43",
+				"confidence": "confirmed",
+				"note": "Day 163 (guess). Mrsha's [Grow Grass] and [Wild Growth] are known spells (no new record). How many are freed is left out."
+			},
+			"summary": "Ceria's lost wand rolls against Mrsha's cage. Mrsha grows grass inside her shackles until the metal cracks, then does the same for the Gnolls she can reach until she faints. Elirr, who said Gnolls cannot use magic, thanks her with the others."
+		},
+		"b8.mrsha_howls_and_facestealer_falls_on_the_camp": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "raskghar_camp",
+			"roles": {
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": []
+				},
+				"elder": {
+					"prefer": [
+						"elirr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"chieftain": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"awakened": {
+					"prefer": [
+						"nokha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"mrsha"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"facestealer.attacked_the_raskghar_camp",
+					"mrsha.howled_to_free_the_gnolls",
+					"liscor_gnolls.broke_out_of_the_camp",
+					"ceria.wounded_facestealer"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.43",
+				"confidence": "confirmed",
+				"note": "Day 163 (guess). Facestealer (Snatcher) has no record (flag dungeon.facestealer_roams_the_labyrinth, 5.42)."
+			},
+			"summary": "Calruz cancels the night's ritual. Then heads on sticks peer into the camp: Facestealer. The Raskghar freeze and gag the Gnolls, but Nokha sees the broken shackles. Mrsha howls; the monster comes in and lays all flat. Ceria wounds it and Elirr flees with Mrsha.",
+			"news": "Gnolls held by the Raskghar broke out of their cages when a dungeon horror struck the camp."
+		}
+	},
+	"system": [
+		{
+			"who": "calruz",
+			"kind": "skill",
+			"name": "[Thick Skin]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "He says he has it now; an ice dagger would barely cut him."
+		}
+	]
+}
