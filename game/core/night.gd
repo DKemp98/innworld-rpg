@@ -51,7 +51,7 @@ static func run(gs: GameState, db: DataDb, collapsed: bool = false,
 	# 2c. The inn (M14.2): the day's takings; the guests go home.
 	lines.append_array(Guests.night(gs, db))
 	for id in offered:
-		lines.append("Class offered: %s. Accept or decline." % db.classes[id]["name"])
+		lines.append("%s Accept or decline." % SystemVoice.class_offered(db.classes[id]["name"]))
 	# 5. World director: canon events up to the day before the wake day.
 	var history_before := gs.world.history.size()
 	var news_before := gs.world.news.size()
@@ -134,10 +134,10 @@ static func level_lines(gs: GameState, db: DataDb, id: String) -> Array[String]:
 	var name: String = db.classes[id]["name"]
 	var lines: Array[String] = []
 	for level in Levels.level_up(p, id, level_rules):
-		lines.append("%s reached level %d." % [name, level])
+		lines.append(SystemVoice.level_up(name, level))
 		var skill := SkillSystem.on_level(gs, db, id, level)
 		if skill != "":
-			lines.append("Skill gained: %s." % db.skills[skill]["name"])
+			lines.append(SystemVoice.skill(db.skills[skill]["name"]))
 		if level == p.level_of(id) and Breakthrough.waiting_for(p, id, level_rules) != 0:
 			var hint := Breakthrough.hint(db, id)
 			if hint != "":

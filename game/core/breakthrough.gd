@@ -14,7 +14,6 @@ extends RefCounted
 const BARS := ["risk", "duress", "window"]
 ## Defaults for a record made before M17.8 / M17.9 (no window, no duress).
 const BAR_DEFAULTS := {"risk": 0.0, "duress": 1.0, "window": 1.0}
-const KEY_LINE := "Breakthrough: %s can grow past level %d."
 
 
 ## rules.levels.breakthrough, or {} (then source 1 is off).
@@ -119,7 +118,7 @@ static func hint(db: DataDb, class_id: String) -> String:
 
 
 static func key_line(db: DataDb, class_id: String, level: int) -> String:
-	return KEY_LINE % [db.classes[class_id]["name"], level]
+	return SystemVoice.breakthrough(db.classes[class_id]["name"], level)
 
 
 static func _value(r: Dictionary, key: String) -> float:

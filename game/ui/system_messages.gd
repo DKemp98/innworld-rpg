@@ -140,15 +140,15 @@ static func offer_pages(gs: GameState, db: DataDb) -> Array[Dictionary]:
 			var best := 0
 			for old: String in from:
 				best = maxi(best, gs.progression.level_of(old))
-			lines.append("%s can join your classes into one." % c["name"])
-			lines.append("It takes the place of: %s." % ", ".join(from.map(
-					func(old: String) -> String: return db.classes[old]["name"])))
+			lines.append(SystemVoice.conditions_met(from.map(
+					func(old: String) -> String: return db.classes[old]["name"]), c["name"]))
+			lines.append("It joins your classes into one and takes their place.")
 			lines.append("You start it at level %d." %
 					maxi(1, best - int(c["consolidation"]["level_cost"])))
 		else:
-			lines.append("You can gain the class %s." % c["name"])
+			lines.append(SystemVoice.class_offered(c["name"]))
 		lines.append("If you decline, it is never offered again.")
-		var p := page(OFFER, "Class Offer", lines, [ACCEPT, DECLINE])
+		var p := page(OFFER, "[Class Offered]", lines, [ACCEPT, DECLINE])
 		p["class"] = id
 		out.append(p)
 	return out

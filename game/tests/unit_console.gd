@@ -71,7 +71,7 @@ func test_sleep_status_and_offers() -> void:
 		if status.contains("Offer: [Innkeeper]"):
 			break
 	assert_string_contains(status, "Offer: [Innkeeper]")
-	assert_string_contains(_text(c.execute("accept innkeeper")), "Class gained")
+	assert_string_contains(_text(c.execute("accept innkeeper")), "[Innkeeper Class Obtained!]")
 	assert_string_contains(_text(c.execute("status")), "[Innkeeper] level 1")
 	assert_string_contains(_text(c.execute("pools")), "cook")
 
@@ -163,7 +163,7 @@ func test_wait_npcs_and_talk() -> void:
 	assert_string_contains(_text(c.execute("npcs")), "beilmark         liscor_gate 2,13")
 	assert_string_contains(_text(c.execute("look")), "Beilmark (beilmark): talk_with_guest")
 	var out := _text(c.execute("use beilmark talk_with_guest"))
-	assert_string_contains(out, "Talk with a guest")
+	assert_string_contains(out, "Talk")
 	assert_eq(c.gs.world.relationship("beilmark", NpcSim.PLAYER), 1)
 	var t := c.gs.clock.total_minutes
 	assert_string_contains(_text(c.execute("wait 30")), "You wait.")

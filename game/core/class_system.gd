@@ -143,7 +143,7 @@ static func _consolidate(gs: GameState, db: DataDb, id: String) -> Array[String]
 		p.breakthroughs.erase(old)
 		names.append(db.classes[old]["name"])
 		lines.append("%s is gone." % db.classes[old]["name"])
-	lines.push_front("Your classes have consolidated: %s became %s." % [" and ".join(names), c["name"]])
+	lines.push_front(SystemVoice.conditions_met(names, c["name"]))
 	return _gain(gs, db, id, maxi(1, from_best - int(c["consolidation"]["level_cost"])), lines)
 
 
@@ -151,7 +151,11 @@ static func _gain(gs: GameState, db: DataDb, id: String, level: int, lines: Arra
 	var p := gs.progression
 	var c: Dictionary = db.classes[id]
 	p.classes[id] = {"level": level, "xp": 0.0, "last_active_day": gs.clock.day()}
-	lines.insert(1 if lines.size() > 0 else 0, "Class gained: %s, level %d." % [c["name"], level])
+	# Accept: "[X Class Obtained!]" then "[X Level 1!]". Consolidation: its "[Conditions Met: …]"
+	# line names the class already, so only the level line follows it.
+	if lines.is_empty():
+		lines.append(SystemVoice.class_obtained(c["name"]))
+	lines.insert(1, SystemVoice.level_up(c["name"], level))
 	# Offers that the new class excludes are withdrawn (not blacklisted).
 	for o: Dictionary in p.offers.duplicate():
 		if not can_offer_ignoring_offer(gs, db, o["class"]):
@@ -160,7 +164,7 @@ static func _gain(gs: GameState, db: DataDb, id: String, level: int, lines: Arra
 	for n in int(db.rules["skills"]["on_accept"]):
 		var skill := SkillSystem.grant_random(gs, db, id, level)
 		if skill != "":
-			lines.append("Skill gained: %s." % db.skills[skill]["name"])
+			lines.append(SystemVoice.skill(db.skills[skill]["name"]))
 	return lines
 
 
@@ -206,13 +210,13 @@ static func check_loss(gs: GameState, db: DataDb, today: int) -> Array[String]:
 		c["xp"] = 0.0
 		var name: String = db.classes[id]["name"]
 		if int(c["level"]) > 0:
-			lines.append("%s fades from neglect: level %d." % [name, c["level"]])
+			lines.append("%s It fades from neglect." % SystemVoice.level_down(name, int(c["level"]) + 1, c["level"]))
 			continue
 		p.classes.erase(id)
 		p.breakthroughs.erase(id)
 		p.lost.append(id)
 		p.pools[id] = 0.0
-		lines.append("You lost the class %s." % name)
+		lines.append(SystemVoice.class_lost(name))
 	return lines
 
 
