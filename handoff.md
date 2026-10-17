@@ -1,5 +1,27 @@
 # Handoff
 
+## Just done (2026-10-17, local): audit plan M29 – M33 (branch `docs/player-audit-plan`)
+- The user said "we will do all". Wrote ADR 0044 and `docs/plans/m29.md` … `m33.md`; ROADMAP "At a glance" and
+  "Next up" now list M29 – M33 with model tags; a missing `sim_canon_book8` is a new M28 item. Docs only, no tests run.
+- ROADMAP "At a glance" now has a "Model · effort per step" column (user ask). It copies the step tags; when a tag
+  changes, change both. Reading agents: Sonnet · medium.
+- Next: user merges the PR. Then M29.0 (book-style System lines + "Talk" label) **[Opus · medium]**. Each schema or
+  save change in ADR 0044's table is asked at the start of its step (rule 11).
+- Gotchas: test names in the plans were checked against `game/tests/` (there is no `unit_save_migrations` or
+  `unit_title_menu`; migrations are tested in the feature's own unit test, the title flow in `unit_play_loop`).
+
+## Just done (2026-10-17, local): player audit (read-only)
+- Wrote `docs/AUDIT_PLAYER_2026-10-17.md` (committed with the plan above). No code or data changed, no tests run.
+- Method: v0.1.5 web build served from `export/InnworldRPG-v0.1.5-alpha-web` (`python -m http.server`), driven
+  with Playwright; headless `extends SceneTree` scripts (scratchpad) that sleep through all books and print
+  `SystemMessages.pages`.
+- Next: the user picks the order of work from the audit. Option 1 (NPC voices) needs a schema change: ask first.
+- Gotchas: Playwright screenshots of the Godot canvas time out with the default tool; use
+  `page.screenshot({timeout: 60000})` in run_code. Godot needs a key held ~120 ms (`keyboard.down`/`up`), a bare
+  `press` is lost. In the debug console every second command is often dropped after a walk; send one per call and
+  check with `where`. `go n` from the Liscor gate walks into the 10 h road to the camp. Playwright writes
+  `.playwright-mcp/` in the repo root: delete it after.
+
 ## Just done (2026-10-17, local): M28.9 canon 5.43 - 5.44, M28 complete (branch `feat/m28.9-canon-5-43`)
 - 26 events, stage `b8.three_doors_open_on_the_raskghar_camp` (day 163, 18 - 23 h, xp x3), tests `sim_book8_battle_one`, `sim_kill_book8`. The player enters by Erin's magic door in `inn_interior` (open day 163 only, user pick); the camp north door leads back; a knock-out wakes at the inn (rules.json). ADR 0043 has doubts.
 - Next: user merges the PR. Then the user plays Book 8. Optional later: own art for the Raskghar (they wear the Gnoll look); the text puts the battle on day 163, not 163 - 164; battle hours are a guess.
