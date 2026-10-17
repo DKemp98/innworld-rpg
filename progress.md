@@ -113,6 +113,8 @@ M0–M16 detail (roadmap bullets, decisions, ADR 0001–0026) lives in
 - [x] The user said "we will do all" (2026-10-17). Plan: ADR 0044 + `docs/plans/m29.md` – `m33.md`; ROADMAP has
   M29 Lore polish, M30 Voices and the Earther, M31 Signposts and scene beats, M32 Climaxes of Books 6 – 8,
   M33 Depth (branch `docs/player-audit-plan`). Docs only, no tests run. Waits: user merges the PR, then M29.0.
+- [x] ROADMAP "At a glance" has a "Model · effort per step" column for every open phase and sub-step (user ask,
+  2026-10-17); reading agents run on Sonnet · medium. Same PR.
 - [ ] M28 leftover found: `sim_canon_book8` (in M28 "Done when") does not exist. Roadmap item added under M28.
 
 ## Audit (2026-10-08, local, read-only; no code changed)

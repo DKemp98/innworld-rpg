@@ -3,6 +3,8 @@
 ## Just done (2026-10-17, local): audit plan M29 – M33 (branch `docs/player-audit-plan`)
 - The user said "we will do all". Wrote ADR 0044 and `docs/plans/m29.md` … `m33.md`; ROADMAP "At a glance" and
   "Next up" now list M29 – M33 with model tags; a missing `sim_canon_book8` is a new M28 item. Docs only, no tests run.
+- ROADMAP "At a glance" now has a "Model · effort per step" column (user ask). It copies the step tags; when a tag
+  changes, change both. Reading agents: Sonnet · medium.
 - Next: user merges the PR. Then M29.0 (book-style System lines + "Talk" label) **[Opus · medium]**. Each schema or
   save change in ADR 0044's table is asked at the start of its step (rule 11).
 - Gotchas: test names in the plans were checked against `game/tests/` (there is no `unit_save_migrations` or
