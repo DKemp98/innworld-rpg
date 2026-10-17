@@ -1,0 +1,492 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.42",
+	"order": 74,
+	"events": {
+		"b8.a_cursed_cup_kills_a_raskghar_and_calruz_cows_ceria": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"minotaur": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"awakened": {
+					"prefer": [
+						"nokha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"calruz",
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"raskghar.camp_holds_thousands",
+					"raskghar.misuse_looted_artifacts",
+					"calruz.presence_cows_ceria",
+					"nokha.leads_the_awakened_in_camp"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.42",
+				"confidence": "confirmed",
+				"note": "The Skill is not named. Ceria's 'two thousand' is a guess; no counts used."
+			},
+			"summary": "Ceria counts thousands of Raskghar in the camp, ten Cave Goblins to each. One Raskghar pours water into a looted cup and is smothered in black smoke. Ceria realises a Skill of Calruz's makes her meek whenever he looks at her."
+		},
+		"b8.calruz_tells_ceria_how_he_became_chieftain": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"minotaur": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"calruz",
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"calruz.told_ceria_how_he_survived",
+					"calruz.fell_into_the_raskghar_graveyard",
+					"calruz.killed_the_old_raskghar_chieftain",
+					"raskghar.camps_move_to_rally_points",
+					"dungeon.four_great_nests_known"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.42",
+				"confidence": "confirmed",
+				"note": "He speaks of four labyrinth exits and four great nests (Shield Spiders, Face-Eater Moths, fungus, one empty). A Raskghar outpost of about thirty is found slaughtered by an unknown foe (the Redfangs, 5.41)."
+			},
+			"summary": "As the tribe moves camp, Calruz tells Ceria he fled the crypt, fell down a shaft into a Raskghar graveyard, was captured, killed their sleeping chieftain and talked his way into the post. He grieves for his team and wants news of Ryoka."
+		},
+		"b8.ceria_sees_the_invisible_monsters_at_the_spring": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": []
+				},
+				"minotaur": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"elder": {
+					"prefer": [
+						"elirr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"ceria.can_see_the_unseen_monsters",
+					"calruz.blames_the_dungeon_water_for_the_blindness",
+					"calruz.drinks_only_clean_water"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.42",
+				"confidence": "likely",
+				"note": "That the water causes it is Calruz's deduction (likely, not proven). Calruz uses [Hammer Blow] and [Gore Splash] here."
+			},
+			"summary": "At an underground spring Ceria sees half-changed maggot insects that Calruz and the Raskghar cannot. She guides the kill. A living one shown to the captives is seen only by the Gnolls who have not drunk the dungeon water. Calruz will drink only clean water now."
+		},
+		"b8.calruz_shows_ceria_the_dungeon_city": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "dungeon_city",
+			"roles": {
+				"minotaur": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"calruz",
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.ceria_sees_the_invisible_monsters_at_the_spring"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"ceria.has_seen_the_dungeon_city",
+					"dungeon_city.infested_by_skinned_drakes",
+					"dungeon_city.guarded_by_animated_armour",
+					"calruz.culls_the_city_infested",
+					"calruz.axe_edge_grows_with_magic",
+					"dungeon_city.pit_to_the_heart_seen"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.42",
+				"confidence": "confirmed"
+			},
+			"summary": "Through great doors at the labyrinth's heart lies a ruined city under glowing red lichen. Its defenders are skinned Drakes that will not stop, and armour on patrol. Calruz's axe grows a huge blade of light; Ceria burns them. He plans to wipe out the infested and climb down the pit at its centre."
+		},
+		"b8.the_monolith_names_the_mother_of_graves": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "dungeon_city",
+			"roles": {
+				"minotaur": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"calruz",
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.calruz_shows_ceria_the_dungeon_city"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dungeon.mother_of_graves_known",
+					"dungeon.skinner_snatcher_and_stalker_named",
+					"dungeon.stalker_found_dead",
+					"dungeon.facestealer_roams_the_labyrinth"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.42",
+				"confidence": "confirmed"
+			},
+			"summary": "In a plaza a monolith bears three heads, one of them Skinner. Calruz says it warns of the Mother of Graves and her three crypt guardians. Stalker lies dead and nearly unseen at its base; Snatcher, the head-taker the Raskghar call Facestealer, still hunts the labyrinth."
+		},
+		"b8.vakk_blames_mrsha_and_the_captives_are_beaten": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"captive": {
+					"prefer": [
+						"vakk"
+					],
+					"fallback_tags": []
+				},
+				"elder": {
+					"prefer": [
+						"elirr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"vakk",
+					"elirr",
+					"mrsha"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"vakk.blames_mrsha_for_the_doom",
+					"elirr.leads_the_captives",
+					"captive_gnolls.beaten_again"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.42",
+				"confidence": "confirmed"
+			},
+			"summary": "Elirr guesses the Raskghar gain strength through forbidden blood magic. Young Vakk blames Mrsha's white fur and screams at her to bring doom on the Raskghar instead. The howling brings another beating; Mrsha is left alone and ashamed."
+		},
+		"b8.calruz_halts_the_sacrifices_and_drafts_his_demands": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"minotaur": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": []
+				},
+				"awakened": {
+					"prefer": [
+						"nokha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"elder": {
+					"prefer": [
+						"elirr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"calruz",
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.calruz_has_a_gnoll_sacrificed_to_break_ceria"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"nokha.brought_a_giant_moth_head",
+					"elirr.told_calruz_of_the_white_fur_curse",
+					"calruz.halts_the_sacrifices",
+					"calruz.plans_to_free_two_gnolls_with_demands",
+					"ceria.helps_calruz_write_his_demands",
+					"raskghar.resent_calruz_over_the_gnolls"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.42",
+				"confidence": "confirmed",
+				"note": "The awakened female is Nokha (named in 5.43)."
+			},
+			"summary": "The awakened Raskghar brings Calruz a giant moth's head and asks for more rituals. He chokes her into submission, has Elirr explain the white fur curse, and at Ceria's urging stops the sacrifices. Tomorrow two Gnolls will carry his demands to Liscor."
+		},
+		"b8.the_camp_is_struck_by_night_and_calruz_turns_on_ceria": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"minotaur": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"calruz",
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.calruz_halts_the_sacrifices_and_drafts_his_demands",
+				"b8.cave_goblins_who_know_the_camp_reach_erin"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"raskghar.camp_struck_by_night",
+					"calruz.suspects_ceria_of_treachery",
+					"calruz.struck_ceria_down",
+					"raskghar.carry_off_the_captives_again"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.42",
+				"confidence": "confirmed",
+				"note": "Camp side only. The raid itself (5.43) starts on the night of day 162; M28.9 tells it."
+			},
+			"summary": "In the night a blast shakes the camp: adventurers have found it. Calruz accuses Ceria, then sends Raskghar to fight and others to carry the caged Gnolls away. When she begs him to talk instead, he knocks her down with his axe haft and charges."
+		}
+	},
+	"system": [
+		{
+			"who": "calruz",
+			"kind": "skill",
+			"name": "[Gore Splash]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Bursts a corpse so its blood marks unseen monsters."
+		}
+	]
+}

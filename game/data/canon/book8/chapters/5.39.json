@@ -1,0 +1,882 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.39",
+	"order": 71,
+	"events": {
+		"b8.ceria_tells_calruz_his_old_team_is_dead": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"minotaur": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"calruz",
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.calruz_greets_ceria_in_the_raskghar_camp"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"calruz.learns_his_old_team_died",
+					"calruz.learns_erin_killed_skinner",
+					"ceria.refuses_to_serve_calruz",
+					"calruz.wants_ceria_back_in_his_team"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.39",
+				"confidence": "confirmed",
+				"note": "Same Calruz as Book 1 (no merge). Ceria's knife snaps on his arm; he says the daylight raiders kept their lives because they brought her."
+			},
+			"summary": "Calruz greets Ceria as if she is still his soldier and asks after his old team. She tells him they all died and that Erin killed Skinner with acid jars. He laughs at that, but he will not free the caged Gnolls."
+		},
+		"b8.calruz_has_a_gnoll_sacrificed_to_break_ceria": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"minotaur": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"awakened": {
+					"prefer": [
+						"nokha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"calruz",
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.ceria_tells_calruz_his_old_team_is_dead"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"raskghar.ritual_sacrifice_performed",
+					"raskghar.grow_stronger_from_gnoll_hearts",
+					"nokha.awakened_by_the_ritual",
+					"calruz.threatens_a_sacrifice_for_each_refusal",
+					"ceria.submits_to_calruz",
+					"mrsha.saw_the_sacrifice"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.39",
+				"confidence": "confirmed",
+				"note": "The victim is not named: no kill. The female is Nokha (named in 5.43; the one Krshia fought in 5.34)."
+			},
+			"summary": "When Ceria refuses again, Calruz lets a female Raskghar kill a young captive Gnoll on a stone altar and eat his heart. She grows larger and wiser at once. Calruz swears to kill another Gnoll each time Ceria disobeys, and she gives in, weeping.",
+			"news": "Captive Gnolls are being killed in a ritual in the Raskghar camp."
+		},
+		"b8.elirr_calls_mrsha_a_doombringer": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"elder": {
+					"prefer": [
+						"elirr"
+					],
+					"fallback_tags": []
+				},
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"elirr",
+					"mrsha"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"elirr.calls_mrsha_doombringer",
+					"captive_gnolls.shun_mrsha",
+					"raskghar.beat_the_howling_captives"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.39",
+				"confidence": "confirmed",
+				"note": "Elirr is named in 5.42; same old Gnoll."
+			},
+			"summary": "In the cages an old grey Gnoll from Liscor names Mrsha a Doombringer and turns away; the others follow him. The captives howl for help together until the Raskghar beat them silent. Mrsha cries herself to sleep."
+		},
+		"b8.the_gold_captains_count_their_dead_after_the_ambush": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"victim": {
+					"prefer": [
+						"rebat"
+					],
+					"fallback_tags": []
+				},
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"selphid": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"flyer": {
+					"prefer": [
+						"bevussa_slenderscale"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"captain": {
+					"prefer": [
+						"keldrass"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"rebat"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"dungeon.great_raid_lost_rebat_and_many_silvers",
+					"gold_ranks.dive_again_at_first_light",
+					"griffon_hunt.uses_the_screaming_falls_plan",
+					"flamewardens.will_burn_their_way_in",
+					"erin.cooks_defence_food_for_the_dive"
+				],
+				"kill": [
+					"rebat"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.39",
+				"confidence": "confirmed",
+				"note": "Rebat died in the 5.38 ambush and is named dead here (a named death in the plan). Griffon Hunt's old Screaming Falls plan is told in 5.40."
+			},
+			"summary": "In the inn the Gold-rank captains tally the cost: many Silver-ranks hurt and Rebat, a Gold-rank, dead. They fear the Gnolls will die before the moons wane. Jelaqua, Halrac, Bevussa and Keldrass vow to go back at first light; Halrac asks Erin for her defence food.",
+			"news": "A Gold-rank adventurer died in the Raskghar ambush in Liscor's dungeon."
+		},
+		"b8.the_silver_swords_put_yvlon_to_sleep": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"knight": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": []
+				},
+				"half_elf": {
+					"prefer": [
+						"falene_skystrall"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"dwarf": {
+					"prefer": [
+						"dawil"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"brother": {
+					"prefer": [
+						"ylawes_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"yvlon_byres"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"yvlon.sleep_spelled_and_bound_by_falene",
+					"silver_swords.keep_silver_ranks_out_of_the_dungeon",
+					"pisces.shut_himself_in_his_room"
+				],
+				"relationship": [
+					{
+						"from": "yvlon_byres",
+						"to": "falene_skystrall",
+						"delta": -2
+					},
+					{
+						"from": "yvlon_byres",
+						"to": "ylawes_byres",
+						"delta": -1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.39",
+				"confidence": "confirmed"
+			},
+			"summary": "Pisces walks up to his room with an empty face. Yvlon wants to dive at dawn, but the Silver Swords forbid it; when she threatens Falene, the half-Elf drops her with a sleep spell and they bind her to her bed."
+		},
+		"b8.zevara_and_ilvriss_refuse_to_send_their_people_down": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"watch_captain": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"lord": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"strategist": {
+					"prefer": [
+						"olesm"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"liscor.watch_guards_the_walls_by_day_and_night",
+					"ilvriss.doubles_the_reward_for_missing_citizens",
+					"ilvriss.orders_erin_kept_in_the_inn",
+					"zevara.credits_erin_with_the_warning"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.39",
+				"confidence": "confirmed",
+				"note": "Selys hears the order to keep Erin in the inn."
+			},
+			"summary": "Zevara will not risk one guard below; the Watch will hold the walls by day and night. She admits Erin's warning saved the wall. Ilvriss doubles the reward for the missing but will not fight, and quietly has Erin watched."
+		},
+		"b8.selys_sets_drassi_to_watch_erin": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"receptionist": {
+					"prefer": [
+						"selys"
+					],
+					"fallback_tags": []
+				},
+				"barmaid": {
+					"prefer": [
+						"drassi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"archer": {
+					"prefer": [
+						"bird"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"selys"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"drassi.stays_at_the_inn_to_watch_erin",
+					"liscor.gnolls_kept_inside_the_walls",
+					"bird.learns_mrsha_and_ceria_were_taken"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.39",
+				"confidence": "confirmed",
+				"note": "Bird tells Halrac that Klbkch says all goes to plan."
+			},
+			"summary": "Bird has not followed the talk at all; when Selys tells him Mrsha and Ceria are gone he rocks and moans that he failed. Selys asks Drassi to stay at the inn and stop Erin doing anything rash; the Council has barred Gnolls, Ishkr too, from leaving the walls."
+		},
+		"b8.ksmvr_challenges_klbkch_and_is_cut_down": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "liscor_hive",
+			"roles": {
+				"former_prognugator": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": []
+				},
+				"revalantor": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"tactician": {
+					"prefer": [
+						"anand"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"tactician_two": {
+					"prefer": [
+						"belgrade"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ksmvr",
+					"klbkch"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"ksmvr.challenged_klbkch_and_lost",
+					"ksmvr.left_bleeding_outside_the_hive",
+					"klbkch.secretly_values_ksmvr"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.39",
+				"confidence": "confirmed",
+				"note": "Klbkch later tells Anand and Belgrade that Ksmvr is an asset who must not know it."
+			},
+			"summary": "Ksmvr walks into the Hive and demands Soldiers to save Ceria. Klbkch says he is not one of them, so Ksmvr challenges him for his post. Klbkch parries the fire dagger and cuts him twice, pours a potion on him and has him dumped in the street."
+		},
+		"b8.klbkch_sets_his_tacticians_new_tasks": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "liscor_hive",
+			"roles": {
+				"revalantor": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": []
+				},
+				"tactician": {
+					"prefer": [
+						"anand"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"tactician_two": {
+					"prefer": [
+						"belgrade"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"klbkch"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.ksmvr_challenges_klbkch_and_is_cut_down"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"belgrade.studies_antinium_pit_traps",
+					"anand.designs_bows_for_the_workers",
+					"klbkch.keeps_painted_soldiers_at_the_inn",
+					"antinium.pawn_not_told_of_the_offensive",
+					"antinium.scrying_mirror_watches_the_dungeon"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.39",
+				"confidence": "confirmed"
+			},
+			"summary": "Klbkch tells Belgrade to learn the old Antinium pit trap and Anand to design better bows. He will keep Painted Soldiers at Erin's inn, will save Ceria and Mrsha if he can, and forbids them to tell Pawn how many will die. They will watch through a scrying mirror."
+		},
+		"b8.klbkch_leads_the_free_antinium_into_the_dungeon": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"revalantor": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": []
+				}
+			},
+			"requires": {
+				"alive": [
+					"klbkch"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.klbkch_sets_his_tacticians_new_tasks"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"free_antinium.dungeon_offensive_launched",
+					"antinium.looted_three_trapped_treasure_rooms",
+					"klbkch.spoke_to_the_doomed_soldiers",
+					"raskghar.fall_back_from_the_antinium"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.39",
+				"confidence": "confirmed",
+				"note": "User choice: events only, no exact counts."
+			},
+			"summary": "At night Klbkch leads fresh Soldiers into the dungeon by the Hive tunnel. Soldiers walk into trapped treasure rooms one by one until the traps give out. Before a blind charge he tells the drones they fight to be remembered; then a far bigger second wave floods in and the Raskghar fall back.",
+			"news": "The Antinium of Liscor attacked the dungeon in force."
+		},
+		"b8.bird_slips_into_the_dungeon_to_find_mrsha": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"archer": {
+					"prefer": [
+						"bird"
+					],
+					"fallback_tags": []
+				}
+			},
+			"requires": {
+				"alive": [
+					"bird"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.klbkch_leads_the_free_antinium_into_the_dungeon"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"bird.searching_the_dungeon_alone"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.39",
+				"confidence": "confirmed"
+			},
+			"summary": "Bird follows the last Antinium in, then wanders down an empty tunnel on his own, calling for Mrsha and Ceria. He did a bad thing, so he must do a good one. The dungeon stirs at his shouting."
+		},
+		"b8.toren_drags_off_a_dead_raskghar": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"skeleton": {
+					"prefer": [
+						"toren"
+					],
+					"fallback_tags": []
+				}
+			},
+			"requires": {
+				"alive": [
+					"toren"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.klbkch_leads_the_free_antinium_into_the_dungeon"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"toren.collects_dead_raskghar"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.39",
+				"confidence": "confirmed",
+				"note": "Toren, in the dungeon since Book 7. He speaks of 'both Torens' and a 'she' who likes the adventurers; not explained here."
+			},
+			"summary": "A skeleton watches Bird go, then drags a Raskghar killed by the Antinium back to his lair. The crowded dungeon means more bodies for his growing collection."
+		},
+		"b8.ceria_sends_pisces_coded_butterflies": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": []
+				},
+				"minotaur": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.calruz_has_a_gnoll_sacrificed_to_break_ceria"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"ceria.sent_pisces_secret_butterfly_messages",
+					"pisces.knows_ceria_and_mrsha_are_alive",
+					"pisces.building_new_bone_horrors",
+					"calruz.moves_camp_every_night",
+					"calruz.wields_a_magic_axe",
+					"calruz.scorns_the_antinium_assault"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.39",
+				"confidence": "confirmed"
+			},
+			"summary": "Calruz polishes a glowing axe and scoffs that no one will find his camp, which moves each night. Behind her back Ceria sends tiny butterflies of light in a code she and Pisces made at Wistram: alive, Mrsha alive, Calruz is chieftain. Pisces, shaping bones all night, reads them."
+		},
+		"b8.erin_begs_the_redfangs_to_find_mrsha_and_ceria": {
+			"tier": 2,
+			"window": {
+				"earliest": 161,
+				"latest": 161,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"bard": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cloak": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"erin.asked_the_redfangs_to_find_mrsha_and_ceria",
+					"redfang.accept_erins_rescue_request"
+				],
+				"relationship": [
+					{
+						"from": "numbtongue",
+						"to": "erin_solstice",
+						"delta": 1
+					},
+					{
+						"from": "rabbiteater",
+						"to": "erin_solstice",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.39",
+				"confidence": "confirmed",
+				"note": "She sets aside 'Plan G' (hiding the Cave Goblins; shown in 5.41)."
+			},
+			"summary": "Erin turns to the Redfangs as an adventuring team and begs them to find Mrsha and Ceria, whatever it costs. Numbtongue takes her hand and says they will. He and Rabbiteater row away; Erin starts cooking."
+		}
+	},
+	"system": [
+		{
+			"who": "ksmvr",
+			"kind": "skill",
+			"name": "[Quick Slash]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Gained after the Face-Eater Moth attack; used against Klbkch."
+		}
+	]
+}

@@ -1,0 +1,666 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.40",
+	"order": 72,
+	"events": {
+		"b8.ksmvr_and_yvlon_break_falenes_binding": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"knight": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": []
+				},
+				"antinium": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"yvlon_byres",
+					"ksmvr"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_silver_swords_put_yvlon_to_sleep"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"ksmvr.stays_with_the_horns",
+					"pisces.tells_the_team_ceria_is_alive",
+					"horns_of_hammerad.go_after_ceria"
+				],
+				"clear_flags": [
+					"yvlon.sleep_spelled_and_bound_by_falene"
+				],
+				"relationship": [
+					{
+						"from": "ksmvr",
+						"to": "yvlon_byres",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.40",
+				"confidence": "confirmed"
+			},
+			"summary": "Yvlon wakes bound to her bed late in the morning. Ksmvr, writing his resignation, is shamed into helping. Pisces, sleepless and dusted with bone, says Ceria has messaged him and has Ksmvr cut the spell with Yvlon's sword."
+		},
+		"b8.pisces_raises_bone_horrors_and_silver_teams_follow": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": []
+				},
+				"knight": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"antinium": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"rogue": {
+					"prefer": [
+						"insill"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"gnoll": {
+					"prefer": [
+						"larr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"hammer": {
+					"prefer": [
+						"earlia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"gnoll_captain": {
+					"prefer": [
+						"nailren"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"princess": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"pisces"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.ksmvr_and_yvlon_break_falenes_binding"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pisces.raised_new_bone_horrors",
+					"pisces.bone_horror_armoured_bear",
+					"pisces.bone_horror_spider",
+					"pisces.rat_horrors_climb_from_the_sewers",
+					"vuliel_drae.failed_to_stop_the_horns",
+					"silver_teams.follow_the_horns_into_the_dungeon",
+					"horns_of_hammerad.dove_against_orders"
+				],
+				"relationship": [
+					{
+						"from": "lyonette",
+						"to": "yvlon_byres",
+						"delta": 1
+					},
+					{
+						"from": "earlia",
+						"to": "yvlon_byres",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.40",
+				"confidence": "confirmed"
+			},
+			"summary": "Vuliel Drae tries to block the Horns at the door. Pisces empties a bag of bones and raises an armoured bear of bone; a bone spider climbs from his window and rat horrors crawl out of the water. Lyonette begs them to find Mrsha. Earlia and Nailren lead six Silver teams after them.",
+			"news": "A necromancer led Silver-rank teams into Liscor's dungeon with giant bone monsters."
+		},
+		"b8.the_gold_ranks_hold_tunnels_and_the_flamewardens_burn_armour": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"flyer": {
+					"prefer": [
+						"bevussa_slenderscale"
+					],
+					"fallback_tags": []
+				},
+				"captain": {
+					"prefer": [
+						"keldrass"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"bevussa_slenderscale"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.the_gold_captains_count_their_dead_after_the_ambush"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"gold_ranks.hold_tunnels_below_the_rift",
+					"dungeon.rally_point_below_the_rift",
+					"flamewardens.melted_an_armour_platoon"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.40",
+				"confidence": "confirmed",
+				"note": "Wings members Issa, Zassil, the Scaleguards' Essa and Nautia of the Flamewardens are named once (no records)."
+			},
+			"summary": "Since dawn the Gold-ranks have held choke points and cleared halls one by one. Bevussa's Wings kill Stone Starers. When animated armour breaks a barricade, the Flamewardens breathe fire together and melt the front rank, then can barely breathe."
+		},
+		"b8.the_halfseekers_catch_the_raskghar_that_took_ceria": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"selphid": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": []
+				},
+				"half_giant": {
+					"prefer": [
+						"moore"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"rogue": {
+					"prefer": [
+						"seborn"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"jelaqua"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"halfseekers.fought_the_armoured_raskghar",
+					"armoured_raskghar.fled_without_its_axe",
+					"halfseekers.fall_back_hurt"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.40",
+				"confidence": "confirmed",
+				"note": "Moore is healed with a potion; Jelaqua's body is torn but whole. No lasting flags."
+			},
+			"summary": "Deep in, the Halfseekers meet the plated Raskghar that took Ceria. Moore slams it into a wall demanding Mrsha but takes a barbed spear in the side. Jelaqua chases it onto a blast trap; her burning breastplate saves her. Seborn makes them fall back."
+		},
+		"b8.griffon_hunt_infects_raskghar_scouts_with_plague": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": []
+				},
+				"stitch": {
+					"prefer": [
+						"revi"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"old_mage": {
+					"prefer": [
+						"typhenous"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"halrac"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"griffon_hunt.spread_contact_plague_among_raskghar",
+					"raskghar.carry_typhenous_sickness",
+					"griffon_hunt.griffin_plague_story_told"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.40",
+				"confidence": "confirmed",
+				"note": "Typhenous says the new spell spreads only by touch and the Gnolls can be cured if reached. The cull was at the Nameless Heights about three years ago."
+			},
+			"summary": "Griffon Hunt pushes further than anyone, wounding Raskghar scouts with poisoned arrows and a sickness spell, then letting them run home. Typhenous admits their old Griffin cull spread a plague that sickened whole cities and nearly cost them their rank."
+		},
+		"b8.revi_knocks_out_pisces_to_save_him": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"stitch": {
+					"prefer": [
+						"revi"
+					],
+					"fallback_tags": []
+				},
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"flyer": {
+					"prefer": [
+						"bevussa_slenderscale"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"brother": {
+					"prefer": [
+						"ylawes_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"dwarf": {
+					"prefer": [
+						"dawil"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"hammer": {
+					"prefer": [
+						"earlia"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"revi"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.pisces_raises_bone_horrors_and_silver_teams_follow"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"revi.punched_pisces_out_of_his_spells",
+					"pisces.collapsed_from_mana_exhaustion",
+					"yvlon.fights_two_handed",
+					"silver_teams.found_by_the_gold_ranks"
+				],
+				"relationship": [
+					{
+						"from": "ylawes_byres",
+						"to": "yvlon_byres",
+						"delta": -1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.40",
+				"confidence": "confirmed"
+			},
+			"summary": "Eight Gold-ranks sent to fetch Griffon Hunt find the Horns and the Silver teams, bloodied but whole. Pisces is burning himself out on his horrors, so Revi punches him; he faints and the bear collapses. Yvlon drops her shield for a two-handed grip and tells Ylawes to shut up."
+		},
+		"b8.halrac_finds_bird_among_his_kills": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"archer": {
+					"prefer": [
+						"bird"
+					],
+					"fallback_tags": []
+				},
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"bird"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.bird_slips_into_the_dungeon_to_find_mrsha"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"bird.found_wounded_in_the_dungeon",
+					"halrac.forgives_bird",
+					"bird.killed_a_flesh_worm_alone"
+				],
+				"clear_flags": [
+					"bird.searching_the_dungeon_alone"
+				],
+				"relationship": [
+					{
+						"from": "halrac",
+						"to": "bird",
+						"delta": 2
+					},
+					{
+						"from": "bird",
+						"to": "halrac",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.40",
+				"confidence": "confirmed"
+			},
+			"summary": "Halrac pushes on after the plated Raskghar and finds a Flesh Worm bristling with arrows, then Bird, pinned under a dead moth with a crushed leg, singing. He came to find Mrsha to make up for a bad deed. Halrac tells him he did a good thing."
+		},
+		"b8.the_adventurers_find_the_antinium_dead": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"scout": {
+					"prefer": [
+						"halrac"
+					],
+					"fallback_tags": []
+				},
+				"flyer": {
+					"prefer": [
+						"bevussa_slenderscale"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"antinium": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"archer": {
+					"prefer": [
+						"bird"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"halrac"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [
+				"b8.klbkch_leads_the_free_antinium_into_the_dungeon"
+			],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"free_antinium.dungeon_offensive_broken",
+					"dungeon.antinium_dead_fill_the_halls",
+					"adventurers.pull_out_for_the_day",
+					"adventurers.fail_to_find_the_captives"
+				],
+				"clear_flags": [
+					"free_antinium.dungeon_offensive_launched"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.40",
+				"confidence": "confirmed",
+				"note": "Counts in the text are guesses by the adventurers; events use no counts."
+			},
+			"summary": "Past Bird lie hall after hall of dead Antinium, with dead Raskghar heaped where the two sides met. Halrac calls it one wave of a Hive, wiped out. Sure that Ceria is close but beaten by the dungeon, everyone climbs out.",
+			"news": "Adventurers found the dungeon halls full of dead Antinium."
+		},
+		"b8.calruz_gloats_over_the_failed_assaults": {
+			"tier": 2,
+			"window": {
+				"earliest": 162,
+				"latest": 162,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"minotaur": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"awakened": {
+					"prefer": [
+						"nokha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"calruz"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"calruz.moves_his_forward_camps",
+					"calruz.plans_to_use_cerias_ice_walls",
+					"dungeon.hunts_outsiders"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.40",
+				"confidence": "confirmed",
+				"note": "The narrator adds that the dungeon treats any Goblin as a Goblin, which sets up the Redfangs (5.41)."
+			},
+			"summary": "At his crude war table Calruz crows that neither the Antinium, the Gold-ranks nor the necromancer came near his outer camps. The dungeon hunts outsiders, he says, but not him. He will move camps by nightfall and use Ceria's ice."
+		}
+	},
+	"system": [
+		{
+			"who": "moore",
+			"kind": "other",
+			"name": "[Thorn Armor]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "A spell of vines and thorns he wears in the fight."
+		},
+		{
+			"who": "typhenous",
+			"kind": "other",
+			"name": "[Black Burst]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "A spell he fires at the undead."
+		}
+	]
+}

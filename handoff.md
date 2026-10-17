@@ -1,5 +1,10 @@
 # Handoff
 
+## Just done (2026-10-17, local): M28.8 canon 5.39 - 5.42 (branch `feat/m28.8-canon-5-39`)
+- 41 events, test `sim_book8_dive_one`. Captive flags (Mrsha, Ceria) stay on. ADR 0043 has flags and doubts.
+- Next: user merges the PR. Then M28.9 (5.43, Interlude - Niers, 5.44): the three-door battle STAGE on `raskghar_camp` with xp_window (ask tier, stage details, hooks). Put the 5.43 raid on day 162 night (5.42 ends as it begins), not 163. Erin [Magical Innkeeper] 36 as a `system` record; Calruz taken to the Watch prison; Vakk sacrificed; Fess dies; also a kill sim for the six named dead and validator books 1 - 8.
+- Gotchas: Fleetfur and Beetlestare die in 5.30 G (no records, no kill). The Celum scene is in 5.41. Nokha is the ritual woman (same entity as in 5.43).
+
 ## Just done (2026-10-16, local): M28.7 canon 5.36, 5.37 G, 5.38 (branch `feat/m28.7-canon-5-36`)
 - 41 events, stage `b8.raskghar_raid_the_inn_by_daylight` (day 161, 15 - 18 h, xp x3), test `sim_book8_raid_two`. 5.38 clears `izril.moons_nearly_full`, sets `izril.moons_full`. Flags `mrsha.taken_by_the_raskghar`, `ceria.taken_by_the_raskghar`, `calruz.revealed_as_the_raskghar_great_chieftain`. ADR 0043 has doubts.
 - Next: user merges the PR. Then M28.8 (5.39 - 5.42, days 161 - 162): Antinium offensive, Calruz and Ceria, Redfang trek. Ask stage and hook choices first (plan: events only).
