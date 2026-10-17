@@ -106,7 +106,7 @@
 			"tags": {"games.chess": 0.6, "teaching": 1.0}},
 		"talk_to_fairy": {"name": "Talk with a Frost Fairy", "minutes": 5, "base_xp": 6, "risk": 0.2,
 			"tags": {"fae": 1.0, "social.conversation": 0.3}},
-		"talk_with_guest": {"name": "Talk with a guest", "minutes": 20, "base_xp": 4, "risk": 0.0,
+		"talk_with_guest": {"name": "Talk", "minutes": 20, "base_xp": 4, "risk": 0.0,
 			"tags": {"social.conversation": 1.0},
 			"context": [{"key": "location", "equals": "wandering_inn", "add_tags": {"hospitality": 0.3}}]},
 		"comfort_someone": {"name": "Comfort someone", "minutes": 20, "base_xp": 6, "risk": 0.0,

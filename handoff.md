@@ -1,5 +1,18 @@
 # Handoff
 
+## Just done (2026-10-17, local): M29.0 the System speaks like the books (branch `feat/m29.0-system-voice`)
+- New `game/core/system_voice.gd` (`SystemVoice`): every System line goes through it. Changed callers:
+  `core/night.gd` (level, Skill, offer log line), `core/class_system.gd` (accept, consolidation, neglect, loss),
+  `core/breakthrough.gd` (`KEY_LINE` const removed; `key_line` calls the helper), `ui/system_messages.gd` (offer page).
+  `data/actions.json`: `talk_with_guest` name "Talk". Line list in ADR 0044 "M29.0".
+- Tests: list in `progress.md` M29.0 line. All pass. Full suite not run.
+- Next: user merges the PR. Then M29.1 **[Opus · medium]**: ask the two schema questions first (location `names`
+  by flag; maybe `rules.inn.patron_races_by_flag`).
+- Gotchas: all toy classes in `ToyData` are named "[X]" and toy Skills "[S]", so tests expect "[X Level 2!]".
+  Accept now gives two lines first ("[X Class Obtained!]", "[X Level 1!]"); consolidation gives "[Conditions Met: …]"
+  then the level line. The hint line "X needs a breakthrough to reach level N." stays prose (on purpose).
+  Ten untracked `sim_book8_*.gd.uid` / `sim_kill_book8.gd.uid` files came from the import; not committed here.
+
 ## Just done (2026-10-17, local): audit plan M29 – M33 (branch `docs/player-audit-plan`)
 - The user said "we will do all". Wrote ADR 0044 and `docs/plans/m29.md` … `m33.md`; ROADMAP "At a glance" and
   "Next up" now list M29 – M33 with model tags; a missing `sim_canon_book8` is a new M28 item. Docs only, no tests run.

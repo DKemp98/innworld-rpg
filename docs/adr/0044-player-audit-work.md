@@ -50,6 +50,17 @@ The user said (2026-10-17): "We will do all."
 | M33.0 | new spell effect kinds (for example blink, light) only if needed | maybe |
 | M33.2 | new `data/quests.json` and quest state | v23 + migration |
 
+## M29.0 (2026-10-17): the System's lines
+- One core helper, `core/system_voice.gd` (`SystemVoice`), builds every System line. Data names keep their
+  brackets ("[Innkeeper]"); the helper takes them off and frames the whole line.
+- From the books: "[Innkeeper Level 2!]", "[Skill – Basic Cooking obtained!]", "[Innkeeper Class Obtained!]"
+  then "[Innkeeper Level 1!]", "[Conditions Met: Cook, Server → Innkeeper Class!]" (consolidation).
+- Our own, in the same frame (no book line found): "[X Class Offered!]" (offer page title "[Class Offered]"),
+  "[X Level 3 → Level 2.] It fades from neglect.", "[X Class Lost.]", "[Breakthrough: X can grow past Level 10!]".
+- Plain prose stays for hints and how-to lines ("If you decline, it is never offered again.").
+- The action `talk_with_guest` shows "Talk". The id is unchanged, so records, hooks and saves still work.
+- No schema change, no save change.
+
 ## Consequences
 - More text in data. The validator and `tools/tests` grow a check for each new file.
 - More hooks and stages raise the cascade risk. Each canon change keeps `sim_canon_book<N>` at drift 0 and the

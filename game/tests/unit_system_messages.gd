@@ -41,7 +41,7 @@ func test_pages_come_in_a_fixed_order() -> void:
 	var gs := _new_game()
 	_offer(gs, "cook")
 	_offer(gs, "warrior")
-	var night := {"collapsed": true, "progress": ["Cook reached level 2."],
+	var night := {"collapsed": true, "progress": ["[Cook Level 2!]"],
 		"world": ["Rumor: a thing happened.", Director.UNRELIABLE_LINE]}
 	var pages := SystemMessages.pages(night, gs, _db)
 	assert_eq(_kinds(pages), [SystemMessages.COLLAPSE, SystemMessages.PROGRESS,
@@ -67,7 +67,7 @@ func test_morning_reminds_of_high_drift_every_day() -> void:
 
 func test_local_news_page_comes_before_the_rumors() -> void:
 	var gs := _new_game()
-	var night := {"progress": ["Cook reached level 2."], "news": ["Relc is angry.", "The inn has a name."],
+	var night := {"progress": ["[Cook Level 2!]"], "news": ["Relc is angry.", "The inn has a name."],
 		"world": ["Rumor: a thing happened."]}
 	var pages := SystemMessages.pages(night, gs, _db)
 	assert_eq(_kinds(pages), [SystemMessages.PROGRESS, SystemMessages.NEWS, SystemMessages.RUMORS,
@@ -95,7 +95,7 @@ func test_consolidation_offer_names_what_it_replaces() -> void:
 	ToyData.give_class(gs, "warrior", 2)
 	_offer(gs, "battle_chef", ClassSystem.KIND_CONSOLIDATION)
 	var text := "\n".join(SystemMessages.offer_pages(gs, _db)[0]["lines"])
-	assert_string_contains(text, "takes the place of")
+	assert_string_contains(text, "takes their place")
 	assert_string_contains(text, "level 3", "best from level 4 minus level_cost 1")
 
 
@@ -119,7 +119,7 @@ func test_night_result_has_sections() -> void:
 	gs.clock.awake_minutes = int(_db.rules["clock"]["collapse_after_awake"])
 	var night := Night.run(gs, _db, true)
 	assert_true(night["collapsed"])
-	assert_string_contains("\n".join(night["progress"]), "level 2")
+	assert_string_contains("\n".join(night["progress"]), "[X Level 2!]")
 	assert_eq(night["lines"][0], Night.COLLAPSE_LINE)
 	assert_eq(night["world"], [])
 
@@ -138,7 +138,7 @@ func test_dialog_accept_shows_the_answer_then_closes() -> void:
 	d.choose(SystemMessages.ACCEPT)
 	assert_true(gs.progression.has_class("cook"))
 	assert_eq(d.current["kind"], SystemMessages.RESULT)
-	assert_string_contains("\n".join(d.current["lines"]), "Class gained")
+	assert_string_contains("\n".join(d.current["lines"]), " Class Obtained!]")
 	d.choose(SystemMessages.NEXT)
 	assert_eq(d.current["kind"], SystemMessages.MORNING)
 	d.choose(SystemMessages.NEXT)

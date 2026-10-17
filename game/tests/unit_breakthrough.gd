@@ -95,9 +95,9 @@ func test_night_hard_moment_gives_the_key_and_the_capstone() -> void:
 	assert_eq(gs.progression.level_of("cook"), 3)
 	assert_false(gs.progression.breakthroughs.has("cook"), "the key is used up")
 	var lines: Array = night["lines"]
-	var key_i := lines.find("Breakthrough: [X] can grow past level 2.")
+	var key_i := lines.find("[Breakthrough: X can grow past Level 2!]")
 	assert_ne(key_i, -1, "the key line")
-	assert_lt(key_i, lines.find("[X] reached level 3."), "the key line comes first")
+	assert_lt(key_i, lines.find("[X Level 3!]"), "the key line comes first")
 	assert_false("\n".join(lines).contains("needs a breakthrough"))
 
 
@@ -133,7 +133,7 @@ func test_a_class_reaching_the_level_tonight_is_not_checked_and_gets_the_hint() 
 	assert_false(gs.progression.breakthroughs.has("cook"), "today's records came too early")
 	var lines: Array = night["lines"]
 	var hint := HINT % "[X]"
-	assert_gt(lines.find(hint), lines.find("[X] reached level 2."), "after the level line")
+	assert_gt(lines.find(hint), lines.find("[X Level 2!]"), "after the level line")
 	assert_eq(lines.count(hint), 1)
 
 
@@ -182,11 +182,11 @@ func test_night_step_5b_levels_a_class_given_a_canon_key() -> void:
 	var night := Night.run(gs, d)
 	assert_eq(gs.progression.level_of("cook"), 3, "the same night")
 	var progress: Array = night["progress"]
-	var key_i := progress.find("Breakthrough: [X] can grow past level 2.")
+	var key_i := progress.find("[Breakthrough: X can grow past Level 2!]")
 	assert_ne(key_i, -1)
-	assert_eq(progress[key_i + 1], "[X] reached level 3.")
+	assert_eq(progress[key_i + 1], "[X Level 3!]")
 	var lines: Array = night["lines"]
-	assert_lt(lines.find("[X] reached level 3."), lines.find("News: The soup was the talk of the town."),
+	assert_lt(lines.find("[X Level 3!]"), lines.find("News: The soup was the talk of the town."),
 			"progress lines come before the news")
 
 

@@ -115,6 +115,18 @@ M0–M16 detail (roadmap bullets, decisions, ADR 0001–0026) lives in
   M33 Depth (branch `docs/player-audit-plan`). Docs only, no tests run. Waits: user merges the PR, then M29.0.
 - [x] ROADMAP "At a glance" has a "Model · effort per step" column for every open phase and sub-step (user ask,
   2026-10-17); reading agents run on Sonnet · medium. Same PR.
+- [x] Plan merged ([PR #201](https://github.com/Daddy-Ousen/innworld-rpg/pull/201)).
+
+## M29 Lore polish (plan `docs/plans/m29.md`, ADR 0044)
+- [x] M29.0 The System speaks like the books (2026-10-17, branch `feat/m29.0-system-voice`): new `core/system_voice.gd`
+  (`SystemVoice`); level, Skill, class obtained / offered / lost, neglect, consolidation ("[Conditions Met: …]") and
+  breakthrough lines in book style; offer page title "[Class Offered]"; action `talk_with_guest` shows "Talk" (id
+  unchanged). No schema or save change. Tests: `unit_system_voice` (new, 5), `unit_system_messages`,
+  `unit_class_system`, `unit_breakthrough`, `unit_console`, `unit_night`, `unit_journal`, `unit_no_xp_shown`,
+  `unit_interact` pass; validator books 1 – 8: 0 errors. Full suite not run.
+  - [ ] The user looks at the first night's System page (`godot --path game`).
+- [ ] M29.1 inn name, signs, first guests (two schema asks first).
+
 - [ ] M28 leftover found: `sim_canon_book8` (in M28 "Done when") does not exist. Roadmap item added under M28.
 
 ## Audit (2026-10-08, local, read-only; no code changed)

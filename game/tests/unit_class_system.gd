@@ -96,7 +96,8 @@ func test_accept_gives_level_1_and_a_skill() -> void:
 	assert_false(p.has_offer("cook"))
 	assert_eq(p.skills.size(), 1, "rules.skills.on_accept = 1")
 	assert_eq(p.skills[0]["class"], "cook")
-	assert_string_contains(lines[0], "Class gained")
+	assert_eq(lines[0], "[X Class Obtained!]")
+	assert_eq(lines[1], "[X Level 1!]")
 
 
 func test_accept_withdraws_excluded_offers() -> void:
@@ -142,7 +143,8 @@ func test_consolidation_is_automatic_and_needs_a_level_5_source() -> void:
 	assert_true(gs.progression.has_class("cook"))
 	gs.progression.classes["cook"]["level"] = 5
 	var lines := ClassSystem.consolidate_ready(gs, _db)
-	assert_string_contains(lines[0], "Your classes have consolidated")
+	assert_string_contains(lines[0], "[Conditions Met: ")
+	assert_string_contains(lines[0], " Class!]")
 	assert_true(gs.progression.offers.is_empty(), "no offer, no choice")
 	var p := gs.progression
 	assert_false(p.has_class("cook"))
@@ -166,13 +168,13 @@ func test_neglect_drains_then_loses_the_class() -> void:
 	ToyData.give_class(gs, "cook", 2, 40.0)
 	var p := gs.progression
 	assert_eq(ClassSystem.check_loss(gs, _db, 3), [] as Array[String], "2 days: fine")
-	ClassSystem.check_loss(gs, _db, 4)
+	assert_eq(ClassSystem.check_loss(gs, _db, 4), ["[X Level 2 → Level 1.] It fades from neglect."] as Array[String])
 	assert_eq(p.level_of("cook"), 1)
 	assert_almost_eq(float(p.classes["cook"]["xp"]), 0.0, EPS)
 	var lines := ClassSystem.check_loss(gs, _db, 5)
 	assert_false(p.has_class("cook"))
 	assert_eq(p.lost, ["cook"] as Array[String])
-	assert_string_contains(lines[0], "lost")
+	assert_eq(lines[0], "[X Class Lost.]")
 	_feed(gs, STEW, 20.0)
 	assert_eq(_offer_new(gs), ["cook"] as Array[String], "a lost class can come back")
 

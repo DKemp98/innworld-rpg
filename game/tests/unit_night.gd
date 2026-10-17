@@ -35,7 +35,7 @@ func test_night_resolves_offers_and_advances_the_day() -> void:
 	assert_eq(gs.clock.time_string(), "06:00")
 	assert_true((night["offers"] as Array).has("cook"))
 	assert_eq(gs.morning, night["lines"])
-	assert_string_contains("\n".join(gs.morning), "Class offered")
+	assert_string_contains("\n".join(gs.morning), "[X Class Offered!]")
 
 
 func test_offers_per_night_are_capped() -> void:
@@ -53,7 +53,7 @@ func test_levels_and_skills_happen_at_night() -> void:
 	assert_eq(gs.progression.level_of("cook"), 1)
 	var night := Night.run(gs, _db)
 	assert_eq(gs.progression.level_of("cook"), 2)
-	assert_string_contains(night["lines"][0], "level 2")
+	assert_string_contains(night["lines"][0], "[X Level 2!]")
 	assert_eq(gs.progression.skills.size(), 1, "chance_per_level = 1.0 in toy rules")
 
 
