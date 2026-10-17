@@ -1,5 +1,10 @@
 # Handoff
 
+## Just done (2026-10-17, local): M28.9 canon 5.43 - 5.44, M28 complete (branch `feat/m28.9-canon-5-43`)
+- 26 events, stage `b8.three_doors_open_on_the_raskghar_camp` (day 163, 18 - 23 h, xp x3), tests `sim_book8_battle_one`, `sim_kill_book8`. The player enters by Erin's magic door in `inn_interior` (open day 163 only, user pick); the camp north door leads back; a knock-out wakes at the inn (rules.json). ADR 0043 has doubts.
+- Next: user merges the PR. Then the user plays Book 8. Optional later: own art for the Raskghar (they wear the Gnoll look); the text puts the battle on day 163, not 163 - 164; battle hours are a guess.
+- Gotchas: the camp still has no map exits; the door counts against the 4 door trips a day.
+
 ## Just done (2026-10-17, local): M28.8 canon 5.39 - 5.42 (branch `feat/m28.8-canon-5-39`)
 - 41 events, test `sim_book8_dive_one`. Captive flags (Mrsha, Ceria) stay on. ADR 0043 has flags and doubts.
 - Next: user merges the PR. Then M28.9 (5.43, Interlude - Niers, 5.44): the three-door battle STAGE on `raskghar_camp` with xp_window (ask tier, stage details, hooks). Put the 5.43 raid on day 162 night (5.42 ends as it begins), not 163. Erin [Magical Innkeeper] 36 as a `system` record; Calruz taken to the Watch prison; Vakk sacrificed; Fess dies; also a kill sim for the six named dead and validator books 1 - 8.

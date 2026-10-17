@@ -1,0 +1,1326 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "5.44",
+	"order": 77,
+	"events": {
+		"b8.the_redfangs_cover_the_gnolls_and_mrsha_is_caught": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "liscor_dungeon",
+			"roles": {
+				"berserker": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": []
+				},
+				"bard": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"sword": {
+					"prefer": [
+						"shorthilt"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cloak": {
+					"prefer": [
+						"rabbiteater"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"bow": {
+					"prefer": [
+						"badarrow"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"elder": {
+					"prefer": [
+						"elirr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"awakened": {
+					"prefer": [
+						"nokha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"redfang.held_the_tunnel_for_the_gnolls",
+					"headscratcher.cut_down_by_nokha",
+					"mrsha.drew_off_the_raskghar",
+					"mrsha.recaptured_by_nokha"
+				],
+				"relationship": [
+					{
+						"from": "headscratcher",
+						"to": "mrsha",
+						"delta": 2
+					},
+					{
+						"from": "numbtongue",
+						"to": "mrsha",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.44",
+				"confidence": "confirmed",
+				"note": "Day 163 (guess). Headscratcher lives (potions). Mrsha stays a captive until the battle."
+			},
+			"summary": "The fleeing Gnolls run into the Redfangs and their Cave Goblins, who wave them toward the inn. The Hobs hold the tunnel; Nokha cuts Headscratcher open. Mrsha howls and runs the other way, so Nokha's pack chases her and the rest get away. Nokha carries her back."
+		},
+		"b8.calruz_and_ceria_hold_the_camp_after_facestealer": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "raskghar_camp",
+			"roles": {
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": []
+				},
+				"chieftain": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"awakened": {
+					"prefer": [
+						"nokha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"facestealer.left_the_raskghar_camp",
+					"facestealer.marked_cerias_face",
+					"raskghar.three_awakened_slain",
+					"calruz.owes_ceria_his_life",
+					"nokha.defies_calruz",
+					"pisces.knows_mrsha_was_recaptured"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.44",
+				"confidence": "confirmed",
+				"note": "Day 163 (guess). That the monster marked Ceria's face is read from its stare (likely)."
+			},
+			"summary": "Ceria breaks the paralysis with frost, wounds Facestealer and is thrown into the ceiling; it leaves, staring at her. Calruz rages that Mrsha howled, then admits Ceria saved him. Three awakened are dead. Nokha brings Mrsha back and defies him; Ceria warns Pisces."
+		},
+		"b8.the_freed_gnolls_reach_the_inn": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"elder": {
+					"prefer": [
+						"elirr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"watch_captain": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"princess": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"bard": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"liscor.freed_gnolls_return",
+					"elirr.home_in_liscor",
+					"liscor.learns_mrsha_saved_the_gnolls",
+					"liscor.learns_the_goblins_saved_the_gnolls",
+					"redfang.found_the_fortified_camp"
+				],
+				"clear_flags": [
+					"liscor_gnolls.broke_out_of_the_camp"
+				],
+				"relationship": [
+					{
+						"from": "elirr",
+						"to": "mrsha",
+						"delta": 2
+					},
+					{
+						"from": "elirr",
+						"to": "erin_solstice",
+						"delta": 1
+					},
+					{
+						"from": "zevara",
+						"to": "erin_solstice",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.44",
+				"confidence": "confirmed",
+				"note": "Day 163 afternoon (guess). The text says some escaped and about twenty were caught again; no counts in data."
+			},
+			"summary": "The teams row back with the freed Gnolls, the Redfangs and Cave Goblins. Erin throws stamina potions to the boats. Elirr tells Zevara that Mrsha's howl freed them and that she ran back to save them. Lyonette weeps. The Hobs found the camp, but it is fortified.",
+			"news": "Gnolls taken by the Raskghar escaped the dungeon and reached Liscor with the help of adventurers and Goblins."
+		},
+		"b8.erin_asks_pebblesnatch_to_carry_her_mana_stones": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "cave_goblin_refuge",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"cave_goblin": {
+					"prefer": [
+						"pebblesnatch"
+					],
+					"fallback_tags": [
+						"cave_goblin"
+					]
+				},
+				"bard": {
+					"prefer": [
+						"numbtongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"pebblesnatch.carries_erins_mana_stones",
+					"erin.plan_needs_pebblesnatch"
+				],
+				"relationship": [
+					{
+						"from": "pebblesnatch",
+						"to": "erin_solstice",
+						"delta": 2
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.44",
+				"confidence": "confirmed",
+				"note": "Day 163 (guess). The pebbles are mana stones for Erin's door (shown in the battle)."
+			},
+			"summary": "Erin finds Pebblesnatch building towers from the magic chess pieces. With Numbtongue translating, she asks the frightened Cave Goblin to carry something into the Raskghar camp. Her name is part of the plan. Pebblesnatch agrees."
+		},
+		"b8.calruz_quarantines_a_plague_camp": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "raskghar_camp",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"awakened": {
+					"prefer": [
+						"nokha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"calruz"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"raskghar.plague_camp_quarantined",
+					"nokha.marked_ceria_against_calruz"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.44",
+				"confidence": "confirmed",
+				"note": "Day 163 (guess). The sickness follows Griffon Hunt's contact plague (5.40, griffon_hunt.spread_contact_plague_among_raskghar)."
+			},
+			"summary": "A smaller camp falls sick after adventurers' arrows and spells. Ceria calls it plague; Calruz seals it off and burns the dead. Nokha tells Ceria they need only one clever outsider, then licks her face. Calruz is furious, and the two Horns laugh together."
+		},
+		"b8.relc_and_embria_talk_on_the_wall": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "liscor_walls",
+			"roles": {
+				"brawler": {
+					"prefer": [
+						"relc"
+					],
+					"fallback_tags": []
+				},
+				"wing_commander": {
+					"prefer": [
+						"embria_grasstongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"relc"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"relc.learns_his_old_commander_died",
+					"embria.asks_why_liscor_heeds_erin"
+				],
+				"relationship": [
+					{
+						"from": "embria_grasstongue",
+						"to": "relc",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.44",
+				"confidence": "confirmed",
+				"note": "Day 163 evening (guess). Weillmet is named once; no record."
+			},
+			"summary": "On the wet walls Embria demands rank and posture from her father, then tells him his old commander Weillmet died a year ago. She asks why everyone heeds the Human. Relc says Erin grows on people. Then Erin storms up the steps with a plan."
+		},
+		"b8.erin_rallies_liscor_behind_her_plan": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"wall_lord": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"strategist": {
+					"prefer": [
+						"olesm"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"watch_captain": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"wing_commander": {
+					"prefer": [
+						"embria_grasstongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"revalantor": {
+					"prefer": [
+						"klbkch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"liscor.all_forces_join_erins_plan",
+					"olesm.left_ilvriss_to_follow_erin",
+					"ilvriss.heard_erins_plan",
+					"wandering_inn.cleared_for_the_battle"
+				],
+				"relationship": [
+					{
+						"from": "olesm",
+						"to": "erin_solstice",
+						"delta": 1
+					},
+					{
+						"from": "ilvriss",
+						"to": "erin_solstice",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.44",
+				"confidence": "confirmed",
+				"note": "Day 163 evening (guess). Ilvriss's Salazsar call asks for help that does not come."
+			},
+			"summary": "Erin shouts up at Ilvriss's war room that she can save the Gnolls, Ceria and Mrsha. Olesm walks out to follow her, saying she is a better player than Niers. Ilvriss comes down. At the inn every captain, Zevara, Embria and Klbkch hear the plan and agree."
+		},
+		"b8.nokha_challenges_calruz": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "raskghar_camp",
+			"roles": {
+				"chieftain": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": []
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"awakened": {
+					"prefer": [
+						"nokha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"calruz"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"nokha.challenged_calruz",
+					"raskghar.camp_doors_barred_with_metal_sheets",
+					"ceria.wears_an_ice_mask",
+					"ceria.casts_frost_armor",
+					"calruz.fights_beside_ceria"
+				],
+				"clear_flags": [
+					"calruz.suspects_ceria_of_treachery"
+				],
+				"relationship": [
+					{
+						"from": "calruz",
+						"to": "ceria_springwalker",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.44",
+				"confidence": "confirmed",
+				"note": "Day 163 nightfall (guess). Calruz's [Whirlwind Cleave] is in the system records. Ceria's mask and armor are not bracketed in the text: flags, no records."
+			},
+			"summary": "Cave Goblins nail up metal sheets at the camp's three open doors. Nokha demands Mrsha's heart and openly challenges Calruz, then reveals Ceria's message spell. He strikes Ceria, but hits a mask of ice over frost armor. She swears on honor; the two Horns stand back to back."
+		},
+		"b8.three_doors_open_on_the_raskghar_camp": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "raskghar_camp",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"cave_goblin": {
+					"prefer": [
+						"pebblesnatch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"selphid": {
+					"prefer": [
+						"jelaqua"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"watch_captain": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"wing_commander": {
+					"prefer": [
+						"embria_grasstongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"wall_lord": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"soldier": {
+					"prefer": [
+						"yellow_splatters"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"archer": {
+					"prefer": [
+						"bird"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"raskghar.camp_stormed_through_three_doors",
+					"wandering_inn.door_opened_into_the_dungeon",
+					"pebblesnatch.opened_the_door",
+					"liscor.fourth_company_fought_in_the_dungeon",
+					"antinium.painted_soldiers_fought_the_raskghar"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.44",
+				"confidence": "confirmed",
+				"note": "Fight stage (M28.9, user choice): raskghar_camp, the three doors are the three fronts. Hours are a guess (nightfall). Fighting does not change the canon."
+			},
+			"summary": "Pebblesnatch sets a mana stone on a door-shaped knob on a metal sheet and pulls: Erin's inn opens in the camp. The adventurers charge, then Erin switches stones twice, and Embria's soldiers with the Watch, then the Antinium, strike from the other doors.",
+			"news": "Liscor's adventurers, Watch, soldiers and Antinium stormed the Raskghar camp through the Wandering Inn's magic door.",
+			"xp_window": {
+				"boost": 3,
+				"hours": [
+					18,
+					23
+				]
+			},
+			"stage": {
+				"area": "raskghar_camp",
+				"hours": [
+					18,
+					23
+				],
+				"kind": "fight",
+				"when_flags": [
+					"raskghar.camp_raid_failed"
+				],
+				"foes": [
+					{
+						"enemy": "awakened_raskghar",
+						"pos": [
+							15,
+							11
+						]
+					},
+					{
+						"enemy": "raskghar_armoured",
+						"pos": [
+							16,
+							9
+						]
+					},
+					{
+						"enemy": "awakened_raskghar",
+						"pos": [
+							18,
+							9
+						]
+					},
+					{
+						"enemy": "not_gnoll",
+						"pos": [
+							13,
+							10
+						]
+					},
+					{
+						"enemy": "not_gnoll",
+						"pos": [
+							19,
+							11
+						]
+					}
+				],
+				"line": "A metal sheet by the north doorway swings open like a door, and warm light falls into the camp. The Raskghar ring around their chieftain turns to stare.",
+				"waves": [
+					{
+						"after_seconds": 20,
+						"from": [
+							15,
+							1
+						],
+						"allies": [
+							"jelaqua",
+							"halrac",
+							"ylawes_byres"
+						],
+						"line": "Gold-rank adventurers pour through the inn's door, a burning Selphid with a flail at their head."
+					},
+					{
+						"after_seconds": 40,
+						"left_at_most": 4,
+						"from": [
+							16,
+							17
+						],
+						"foes": [
+							"awakened_raskghar",
+							"raskghar_armoured",
+							"not_gnoll",
+							"not_gnoll"
+						],
+						"line": "More Raskghar surge up from the back of the hall, howling for their awakened leaders."
+					},
+					{
+						"after_seconds": 70,
+						"left_at_most": 5,
+						"from": [
+							1,
+							10
+						],
+						"allies": [
+							"zevara",
+							"relc",
+							"klbkch"
+						],
+						"line": "The west sheet opens on the same warm room. The Watch storms in behind its Captain, with Relc and Klbkch in front."
+					},
+					{
+						"after_seconds": 100,
+						"left_at_most": 4,
+						"from": [
+							30,
+							10
+						],
+						"allies": [
+							"yellow_splatters",
+							"purple_smile"
+						],
+						"line": "The east sheet opens. Painted Soldiers charge out without a sound and hit the Raskghar from the side."
+					},
+					{
+						"after_seconds": 115,
+						"left_at_most": 4,
+						"from": [
+							15,
+							1
+						],
+						"allies": [
+							"lyonette",
+							"moore"
+						],
+						"line": "A red-haired girl with a sword runs through the north door, and the half-Giant goes after her."
+					},
+					{
+						"after_seconds": 130,
+						"left_at_most": 3,
+						"from": [
+							16,
+							16
+						],
+						"foes": [
+							"awakened_raskghar",
+							"raskghar_armoured",
+							"not_gnoll"
+						],
+						"line": "A last knot of awakened Raskghar breaks toward the cages to seize the white Gnoll."
+					}
+				],
+				"note": "M28.9: the three-door battle. Twelve foes; the awakened stand for Nokha's pack. The Cave Goblins have fled, so none fight. Ally waves come before the last foe wave."
+			}
+		},
+		"b8.lyonette_and_moore_take_back_mrsha": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "raskghar_camp",
+			"roles": {
+				"princess": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": []
+				},
+				"half_giant": {
+					"prefer": [
+						"moore"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"awakened": {
+					"prefer": [
+						"nokha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"lyonette"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"mrsha.rescued_from_the_raskghar",
+					"lyonette.stabbed_nokha",
+					"nokha.arm_broken_by_moore",
+					"nokha.vanished_in_the_melee",
+					"moore.badly_wounded_saving_mrsha"
+				],
+				"clear_flags": [
+					"mrsha.taken_by_the_raskghar",
+					"mrsha.caged_in_the_raskghar_camp",
+					"mrsha.recaptured_by_nokha",
+					"mrsha.badly_hurt_by_a_raskghar"
+				],
+				"relationship": [
+					{
+						"from": "mrsha",
+						"to": "lyonette",
+						"delta": 2
+					},
+					{
+						"from": "mrsha",
+						"to": "moore",
+						"delta": 2
+					},
+					{
+						"from": "lyonette",
+						"to": "moore",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.44",
+				"confidence": "confirmed",
+				"note": "Day 163 night (guess). Nokha's fate is open: no kill. Mrsha's hurt is treated at the inn (cleared here, a guess)."
+			},
+			"summary": "As the Raskghar break, Nokha tears open Mrsha's cage. Lyonette stands in her way, parries and stabs her shoulder; Apista stings her face. Moore breaks the arm holding Mrsha and throws Nokha into the melee, where she vanishes. Lyonette carries Mrsha to the door.",
+			"news": "The white Gnoll child taken by the Raskghar was rescued in the battle."
+		},
+		"b8.the_horns_bring_down_calruz": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "raskghar_camp",
+			"roles": {
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": []
+				},
+				"chieftain": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"knight": {
+					"prefer": [
+						"yvlon_byres"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"necromancer": {
+					"prefer": [
+						"pisces"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"antinium": {
+					"prefer": [
+						"ksmvr"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"ceria_springwalker"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"ceria.freed_from_the_raskghar",
+					"calruz.beaten_by_the_horns",
+					"horns_of_hammerad.fought_as_one_team"
+				],
+				"clear_flags": [
+					"ceria.taken_by_the_raskghar",
+					"calruz.holds_ceria",
+					"ceria.submits_to_calruz",
+					"calruz.fights_beside_ceria"
+				],
+				"relationship": [
+					{
+						"from": "ceria_springwalker",
+						"to": "yvlon_byres",
+						"delta": 1
+					},
+					{
+						"from": "ceria_springwalker",
+						"to": "pisces",
+						"delta": 1
+					},
+					{
+						"from": "ceria_springwalker",
+						"to": "ksmvr",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.44",
+				"confidence": "confirmed",
+				"note": "Day 163 night (guess). Calruz is not required: if he is dead, Ceria is still freed. His [Hammer Blow] is in the system records."
+			},
+			"summary": "Calruz looks for a side to die on. Ceria stands before him with Yvlon, Pisces and Ksmvr. He scorns them, then charges. Ksmvr's dagger sets him alight, Ceria puts the fire out with snow and drops him with an ice spike. He thanks her and lives."
+		},
+		"b8.calruz_is_taken_to_the_watch_prison": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "raskghar_camp",
+			"roles": {
+				"watch_captain": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": [
+						"guard"
+					]
+				},
+				"prisoner": {
+					"prefer": [
+						"calruz"
+					],
+					"fallback_tags": []
+				},
+				"wall_lord": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"wing_commander": {
+					"prefer": [
+						"embria_grasstongue"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"mage": {
+					"prefer": [
+						"ceria_springwalker"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"tactician": {
+					"prefer": [
+						"anand"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"calruz"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"calruz.in_watch_prison",
+					"calruz.awaits_trial",
+					"ceria.will_testify_against_calruz",
+					"raskghar.broken",
+					"liscor.raskghar_threat_ended",
+					"liscor.took_the_raskghar_artifacts",
+					"ilvriss.pays_the_bounty_for_the_gnolls"
+				],
+				"clear_flags": [
+					"calruz.alive_in_the_dungeon",
+					"raskghar.camp_holds_the_gnoll_captives"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.44",
+				"confidence": "confirmed",
+				"note": "Day 163 night (guess). Calruz is the Book 1 entity (no merge). The prison place is liscor_watch_barracks only by guess, so the event stays in the camp."
+			},
+			"summary": "Liscor counts its dead; only a few hundred Raskghar escape and the tribe is broken. Ilvriss takes the artifacts and will pay the bounty. The burned Calruz kneels in chains. Zevara sends him to the Watch's prison for trial; Ceria will testify.",
+			"news": "The one-armed Minotaur who led the Raskghar was taken alive to Liscor's Watch prison to stand trial."
+		},
+		"b8.erin_names_the_goblins_among_the_victors": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "raskghar_camp",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"wall_lord": {
+					"prefer": [
+						"ilvriss"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"cave_goblin": {
+					"prefer": [
+						"pebblesnatch"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"watch_captain": {
+					"prefer": [
+						"zevara"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"liscor.thanks_the_goblins_for_the_victory",
+					"ilvriss.named_the_goblins_among_the_victors",
+					"cave_goblins.accepted_at_the_inn"
+				],
+				"relationship": [
+					{
+						"from": "ilvriss",
+						"to": "erin_solstice",
+						"delta": 1
+					},
+					{
+						"from": "pebblesnatch",
+						"to": "erin_solstice",
+						"delta": 1
+					}
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.44",
+				"confidence": "confirmed",
+				"note": "Day 163 night (guess). The plan's 'Goblins accepted' is read as this public thanks; laws do not change."
+			},
+			"summary": "Ilvriss praises every race that fought together. Erin adds the Goblins: a Goblin opened the way, and she points to Pebblesnatch. After a pause Ilvriss accepts it, and everyone goes home. The dead are left in the dungeon."
+		},
+		"b8.erin_becomes_a_level_36_magical_innkeeper": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "wandering_inn",
+			"roles": {
+				"innkeeper": {
+					"prefer": [
+						"erin_solstice"
+					],
+					"fallback_tags": []
+				},
+				"princess": {
+					"prefer": [
+						"lyonette"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"gnoll_child": {
+					"prefer": [
+						"mrsha"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"hob": {
+					"prefer": [
+						"headscratcher"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"erin_solstice"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"erin.has_natural_allies_goblins",
+					"wandering_inn.local_landmark_of_liscor",
+					"cave_goblins.look_to_the_redfangs",
+					"lyonette.will_not_let_go_of_mrsha"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "5.44",
+				"confidence": "confirmed",
+				"note": "Day 163 night (guess). Level and Skills in the system records."
+			},
+			"summary": "Erin thanks everyone and lies down on her kitchen floor. She levels to [Magical Innkeeper] 36 with [Natural Allies: Goblins] and [Inn: Local Landmark: Liscor]. Lyonette sleeps holding Mrsha. In the cave the Redfangs stand before the Cave Goblins, who feel something new."
+		}
+	},
+	"system": [
+		{
+			"who": "erin_solstice",
+			"kind": "level",
+			"name": "[Magical Innkeeper]",
+			"level": 36,
+			"confidence": "confirmed",
+			"note": "Shown in her sleep after the battle (35 in Book 7, 5.12)."
+		},
+		{
+			"who": "erin_solstice",
+			"kind": "skill",
+			"name": "[Natural Allies: Goblins]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Effect not stated."
+		},
+		{
+			"who": "erin_solstice",
+			"kind": "skill",
+			"name": "[Inn: Local Landmark: Liscor]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "An inn Skill (the text writes Inn with a dash); effect not stated."
+		},
+		{
+			"who": "calruz",
+			"kind": "skill",
+			"name": "[Whirlwind Cleave]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "A spinning axe cut whose edge reaches out (vs the awakened)."
+		},
+		{
+			"who": "calruz",
+			"kind": "skill",
+			"name": "[Hammer Blow]",
+			"level": null,
+			"confidence": "confirmed",
+			"note": "Used on Pisces's Bone Horror."
+		},
+		{
+			"who": "embria_grasstongue",
+			"kind": "skill",
+			"name": "[Blades of Glory]",
+			"level": null,
+			"confidence": "likely",
+			"note": "Called by Embria as she leads the charge; read as hers."
+		}
+	]
+}

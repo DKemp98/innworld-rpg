@@ -47,7 +47,7 @@ cascades are easy to get wrong; low for mechanical steps.
 - [x] M28.6 Canon 5.33 B – 5.35 H (days 157 – 159, 37 events, raid stage x3, one hook) **[Opus · high]**
 - [x] M28.7 Canon 5.36, 5.37 G, 5.38 (days 151 – 161, 41 events, daylight raid stage x3) **[Opus · high]**
 - [x] M28.8 Canon 5.39 – 5.42 (days 161 – 162, 41 events) **[Opus · high]**
-- [ ] M28.9 Canon 5.43, Interlude – Niers, 5.44 (days 162 – 164, three-door battle stage) **[Opus · high]**
+- [x] M28.9 Canon 5.43, Interlude – Niers, 5.44 (days 162 – 163, 26 events, three-door battle stage x3, door from the inn) **[Opus · high]**
 **Done when:** the touched tests, `sim_canon_book8` and the validator pass; the user has played it.
 
 ---

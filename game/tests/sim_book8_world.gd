@@ -1,7 +1,7 @@
 extends GutTest
 ## M28.1 (ADR 0043) on the real data: the Book 8 world. The armoured and the
 ## awakened Raskghar, the Raskghar camp map with its three doorways, the
-## Book 8 records, and Calruz alive.
+## Book 8 records, and Calruz alive. M28.9: Erin's door is the way in and out.
 
 const CAMP := "raskghar_camp"
 const NPCS := ["nokha", "pebblesnatch", "elirr", "vakk", "bevussa_slenderscale", "keldrass", "earlia",
@@ -48,6 +48,27 @@ func test_the_camp_map_has_three_doorways_and_no_exits() -> void:
 			near = near or _db.maps.is_walkable(CAMP, at + step)
 		assert_true(near, "floor next to %s" % d["id"])
 	assert_eq(seen.size(), 3, "three different doors")
+
+
+## M28.9: the way in is a gated link of Erin's magic door, not a map exit; the way home is the north door.
+func test_erins_door_is_the_gated_way_in_and_out() -> void:
+	var link := {}
+	for o: Dictionary in _db.maps.areas["inn_interior"]["objects"]:
+		if o["id"] == "albez_door":
+			for l: Dictionary in o["portal"]["links"]:
+				if l["to"] == CAMP:
+					link = l
+	assert_false(link.is_empty(), "the inn door has a camp link")
+	assert_eq(link.get("when_flags", []), ["raskghar.camp_raid_failed"])
+	assert_eq(link.get("unless_flags", []), ["raskghar.broken"])
+	assert_true(_db.maps.is_walkable(CAMP, Vector2i(int(link["pos"][0]), int(link["pos"][1]))))
+	var home := {}
+	for o: Dictionary in _db.maps.objects_on(CAMP):
+		if o.has("portal"):
+			home = o["portal"]
+	assert_eq(home.get("to", ""), "inn_interior", "a door leads home")
+	assert_eq(home.get("power_flags", ["x"]), [], "the way home never shuts")
+	assert_true(_db.rules["combat"]["knockout"]["wake"].has(CAMP), "a knock-out wake spot")
 
 
 func test_the_camp_map_is_one_open_hall() -> void:

@@ -1,0 +1,116 @@
+{
+	"schema_version": 1,
+	"book": 8,
+	"chapter": "interlude_niers",
+	"order": 76,
+	"events": {
+		"b8.niers_watches_his_opponent_play_both_sides": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "baleros",
+			"roles": {
+				"strategist": {
+					"prefer": [
+						"niers_astoragon"
+					],
+					"fallback_tags": []
+				},
+				"stalker": {
+					"prefer": [
+						"foliana"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"niers_astoragon"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"niers.saw_his_opponent_play_both_sides",
+					"niers.go_set_sent_to_his_opponent",
+					"niers.thinks_his_opponent_taught_olesm_go"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "interlude_niers",
+				"confidence": "confirmed",
+				"note": "Placeholder day 163 (guess; Niers days are placeholders). The stacking hands are the Cave Goblins at Erin's board (5.44)."
+			},
+			"summary": "In a bath after a campaign, Niers tells Foliana his unknown opponent played twenty-six master games against themself, then stopped; now small hands stack the pieces into towers. Foliana says he is lonely. A Go set is on its way to his opponent, whom he places near Liscor."
+		},
+		"b8.niers_guesses_tyrions_plan": {
+			"tier": 2,
+			"window": {
+				"earliest": 163,
+				"latest": 163,
+				"confidence": "guess"
+			},
+			"location": "baleros",
+			"roles": {
+				"strategist": {
+					"prefer": [
+						"niers_astoragon"
+					],
+					"fallback_tags": []
+				},
+				"stalker": {
+					"prefer": [
+						"foliana"
+					],
+					"fallback_tags": [],
+					"optional": true
+				},
+				"student": {
+					"prefer": [
+						"umina"
+					],
+					"fallback_tags": [],
+					"optional": true
+				}
+			},
+			"requires": {
+				"alive": [
+					"niers_astoragon"
+				],
+				"flags": [],
+				"not_flags": []
+			},
+			"depends_on": [],
+			"on_fail": [
+				"cancel"
+			],
+			"effects": {
+				"set_flags": [
+					"niers.guessed_tyrions_plan",
+					"niers.watches_liscor",
+					"niers.hears_the_goblin_lord_was_beaten"
+				]
+			},
+			"status": "candidate",
+			"canon_ref": {
+				"book": 8,
+				"chapter": "interlude_niers",
+				"confidence": "confirmed",
+				"note": "Placeholder day 163 (guess). The plan itself is not told (Tyrion's fourteen-day plan, 5.37 G). Umina is only mentioned."
+			},
+			"summary": "On his map Niers notes Liscor's dungeon trouble and Tyrion Veltras chasing the Goblin Lord from the mountain. He guesses Tyrion's aim and writes it down, sealed for ten days. Foliana reads it at once and runs off to show his students, with Niers chasing her."
+		}
+	},
+	"system": []
+}
