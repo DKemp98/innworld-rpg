@@ -43,12 +43,12 @@ The user said (2026-10-17): "We will do all."
 | M29.1 | `rules.inn`: optional patron gate by flag (no generic patrons before the inn has regulars) | no |
 | M29.2 | `rules.standing`: optional `race_regard` (start regard and price by NPC race toward a Human, per town) | no |
 | M29.4 | `rules.director`: end-of-story page text (or computed from the last canon day) | no |
-| M30.1 | new `data/voices.json` (per NPC: greet by band, idle, lines by flag, talk options) | no |
-| M30.5 | player name, look and Earth background | v22 + migration |
+| M30.1 | new `data/voices.json` (per NPC: greet by band, idle, lines by flag, talk options); `rules.voice` | no |
+| M30.5 | player name, look and Earth background | v23 + migration (v22 went to M29.1) |
 | M31.0 | event field `foreshadow` and stage field `beats` | no (beat index lives in `combat.stage_run`; check at the step) |
 | M32.1 | enemy field for a boss who yields (not killed) if `flee_below` is not enough | no |
 | M33.0 | new spell effect kinds (for example blink, light) only if needed | maybe |
-| M33.2 | new `data/quests.json` and quest state | v23 + migration |
+| M33.2 | new `data/quests.json` and quest state | v24 + migration (if M30.5 takes v23) |
 
 ## M29.0 (2026-10-17): the System's lines
 - One core helper, `core/system_voice.gd` (`SystemVoice`), builds every System line. Data names keep their
@@ -97,6 +97,76 @@ User pick (rule 11): regard and shop price. Schema: optional `rules.standing.rac
 - End of the story: `CanonDb.last_day()`; `Night.run` sets flag `story.end_shown` once the director has passed it
   and returns `story_end`; `SystemMessages` adds the page "The Story So Far" (text is a const, no rules key).
 - Fight view: `WorldView.FIGHT_LIFT` (60 px) moves the camera offset down while `combat.has_fight()`.
+
+## M30.0 (2026-10-18): voices, talk options and barks
+User picks (rule 11): the plan schema with talk options, the 15-NPC Book 1 cast, short lines in our own words,
+barks as planned.
+
+### `data/voices.json` (new, one object per canon NPC id)
+```
+"relc": {
+  "confidence": "guess",                       // required: confirmed | likely | guess (DataDb.CONFIDENCE)
+  "canon_ref": {"book": 1, "chapter": "1.04"}, // optional: where the trait shows
+  "greet": {                                   // optional; keys: "stranger" (the "" band) or a band label
+    "stranger": ["..."], "wary": ["..."], "acquaintance": ["..."], "friend": ["..."], "close friend": ["..."]
+  },
+  "idle": ["..."],                             // optional: map barks (view only)
+  "lines": [                                   // optional: said on a talk while the gate passes
+    {"text": "...", "flags": ["..."], "not_flags": ["..."], "days": [a, b], "min_band": "acquaintance"}
+  ],
+  "options": [                                 // optional: own rows in the NPC's talk menu
+    {"id": "spar", "label": "Ask Relc to spar", "action": "weapon_practice",
+     "context": {...}, "flags": ["..."], "not_flags": ["..."], "days": [a, b], "min_band": "acquaintance"}
+  ]
+}
+```
+- Gate fields (`flags` all set, `not_flags` none set, `days` [from, to] inclusive, `min_band`) work as in
+  `data/talk.json`. `min_band` means regard at or above that band's minimum in `rules.standing.bands`.
+- `greet` key `stranger` is the band with label "". A band with no key uses the generic band line, as today.
+- An NPC with no entry, or an entry with no `greet`, behaves exactly as before M30.
+- Text in square brackets is an action, not speech: "[Toren rattles.]", "[Mrsha waves her paws.]".
+
+### `rules.voice` (new, optional)
+`{"confidence": "guess", "bark_tiles": 4, "bark_minutes": 20, "max_words": 20, "line": "%s: \"%s\""}`.
+No `rules.voice` = no voice lines and no barks (toy dbs stay as they are).
+
+### Talk (core, `core/voice.gd`, M30.1)
+- First talk of the day (`NpcSim.note_talk` is true): the greet line is the NPC's own line for the current band,
+  else the generic band line. Then one own `lines` entry whose gate passes; if there is none, a talk topic as
+  today (`TalkTopics.line`). So one talk adds at most two log lines.
+- Picks inside a list use a stable hash (own FNV-1a over "day|npc|kind"), not `gs.rng`. Reason: a voice must
+  not shift the RNG stream, so canon sims and balance sims keep their numbers (drift 0).
+- Own options: `Interact.options` gives an NPC row a `voice` list `[{id, label}]` of options whose gate passes.
+  The menu pick is `"voice:<option id>"` (`Interact.VOICE`). `Interact.perform` runs the option's `action` with
+  the NPC context, then the option's `context` merged on top. Everything else (witness, +1 relationship, greet) is
+  the same as a normal talk. The generic rows (Talk, Persuade, Comfort, Attack, Learn) stay after the own rows.
+- No new state: a line or option is never marked "said". `days` windows and flags keep one-time lines short-lived.
+  M30.4 (the Earther talk) sets its own flag with an action effect, so it needs no voice state either.
+
+### Barks (view only, `world/view_markers.gd`, M30.1)
+- A bubble over an NPC with `idle` lines who is within `bark_tiles` (Chebyshev distance) of the player.
+- Bucket = minute of day / `bark_minutes`. One bark per NPC per bucket, line = hash("day|npc|bucket") over `idle`.
+  Shown when the bucket changes or the NPC comes into range; it fades after a few seconds (real time).
+- Never in a fight, never during a night page, never for a dead or hidden NPC. Never reads or writes `gs.rng`
+  or any state. Headless tests can check the pure pick `Voice.bark(db, day, npc, minute)`.
+
+### Tone rules (all voice text)
+- Our own words. No book quotes, no catch phrases copied from the text (rule 10).
+- Short: under about 15 words; the validator refuses more than `max_words` (20).
+- 2 – 3 lines per band, 3 – 5 idle lines. Swearing only as mild as the character (Relc mild).
+- Each NPC entry is `confidence: guess` unless a reading agent finds the trait in the Book text.
+- Rags speaks few, simple words; Toren and Mrsha act in brackets.
+
+### Validator (`tools/validate_data.py` and `DataDb`, M30.1)
+NPC ids exist in any `canon/book<N>/npcs.json`; greet keys are `stranger` or band labels; every text is a
+non-empty string of at most `max_words` words; option ids are unique per NPC; `action` is in `actions.json`;
+`min_band` is a band label; `days` is [from, to] with 1 <= from <= to.
+
+### First cast (M30.2, Book 1, 15)
+Erin, Relc, Klbkch, Pisces, Olesm, Selys, Krshia, Zevara, Lism, Ryoka, Ceria, Pawn, Rags, Toren, Beilmark.
+Ids (checked): `erin_solstice`, `relc`, `klbkch`, `pisces`, `olesm`, `selys`, `krshia`, `zevara`, `lism`,
+`ryoka_griffin`, `ceria_springwalker`, `pawn`, `rags`, `toren`, `beilmark`. Options: Erin (ask for work, chess, ask about the inn), Relc (spar), Pisces (magic), Olesm (chess), Krshia
+(trade talk). Ryoka gets lines only (she never levels; no class talk).
 
 ## Consequences
 - More text in data. The validator and `tools/tests` grow a check for each new file.

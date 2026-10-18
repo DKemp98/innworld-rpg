@@ -24,7 +24,7 @@ How to read the last column: pick that model and effort in the app before you st
 at the end of each step in "Next up" is the source; this column copies it. Reading agents that a step starts (book
 text, summaries only) run on Sonnet · medium. "(user)" steps need no model.
 
-Last release: v0.1.5-alpha (2026-10-15). Next step: user merges the M29.2 – M29.5 PR(s), then M30 (voices and the Earther).
+Last release: v0.1.5-alpha (2026-10-15). Next step: M30.1 voice engine (M30.0 design done, ADR 0044).
 
 ---
 
@@ -72,12 +72,12 @@ cascades are easy to get wrong; low for mechanical steps.
 **Done when:** each step's tests pass; the validator has 0 errors; the user has looked at it.
 
 ## M30 — Voices and the Earther (plan `docs/plans/m30.md`, ADR 0044)
-- [ ] M30.0 Design: `data/voices.json` schema, bark rule (view only, no `gs.rng`), first cast and tone (user picks) **[Opus · high]**
+- [x] M30.0 Design: `data/voices.json` schema, bark rule (view only, no `gs.rng`), first cast and tone (user picks) **[Opus · high]** (2026-10-18, ADR 0044 "M30.0")
 - [ ] M30.1 Engine: `core/voice.gd`, NPC talk options, speech bubbles, validator **[Opus · medium]**
 - [ ] M30.2 Voices for the Book 1 cast (15 NPCs; own words; a reading agent checks traits) **[Sonnet · high]**
 - [ ] M30.3 Voices for the Books 2 – 8 cast, lines keyed to each book's big flags **[Sonnet · high]**
 - [ ] M30.4 The Earther meeting with Erin (one time), and the other Earthers react **[Opus · medium]**
-- [ ] M30.5 Who you are: name, look, Earth background; save v22 + migration **[Opus · high]**
+- [ ] M30.5 Who you are: name, look, Earth background; save v23 + migration **[Opus · high]**
 - [ ] (user) Play: talk to the Book 1 cast, tell Erin you are from Earth, start a new game
 **Done when:** the Book 1 cast has own greetings, lines and options; barks show; old saves load; the touched tests pass; the user has played it.
 
