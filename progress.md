@@ -134,7 +134,16 @@ M0–M16 detail (roadmap bullets, decisions, ADR 0001–0026) lives in
   `unit_system_messages`, `unit_console`, `unit_canon_db`, `unit_standing`, `sim_canon_book1`, `unit_game_state`,
   `unit_npc_levels` pass; validator books 1 – 8: 0 errors; Python 117 OK. Full suite not run.
   - [ ] The user looks at the inn on day 1 and day 14, and sees no patrons before day 15 (`godot --path game`).
-- [ ] M29.2 Liscor is wary of Humans (schema ask first).
+- [x] M29.1 merged ([PR #203](https://github.com/Daddy-Ousen/innworld-rpg/pull/203)).
+- [x] M29.2 Liscor is wary of Humans (2026-10-18, branch `feat/m29.2-wary-liscor`). User pick: regard and shop price.
+  New optional `rules.standing.race_regard [{town, race, start, fade, price?, shops?, except?}]`; `Standing.race_start`,
+  `Standing.shop_markup`. Liscor Drakes start at -3 (wary), Lism +15%, both gone at Liscor reputation 10; Relc, Olesm,
+  Selys excepted. No save change. Also fixed `sim_balance_money` (broken by M29.1: no patrons before day 15; the sim now
+  sets `wandering_inn.has_regulars`). Tests: `unit_race_regard` (new, 6), `unit_standing` (Lism band changed), `unit_economy`,
+  `unit_interact`, `unit_npc_react`, `unit_data_db`, `sim_balance_money`, `sim_30_days`, `sim_balance_progress`,
+  `sim_breakthrough_probe`, `unit_work_duress`, `unit_actions`, `sim_book8_liscor_two`, `unit_portrait` pass; validator books 1 – 8:
+  0 errors. Full suite not run.
+  - [ ] The user talks to Lism and buys at his stall on day 1, then after some talks and serving (`godot --path game`).
 
 - [ ] M28 leftover found: `sim_canon_book8` (in M28 "Done when") does not exist. Roadmap item added under M28.
 

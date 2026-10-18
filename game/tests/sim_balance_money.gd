@@ -89,6 +89,7 @@ func _wait_to(gs: GameState, hour: int) -> void:
 func _run(seed_: int) -> Dictionary:
 	_spent = 0
 	var gs := GameState.new_game(seed_, _db)
+	gs.flags["wandering_inn.has_regulars"] = true  # M29.1: this sim tests serving money, not the calendar
 	gs.player.place(INN, Vector2i(12, 11))
 	Commands.settle(gs, _db)
 	_stock(gs, "stew", 0)  # no-op charge; keeps the helper in one place

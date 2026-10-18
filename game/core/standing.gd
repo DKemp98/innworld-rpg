@@ -10,6 +10,10 @@
 ##   Readers: regard (relationship plus faction reputation / faction_div) picks the greeting
 ##   band and who fights beside the player (NpcReact); a shop's prices follow the town's
 ##   reputation (Economy.price); the inn's guest curve gets inn_share of the inn town's.
+##   Wary towns (M29.2, ADR 0044): optional rules.standing.race_regard [{town, race, start, fade,
+##   price?, shops?, except?}]. An NPC of `race` who lives in `town` (not in `except`) starts at
+##   regard `start` (negative: wary); the shops in `shops` charge `price` (a fraction) more. Both
+##   shrink as the player's reputation in `town` rises from 0 to `fade`, and are gone at `fade`.
 ## A db without rules.standing (toy dbs) has none of this: every reader gives its old answer.
 class_name Standing
 extends RefCounted
@@ -72,11 +76,39 @@ static func regard(gs: GameState, db: DataDb, npc: String) -> int:
 	var rel := gs.world.relationship(npc, NpcSim.PLAYER)
 	if not on(db):
 		return rel
+	rel += race_start(gs, db, npc)
 	var faction: Variant = db.canon.npcs.get(npc, {}).get("faction", null)
 	if faction == null:
 		return rel
 	@warning_ignore("integer_division")
 	return rel + reputation(gs, String(faction)) / maxi(int(rules(db)["faction_div"]), 1)
+
+
+## How much of a race_regard entry still holds: 1.0 at reputation 0 or below in its town, 0.0 at
+## `fade` or more.
+static func _weight(gs: GameState, e: Dictionary) -> float:
+	return clampf(1.0 - float(reputation(gs, String(e["town"]))) / float(e["fade"]), 0.0, 1.0)
+
+
+## Regard the NPC starts with because of their race and town (M29.2); 0 for most.
+static func race_start(gs: GameState, db: DataDb, npc: String) -> int:
+	var n: Dictionary = db.canon.npcs.get(npc, {})
+	if n.is_empty():
+		return 0
+	var total := 0.0
+	for e: Dictionary in rules(db).get("race_regard", []):
+		if String(n.get("race", "")) == String(e["race"]) and not (e.get("except", []) as Array).has(npc) 				and town_of_location(db, String(n.get("home", ""))) == String(e["town"]):
+			total += float(e["start"]) * _weight(gs, e)
+	return roundi(total)
+
+
+## Fraction dearer a wary shop charges the player now (M29.2); 0.0 for most shops.
+static func shop_markup(gs: GameState, db: DataDb, shop: String) -> float:
+	var total := 0.0
+	for e: Dictionary in rules(db).get("race_regard", []):
+		if (e.get("shops", []) as Array).has(shop):
+			total += float(e.get("price", 0.0)) * _weight(gs, e)
+	return total
 
 
 ## The greeting band for `npc`: {"label": String, "line": String} ("%s" in the line is the name).
@@ -193,6 +225,18 @@ static func validate(db: DataDb) -> Array[String]:
 		errs.append("rules.standing: price_per_point >= 0, price_max in 0..1, inn_share >= 0.")
 	if not db.canon.locations.is_empty() and not db.canon.locations.has(r["inn_town"]):
 		errs.append("rules.standing.inn_town: unknown location '%s'." % r["inn_town"])
+	var rr: Variant = r.get("race_regard", [])
+	if not rr is Array:
+		errs.append("rules.standing.race_regard: must be a list.")
+	else:
+		for e: Variant in rr:
+			if not e is Dictionary or String((e as Dictionary).get("town", "")) == "" 					or String((e as Dictionary).get("race", "")) == "" 					or not (e as Dictionary).get("start", null) is int and not (e as Dictionary).get("start", null) is float 					or float((e as Dictionary).get("fade", 0)) <= 0.0 or float((e as Dictionary).get("price", 0.0)) < 0.0 					or not (e as Dictionary).get("shops", []) is Array or not (e as Dictionary).get("except", []) is Array:
+				errs.append("rules.standing.race_regard: each entry needs town, race, start (a number), fade > 0, and optional price >= 0, shops, except (lists).")
+			elif not db.canon.locations.is_empty() and not db.canon.locations.has(e["town"]):
+				errs.append("rules.standing.race_regard: unknown town '%s'." % e["town"])
+			elif not db.economy.shops.is_empty() and (e.get("shops", []) as Array).any(
+					func(sh: String) -> bool: return not db.economy.shops.has(sh)):
+				errs.append("rules.standing.race_regard: unknown shop in %s." % [e["shops"]])
 	var last := -100000
 	if not r["bands"] is Array or (r["bands"] as Array).is_empty():
 		errs.append("rules.standing.bands: needs rows [min regard, label, line].")

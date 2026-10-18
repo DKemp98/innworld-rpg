@@ -59,6 +59,10 @@ static func price(gs: GameState, db: DataDb, shop: String, good: String, kind: S
 	if haggled:
 		var share := float(rules(db).get("haggle_share", 0.0))
 		price = maxi(floori(base * (1.0 - share)), 1) if kind == BUY else ceili(base * (1.0 + share))
+	if kind == BUY:
+		var markup := Standing.shop_markup(gs, db, shop)  # M29.2: a wary stall charges a stranger more
+		if markup != 0.0:
+			price = maxi(roundi(price * (1.0 + markup)), 1)
 	var shift := Standing.price_shift(gs, db)
 	if shift == 0.0:
 		return price

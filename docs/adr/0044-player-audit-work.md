@@ -78,6 +78,18 @@ User picks (rule 11): names by flag, and two optional guest rules.
 - Save v21 -> v22 (user pick): an old save in which `b1.inn_first_regulars` already ran (done, substituted or
   changed) gets `wandering_inn.has_regulars` on load, so its patrons keep coming.
 
+## M29.2 (2026-10-18): Liscor is wary of Humans
+User pick (rule 11): regard and shop price. Schema: optional `rules.standing.race_regard`
+`[{town, race, start, fade, price?, shops?, except?}]`.
+- An NPC of `race` whose `home` is in `town` (and not in `except`) gets `start` added to their regard
+  (`Standing.race_start`, used by `regard`, so bands, greetings and "friends fight" all see it).
+- The shops in `shops` charge `price` more on BUY only (`Standing.shop_markup`, used by `Economy.price`
+  before the town's reputation shift). What the shop pays is unchanged.
+- Both shrink linearly with the player's reputation in `town`: full at 0 or below, gone at `fade`.
+- Data (all guesses): Liscor Drakes start at -3 ("wary"), fade 10; `lism_stall` +15%. Excepted: `relc`,
+  `olesm`, `selys` (friendly to Erin in Books 1 – 2). Gnolls and Krshia: no change.
+- No save change. The gate-guard stranger line waits for M30.
+
 ## Consequences
 - More text in data. The validator and `tools/tests` grow a check for each new file.
 - More hooks and stages raise the cascade risk. Each canon change keeps `sim_canon_book<N>` at drift 0 and the
