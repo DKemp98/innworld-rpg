@@ -77,6 +77,8 @@ var economy: EconomyDb = EconomyDb.new()
 var spells: SpellDb = SpellDb.new()
 ## Talk topics (data/talk.json, M25.1): topic id → topic. Empty in toy dbs.
 var talk: Dictionary = {}
+## NPC voices (data/voices.json, M30.1): canon NPC id → voice. Empty in toy dbs.
+var voices: Dictionary = {}
 var errors: Array[String] = []
 
 
@@ -110,6 +112,8 @@ static func load_dir(dir: String = "res://data") -> DataDb:
 	db.errors.append_array(Breakthrough.validate(db))  # rules, class trials, hook effects (M22)
 	db.talk = _read_json(dir.path_join("talk.json"), load_errors).get("topics", {})
 	db.errors.append_array(TalkTopics.validate(db))  # rules.talk, talk.json (M25.1)
+	db.voices = _read_json(dir.path_join("voices.json"), load_errors).get("voices", {})
+	db.errors.append_array(Voice.validate(db))  # rules.voice, voices.json (M30.1)
 	db.errors = load_errors + db.errors + db.canon.errors + db.maps.errors + db.behaviour.errors \
 			+ db.combat.errors + db.economy.errors + db.spells.errors
 	for e in db.errors:

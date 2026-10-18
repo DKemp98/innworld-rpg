@@ -1,0 +1,5 @@
+{
+	"schema_version": 1,
+	"note": "M30 (ADR 0044 \"M30.0\"). NPC voices: canon NPC id -> {confidence, canon_ref?, greet {band: [text]}, idle [text], lines [{text, flags?, not_flags?, days?, min_band?}], options [{id, label, action, context?, flags?, not_flags?, days?, min_band?}]}. Own words only, no book quotes. The cast comes in M30.2 and M30.3.",
+	"voices": {}
+}

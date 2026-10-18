@@ -1,5 +1,21 @@
 # Handoff
 
+## Just done (2026-10-18, local): M30.1 voice engine (branch `feat/m30.1-voice-engine`)
+- Built ADR 0044 "M30.0" as designed; detail in ADR 0044 "M30.1". Files: `game/core/voice.gd` (new),
+  `game/world/view_bubbles.gd` (new), `game/data/voices.json` (new, empty), `game/data/rules.json` (`voice`),
+  `game/core/data_db.gd`, `game/core/interact.gd`, `game/world/main.gd`, `game/world/world_view.gd`,
+  `game/ui/interact_menu.gd`, `game/ui/console_commands.gd`, `game/test_support/toy_data.gd` (erases `voice`),
+  `tools/validate_data.py`, `tools/tests/test_validate_data.py`, `game/tests/unit_voice.gd` (new).
+- Tests: list in `progress.md` M30.1 line. Full suite not run.
+- Next: user merges the PR. Then M30.2 Book 1 cast **[Sonnet · high]**: write `voices.json` entries for the 15
+  ids in ADR 0044 "M30.0" (own words, max 20 words, 2 – 3 lines per band, 3 – 5 idle). A reading agent checks
+  traits against Book 1 (summaries only). Options need existing actions; check each action's `context` rules
+  (for example `play_chess` reads `opponent_skill`).
+- Gotchas: action tags are normalised, so a context bonus shows as a ratio, not a sum. An own line replaces the
+  talk topic for that talk (no gs.rng used then). The Git Bash heredoc ate `
+` in a Python string again: use
+  the Write/Edit tools for test code. `unit_world_view` `test_use_menu_lists_and_uses` is still red (old).
+
 ## Just done (2026-10-18, local): M30.0 voice design (branch `docs/m30.0-voice-design`)
 - User took every recommended pick: plan schema with own talk options, 15-NPC Book 1 cast, short own-words lines,
   barks as planned. Written into ADR 0044 "M30.0" (schema, `rules.voice`, talk order, barks, tone, validator,

@@ -161,7 +161,13 @@ M0–M16 detail (roadmap bullets, decisions, ADR 0001–0026) lives in
   Book 1 cast, short lines in own words (max 20 words), barks as planned (4 tiles, 20 min, stable hash). ADR 0044
   "M30.0" has `data/voices.json`, `rules.voice`, talk order, `voice:<id>` picks, validator list. Picks use a stable
   hash, not `gs.rng`. M30.5 save is now v23 (v22 went to M29.1). Docs only, no tests run.
-- [ ] M30.1 engine (`core/voice.gd`, `Interact` voice rows, bubbles, validator) **[Opus · medium]**.
+- [x] M30.1 engine (2026-10-18, branch `feat/m30.1-voice-engine`): `core/voice.gd`, `data/voices.json` (empty),
+  `rules.voice`, `Interact.VOICE` rows + `action_of`, use menu and console rows, `world/view_bubbles.gd` barks,
+  Python `check_voices`. No save change. Tests: `unit_voice` (new, 12), `unit_interact`, `unit_standing`,
+  `unit_talk_topics`, `unit_play_loop`, `unit_console`, `unit_data_db`, `unit_race_regard` pass; `unit_world_view`
+  19 pass, 1 red (`test_use_menu_lists_and_uses`, old Blue Pastry stove count, not from this work). Validator books
+  1 - 8 + voices: 0 errors. Python 120 OK. Full suite not run.
+- [ ] M30.2 voices for the Book 1 cast (15) **[Sonnet · high]**.
 
 - [ ] M28 leftover found: `sim_canon_book8` (in M28 "Done when") does not exist. Roadmap item added under M28.
 

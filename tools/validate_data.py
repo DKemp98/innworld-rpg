@@ -27,6 +27,11 @@ a book<N> event may use their NPCs, locations and events, but may not
 redefine them (CanonDb merges all books into one set of ids).
 --no-earlier checks the folder alone.
 
+With --all, <canon root>/../voices.json (M30, ADR 0044 "M30.0") is checked too, if it exists:
+NPC ids exist in some book, greet keys are "stranger" or band labels from rules.json,
+texts have at most rules.voice.max_words words, option ids are unique per NPC and
+their actions exist, gates (flags, not_flags, days, min_band) are well formed.
+
 Exit code 0 = valid, 1 = errors. Stdlib only.
 """
 
@@ -842,6 +847,123 @@ def validate_dir(data_dir: str | Path, raw_dir: str | Path | None = None,
     return r
 
 
+# ---------------------------------------------------------------- voices (M30)
+
+VOICE_ENTRY = {"confidence", "canon_ref", "greet", "idle", "lines", "options", "note"}
+VOICE_GATE = {"flags", "not_flags", "days", "min_band"}
+VOICE_OPTION = {"id", "label", "action", "context"}
+STRANGER = "stranger"
+
+
+def _voice_texts(r: Report, where: str, v, max_words: int) -> None:
+    if not isinstance(v, list):
+        r.err(where, "must be a list of strings")
+        return
+    for t in v:
+        if not isinstance(t, str) or not t.strip():
+            r.err(where, "texts must be non-empty strings")
+        elif len(t.split()) > max_words:
+            r.err(where, f"'{t}' has more than {max_words} words")
+
+
+def _voice_gate(r: Report, where: str, g: dict, own: set[str], bands: set[str]) -> None:
+    for k in g:
+        if k not in VOICE_GATE and k not in own:
+            r.err(where, f"unknown field '{k}'")
+    for f in ("flags", "not_flags"):
+        if f in g:
+            _str_list(r, f"{where}.{f}", g[f], RE_FLAG)
+    if "days" in g:
+        d = g["days"]
+        if not (isinstance(d, list) and len(d) == 2 and all(_int(x) for x in d) and 1 <= d[0] <= d[1]):
+            r.err(where, "days must be [from, to] with 1 <= from <= to")
+    if "min_band" in g and g["min_band"] not in bands:
+        r.err(where, f"min_band '{g['min_band']}' is not one of {sorted(bands)}")
+
+
+def check_voices(r: Report, voices, npc_ids: set[str], actions: set[str] | None, bands: set[str],
+                 max_words: int) -> None:
+    if not isinstance(voices, dict):
+        r.err("voices.json", "voices must be an object")
+        return
+    for nid, v in voices.items():
+        where = f"voice {nid}"
+        if nid not in npc_ids:
+            r.err(where, "unknown canon npc")
+        if not isinstance(v, dict):
+            r.err(where, "must be an object")
+            continue
+        for k in v:
+            if k not in VOICE_ENTRY:
+                r.err(where, f"unknown field '{k}'")
+        if v.get("confidence") not in CONFIDENCE:
+            r.err(where, f"confidence must be one of {sorted(CONFIDENCE)}")
+        greet = v.get("greet", {})
+        if not isinstance(greet, dict):
+            r.err(where, "greet must be an object")
+        else:
+            for k, texts in greet.items():
+                if k not in bands:
+                    r.err(where, f"greet key '{k}' is not one of {sorted(bands)}")
+                _voice_texts(r, f"{where} greet.{k}", texts, max_words)
+        _voice_texts(r, f"{where} idle", v.get("idle", []), max_words)
+        lines = v.get("lines", [])
+        if not isinstance(lines, list):
+            r.err(where, "lines must be a list")
+            lines = []
+        for i, line in enumerate(lines):
+            lw = f"{where} lines[{i}]"
+            if not isinstance(line, dict) or "text" not in line:
+                r.err(lw, "must be an object with text")
+                continue
+            _voice_texts(r, lw, [line["text"]], max_words)
+            _voice_gate(r, lw, line, {"text"}, bands)
+        options = v.get("options", [])
+        if not isinstance(options, list):
+            r.err(where, "options must be a list")
+            options = []
+        seen: set[str] = set()
+        for i, o in enumerate(options):
+            ow = f"{where} options[{i}]"
+            if not isinstance(o, dict):
+                r.err(ow, "must be an object")
+                continue
+            if not all(isinstance(o.get(f), str) and o.get(f, "").strip() for f in ("id", "label", "action")):
+                r.err(ow, "id, label and action must be non-empty strings")
+                continue
+            if o["id"] in seen:
+                r.err(ow, f"option id '{o['id']}' is used twice")
+            seen.add(o["id"])
+            if actions is not None and o["action"] not in actions:
+                r.err(ow, f"unknown action '{o['action']}'")
+            if "context" in o and not isinstance(o["context"], dict):
+                r.err(ow, "context must be an object")
+            _voice_gate(r, ow, o, VOICE_OPTION, bands)
+
+
+def validate_voices(path: Path, canon_root: Path, actions: set[str] | None) -> Report:
+    r = Report()
+    doc = _load(r, path)
+    rules = _load(r, path.parent / "rules.json")
+    if not isinstance(doc, dict) or not isinstance(rules, dict):
+        return r
+    voices = doc.get("voices", {})
+    vr = rules.get("voice")
+    if not isinstance(vr, dict):
+        if voices:
+            r.err("voices.json", "has voices, but rules.voice is missing")
+        return r
+    npc_ids: set[str] = set()
+    for d in _book_dirs(canon_root):
+        npcs = _read_quiet(d / "npcs.json")
+        if isinstance(npcs, dict):
+            npc_ids |= set(npcs.get("npcs", {}))
+    bands = {STRANGER} | {b[1] for b in rules.get("standing", {}).get("bands", [])
+                          if isinstance(b, list) and len(b) == 3 and b[1]}
+    check_voices(r, voices, npc_ids, actions, bands, int(vr.get("max_words", 20)))
+    return r
+
+
 def _book_dirs(canon_root: Path) -> list[Path]:
     dirs = [p for p in canon_root.iterdir() if p.is_dir() and _book_from_dir(p) is not None]
     return sorted(dirs, key=lambda p: _book_from_dir(p))
@@ -895,6 +1017,13 @@ def main(argv: list[str] | None = None) -> int:
         print(f"ERROR {data_dir}: no book<N> folders")
         return 1
     errors = sum(_run_one(d, args, actions, act_path) for d in dirs)
+    voices = base.parent / "voices.json"
+    if args.all and voices.exists():
+        rep = validate_voices(voices, data_dir, actions)
+        for e in rep.errors:
+            print(f"ERROR {e}")
+        print(f"voices.json: {len(rep.errors)} errors")
+        errors += len(rep.errors)
     return 1 if errors else 0
 
 
