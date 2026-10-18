@@ -283,7 +283,7 @@
 	},
 	"standing": {
 		"confidence": "guess",
-		"note": "M14.3 (ADR 0021). Relationships and reputation. Numbers are game balance, not canon. Reputation is +-cap; a town is the nearest settlement above a map's location, a faction is an NPC's canon faction.",
+		"note": "M14.3 (ADR 0021). Relationships and reputation. Numbers are game balance, not canon. Reputation is +-cap; a town is the nearest settlement above a map's location, a faction is an NPC's canon faction M29.2 (ADR 0044): race_regard - most Liscor Drakes start wary of a Human (Gnolls judge by deeds; Relc, Olesm and Selys are canon-friendly, so excepted); Lism charges 15% more until the player is known (reputation 10). All numbers are guesses.",
 		"cap": 100,
 		"decay_after_days": 30,
 		"relationship_decay": 1,
@@ -297,6 +297,7 @@
 		"price_max": 0.2,
 		"faction_div": 10,
 		"friend_fight": 10,
+		"race_regard": [{"town": "liscor", "race": "Drake", "start": -3, "fade": 10, "price": 0.15, "shops": ["lism_stall"], "except": ["relc", "olesm", "selys"]}],
 		"bands": [
 			[-100, "hostile", "%s glares at you."],
 			[-3, "wary", "%s looks at you warily."],

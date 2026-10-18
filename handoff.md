@@ -1,5 +1,15 @@
 # Handoff
 
+## Just done (2026-10-18, local): M29.2 Liscor is wary of Humans (branch `feat/m29.2-wary-liscor`)
+- `rules.standing.race_regard` (optional): `Standing.race_start` feeds `regard`; `Standing.shop_markup` feeds `Economy.price`
+  (BUY only). Weight = clamp(1 - town reputation / fade, 0, 1). Data in `rules.json`; ADR 0044 "M29.2".
+- Fixed `sim_balance_money` (M29.1 left it red: it plays days 8 – 21 and needs `wandering_inn.has_regulars`). Other
+  patron sims checked and pass. Test list in `progress.md`. Full suite not run.
+- Next: user merges the PR. Then M29.3 looks **[Sonnet · medium]**: ask about Antinium art (now or later) and Moore's size
+  (needs a schema field?). Needs the LPC clone (see "How to rebuild art").
+- Gotchas: any Drake NPC whose `home` is in Liscor now starts wary, so a test that wants a neutral Drake greeting must
+  use an excepted NPC (relc, olesm, selys) or add relationship. The gate-guard stranger line waits for M30.
+
 ## Just done (2026-10-17, local): M29.1 inn name, signs, first guests (branch `feat/m29.1-inn-name`)
 - Schema (user picks): canon location `names [{flag, name}]` -> `CanonDb.location_name(flags, id)` (used by
   `ui/hud.gd`, `ui/system_messages.gd` knock-out page, `ui/console_commands.gd` `where`); validator + Python test.
