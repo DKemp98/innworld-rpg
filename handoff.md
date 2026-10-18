@@ -1,5 +1,16 @@
 # Handoff
 
+## Just done (2026-10-18, local): M30.0 voice design (branch `docs/m30.0-voice-design`)
+- User took every recommended pick: plan schema with own talk options, 15-NPC Book 1 cast, short own-words lines,
+  barks as planned. Written into ADR 0044 "M30.0" (schema, `rules.voice`, talk order, barks, tone, validator,
+  checked NPC ids). Plan and ROADMAP: M30.0 ticked; M30.5 save is v23. Docs only, no tests run.
+- Next: user merges the PR. Then M30.1 engine **[Opus · medium]**: `core/voice.gd` (greet, line, options,
+  bark, FNV-1a hash), `DataDb` loads `voices.json` + validate, `Interact.VOICE` rows and perform, bubbles in
+  `world/view_markers.gd`, `tools/validate_data.py` + Python test. Tests per plan M30.1. The schema is approved:
+  no need to ask again, unless the engine needs a field the ADR does not list.
+- Gotchas: canon ids are long for some (`erin_solstice`, `ryoka_griffin`, `ceria_springwalker`). Confidence words
+  are `confirmed | likely | guess`. Voice picks must not use `gs.rng` (keeps canon sims at drift 0).
+
 ## Just done (2026-10-18, local): M29.3 – M29.5 (branch `feat/m29.3-looks`, on top of the M29.2 branch)
 - M29.3 looks (Magnolia pink, Erin green shirt, Moore `scale` 1.35 via `CharacterSprite.scale_for`), M29.4 end page
   (`Night.STORY_END_FLAG`, `CanonDb.last_day`, `SystemMessages.STORY_END`), M29.5 `WorldView.FIGHT_LIFT`. Three

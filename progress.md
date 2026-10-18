@@ -155,6 +155,14 @@ M0–M16 detail (roadmap bullets, decisions, ADR 0001–0026) lives in
   PR, not from this work). Full suite not run.
   - [ ] The user looks at Erin, Magnolia and Moore, a fight at the bottom of a map, and the end page after day 163.
 
+## M30 Voices and the Earther (plan `docs/plans/m30.md`, ADR 0044)
+- [x] M29.3 – M29.5 merged ([PR #206](https://github.com/Daddy-Ousen/innworld-rpg/pull/206)).
+- [x] M30.0 design (2026-10-18, branch `docs/m30.0-voice-design`). User picks: plan schema with talk options, 15-NPC
+  Book 1 cast, short lines in own words (max 20 words), barks as planned (4 tiles, 20 min, stable hash). ADR 0044
+  "M30.0" has `data/voices.json`, `rules.voice`, talk order, `voice:<id>` picks, validator list. Picks use a stable
+  hash, not `gs.rng`. M30.5 save is now v23 (v22 went to M29.1). Docs only, no tests run.
+- [ ] M30.1 engine (`core/voice.gd`, `Interact` voice rows, bubbles, validator) **[Opus · medium]**.
+
 - [ ] M28 leftover found: `sim_canon_book8` (in M28 "Done when") does not exist. Roadmap item added under M28.
 
 ## Audit (2026-10-08, local, read-only; no code changed)
