@@ -144,6 +144,8 @@ var mixes: Node2D
 var _map := ViewMap.new(self)
 var _markers := ViewMarkers.new(self)
 var _effects := ViewEffects.new(self)
+## M30.1: speech bubbles (barks) over NPCs near the player.
+var bubbles := ViewBubbles.new(self)
 
 
 func setup(maps: MapDb, names: Dictionary = {}, enemy_defs: Dictionary = {},
@@ -216,6 +218,7 @@ func refresh(gs: GameState, db: DataDb = null, replayed: bool = false) -> void:
 	_map.set_hour(gs.clock.minute() / 60)
 	_map.update_sign_labels(gs.player.pos())
 	_markers.show_all(gs)
+	bubbles.update(gs, db)
 	var old := player.position
 	player.position = cell_center(gs.player.pos())
 	var cues: Array[String] = []
@@ -254,6 +257,7 @@ func refresh(gs: GameState, db: DataDb = null, replayed: bool = false) -> void:
 func _process(delta: float) -> void:
 	_map.tick(delta)
 	_markers.bob(delta)
+	bubbles.tick(delta)
 
 
 func _show_area(id: String) -> void:

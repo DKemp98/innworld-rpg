@@ -384,6 +384,7 @@ func use(object_id: String, action_id: String) -> void:
 		_command_error(_action_sound_if_ok(Commands.take(Session.gs, Session.db, object_id), action_id))
 		return
 	var r := Commands.interact(Session.gs, Session.db, object_id, action_id)
+	action_id = Interact.action_of(Session.db, object_id, action_id)  # M30.1: an NPC's own option
 	_action_sound_if_ok(r["error"], action_id)
 	if r["error"] != "":
 		hud.add_lines([r["error"]])

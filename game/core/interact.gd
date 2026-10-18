@@ -23,6 +23,11 @@
 ## (Commands.attack_npc, Brawl).
 ## M17.5: an NPC option has "teach": the spell ids this NPC will teach the player now
 ## (Spells.teachable); the menu's rows LEARN (Commands.learn_spell).
+## M30.1: an NPC option has "voice": the NPC's own talk options open now (Voice.options,
+## [{"id", "label", "action"}]); the menu pick is "voice:<id>" (VOICE). perform runs the
+## option's action with the NPC context plus the option's own context. The first talk
+## of the day says the NPC's own greeting (else the band line), then one own line (else
+## a talk topic).
 ## M13.T: on a map with traps, the search (id Traps.SEARCH) and each found,
 ## armed trap next to the player ("trap:<id>") are options with "trap": true;
 ## using them goes to Traps.search / Traps.disarm.
@@ -54,6 +59,8 @@ const PORTAL_LINK := "portal:"
 const LEARN := "learn:"
 ## M25.3: an NPC row for a player with [Appraisal]; opens the NPC's sheet (NpcSheet). No time passes.
 const APPRAISE := "appraise"
+## M30.1: "voice:<option id>" runs an NPC's own talk option (Voice.options).
+const VOICE := "voice:"
 
 
 ## Objects on or next to the player, nearest first, then NPCs next to the
@@ -76,7 +83,7 @@ static func options(gs: GameState, db: DataDb) -> Array[Dictionary]:
 			"item": "", "price": 0, "trades": [] as Array[Dictionary], "ride": {},
 			"serve": Guests.serve_choices(gs, db, id), "standing": Standing.band(gs, db, id)["label"],
 			"attack": Brawl.on(db), "teach": Spells.teachable(gs, db, id),
-			"appraise": NpcSheet.can_read(gs, db)})
+			"appraise": NpcSheet.can_read(gs, db), "voice": Voice.options(gs, db, id)})
 	for g in Guests.near(gs):
 		var gid := Guests.GUEST + String(g["id"])
 		out.append({"id": gid, "name": Guests.patron_name(g), "npc": false, "guest": true,
@@ -148,7 +155,15 @@ static func perform(gs: GameState, db: DataDb, object_id: String, action_id: Str
 			break
 	if obj.is_empty():
 		return _fail("There is no '%s' here." % object_id)
-	if not (obj["actions"] as Array).has(action_id):
+	var voiced := {}
+	if obj["npc"] and action_id.begins_with(VOICE):
+		var vid := action_id.substr(VOICE.length())
+		if (obj["voice"] as Array).any(func(v: Dictionary) -> bool: return v["id"] == vid):
+			voiced = Voice.option(db, object_id, vid)
+			action_id = String(voiced["action"])
+		else:
+			return _fail("%s has nothing to say about that now." % obj["name"])
+	elif not (obj["actions"] as Array).has(action_id):
 		return _fail(("You cannot %s with %s." if obj["npc"] else "You cannot %s at the %s.")
 				% [action_id, obj["name"]])
 	if obj.get("fairy", false):
@@ -173,6 +188,7 @@ static func perform(gs: GameState, db: DataDb, object_id: String, action_id: Str
 		full["witnesses"] = witnesses
 	else:
 		context.merge(object_of(db, p.area, object_id).get("context", {}), true)
+	context.merge(voiced.get("context", {}), true)
 	context.merge(opts.get("context", {}), true)
 	full["context"] = context
 	var rec := Actions.perform(gs, db, action_id, full)
@@ -180,13 +196,25 @@ static func perform(gs: GameState, db: DataDb, object_id: String, action_id: Str
 		return _fail("You are too tired." if gs.clock.is_collapse_due(db.rules["clock"])
 				else "You cannot do that.")
 	if obj["npc"] and NpcSim.note_talk(gs, db, object_id):
+		var own := Voice.greet(gs, db, object_id)  # M30.1: the NPC's own greeting first
 		var greeting: String = Standing.band(gs, db, object_id)["line"]
-		if greeting != "":
+		if own != "":
+			gs.combat.lines.append(own)
+		elif greeting != "":
 			gs.combat.lines.append(greeting % db.canon.npcs[object_id]["name"])
-		var topic := TalkTopics.line(gs, db, object_id)  # M25.1: news, rumours, request hints
+		var said := Voice.line(gs, db, object_id)  # M30.1: an own line, else a topic
+		var topic := said if said != "" else TalkTopics.line(gs, db, object_id)  # M25.1
 		if topic != "":
 			gs.combat.lines.append(topic)
 	return {"record": rec, "error": ""}
+
+
+## The action a menu pick runs: an NPC's own option ("voice:<id>") gives its action,
+## anything else is itself.
+static func action_of(db: DataDb, object_id: String, action_id: String) -> String:
+	if not action_id.begins_with(VOICE):
+		return action_id
+	return String(Voice.option(db, object_id, action_id.substr(VOICE.length())).get("action", action_id))
 
 
 ## The map object `id` of `area` (its JSON), or {}.

@@ -323,7 +323,8 @@ func _look() -> Array[String]:
 		out.append(line)
 	var options := Interact.options(gs, db)
 	for o: Dictionary in options:
-		var actions: Array = (o["actions"] as Array) + ([Interact.SLEEP] if o["sleep"] else []) \
+		var actions: Array = (o.get("voice", []) as Array).map(func(v: Dictionary) -> String:
+				return Interact.VOICE + String(v["id"])) 				+ (o["actions"] as Array) + ([Interact.SLEEP] if o["sleep"] else []) \
 				+ ([Interact.TAKE] if o["item"] != "" else [])
 		if int(o.get("price", 0)) > 0:
 			actions.append("(room %s)" % Economy.format(db, int(o["price"])))
@@ -398,7 +399,7 @@ func _use(args: Array) -> Array[String]:
 		return out
 	var rec: Dictionary = r["record"]
 	out.append("%s  %s: %.1f XP  (novelty %.2f)" % [
-		_time_of(rec), db.actions[args[1]]["name"], float(rec["xp"]), float(rec["novelty"])])
+		_time_of(rec), db.actions[rec["action_id"]]["name"], float(rec["xp"]), float(rec["novelty"])])
 	return out
 
 

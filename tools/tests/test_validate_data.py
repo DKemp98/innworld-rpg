@@ -583,5 +583,45 @@ class CrossBookTest(unittest.TestCase):
         self.fx.write()
 
 
+
+class VoicesTest(unittest.TestCase):
+    """M30.1: data/voices.json checks (ADR 0044 "M30.0")."""
+
+    BANDS = {"stranger", "wary", "acquaintance", "friend"}
+
+    def check(self, voices, actions=frozenset({"play_chess", "persuade"})):
+        r = vd.Report()
+        vd.check_voices(r, voices, {"krshia", "relc"}, set(actions), self.BANDS, 5)
+        return r.errors
+
+    def good(self):
+        return {"krshia": {"confidence": "guess", "greet": {"stranger": ["Who are you?"]},
+                           "idle": ["[Krshia sniffs.]"],
+                           "lines": [{"text": "A line.", "flags": ["x.up"], "days": [1, 3]}],
+                           "options": [{"id": "chess", "label": "Chess?", "action": "play_chess",
+                                        "context": {"opponent_skill": 0.9}, "min_band": "friend"}]}}
+
+    def test_good_passes(self):
+        self.assertEqual(self.check(self.good()), [])
+
+    def test_errors(self):
+        v = self.good()
+        v["nobody"] = {"confidence": "maybe", "extra": 1}
+        k = v["krshia"]
+        k["greet"]["pal"] = ["one two three four five six"]
+        k["lines"].append({"text": "x", "days": [4, 2], "when": 1})
+        k["options"] += [{"id": "chess", "label": "B", "action": "no_such", "min_band": "pal"}]
+        text = " | ".join(self.check(v))
+        for bit in ["voice nobody: unknown canon npc", "confidence", "unknown field 'extra'", "greet key 'pal'",
+                    "more than 5 words", "days must be", "unknown field 'when'", "used twice",
+                    "unknown action 'no_such'", "min_band 'pal'"]:
+            self.assertIn(bit, text)
+
+    def test_real_voices_file(self):
+        root = Path(__file__).resolve().parents[2] / "game" / "data"
+        acts = set(json.loads((root / "actions.json").read_text(encoding="utf-8"))["actions"])
+        rep = vd.validate_voices(root / "voices.json", root / "canon", acts)
+        self.assertEqual(rep.errors, [])
+
 if __name__ == "__main__":
     unittest.main()

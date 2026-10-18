@@ -68,6 +68,10 @@ func open(options: Array[Dictionary], db: DataDb) -> bool:
 			var want := String(db.economy.goods[o["order"]]["name"]).to_lower()
 			var i := _items.add_item("%s — Wants %s (you have none)" % [label, want])
 			_items.set_item_metadata(i, [o["id"], Interact.SERVE + String(o["order"])])
+		for v: Dictionary in o.get("voice", []):  # M30.1: the NPC's own talk options first
+			var i := _items.add_item("%s — %s (%d min)" % [label, v["label"],
+					int(db.actions[v["action"]]["minutes"])])
+			_items.set_item_metadata(i, [o["id"], Interact.VOICE + String(v["id"])])
 		for action_id: String in o["actions"]:
 			if not trades.is_empty() and action_id in [Economy.BUY_ACTION, Economy.SELL_ACTION]:
 				continue

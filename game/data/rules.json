@@ -281,6 +281,14 @@
 		"weights": {"own": 4, "town": 3, "rumor": 2, "topic": 2, "request": 1},
 		"line": "%s: \"%s\""
 	},
+	"voice": {
+		"confidence": "guess",
+		"note": "M30.1 (ADR 0044 \"M30.0\"). NPC voices from data/voices.json: own greetings by band, lines by flag, own talk options, map barks. Barks: an NPC within bark_tiles of the player, one per bark_minutes bucket (stable hash, view only). Texts at most max_words words. Numbers are design values.",
+		"bark_tiles": 4,
+		"bark_minutes": 20,
+		"max_words": 20,
+		"line": "%s: \"%s\""
+	},
 	"standing": {
 		"confidence": "guess",
 		"note": "M14.3 (ADR 0021). Relationships and reputation. Numbers are game balance, not canon. Reputation is +-cap; a town is the nearest settlement above a map's location, a faction is an NPC's canon faction M29.2 (ADR 0044): race_regard - most Liscor Drakes start wary of a Human (Gnolls judge by deeds; Relc, Olesm and Selys are canon-friendly, so excepted); Lism charges 15% more until the player is known (reputation 10). All numbers are guesses.",

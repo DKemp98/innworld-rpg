@@ -168,6 +168,18 @@ Ids (checked): `erin_solstice`, `relc`, `klbkch`, `pisces`, `olesm`, `selys`, `k
 `ryoka_griffin`, `ceria_springwalker`, `pawn`, `rags`, `toren`, `beilmark`. Options: Erin (ask for work, chess, ask about the inn), Relc (spar), Pisces (magic), Olesm (chess), Krshia
 (trade talk). Ryoka gets lines only (she never levels; no class talk).
 
+### M30.1 (2026-10-18): built as designed
+- `core/voice.gd` (`Voice`): `greet`, `line`, `lines_now`, `options`, `option`, `bark`, `bark_bucket`, `say`,
+  `pick` / `hash32` (FNV-1a 32 bit), `passes`, `band_min`, `validate`. `DataDb.voices` from `data/voices.json`
+  (empty `{}` now; the cast comes in M30.2). `rules.voice` added to `rules.json`; toy dbs erase it.
+- `Interact`: NPC rows carry `voice`; pick `Interact.VOICE + id`; `Interact.action_of` gives the real action
+  (used by `world/main.gd` for the sound and the log name). The use menu lists own rows before the generic ones;
+  the console `look` lists `voice:<id>` and `use <npc> voice:<id>` works.
+- Bubbles: new `world/view_bubbles.gd` (`ViewBubbles`, layer "Bubbles" in WorldView), fed from `refresh(gs, db)`.
+  Barks show only after a command (time only moves then). A night page shows no new barks (no time passes).
+- Python: `validate_data.py --all` also checks `voices.json` (`check_voices`, `validate_voices`). No copy check
+  against book text for voices yet (they have no chapter); the tone rule and review cover it.
+
 ## Consequences
 - More text in data. The validator and `tools/tests` grow a check for each new file.
 - More hooks and stages raise the cascade risk. Each canon change keeps `sim_canon_book<N>` at drift 0 and the
